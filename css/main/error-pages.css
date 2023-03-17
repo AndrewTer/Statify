@@ -1,0 +1,41 @@
+#noscript-content {
+  padding: 0 15vw;
+}
+
+.hr-line {
+  background-color: #636465;
+}
+
+.browser-block {
+  width: 60px;
+}
+
+#main-page-link:hover {
+  color:  white;
+}
+
+.fa.fa-dot-circle-o {
+  color: #00ace6;
+}
+
+@media (max-width: 800px) {
+  #noscript-content {
+    padding: 0 10vw;
+  }
+}
+
+@media (max-width: 560px) {
+  #noscript-content {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 430px) {
+  .browser-block {
+    width: 40px;
+  }
+
+  .browser-block p {
+    display: none;
+  }
+}

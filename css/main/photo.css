@@ -1,0 +1,101 @@
+.main-content-photo {
+   height: 100%;
+   padding: 2vh;
+}
+
+.block-photo {
+  padding-right: 2% !important;
+}
+
+/* Profile pictures sort */
+
+.saves-sort-list-item,
+.saves-resize-list-item {
+   line-height: 15px;
+   min-height: 15px;
+   height: 15px;
+}
+
+.saves-sort-list-item:hover,
+.saves-resize-list-item th:hover {
+  background: var(--block-hover-bg-color);
+  cursor: pointer;
+}
+
+.saves-sort-list-item:hover th,
+.saves-resize-list-item th:hover i {
+  color: var(--hover-text-color);
+}
+
+.saves-resize-list-item #saves-card-large {
+  -webkit-border-radius: 10px 0 0 10px;
+  -moz-border-radius: 10px 0 0 10px;
+  border-radius: 10px 0 0 10px;
+}
+
+.saves-resize-list-item #saves-card-small {
+  -webkit-border-radius: 0 10px 10px 0;
+  -moz-border-radius: 0 10px 10px 0;
+  border-radius: 0 10px 10px 0;
+}
+
+.saves-sort-list-item.first-item:hover th {
+  -webkit-border-radius: 10px 10px 0 0;
+  -moz-border-radius: 10px 10px 0 0;
+  border-radius: 10px 10px 0 0;
+}
+
+.saves-sort-list-item.last-item:hover th {
+  -webkit-border-radius: 0 0 10px 10px;
+  -moz-border-radius: 0 0 10px 10px;
+  border-radius: 0 0 10px 10px;
+}
+
+.saves-sort-list-item.once-item:hover th {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+/* Profile picture cards list */
+
+.profile-picture-card {
+  padding: 5px;
+  width: 20%;
+}
+
+.profile-picture-card-avatar {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: 100%;
+  display: inline-block;
+  line-height: normal;
+  vertical-align: middle;
+}
+
+.profile-picture-card-avatar img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.profile-picture-card-avatar img:hover {
+  box-shadow: 0 0 0 1px #7e8081;
+}
+
+/* Adaptive  */
+
+@media (max-width: 450px) {
+  .profile-picture-card {
+    width: 33.3%;
+  }
+}
+
+@media (min-width: 451px) and (max-width: 575px) {
+  .profile-picture-card {
+    width: 25%;
+  }
+}

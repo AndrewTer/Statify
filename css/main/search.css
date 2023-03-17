@@ -1,0 +1,27 @@
+.main-content-search {
+   height: 100%;
+   padding: 2vh;
+}
+
+.search-card {
+   padding: 10px;
+   border: 1px solid var(--content-block-border-color);
+   background: var(--content-block-bg-color);
+   -webkit-border-radius: 10px;
+   -moz-border-radius: 10px;
+   border-radius: 10px;
+}
+
+#all-search-card {
+   padding-left: 35px;
+   padding-right: 15px;
+   margin-bottom: 10px;
+}
+
+#block-search {
+   width: 100%;
+}
+
+.user-status-flag {
+   color: var(--statistic-text-color);
+}

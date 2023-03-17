@@ -1,0 +1,26 @@
+/* SVG */
+
+.svg-close-icon {
+  fill: var(--main-text-color);
+}
+
+.svg-close-icon:hover {
+  fill: var(--hover-text-color);
+}
+
+.svg-more-rating-statistics-icon,
+.svg-more-history-icon,
+.svg-hide-history-icon,
+.svg-edit-user-nickname-icon,
+.svg-show-main-statistic {
+  cursor: pointer;
+}
+
+.svg-hide-history-icon {
+  left: 0;
+}
+
+.svg-more-rating-statistics-icon,
+.svg-more-history-icon {
+  right: 0;
+}

@@ -1,0 +1,412 @@
+@media (max-width: 370px) {
+  .rating-photo-list {
+    display: grid; 
+    grid-template-rows: 1fr; 
+    grid-template-columns: 1fr; 
+    grid-template-areas: 'a';
+  }
+}
+
+@media (max-width: 391px) {
+  .rating-user-label,
+  .rating-user-bar {
+    width: 40%;
+  }
+
+  .user-status-flag {
+    display: none;
+  }
+
+   .friend-card-avatar img,
+   .news-friend-card-avatar-update img {
+    width: 50px !important;
+    height: 50px !important;
+    cursor: pointer;
+  }
+
+  #rating-history .nav-item .nav-link i {
+    font-size: 10px !important;
+  }
+
+  .notifications-card-comment-photo {
+    display: none !important;
+  }
+}
+
+@media (max-width: 425px) {
+  .popular-card-badge {
+    font-size: 11px !important;
+  }
+
+  .popular-card-text-color-first {
+    font-size: 18px !important;
+  }
+
+  .popular-card-text-color-second {
+    font-size: 13px !important;
+  }
+}
+
+@media (max-width: 450px) {
+  #show-comment-text-field-p,
+  #hide-comment-text-field-p {
+    display: none;
+  }
+
+  #show-comment-text-field-icon,
+  #hide-comment-text-field-icon {
+    display: block;
+  }
+
+  .friends-card {
+    width: 30% !important;
+  }
+
+  .friend-card-content-left {
+    width: 30%;
+  }
+
+  .friend-card-content-right {
+    width: 70%;
+  }
+
+  .settings-modal-body {
+    padding: 1vh 2vh !important;
+  }
+
+  .settings-edit-link {
+    display: none;
+  }
+
+  .settings-edit-link-i {
+    display: block !important;
+  }
+
+  .grid-with-one-large-item {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "a a b"
+                         "a a c"
+                         "d f g"
+                         "h j k";
+  }
+
+  .grid-with-no-large-item {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "a b c";
+  }
+}
+
+@media (min-width: 371px) and (max-width: 550px) {
+  .rating-photo-list {
+    display: grid; 
+    grid-template-rows: 1fr; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-areas: 'a b';
+  }
+}
+
+@media (max-width: 530px) {
+  #user-profile-menu-mobile {
+    display: flex !important;
+  }
+
+  #user-profile-menu {
+    display: none !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .content-section,
+  .page-not-completed-user-info-hide {
+    display: none !important;
+  }
+
+  #user-profile-content {
+    flex-direction: column!important;
+  }
+
+  .person-info {
+    padding: 0 !important;
+  }
+
+  #registration-completion {
+    margin-top: 0 !important;
+  }
+
+  .edit-user-info {
+    padding: 0;
+    margin-top: 15px;
+  }
+
+  .main-info-section-head {
+    border: none;
+    background: transparent;
+  }
+
+  .settings-modal-body {
+    padding: 1vh 5vh;
+  }
+
+  .avatar-block {
+    width: 60%;
+    padding-top: 60%;
+  }
+
+  .btn-standard.btn-edit {
+    margin: 0 !important;
+  }
+
+  .toast {
+    width: 80vw !important;
+    min-width: 80vw !important;
+    left: 10vw !important;
+    right: 10vw !important;
+  }
+
+  .toast-body {
+    text-align: center !important;
+  }
+}
+
+@media (min-width: 451px) and (max-width: 575px) {
+  .grid-with-one-large-item {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: "a a b c"
+                         "a a d f"
+                         "g h j k";
+  }
+
+  .grid-with-no-large-item {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: "a b c d";
+  }
+}
+
+@media (min-width: 551px) and (max-width: 750px) {
+  .rating-photo-list {
+    display: grid; 
+    grid-template-rows: 1fr; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-areas: 'a b c';
+  }
+}
+
+@media (max-width: 686px) {
+  .main-content-rating {
+    padding: 0;
+  }
+
+  .friends-count-info,
+  .block-edit-user-avatar,
+  .friend-card {
+    margin: 10px 0;
+  }
+
+  .friends-card-name {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-search-and-sort,
+  .edit-user-avatar-info,
+  .block-photo,
+  .block-saves,
+  .block-achievements-list {
+    padding: 0 !important;
+  }
+}
+
+@media (max-width: 800px) {
+  #block-rating-left,
+  #block-rating-right {
+    border: none;
+    width: 100%;
+  }
+}
+
+@media (max-width: 991px) {
+  .settings-menu {
+    right: 30px;
+  }
+
+  #photo-menu,
+  #saves-menu {
+    padding: 0;
+  }
+
+  .main-content-settings,
+  .main-content-edit {
+    padding: 2vh;
+  }
+
+  .edit-user-info {
+    padding-right: 0;
+  }
+
+  .settings-menu-mobile {
+    display: block;
+  }
+
+  .settings-menu-full {
+    display: none;
+  }
+
+  .section-search-and-sort {
+    padding-right: 0;
+  }
+
+  .block-photo,
+  .block-saves {
+    padding-right: 0!important;
+  }
+}
+
+@media (min-width: 576px) {
+  .person-main-info {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+  }
+
+  .person-info {
+    padding: 0 0 2% 2%;
+    margin: 0;
+  }
+
+  #block-user-title {
+    display: block;
+  }
+
+  #block-user-title-mobile {
+    display: none;
+  }
+
+  .content-section {
+    display: block;
+  }
+
+  .friends-count-info,
+  .block-edit-user-avatar,
+  .friend-card {
+    margin: 10px;
+  }
+}
+
+@media (min-width: 450px) {
+  .rating-card {
+    width: 400px;
+  }
+}
+
+@media (min-width: 801px) {
+  #block-rating-left,
+  #block-rating-right {
+    width: 50%;
+  }
+
+  .cookie-container div {
+    width: 75% !important;
+  }
+}
+
+@media (min-width: 900px) {
+  #request {
+    visibility: visible;
+  }
+}
+
+@media (min-width: 991px) {
+
+  /* Menu  */
+
+  .navbar-container {
+    padding: 2vh;
+    height: 100%;
+    visibility: visible;
+  }
+
+  .navbar-container .navbar {
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+
+  .navbar-container .navbar-collapse {
+    align-items: flex-start;
+  }
+
+  .navbar-container .nav {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  .navbar-container .navbar-nav {
+    flex-direction: column !important;
+  }
+
+  /* Header */
+
+  .header-full {
+    max-width: 1100px;
+    padding: 0 4vh;
+  }
+
+  /* Content  */
+
+  .main-content,
+  .main-content-rating,
+  .main-content-friends,
+  .main-content-news,
+  .main-content-comments,
+  .main-content-photo,
+  .main-content-saves,
+  .main-content-search,
+  .main-content-edit {
+    padding: 2vh;
+  }
+
+  .content {
+    min-height: 87vh;
+  }
+
+  .section-search-and-sort {
+    padding: 0 0 0 2%;
+  }
+
+  .person-info {
+    margin: 0;
+  }
+}
+
+@media (min-width: 1080px) {
+  .header-full {
+    max-width: 1100px;
+    padding: 0 2vh;
+  }
+}
+
+@media (min-width: 1200px) {
+  .cookie-container div {
+    width: 50% !important;
+  }
+}
+
+@media (min-width: 2000px) {
+  .rating-card {
+    width: 500px;
+  }
+
+  .cookie-container div {
+    width: 20% !important;
+  }
+}

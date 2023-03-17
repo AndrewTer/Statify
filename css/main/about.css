@@ -1,0 +1,58 @@
+.about-block {
+  padding: 2vh;
+}
+
+.about-card {
+   padding: 10px;
+   border: 1px solid var(--content-block-border-color);
+   background: var(--content-block-bg-color);
+   -webkit-border-radius: 10px;
+   -moz-border-radius: 10px;
+   border-radius: 10px;
+}
+
+.about-remark {
+  color: var(--hover-text-color);
+  background: var(--block-hover-bg-color);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.img-about {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.about-link:hover {
+  text-decoration: underline;
+}
+
+/* About sort */
+
+.about-sort-list-item {
+  line-height: 15px;
+  min-height: 15px;
+  height: 15px;
+}
+
+.about-sort-list-item:hover {
+  background: var(--block-hover-bg-color);
+}
+
+.about-sort-list-item:hover th {
+  color: var(--hover-text-color);
+}
+
+.about-sort-list-item.first-item:hover th {
+  -webkit-border-radius: 10px 10px 0 0;
+  -moz-border-radius: 10px 10px 0 0;
+  border-radius: 10px 10px 0 0;
+}
+
+.about-sort-list-item.last-item:hover th {
+  -webkit-border-radius: 0 0 10px 10px;
+  -moz-border-radius: 0 0 10px 10px;
+  border-radius: 0 0 10px 10px;
+}

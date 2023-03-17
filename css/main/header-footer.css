@@ -1,0 +1,128 @@
+/* HEADER | FOOTER*/
+
+.header,
+.header-login,
+.footer {
+	background: var(--header-footer-bg-color);
+  backdrop-filter: blur(10px);
+}
+
+.header,
+.header-login {
+  height: 50px;
+  border-bottom: 1px solid var(--header-footer-border-color);
+}
+
+.header-full {
+  max-width: 1100px;
+  padding: 0 20px;
+}
+
+.header-mobile {
+  padding: 0 30px;
+}
+
+.header-logo a,
+.header-logo span {
+  color: var(--header-footer-text-color);
+}
+
+#header-search i {
+  left: 10px !important;
+  top: 18px !important;
+  color: var(--header-element-hover-border-color);
+}
+
+#header-search-input {
+  height: 30px !important;
+  padding-left: 30px !important;
+  color: ghostwhite;
+  border: 1px solid var(--header-element-border-color);
+  -webkit-border-radius: 90px;
+  -moz-border-radius: 90px;
+  border-radius: 90px;
+}
+
+#header-search-input:hover,
+#header-search-input:focus {
+  border: 1px solid var(--header-element-hover-border-color);
+}
+
+.user-header-menu-picture {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  border: 1.7px solid var(--header-element-border-color);
+}
+
+.user-header-menu-picture:hover {
+  border: 1.7px solid var(--header-element-hover-border-color);
+}
+
+#notification-count {
+  position: absolute;
+  color: var(--header-footer-text-color);
+  border: 1px solid #660000;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  background-color: #ff1a1a;
+  animation: pulse-red 2s infinite;
+}
+
+.settings-menu {
+  position: absolute;
+  width: 90%;
+  max-height: 0;
+  max-width: 175px;
+  border: none;
+  background: var(--settings-menu-bg-color);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  top: 50px;
+  transition: max-height 0.3s;
+}
+
+.settings-menu-mobile {
+  display: none;
+}
+
+.settings-menu-full {
+  display: block;
+}
+
+.settings-menu-height {
+  max-height: 160px;
+  border: 1px solid var(--content-block-border-color);
+}
+
+.avatar-mobile-menu {
+  width: 50% !important;
+  padding-top: 50% !important;
+}
+
+.footer {
+  border-top: 1px solid var(--header-footer-border-color);
+}
+
+.footer p {
+  color: var(--header-footer-text-color);
+}
+
+.cookie-container {
+  position: fixed;
+  bottom: 0;
+  border-top: 1px solid #222223;
+  background: rgba(0, 0, 0, .9);
+}
+
+.cookie-container p {
+  color: white;
+}
+
+#accept-cookies {
+  height: 30px !important;
+  cursor: pointer;
+}
