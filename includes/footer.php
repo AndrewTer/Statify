@@ -11,7 +11,7 @@
 <div class="modal-container"></div>
 <?
     if (session_status() == PHP_SESSION_ACTIVE && 
-        $_SESSION['auth_user'] == "yes_auth" && 
+        //$_SESSION['auth_user'] == "yes_auth" && 
         (empty($_COOKIE['cookies']) || $_COOKIE['cookies'] != 'accepted'))
     {
 ?>
