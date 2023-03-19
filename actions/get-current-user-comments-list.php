@@ -7,7 +7,7 @@
 
 	$result = '';
 
-	$current_user_nickname = $_POST['nickname'];
+	//$current_user_nickname = $_POST['nickname'];
 	$cookie_login = $_COOKIE['login'];
 	$cookie_key = $_COOKIE['key']; 
 
