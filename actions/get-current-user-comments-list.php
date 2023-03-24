@@ -51,7 +51,7 @@
 												<div class="notifications-author-card-avatar d-flex justify-content-start align-items-center w-100 p-0">
 													<a class="m-0 p-0 notifications-comment-text" href="comments?p='.preg_replace('[-]', '', $comment_picture_uuid).'#'.preg_replace('[-]', '', $comment_uuid).'">
 														<blockquote class="m-0 p-0 pt-2 pb-2">
-															<p class="p-0 m-0">'.$comment_text.'</p>
+															<p class="p-0 m-0">'.str_replace(array("\r\n", "\r", "\n"), '<br>', $comment_text).'</p>
 														</blockquote>
 													</a>
 												</div>
