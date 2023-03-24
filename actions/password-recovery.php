@@ -27,10 +27,29 @@ if (isset($_POST['email']))
 
 		$from = "support@statify.ru";
 		$to = $received_email;
-		$subject = "Восстановление пароля";
-		$message = "Доброго времени суток!\n\nВременный пароль для входа в ваш аккаунт: $string_password \n\nПосле успешной авторизации на сайте рекомендуем вам сменить этот временный пароль на новый в разделе 'Настройки'.\n\nВсего наилучшего, администрация сервиса Statify.ru\n\nP.S. Если вы получили это письмо по ошибке, то просто проигнорируйте или удалите его.";
-		$headers = "From:" . $from;
-		$email_send = mail($to,$subject,$message,$headers);
+		$subject = "Восстановление пароля";		
+		$message = '<html>
+						<body style="width: 60%;    
+									 margin-right: auto;
+									 margin-left: auto;
+									 padding: 15px;">
+							<h2 style="width: 100%; text-align: center;">Доброго времени суток!</h2>
+							<h4>Временный пароль для входа в ваш аккаунт: <span style="font-weight: bold; color: #6495ED; font-size: 20px;">'.$string_password.'</h4>
+							<h4>После успешной авторизации на сайте рекомендуем вам сменить этот временный пароль на новый в разделе "Настройки".</h4>
+							<h4>Всего наилучшего, администрация сервиса 
+								<a href="statify.ru" style="color: #6495ED; text-decoration: none; font-weight: bold;">Statify.ru</a>
+							</h4>
+							<hr/>
+							<h4>P.S. Если вы получили это письмо по ошибке, то просто проигнорируйте или удалите его.</h4>
+						</body> 
+					</html>';
+		$headers = "MIME-Version: 1.0" . "\r\n"; 
+		$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n"; 
+		$headers .= "From: ".$from."\r\n".
+					"Reply-To: ".$from."\r\n".
+					"X-Mailer: PHP/".phpversion();
+		$sub = '=?UTF-8?B?'.base64_encode($subject).'?=';
+		$email_send = mail($to,$sub,$message,$headers);
 
 		if ($email_send)
 		{
