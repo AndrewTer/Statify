@@ -1,5 +1,25 @@
 /* SVG */
 
+.svg-main-menu-icon {
+  fill: var(--main-menu-icon-color);
+}
+
+.svg-search-main-menu-icon circle,
+.svg-search-main-menu-icon path,
+.svg-rate-main-menu-icon path {
+  stroke: var(--main-menu-icon-color);
+}
+
+.main-menu a:hover .svg-main-menu-icon {
+  fill: var(--main-menu-icon-hover-color);
+}
+
+.main-menu a:hover .svg-search-main-menu-icon circle,
+.main-menu a:hover .svg-search-main-menu-icon path,
+.main-menu a:hover .svg-rate-main-menu-icon path {
+  stroke: var(--main-menu-icon-hover-color);
+}
+
 .svg-close-icon {
   fill: var(--main-text-color);
 }
@@ -23,4 +43,21 @@
 .svg-more-rating-statistics-icon,
 .svg-more-history-icon {
   right: 0;
+}
+
+#user-profile-add-photo-icon:hover {
+  fill: var(--hover-text-color);
+}
+
+#user-profile-more-menu-icon:hover path,
+#user-profile-more-menu-icon:hover circle  {
+  fill: var(--hover-text-color);
+}
+
+.active-star {
+  stroke: var(--star-icon-color);
+}
+
+.inactive-star {
+  stroke: gray;
 }

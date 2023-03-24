@@ -160,6 +160,48 @@
     margin: 0 !important;
   }
 
+  #block-user-main-info {
+    flex-direction: column !important;
+  }
+
+  #user-main-info {
+    margin: 0 !important;
+  }
+
+  #user-fullname-info {
+    justify-content: center !important;
+    margin-top: 5px !important;
+  }
+
+  #brief-user-info {
+    width: 100% !important;
+    margin: 0 !important;
+    align-items: center !important;
+  }
+
+  #user-general-values {
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  #btn-edit {
+    width: 60% !important;
+  }
+
+  #block-general-values {
+    margin: 0 !important;
+  }
+
+  .user-profile-general-values {
+    font-size: 17px !important;
+    margin-left: .7rem !important;
+    margin-right: .7rem !important;
+  }
+
+  .user-profile-general-values span {
+    font-size: 13px !important;
+  }
+
   .toast {
     width: 80vw !important;
     min-width: 80vw !important;
@@ -233,6 +275,22 @@
   }
 }
 
+@media (max-width: 915px) {
+  #user-brief-and-general-values-info {
+    flex-direction: column !important;
+  }
+
+  #brief-user-info {
+    margin: 0 !important;
+  }
+
+  #user-general-values {
+    width: 100% !important;
+    margin: 0px !important;
+    margin-top: 10px !important;
+  }
+}
+
 @media (max-width: 991px) {
   .settings-menu {
     right: 30px;
@@ -280,6 +338,10 @@
   .person-info {
     padding: 0 0 2% 2%;
     margin: 0;
+  }
+
+  #block-general-values {
+    width: 90% !important;
   }
 
   #block-user-title {
@@ -388,6 +450,20 @@
   }
 }
 
+@media (min-width: 992px) {
+  .col-lg-2 {
+    -ms-flex: 0 0 14.666667% !important;
+    flex: 0 0 14.666667% !important;
+    max-width: 14.666667% !important;
+  }
+
+  .col-lg-10 {
+    -ms-flex: 0 0 85.333333% !important;
+    flex: 0 0 85.333333% !important;
+    max-width: 85.333333% !important;
+  }
+}
+
 @media (min-width: 1080px) {
   .header-full {
     max-width: 1100px;
@@ -398,6 +474,18 @@
 @media (min-width: 1200px) {
   .cookie-container div {
     width: 50% !important;
+  }
+
+  .col-xl-2 {
+    -ms-flex: 0 0 14.666667% !important;
+    flex: 0 0 14.666667% !important;
+    max-width: 14.666667% !important;
+  }
+
+  .col-xl-10 {
+    -ms-flex: 0 0 85.333333% !important;
+    flex: 0 0 85.333333% !important;
+    max-width: 85.333333% !important;
   }
 }
 

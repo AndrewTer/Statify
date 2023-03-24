@@ -27,10 +27,9 @@
   color: var(--header-footer-text-color);
 }
 
-#header-search i {
+#header-search svg {
   left: 10px !important;
-  top: 18px !important;
-  color: var(--header-element-hover-border-color);
+  top: 17px !important;
 }
 
 #header-search-input {

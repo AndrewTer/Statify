@@ -9,8 +9,8 @@
   visibility: hidden;
 }
 
-.main-menu a {
-  width: 100px !important;
+.main-menu a:hover p {
+  color: var(--hover-text-color);
 }
 
 /* Mobile menu  */
@@ -78,30 +78,4 @@
   background: var(--mobile-menu-bg-color);
   transform: translateX(-100%);
   transition: transform 0.4s ease-in-out;
-}
-
-.icon-mobile-menu,
-.icon-main-menu,
-.icon-settings-menu {
-  width: 30px !important;
-  min-width: 30px !important;
-}
-
-.icon-mobile-menu i,
-.icon-main-menu i,
-.icon-settings-menu i,
-.menu-icon {
-  color: var(--main-menu-icon-color);
-}
-
-.mobile-menu-items a:hover .icon-mobile-menu i,
-.main-menu a:hover .icon-main-menu i,
-.settings-menu a:hover .icon-settings-menu i {
-  color: var(--main-menu-icon-hover-color);
-}
-
-.mobile-menu-items a:hover p,
-.main-menu a:hover p,
-.settings-menu a:hover p {
-  color: var(--hover-text-color);
 }
