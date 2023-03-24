@@ -3,13 +3,13 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
 <div class="w-100 m-0 mb-3 p-0 d-flex flex-column block-user-content">
-  <div class="w-100 m-0 p-2 d-flex flex-row align-items-center">
+  <div class="w-100 m-0 p-2 d-flex flex-row align-items-center" id="block-user-main-info">
     <? include("includes/user_page/user-info-avatar.php"); ?>
     
-    <div class="m-0 ml-3 mr-auto p-0 d-flex flex-column w-100">
+    <div class="m-0 ml-3 mr-auto p-0 d-flex flex-column w-100" id="user-main-info">
       <? include("includes/user_page/user-info-fullname.php"); ?>
       
-      <div class="m-0 p-0 d-flex flex-row">
+      <div class="m-0 p-0 d-flex flex-row" id="user-brief-and-general-values-info">
 <?
         include("includes/user_page/user-info-brief.php");
         include("includes/user_page/user-info-general-values.php");

@@ -1,5 +1,5 @@
 <?
-	if (!$page_status && $current_user_uuid = $user_uuid)
+	if (!$page_status && $current_user_uuid == $user_uuid)
 	{
 ?>
 	<div class="m-0 p-0 col-12 col-sm-8 col-md-8 col-lg-9 col-xl-9 person-info order-2 order-sm-2 order-md-2 order-lg-2 order-xl-2" id="block-with-registration-completion">

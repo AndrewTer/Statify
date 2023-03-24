@@ -26,7 +26,7 @@
 <?
   include("includes/news/news-sort.php");
 
-  if ($page_status && $sort == 'popular')
+  if ($sort == 'popular')
   {
     include("includes/news/news-top-users.php");
     include('includes/search/search-top-tags.php');

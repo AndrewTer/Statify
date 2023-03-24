@@ -1,5 +1,5 @@
-<div class="m-0 p-0 d-flex justify-content-start align-items-center">
-  <p class="card-title username fz-23 d-flex align-items-center"><?= ($user_nickname) ? $user_fullname : ''; ?></p>
+<div class="m-0 p-0 d-flex justify-content-start align-items-center" id="user-fullname-info">
+  <p class="card-title username fz-23 d-flex align-items-center"><?= ($user_fullname) ? $user_fullname : ''; ?></p>
 <?
   if ($user_nickname && check_email_confirmed($current_user_uuid))
   {

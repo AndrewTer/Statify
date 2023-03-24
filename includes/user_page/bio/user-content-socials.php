@@ -39,9 +39,9 @@
 <?
   }else
     echo '<p class="w-100 text-center f-13 m-0">Отсутствуют</p>';
+
+  if ($user_uuid == $current_user_uuid)
+  echo '<hr class="hr-user-info">
+        <p class="card-text text-center w-100">Дата регистрации: <span id="status">'.(($creation_date) ? corrected_date_with_text_month(date($creation_date)) : "Отсутствует").'</span></p>';  
 ?>
-
-  <hr class="hr-user-info">
-
-  <p class="card-text text-center w-100">Дата регистрации: <span id="status"><?= ($creation_date) ? corrected_date_with_text_month(date($creation_date)) : "Отсутствует"; ?></span></p>
 </div>

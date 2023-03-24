@@ -51,7 +51,7 @@
       $page1left = $page2left = $page1right = $page2right = $pervpage = $nextpage = '';
       
       $page = (isset($_GET['page'])) ? intval($_GET['page']) : 1;
-      $total_count_saves_pages = intval((get_saves_count($user_uuid) - 1) / 60) + 1;
+      $total_count_saves_pages = intval((get_saves_count($user_uuid) - 1) / 1000) + 1;
 
       if ($page != 1) $pervpage = '<a class="fz-13 m-2 pt-1 pb-1 page-num d-flex justify-content-center align-items-center" href="saves?page=1"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a><a class="fz-13 m-2 pt-1 pb-1 page-num d-flex justify-content-center align-items-center" href="saves?page='. ($page - 1) .'"><i class="fa fa-angle-left" aria-hidden="true"></i></a>';
 
