@@ -22,7 +22,7 @@
   {
     if (!empty($user_uuid))
     {
-      $num = 60;
+      $num = 1000;
       $page = (isset($_GET['page'])) ? intval($_GET['page']) : 1;
 
       $all_saves_count = get_saves_count($user_uuid);
@@ -69,7 +69,7 @@
   {
     if (!empty($user_uuid))
     {
-      $num = 60;
+      $num = 1000;
       $page = (isset($_GET['page'])) ? intval($_GET['page']) : 1;
 
       $all_saves_count = get_saves_count($user_uuid);

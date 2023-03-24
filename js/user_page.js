@@ -187,3 +187,185 @@ function showCurrentUserCommentsList()
 	$('#user-profile-menu-comments').addClass('active');
 	$('#user-profile-menu-mobile-comments').addClass('active');
 }
+
+$("#del-friend-from-user-page-btn").on("click", function (event) {
+	var el = document.getElementById('del-friend-from-user-page-btn'),
+			user = el.dataset.u,
+			friend = el.dataset.f,
+			del_friend = 'user=' + user + '&friend=' + friend;
+
+	$.ajax({
+		url: "actions/del-friend.php",
+		type: 'POST',
+		data: del_friend,
+		success: function (data) {
+			location.reload();
+		},
+		error: function () {
+			$('.toast').addClass('toast-error');
+			$('.toast').removeClass('toast-success');
+			$('.toast-body').html('Системная ошибка!');
+			$('.toast').toast('show');
+		}
+	});
+});
+
+$("#add-friend-from-user-page-btn").on("click", function (event) {
+	var el = document.getElementById('add-friend-from-user-page-btn'),
+			user = el.dataset.u,
+			friend = el.dataset.f,
+			add_friend = 'user=' + user + '&friend=' + friend;
+
+	$.ajax({
+		url: "actions/add-friend.php",
+		type: 'POST',
+		data: add_friend,
+		success: function (data) {
+			location.reload();
+		},
+		error: function () {
+			$('.toast').addClass('toast-error');
+			$('.toast').removeClass('toast-success');
+			$('.toast-body').html('Системная ошибка!');
+			$('.toast').toast('show');
+		}
+	});
+});
+
+$("#add-friend-from-subscriber-from-user-page-btn").on("click", function (event) {
+	var el = document.getElementById('add-friend-from-subscriber-from-user-page-btn'),
+			user = el.dataset.u,
+			friend = el.dataset.f,
+			add_friend = 'user=' + user + '&friend=' + friend;
+
+	$.ajax({
+		url: "actions/add-friend-from-subscriber.php",
+		type: 'POST',
+		data: add_friend,
+		success: function (data) {
+			location.reload();
+		},
+		error: function () {
+			$('.toast').addClass('toast-error');
+			$('.toast').removeClass('toast-success');
+			$('.toast-body').html('Системная ошибка!');
+			$('.toast').toast('show');
+		}
+	});
+});
+
+$("#del-subscribed-from-user-page-btn").on("click", function (event) {
+	var el = document.getElementById('del-subscribed-from-user-page-btn'),
+			subscriber = el.dataset.u,
+			user = el.dataset.f,
+			del_subscriber = 'subscriber=' + subscriber + '&user=' + user;
+
+	$.ajax({
+		url: "actions/del-subscribed.php",
+		type: 'POST',
+		data: del_subscriber,
+		success: function (data) {
+			location.reload();
+		},
+		error: function () {
+			$('.toast').addClass('toast-error');
+			$('.toast').removeClass('toast-success');
+			$('.toast-body').html('Системная ошибка!');
+			$('.toast').toast('show');
+		}
+	});
+});
+
+$("#del-request-from-user-page-btn").on("click", function (event) {
+	var el = document.getElementById('del-request-from-user-page-btn'),
+			user = el.dataset.u,
+			friend = el.dataset.f,
+			del_request = 'user=' + user + '&friend=' + friend;
+
+	$.ajax({
+		url: "actions/del-request.php",
+		type: 'POST',
+		data: del_request,
+		success: function (data) {
+			location.reload();
+		},
+		error: function () {
+			$('.toast').addClass('toast-error');
+			$('.toast').removeClass('toast-success');
+			$('.toast-body').html('Системная ошибка!');
+			$('.toast').toast('show');
+		}
+	});
+});
+
+$("#accept-request-from-user-page-btn").on("click", function (event) {
+	var el = document.getElementById('user-profile-answer-request'),
+			user = el.dataset.u,
+			friend = el.dataset.f,
+			add_friend = 'user=' + user + '&friend=' + friend;
+
+	$.ajax({
+		url: "actions/add-friend-from-request.php",
+		type: 'POST',
+		data: add_friend,
+		success: function (data) {
+			location.reload();
+		},
+		error: function () {
+			$('.toast').addClass('toast-error');
+			$('.toast').removeClass('toast-success');
+			$('.toast-body').html('Системная ошибка!');
+			$('.toast').toast('show');
+		}
+	});
+});
+
+$("#deny-request-from-user-page-btn").on("click", function (event) {
+	var el = document.getElementById('user-profile-answer-request'),
+			user = el.dataset.u,
+			subscriber = el.dataset.f,
+			add_subscriber = 'user=' + user + '&subscriber=' + subscriber;
+
+	$.ajax({
+		url: "actions/add-subscriber-from-request.php",
+		type: 'POST',
+		data: add_subscriber,
+		success: function (data) {
+			location.reload();
+		},
+		error: function () {
+			$('.toast').addClass('toast-error');
+			$('.toast').removeClass('toast-success');
+			$('.toast-body').html('Системная ошибка!');
+			$('.toast').toast('show');
+		}
+	});
+});
+
+const usersGeneralValuesSlider = document.querySelector('#block-general-values');
+let isDown = false;
+let startX;
+let sLeft;
+usersGeneralValuesSlider.scrollLeft = 0;
+
+usersGeneralValuesSlider.addEventListener('mousedown', (e) => {
+  isDown = true;
+  startX = e.pageX;
+  sLeft = usersGeneralValuesSlider.scrollLeft;
+});
+
+usersGeneralValuesSlider.addEventListener('mouseleave', () => {
+  isDown = false;
+});
+
+usersGeneralValuesSlider.addEventListener('mouseup', () => {
+  isDown = false;
+});
+
+usersGeneralValuesSlider.addEventListener('mousemove', (e) => {
+  if(!isDown) return;
+  e.preventDefault();
+  const x = e.pageX;
+  const dragged = x - startX;
+  usersGeneralValuesSlider.scrollLeft = sLeft - dragged;
+}); 

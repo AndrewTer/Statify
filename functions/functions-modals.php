@@ -126,7 +126,7 @@
                 $comment_text = ($comment_text) ? $comment_text : '';
 ?>
 									<div class="w-100 m-0 p-0">
-										<a class="m-0 p-0 d-block comment-user-fullname" href="<?= 'search.php?q='.get_user_nickname($receiver_uuid); ?>" title="<?= get_user_fullname($receiver_uuid); ?>">
+										<a class="m-0 p-0 d-block comment-user-fullname" href="<?= './?u='.get_user_nickname($receiver_uuid); ?>" title="<?= get_user_fullname($receiver_uuid); ?>">
 											<p class="fz-14 m-0 p-0 w-100 text-left"><?= get_user_fullname($receiver_uuid); ?></p>
 										</a>
 										<p class="w-100 m-0 p-0 fz-13"><?= str_replace(array("\r\n", "\r", "\n"), '<br>', (strlen($comment_text) > 250) ? mb_substr($comment_text, 0, 250).'...' : $comment_text); ?></p>
@@ -212,7 +212,7 @@
 
       			<div class="modal-header">
         			<div class="mr-auto d-flex flex-row align-items-center">
-								<a class="m-0 p-0" href="search?q=<?= get_user_nickname($another_user_uuid) ?>" title="<?= get_user_fullname($another_user_uuid); ?>">
+								<a class="m-0 p-0" href="./?u=<?= get_user_nickname($another_user_uuid) ?>" title="<?= get_user_fullname($another_user_uuid); ?>">
 <?
 								$ban_check = ban_check($another_user_uuid);
 								$preview_photo_check = file_exists('../users/'.$another_user_uuid.'/'.get_latest_avatar_preview($another_user_uuid)) ? 1 : 0;
@@ -233,7 +233,7 @@
 ?>
 								</a>
 
-								<a class="m-0 p-0 ml-3 modal-header-user-fullname" href="search?q=<?= get_user_nickname($another_user_uuid); ?>" 
+								<a class="m-0 p-0 ml-3 modal-header-user-fullname" href="./?u=<?= get_user_nickname($another_user_uuid); ?>" 
 									title="<?= get_user_fullname($another_user_uuid); ?>">
 										<p class="fz-16 m-0 w-100 text-left"><?= get_user_fullname($another_user_uuid); ?></p>
 										<p class="fz-12 m-0 w-100 text-left">Общие друзья: <?= $mutual_friends_count; ?></p>
@@ -259,7 +259,7 @@
 								$preview_photo_check = file_exists('../users/'.$mutual_friend_uuid.'/'.get_latest_avatar_preview($mutual_friend_uuid)) ? 1 : 0;
 ?>
 							<div class="m-2 p-0 d-flex flex-column justify-content-center align-items-center">
-								<a class="m-0 p-0" href="search?q=<?= get_user_nickname($mutual_friend_uuid); ?>">
+								<a class="m-0 p-0" href="./?u=<?= get_user_nickname($mutual_friend_uuid); ?>">
 <?
 									if ($ban_check == 'success')
 										if (get_latest_avatar($mutual_friend_uuid))

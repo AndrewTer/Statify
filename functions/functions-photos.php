@@ -22,7 +22,7 @@
   {
     if (!empty($user_uuid))
     {
-      $num = 60;
+      $num = 1000;
       $page = (isset($_GET['page'])) ? intval($_GET['page']) : 1;
 
       $all_photos_count = get_photos_count($user_uuid);
@@ -67,7 +67,7 @@
   {
     if (!empty($user_uuid))
     {
-      $num = 60;
+      $num = 1000;
       $page = (isset($_GET['page'])) ? intval($_GET['page']) : 1;
 
       $all_photos_count = get_photos_count($user_uuid);
