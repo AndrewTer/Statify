@@ -31,11 +31,26 @@ if (isset($_POST['user_email']) && isset($_POST['user_uuid'])
 		$from = "support@statify.ru";
 		$to = $user_email;
 		$subject = "Подтверждение адреса электронной почты";
-		$message = "Доброго времени суток!\n\nВаш адрес электронной почты был указан при использовании аккаунта на сайте Statify.ru\n\n
-		Для использования всех функций аккаунта вам следует подтвердить данный адрес электронный почты.\n\n
-		Код для подтверждения: $string_verification_code\n\n
-		Всего наилучшего, администрация сервиса Statify.ru\n\nP.S. Если вы получили это письмо по ошибке, то просто проигнорируйте или удалите его.";
-		$headers = "From: ".$from."\r\n".
+		$message = '<html>
+						<body style="width: 60%;    
+									 margin-right: auto;
+									 margin-left: auto;
+									 padding: 15px;">
+							<h2 style="width: 100%; text-align: center;">Доброго времени суток!</h2>
+							<h4>Ваш адрес электронной почты был указан при использовании аккаунта на сайте 
+								<a href="statify.ru" style="color: #6495ED; text-decoration: none; font-weight: bold;">Statify.ru</a>
+							</h4>
+							<h4>Для полного функционирования аккаунта вам следует подтвердить данный адрес электронной почты.</h4>
+							<h4>Код для подтверждения: <span style="font-weight: bold; color: #6495ED; font-size: 20px;">'.$string_verification_code.'</h4>
+							<h4>Всего наилучшего, администрация сервиса Statify.</h4>
+							<hr/>
+							<h4>P.S. Если вы получили это письмо по ошибке, то просто проигнорируйте или удалите его.</h4>
+						</body> 
+					</html>';
+
+		$headers = "MIME-Version: 1.0" . "\r\n"; 
+		$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n"; 
+		$headers .= "From: ".$from."\r\n".
 					"Reply-To: ".$from."\r\n".
 					"X-Mailer: PHP/".phpversion();
 		$sub = '=?UTF-8?B?'.base64_encode($subject).'?=';
