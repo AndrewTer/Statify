@@ -47,7 +47,6 @@ if (isset($_POST['user_email']) && isset($_POST['user_uuid'])
 							<h4>P.S. Если вы получили это письмо по ошибке, то просто проигнорируйте или удалите его.</h4>
 						</body> 
 					</html>';
-
 		$headers = "MIME-Version: 1.0" . "\r\n"; 
 		$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n"; 
 		$headers .= "From: ".$from."\r\n".
