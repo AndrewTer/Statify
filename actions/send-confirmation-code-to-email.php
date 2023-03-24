@@ -35,8 +35,11 @@ if (isset($_POST['user_email']) && isset($_POST['user_uuid'])
 		Для использования всех функций аккаунта вам следует подтвердить данный адрес электронный почты.\n\n
 		Код для подтверждения: $string_verification_code\n\n
 		Всего наилучшего, администрация сервиса Statify.ru\n\nP.S. Если вы получили это письмо по ошибке, то просто проигнорируйте или удалите его.";
-		$headers = "From:" . $from;
-		$email_send = mail($to,$subject,$message,$headers);
+		$headers = "From: ".$from."\r\n".
+					"Reply-To: ".$from."\r\n".
+					"X-Mailer: PHP/".phpversion();
+		$sub = '=?UTF-8?B?'.base64_encode($subject).'?=';
+		$email_send = mail($to,$sub,$message,$headers);
 
 		if ($email_send)
 		{
