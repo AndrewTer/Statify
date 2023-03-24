@@ -5,6 +5,20 @@
 <div class="d-flex flex-column p-0 pt-3 pb-3 w-100">
 	<div class="about-card w-100">
 		<div class="w-100 m-0 p-0 d-flex flex-row">
+			<p class="fz-14 m-0 mr-auto p-0">Версия 2.0.0</p>
+			<p class="fz-14 m-0 ml-auto p-0">05.04.2023</p>
+		</div>
+		<hr class="hr-user-info">
+		<div class="w-100 m-0 p-0">
+			<p class="fz-14 m-0 pb-1">- Изменён дизайн сайта:</p>
+			<p class="fz-14 m-0 pb-1 pl-2">&#8901; добавлено поле ввода для поиска в шапке сайта</p>
+			<p class="fz-14 m-0 pb-1 pl-2">&#8901; изменён дизайн главной страницы с профилем текущего пользователя</p>
+			<p class="fz-14 m-0 pb-1 pl-2">&#8901; разделы "Фотографии" и "Сохранения" перенесены в раздел "Профиль"</p>
+			<p class="fz-14 m-0 pl-2">&#8901; модальные окна с информацией о пользователях заменены на страницы пользователей.</p>
+		</div>
+	</div>
+	<div class="about-card w-100 mt-3">
+		<div class="w-100 m-0 p-0 d-flex flex-row">
 			<p class="fz-14 m-0 mr-auto p-0">Версия 1.1.2</p>
 			<p class="fz-14 m-0 ml-auto p-0">06.03.2023</p>
 		</div>
