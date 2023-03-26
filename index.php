@@ -52,7 +52,7 @@
   if ($user_identifier == 'identifier')
   {
     $current_user_nickname = !empty($_GET['u']) ? htmlspecialchars($_GET['u'], ENT_QUOTES) : '';
-    $current_user_uuid = ($current_user_nickname == '') ? $user_uuid : get_user_uuid_by_nickname($current_user_nickname);
+    $current_user_uuid = ($current_user_nickname == '' || !check_nickname_exists($current_user_nickname)) ? $user_uuid : get_user_uuid_by_nickname($current_user_nickname);
     $current_user_uuid = ($current_user_nickname == 'null' || $current_user_uuid == $user_uuid) ? $user_uuid : $current_user_uuid;
 ?>
 <!DOCTYPE html>
