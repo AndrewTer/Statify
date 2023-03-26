@@ -77,6 +77,23 @@
         return 0;
   }
 
+  function check_nickname_exists($user_nickname)
+  {
+    if (!empty($user_nickname) && isset($user_nickname))
+    {
+      $nickname_exists_query = pg_query("SELECT 1 FROM users WHERE nickname = '$user_nickname'")
+                              or trigger_error(pg_last_error().$nickname_exists_query);
+
+      $nickname_exists_count = pg_num_rows($nickname_exists_query);
+
+      if ($nickname_exists_count == 0)
+        return 0;
+      else
+        return 1;
+    }else
+      return 0;
+  }
+
   function check_nickname_change_date($user_uuid)
   {
     if (!empty($user_uuid) && isset($user_uuid) && (preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/', $user_uuid)))
