@@ -72,6 +72,11 @@ function registrationCompletionValidation()
               $("#nickname-save-message").html('<span class="text-danger">Это имя уже занято!</span>');
             break;
 
+            case 'invalid_characters':
+              $("#nickname-save").addClass('is-invalid');
+              $("#nickname-save-message").html('<span class="text-danger">Недопустимые символы!</span>');
+            break;
+
             case 'error':
               $('.toast').addClass('toast-error');
               $('.toast').removeClass('toast-success');
