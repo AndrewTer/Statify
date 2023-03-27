@@ -5,6 +5,8 @@
 <?
   if ($page_status)
   {
+    if (user_friendly_status($user_uuid, $current_user_uuid) == 'friend' || $current_user_uuid == $user_uuid)
+    {
 ?>
   <p class="row m-0 p-0 d-flex justify-content-center">
 <?
@@ -37,6 +39,8 @@
 ?>
   </p>
 <?
+    }else
+      echo '<p class="w-100 text-center f-13 m-0">Доступны только для друзей</p>';
   }else
     echo '<p class="w-100 text-center f-13 m-0">Отсутствуют</p>';
 
