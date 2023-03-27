@@ -7,9 +7,15 @@
 		require_once(realpath('../includes/connection.php'));
 
 		$user_uuid = $_POST['user_uuid'];
-		$user_nickname = str_replace(' ', '_', $_POST['user_nickname']);;
+		$user_nickname = str_replace(' ', '_', trim($_POST['user_nickname'], ' \t\n\r'));
 		$user_date_born = $_POST['user_date_born'];
 		$user_gender = $_POST['user_gender'];
+
+		if (!preg_match("/^[a-zA-Z0-9_]+$/", $user_nickname))
+		{
+			echo 'invalid_characters';
+			return;
+		}
 
 		$nickname_verification_query = pg_query("SELECT 1 FROM users WHERE nickname = '$user_nickname'")
 																				or trigger_error(pg_last_error().$nickname_verification_query);
