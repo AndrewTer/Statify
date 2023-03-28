@@ -1,23 +1,35 @@
-/* BODY */
+* {
+  color: whitesmoke;
+}
+
+/* Body */
 
 h2 {
   color: lightgray;
   text-align: center;
   padding: 10px 0;
   margin-bottom: 10px;
-  border: 2px dashed gray;
+  border: 1.5px dashed lightgray;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
 }
 
 body {
-  background: #111111;
+  background-image: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .1)), url("../../imgs/login-bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .main-body {
   max-width: 1100px;
   margin-top: 50px;
+}
+
+.header, .header-login, .footer {
+  background: rgba(26, 26, 26, .4);
+  backdrop-filter: blur(3px);
 }
 
 /* Content  */
@@ -26,15 +38,18 @@ body {
   padding: 2vh 4vh;
 }
 
+.content-section,
 .logreg-section {
   padding: 20px 10px;
 }
 
 .login-section,
-.reg-section {
+.reg-section,
+.description-section {
   padding: 10px;
   border: 1px solid #474748;
-  background: rgb(26, 26, 26);
+  background: rgba(26, 26, 26, .4);
+  backdrop-filter: blur(3px);
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
@@ -42,6 +57,12 @@ body {
 
 .reg-section {
   margin-top: 20px;
+}
+
+.form-control {
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
 }
 
 .login-form {
@@ -62,7 +83,17 @@ body {
   cursor: pointer;
 }
 
-#login-img {
-  width: 60%;
-  height: 60%;
+#reg-btn {
+  -webkit-border-radius: 15px !important;
+  -moz-border-radius: 15px !important;
+  border-radius: 15px !important;
+}
+
+#recoveryPasswordModal .modal-content {
+  background-color: rgba(26, 26, 26, .3) !important;
+  backdrop-filter: blur(7px);
+  border: var(--modal-border); !important;
+  -webkit-border-radius: 10px !important;
+  -moz-border-radius: 10px !important;
+  border-radius: 10px !important;
 }
