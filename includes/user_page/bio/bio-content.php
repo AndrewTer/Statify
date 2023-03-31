@@ -16,7 +16,6 @@
     if ($current_user_uuid == $user_uuid)
     {
       echo '<div class="m-0 p-0 d-flex flex-column col-12 col-sm-4 col-md-4 col-lg-3 col-xl-3 text-center person-main-info order-2 order-sm-1 order-md-1 order-lg-1 order-xl-1" id="block-with-info-by-user">';
-      include("../includes/user_page/bio/user-content-confirm-email.php");
       include("../includes/user_page/bio/user-content-about.php");
       include("../includes/user_page/bio/user-content-interests.php");
       include("../includes/user_page/bio/user-content-tags.php");
@@ -41,10 +40,5 @@
       include("user-content-statistics-with-radar.php");
     }else
       include("registration-completion.php");
-  }else
-  {
-?>
-  <div class="w-100 m-0 p-0"><?= ban_user_message($user_uuid); ?></div>
-<?
   }
 ?>

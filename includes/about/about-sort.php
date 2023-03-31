@@ -13,9 +13,9 @@
           <th scope="row">Обновления</th>
         </tr>
 
-        <tr class="about-sort-list-item" data-href="about?sort=help">
+        <!--<tr class="about-sort-list-item" data-href="about?sort=help">
           <th scope="row">Помощь</th>
-        </tr>
+        </tr>-->
 
         <tr class="m-0 p-0">
           <th class="m-0 p-0" scope="row"><hr class="hr-user-info m-0"></th>

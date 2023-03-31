@@ -17,11 +17,14 @@
       </div>
     </div>
   </div>
-
+<?
+  if (ban_check($current_user_uuid) == 'success')
+  {
+?>
   <hr class="hr-user-info">
 
   <div class="m-0 p-0 d-flex flex-row justify-content-center align-items-center" id="user-profile-menu">
-    <p class="m-0 p-2 fz-16 pointer active" id="user-profile-menu-bio">Био</p>
+    <p class="m-0 p-2 fz-16 pointer active" id="user-profile-menu-bio">Профиль</p>
 <?
   if ($current_user_uuid == $user_uuid || user_friendly_status($user_uuid, $current_user_uuid) == 'friend')
     echo '<p class="m-0 ml-4 p-2 fz-16 pointer" id="user-profile-menu-photos">Фотографии</p>';
@@ -65,6 +68,7 @@
   </div>
 
 <?
+  }
   /*include("includes/user_page/user-info-avatar.php");
   
   if (check_email_confirmed($user_uuid))

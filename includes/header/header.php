@@ -24,18 +24,6 @@
     </div>
 
     <div class="col-8 d-flex justify-content-center align-items-center header-logo">
-<?
-    if (date("m") == 12 || date("m") == 1 || date("m") == 2)
-    {
-      if ((date("m") == 12 && date("d") > 20) || (date("m") == 1 && date("d") < 11))
-      {
-        echo '<img class="mr-1" width="30" src="imgs/christmas_tree.webp">'; 
-      }else
-      {
-        echo '<i class="fa fa-snowflake-o fz-20 mr-2 pt-1" aria-hidden="true" style="color: cyan;"></i>';
-      }
-    }
-?>
       <a class="m-0 p-0" href="rate">
         <img width="80" src="imgs/logo.png">
       </a>

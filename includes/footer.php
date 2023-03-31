@@ -3,7 +3,7 @@
         <a class="m-2 p-0" href="about?sort=rules"><p class="m-0 p-0">Правила сайта</p></a>
         <a class="m-2 p-0" href="about?sort=updates"><p class="m-0 p-0">Обновления</p></a>
         <a class="m-2 p-0" href="about?sort=limits"><p class="m-0 p-0">Ограничения</p></a>
-        <a class="m-2 p-0" href="about?sort=help"><p class="m-0 p-0">Помощь</p></a>
+        <!--<a class="m-2 p-0" href="about?sort=help"><p class="m-0 p-0">Помощь</p></a>-->
     </div>
     <p class="w-100 m-0 pt-2 pb-2 fz-14 d-flex justify-content-center align-items-center">Statify &copy; 2023</p>
 </div>
