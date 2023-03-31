@@ -68,7 +68,13 @@ function countTags() {
 function createTag() {
     tagsList.querySelectorAll("li").forEach(li => li.remove());
     tags.slice().reverse().forEach(tag =>{
-        let liTag = `<li class="tags-field">${tag} <i class="fa fa-times" onclick="remove(this, '${tag}')"></i></li>`;
+        let liTag = `<li class="tags-field d-flex flex-row align-items-center">
+                      ${tag}
+                      <svg viewBox="0 0 48 48" class="svg-close-icon pointer" onclick="remove(this, '${tag}')">
+                        <rect width="48" height="48" fill="none"></rect>
+                        <path d="M26.8,24,37.4,13.5a2.1,2.1,0,0,0,.2-2.7,1.9,1.9,0,0,0-3-.2L24,21.2,13.4,10.6a1.9,1.9,0,0,0-3,.2,2.1,2.1,0,0,0,.2,2.7L21.2,24,10.6,34.5a2.1,2.1,0,0,0-.2,2.7,1.9,1.9,0,0,0,3,.2L24,26.8,34.6,37.4a1.9,1.9,0,0,0,3-.2,2.1,2.1,0,0,0-.2-2.7Z"></path>
+                      </svg>
+                    </li>`;
         tagsList.insertAdjacentHTML("afterbegin", liTag);
     });
     countTags();
@@ -124,9 +130,9 @@ function editUserTags() {
                 $('.toast').toast('show');
 
                 $(".tags-field").addClass('is-valid');
-                $(".tags-field i").addClass('is-valid');
+                $(".tags-field svg").addClass('is-valid');
 
-                setTimeout(function(){ $('.tags-field').removeClass('is-valid'); $('.tags-field i').removeClass('is-valid'); }, 5000)
+                setTimeout(function(){ $('.tags-field').removeClass('is-valid'); $('.tags-field svg').removeClass('is-valid'); }, 5000)
             }
         },
         error: function () {
