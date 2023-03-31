@@ -61,3 +61,21 @@
 .inactive-star {
   stroke: gray;
 }
+
+p .svg-social-icons {
+  margin: 2px 7px;
+}
+
+.svg-social-icons {
+  padding: 5px;
+}
+
+.svg-social-icons .fill-path,
+.svg-social-icons.fill-path {
+  fill: var(--main-text-color);
+}
+
+.svg-social-icons.svg-empty-social-icons .fill-path,
+.svg-social-icons.svg-empty-social-icons.fill-path {
+  fill: gray;
+}

@@ -71,41 +71,14 @@
   font-size: 15px;
 }
 
-.table-avatar-update,
-.table-email-confirm {
-  color: var(--main-text-color);
-  text-align: center;
-  cursor: pointer;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  border-radius: 15px;
+#email-confirm {
+  background: var(--main-text-color);
+  -webkit-border-radius: 90%;
+  -moz-border-radius: 90%;
+  border-radius: 90%;
 }
 
-.table-avatar-update:hover,
-.table-email-confirm:hover {
-  background-color: var(--block-hover-bg-color);
-}
-
-.table-avatar-update tbody tr th,
-.table-avatar-update tbody tr td,
-.table-email-confirm tbody tr th,
-.table-email-confirm tbody tr td {
-  padding: 5px 10px;
-  vertical-align: middle;
-}
-
-.table-avatar-update tbody tr th,
-.table-email-confirm tbody tr th {
-  width: 10%;
-  border-right: 1px solid var(--content-block-border-color);
-}
-
-.table-avatar-update tbody tr td,
-.table-email-confirm tbody tr td {
-  width: 90%;
-}
-
-.table-email-confirm,
+#email-confirm,
 #registration-completion {
   animation: pulse-blue 2s infinite;
 }

@@ -32,6 +32,7 @@
   --body-bg-color: #111111;
   --header-footer-bg-color: #000000;
   --content-block-bg-color: #1a1a1a;
+  --content-block-bg-color-without-transparency: #1a1a1a;
 
   --mobile-menu-bg-color: #111111;
   --settings-menu-bg-color: #1a1a1a;
@@ -88,6 +89,7 @@
   --body-bg-color: #15181f;
   --header-footer-bg-color: #1C242E;
   --content-block-bg-color: #1C242E;
+  --content-block-bg-color-without-transparency: #1C242E;
 
   --mobile-menu-bg-color: #15181f;
   --settings-menu-bg-color: #1C242E;
@@ -149,6 +151,7 @@
     background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), linear-gradient(to bottom, rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), linear-gradient(135deg, #670d10 0%,#092756 100%);
   --header-footer-bg-color: rgba(28, 36, 46, .5);
   --content-block-bg-color: rgba(28, 36, 46, .5);
+  --content-block-bg-color-without-transparency: rgb(28, 36, 46);
 
   --mobile-menu-bg-color: rgba(47, 50, 72, .9);
   --settings-menu-bg-color: rgba(47, 50, 72, .8);
@@ -206,6 +209,7 @@
     background: linear-gradient(to top, #283E51, #0A2342);
   --header-footer-bg-color: rgba(28, 36, 46, .5);
   --content-block-bg-color: rgba(28, 36, 46, .5);
+  --content-block-bg-color-without-transparency: rgb(28, 36, 46);
 
   --mobile-menu-bg-color: rgba(10, 35, 66, .9);
   --settings-menu-bg-color: rgba(10, 35, 66, .9);
@@ -262,6 +266,7 @@
   --body-bg-color: #f4f4f4;
   --header-footer-bg-color: #07689F;
   --content-block-bg-color: #ffffff;
+  --content-block-bg-color-without-transparency: #ffffff;
 
   --mobile-menu-bg-color: #ffffff;
   --settings-menu-bg-color: #ffffff;
@@ -394,6 +399,10 @@ blockquote p:after {
   font-size: 25px !important;
 }
 
+.fz-40 {
+  font-size: 40px !important;
+}
+
 .fz-60 {
   font-size: 60px !important;
 }
@@ -406,6 +415,10 @@ blockquote p:after {
   width: 20% !important;
 }
 
+.w-25 {
+  width: 25% !important;
+}
+
 .w-30 {
   width: 30% !important;
 }
@@ -414,12 +427,32 @@ blockquote p:after {
   width: 35% !important;
 }
 
+.w-40 {
+  width: 40% !important;
+}
+
 .w-60 {
   width: 60% !important;
 }
 
+.w-70 {
+  width: 70% !important;
+}
+
+.w-75 {
+  width: 75% !important;
+}
+
 .w-80 {
   width: 80% !important;
+}
+
+.h-10 {
+  height: 10% !important;
+}
+
+.h-90 {
+  height: 90% !important;
 }
 
 .border-radius-10 {
@@ -509,39 +542,6 @@ blockquote p:after {
 
 .text-hover:hover {
   color: var(--hover-text-color);
-}
-
-/* Social */
-
-.social-icon,
-.social-icon-empty {
-  color: var(--main-text-color);
-  margin: 2px;
-  padding: 5px;
-  width: 28px; 
-  height: 28px;
-  list-style: none;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-}
-
-.social-icon.social-user,
-.social-icon-empty.social-user,
-.social-icon.social-user:hover,
-.social-icon-empty.social-user:hover {
-  width: 50px; 
-  height: 30px;
-  border: none;
-}
-
-.social-icon {
-  cursor: pointer;
-  color: var(--social-icon-color);
-}
-
-.social-icon-empty {
-  color: gray;
 }
 
 /* Kinds of round user photos */

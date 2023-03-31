@@ -120,7 +120,6 @@
 }
 
 @media (max-width: 575px) {
-  .content-section,
   .page-not-completed-user-info-hide {
     display: none !important;
   }
@@ -241,6 +240,13 @@
   }
 }
 
+@media (max-width: 550px) {
+  #log-section,
+  #reg-section {
+    width: 100% !important;
+  }
+}
+
 @media (max-width: 686px) {
   .main-content-rating {
     padding: 0;
@@ -254,6 +260,23 @@
 
   .friends-card-name {
     display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  #content-info-section {
+    display: none !important;
+  }
+
+  #logreg-section {
+    width: 100% !important;
+  }
+}
+
+@media (min-width: 551px) and (max-width: 700px) {
+  #log-section,
+  #reg-section {
+    width: 70% !important;
   }
 }
 
@@ -272,6 +295,21 @@
   #block-rating-right {
     border: none;
     width: 100%;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 900px) {
+  #content-info-section {
+    width: 60% !important;
+  }
+
+  #logreg-section {
+    width: 40% !important;
+  }
+
+  #log-section,
+  #reg-section {
+    width: 100% !important;
   }
 }
 

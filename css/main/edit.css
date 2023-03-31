@@ -119,12 +119,12 @@
 
 /* Tags */
 
-.tags-block :where(li, li i, .tags-block-details){
+.tags-block :where(li, li svg, .tags-block-details) {
    display: flex;
    align-items: center;
 }
 
-.tags-block-content ul li{
+.tags-block-content ul li {
    color: var(--main-text-color);
    margin: 2px;
    padding: 5px;
@@ -135,16 +135,12 @@
    border: 1px solid #7e8081;
 }
 
-.tags-block-content ul li i{
-   height: 20px;
-   width: 20px;
+.tags-block-content ul li svg {
+   height: 18px;
+   width: 18px;
    font-size: 12px;
    color: var(--main-text-color);
-   margin-left: 5px;
-   cursor: pointer;
-   display: flex;
-   justify-content: center;
-   align-items: center;
+   margin-left: 7px;
    border: 1px solid #7e8081;
    -webkit-border-radius: 50%;
    -moz-border-radius: 50%;
@@ -163,7 +159,7 @@
 }
 
 .tags-field.is-valid,
-.tags-field i.is-valid {
+.tags-field svg.is-valid {
    border-color: #28a745 !important;
 }
 
