@@ -9,12 +9,7 @@
 
 		include("btn-save.php");
 	}else
-	{
 		include("btn-statistics.php");
-?>
-		<div class="w-40 m-0"></div>
-<?
-	}
 ?>   	      		
 	</div>
 </div>
