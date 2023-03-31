@@ -1411,11 +1411,11 @@
                 $ban_finish_time = date('H:i', strtotime($ban_result[1]));
                 $ban_finish_date = corrected_date_with_text_month($ban_result[1]);
 
-                echo '<p class="fz-13 m-0 p-0 text-center">Пользователь заблокирован до '.$ban_finish_date.' года, '.$ban_finish_time.'</p>';
+                echo '<p class="fz-15 m-0 p-0 text-center">Пользователь заблокирован до '.$ban_finish_date.' года, '.$ban_finish_time.'</p>';
             }
         }else
         {
-            echo '<p class="fz-13 m-0 p-0 text-center">Пользователь заблокирован навсегда</p>';
+            echo '<p class="fz-15 m-0 p-0 text-center">Пользователь заблокирован навсегда</p>';
         }
     }
   }
