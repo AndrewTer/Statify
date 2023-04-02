@@ -3,14 +3,14 @@ var emailMask = /^([_a-zA-Z0-9-]+)(\.[_a-zA-Z0-9-]+)*@([a-zA-Z0-9-]+\.)+([a-zA-Z
 function editUserEmailValidation()
 {
 	var currentEmail = $("#current-email"),
-		emailEditInput = $("#email-edit"),
+			emailEditInput = $("#email-edit"),
 	  	emailEditInputMessage = $("#email-edit-message"),
 	  	passwordForEmailEditInput = $("#password-for-email-edit"),
 	  	passwordForEmailEditInputMessage = $("#password-for-email-edit-message");
 
 	var editEmailCheck = 0,
-		editEmailSuccess = 0,
-		currentEmailValue = currentEmail.text();
+			editEmailSuccess = 0,
+			currentEmailValue = currentEmail.text();
 
 	if (!emailEditInput.val())
 	{
@@ -55,7 +55,7 @@ function editUserEmailValidation()
 		var check_email = 'email=' + newEmail;
 
 		$.ajax({
-	    	url: "actions/check-email.php",
+	    url: "actions/check-email.php",
 			type: 'POST',
 			data: check_email,
 			success: function (data) {
@@ -83,9 +83,9 @@ function editUserEmailValidation()
 				            			break;
 
 				            		case 'password_error':
-				                    	passwordForEmailEditInput.addClass('is-invalid');
-										passwordForEmailEditInput.removeClass('is-valid');
-										passwordForEmailEditInputMessage.html('<span class="text-danger">Неверный пароль!</span');
+				                    passwordForEmailEditInput.addClass('is-invalid');
+														passwordForEmailEditInput.removeClass('is-valid');
+														passwordForEmailEditInputMessage.html('<span class="text-danger">Неверный пароль!</span');
 				            			break;
 
 				            		case 'email_error':
@@ -155,9 +155,9 @@ function editUserPasswordValidation()
 		oldPasswordEditInput = $("#old-password-edit"),
 		oldPasswordEditInputMessage = $("#old-password-edit-message"),
 		newPasswordEditInput = $("#new-password-edit"),
-	  	newPasswordEditInputMessage = $("#new-password-edit-message"),
-	  	repeatPasswordEditInput = $("#repeat-password-edit"),
-	  	repeatPasswordEditInputMessage = $("#repeat-password-edit-message")
+	  newPasswordEditInputMessage = $("#new-password-edit-message"),
+	  repeatPasswordEditInput = $("#repeat-password-edit"),
+	  repeatPasswordEditInputMessage = $("#repeat-password-edit-message")
 		editPasswordCheck = 0;
 
 	if (!oldPasswordEditInput.val())
@@ -210,9 +210,9 @@ function editUserPasswordValidation()
 	if (editPasswordCheck == 0)
 	{
 		var current_email_value = currentEmail.text(),
-			old_password_edit = oldPasswordEditInput.val(),
-			new_password_edit = newPasswordEditInput.val(),
-			edit_password_data = 'email=' + current_email_value +'&old_password=' + old_password_edit + '&new_password=' + new_password_edit;
+				old_password_edit = oldPasswordEditInput.val(),
+				new_password_edit = newPasswordEditInput.val(),
+				edit_password_data = 'email=' + current_email_value +'&old_password=' + old_password_edit + '&new_password=' + new_password_edit;
 
 		$.ajax({
             url: "actions/edit-user-password.php",
@@ -458,6 +458,12 @@ $("input[name='choose-design-theme']").click(function()
 			localStorage.setItem("theme", "dark-sapphire");
 			break;
 
+		case 'night-forest':
+			$(document.body).removeClass();
+			$(document.body).addClass("night-forest-theme");
+			localStorage.setItem("theme", "night-forest");
+			break;
+
 		case 'spotted':
 			$(document.body).removeClass();
 			$(document.body).addClass("spotted-theme");
@@ -490,6 +496,10 @@ switch (localStorage.getItem("theme")) {
 
     case 'dark-sapphire':
       $("input[name=choose-design-theme][value='dark-sapphire']").prop('checked', true);
+      break;
+
+    case 'night-forest':
+      $("input[name=choose-design-theme][value='night-forest']").prop('checked', true);
       break;
 
     case 'spotted':

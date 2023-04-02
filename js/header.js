@@ -35,33 +35,38 @@ $(document).click(function(e) {
 
 switch (localStorage.getItem("theme")) {
   case 'darkness':
-      $(document.body).removeClass();
-      break;
+    $(document.body).removeClass();
+    break;
 
-    case 'dark-sapphire':
-      $(document.body).removeClass();
-      $(document.body).addClass("dark-sapphire-theme");
-      break;
+  case 'dark-sapphire':
+    $(document.body).removeClass();
+    $(document.body).addClass("dark-sapphire-theme");
+    break;
 
-    case 'spotted':
-      $(document.body).removeClass();
-      $(document.body).addClass("spotted-theme");
-      break;
+  case 'night-forest':
+    $(document.body).removeClass();
+    $(document.body).addClass("night-forest-theme");
+    break;
 
-    case 'ocean-depths':
-      $(document.body).removeClass();
-      $(document.body).addClass("ocean-depths-theme");
-      break;
+  case 'spotted':
+    $(document.body).removeClass();
+    $(document.body).addClass("spotted-theme");
+    break;
 
-    case 'bahama-blue':
-      $(document.body).removeClass();
-      $(document.body).addClass("bahama-blue-theme");
-      break;
+  case 'ocean-depths':
+    $(document.body).removeClass();
+    $(document.body).addClass("ocean-depths-theme");
+    break;
 
-    default:
-      $(document.body).removeClass();
-      localStorage.setItem("theme", "darkness");
-      break;
+  case 'bahama-blue':
+    $(document.body).removeClass();
+    $(document.body).addClass("bahama-blue-theme");
+    break;
+
+  default:
+    $(document.body).removeClass();
+    localStorage.setItem("theme", "darkness");
+    break;
 }
 
 function acceptCookies()
@@ -75,8 +80,8 @@ function acceptCookies()
     error: function() {
       $('.toast').addClass('toast-error');
       $('.toast').removeClass('toast-success');
-        $('.toast-body').html('Системная ошибка!');
-          $('.toast').toast('show');
+      $('.toast-body').html('Системная ошибка!');
+      $('.toast').toast('show');
     }
   });
 }
