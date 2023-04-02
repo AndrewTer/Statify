@@ -203,6 +203,10 @@
    background: linear-gradient(to bottom right, #1C242E 3% 50%, #15181f 53% 100%);
 }
 
+#design-theme-night-forest label {
+   background: linear-gradient(to bottom right, #0F1220 3% 50%, #020112 53% 100%);
+}
+
 #design-theme-spotted label {
    background: -moz-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%),-moz-linear-gradient(top, rgba(57,173,219,.25) 0%, rgba(42,60,87,.4) 100%), -moz-linear-gradient(-45deg, #670d10 0%, #092756 100%);
    background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -webkit-linear-gradient(top, rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -webkit-linear-gradient(-45deg, #670d10 0%,#092756 100%);

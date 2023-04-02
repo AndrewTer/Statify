@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 :root {
   --main-text-color: lightgray;
   --hover-text-color: #ffffff;
@@ -93,6 +95,63 @@
 
   --mobile-menu-bg-color: #15181f;
   --settings-menu-bg-color: #1C242E;
+
+  --hr-user-info-bg-color: #636465;
+  --block-hover-bg-color: #303e4f;
+  --block-with-stats-by-star-rating: rgba(0, 0, 0, 0.9);
+
+  --toast-success-bg-color: rgba(0, 230, 0, 0.3);
+  --toast-error-bg-color: rgba(230, 0, 0, 0.3);
+
+  --header-footer-border-color: #222223;
+  --content-block-border-color: #474748;
+  --input-field-border-color: #ffffff;
+  --modal-border: none;
+
+  --font-weight-active-star: normal;
+
+  --header-element-border-color: #656567;
+  --header-element-hover-border-color: lightgray;
+}
+
+.night-forest-theme {
+  --main-text-color: lightgray;
+  --hover-text-color: #ffffff;
+  --input-text-color: #ffffff;
+  --header-footer-text-color: lightgray;
+
+  --first-place-color: gold;
+  --second-place-color: lightgray;
+  --third-place-color: #CD7F32;
+
+  --main-menu-icon-color: #06b2ee;
+  --main-menu-icon-hover-color: #b2eafd;
+
+  --text-border-color: #7e8081;
+  --offline-color: #636465;
+
+  --statistic-text-color: #2ACAEA;
+
+  --news-user-link-color: #ffffff;
+
+  --star-icon-color: #ffa500;
+  --social-icon-color: #ffffff;
+  --save-icon-color: #06b2ee;
+  --saved-icon-color: #1fbff9;
+  --calendar-icon-color-invert: 100%;
+  --premium-star-icon-filter-inactive: invert(54%) sepia(1%) saturate(1734%) hue-rotate(336deg) brightness(94%) contrast(87%);
+
+  --skip-btn-color: #007bff;
+
+  --scrollbar-color: #474748;
+
+  --body-bg-color: #020112;
+  --header-footer-bg-color: #0F1220;
+  --content-block-bg-color: #0F1220;
+  --content-block-bg-color-without-transparency: #0F1220;
+
+  --mobile-menu-bg-color: #020112;
+  --settings-menu-bg-color: #0F1220;
 
   --hr-user-info-bg-color: #636465;
   --block-hover-bg-color: #303e4f;
@@ -233,7 +292,7 @@
 }
 
 .bahama-blue-theme {
-  --main-text-color: #3f4040;
+  --main-text-color: #262727;
   --hover-text-color: #07689F;
   --input-text-color: #262626;
   --header-footer-text-color: #ffffff;
@@ -290,13 +349,13 @@
 }
 
 @font-face {
-  font-family: "Open Sans", "Helvetica", "Arial";
+  font-family: "Be Vietnam Pro", "Open Sans", "Helvetica", "Arial";
   font-display: swap;
 }
 
 * {
   color: var(--main-text-color);
-  font-family: "Open Sans", "Helvetica", "Arial";
+  font-family: "Be Vietnam Pro", "Open Sans", "Helvetica", "Arial";
   font-size: 13px;
   word-wrap: break-word;
 }
