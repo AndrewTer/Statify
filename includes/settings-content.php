@@ -188,13 +188,17 @@
         <div class="m-2 ml-5 mr-5 p-0 justify-content-center align-items-center text-center">
           <p class="fz-13 font-weight-bold m-0 mb-2 p-0">Тёмная тема</p>
           <div class="m-0 p-0 d-flex flex-row justify-content-center align-items-center">
-            <div class="radio_btn settings_design_theme_radio_btn m-1 mr-4" id="design-theme-darkness">
+            <div class="radio_btn settings_design_theme_radio_btn m-1 mr-4" id="design-theme-darkness" data-toggle="tooltip" data-placement="bottom" title="Darkness">
               <input id="design-theme-darkness-input" type="radio" name="choose-design-theme" value="darkness">
               <label class="m-0 text-center" for="design-theme-darkness-input"></label>
             </div>
-            <div class="radio_btn settings_design_theme_radio_btn m-1 ml-4" id="design-theme-dark-sapphire">
+            <div class="radio_btn settings_design_theme_radio_btn m-1 ml-4 mr-4" id="design-theme-dark-sapphire" data-toggle="tooltip" data-placement="bottom" title="Dark sapphire">
               <input id="design-theme-dark-sapphire-input" type="radio" name="choose-design-theme" value="dark-sapphire">
               <label class="m-0 text-center" for="design-theme-dark-sapphire-input"></label>
+            </div>
+            <div class="radio_btn settings_design_theme_radio_btn m-1 ml-4" id="design-theme-night-forest" data-toggle="tooltip" data-placement="bottom" title="Night forest">
+              <input id="design-theme-night-forest-input" type="radio" name="choose-design-theme" value="night-forest">
+              <label class="m-0 text-center" for="design-theme-night-forest-input"></label>
             </div>
           </div>
         </div>
@@ -202,7 +206,7 @@
         <div class="m-2 ml-5 mr-5 p-0 justify-content-center align-items-center text-center">
           <p class="fz-13 font-weight-bold m-0 mb-2 p-0">Светлая тема</p>
           <div class="m-0 p-0 d-flex flex-row justify-content-center align-items-center">
-            <div class="radio_btn settings_design_theme_radio_btn m-1" id="design-theme-bahama-blue">
+            <div class="radio_btn settings_design_theme_radio_btn m-1" id="design-theme-bahama-blue" data-toggle="tooltip" data-placement="bottom" title="Bahama blue">
               <input id="design-theme-bahama-blue-input" type="radio" name="choose-design-theme" value="bahama-blue">
               <label class="m-0 text-center" for="design-theme-bahama-blue-input"></label>
             </div>
@@ -213,11 +217,11 @@
           <p class="fz-13 font-weight-bold m-0 mb-2 p-0">Градиент</p>
           
           <div class="m-0 p-0 d-flex flex-row justify-content-center align-items-center">
-            <div class="radio_btn settings_design_theme_radio_btn m-1 mr-4" id="design-theme-spotted">
+            <div class="radio_btn settings_design_theme_radio_btn m-1 mr-4" id="design-theme-spotted" data-toggle="tooltip" data-placement="bottom" title="Spotted">
               <input id="design-theme-spotted-input" type="radio" name="choose-design-theme" value="spotted">
               <label class="m-0 text-center" for="design-theme-spotted-input"></label>
             </div>
-            <div class="radio_btn settings_design_theme_radio_btn m-1 ml-4" id="design-theme-ocean-depths">
+            <div class="radio_btn settings_design_theme_radio_btn m-1 ml-4" id="design-theme-ocean-depths" data-toggle="tooltip" data-placement="bottom" title="Ocean depths">
               <input id="design-theme-ocean-depths-input" type="radio" name="choose-design-theme" value="ocean-depths">
               <label class="m-0 text-center" for="design-theme-ocean-depths-input"></label>
             </div>
