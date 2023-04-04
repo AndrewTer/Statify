@@ -33,10 +33,10 @@
 
 			      	<div class="modal-body">
 			        	<div class="p-0 m-2">
-			          	<p class="text-center fz-14"><strong class="fz-14 complaint-bold-text">Жалоба на пользователя '.$receiver_name.'</strong></p>
+			          	<p class="text-center fz-14"><strong class="fz-14 complaint-bold-text letter-spacing-05">Жалоба на пользователя '.$receiver_name.'</strong></p>
 
 			          	<div class="form-group">
-			            	<label class="fz-14">Пожалуйста, уточните <strong class="fz-14 complaint-bold-text">причину</strong> жалобы:</label>
+			            	<label class="fz-14">Пожалуйста, уточните <strong class="fz-14 complaint-bold-text letter-spacing-05">причину</strong> жалобы:</label>
 			            
 			            	<div class="form-check m-1">
 			              	<input class="form-check-input" type="radio" name="complaintReasons" id="spamAdvertising" value="spamAdvertising">
@@ -65,13 +65,13 @@
 			          	</div>
 
 			          	<div class="form-group">
-			            	<label for="commentOnComplaint"><strong class="fz-14 complaint-bold-text">Комментарий</strong></label>
+			            	<label for="commentOnComplaint"><strong class="fz-14 complaint-bold-text letter-spacing-05">Комментарий</strong></label>
 			            	<textarea class="form-control fz-14 textarea" rows="5" name="commentOnComplaint" maxlength="500" placeholder="Не более 500 символов"></textarea>
 			          	</div>
 
 			          	<div class="w-100 d-flex flex-row-reverse justify-content-center">
-			              <input type="submit" class="btn w-35 m-0 btn-skip" value="Отмена" data-dismiss="modal" aria-label="Close">
-			              <input type="submit" class="btn w-35 m-0 mr-4 btn-red font-weight" 
+			              <input type="submit" class="btn w-35 m-0 btn-skip fz-14" value="Отмена" data-dismiss="modal" aria-label="Close">
+			              <input type="submit" class="btn w-35 m-0 mr-4 btn-red fz-14" 
 			              				value="Отправить" 
 			              				data-complaintauthor=\''.$author_uuid.'\' 
 			              				data-complaintreceiver=\''.$receiver_uuid.'\'
@@ -114,7 +114,7 @@
 
 			      <div class="modal-body">
 			        <div class="p-0 m-2">
-			          <p class="text-center fz-14"><strong class="fz-14 complaint-bold-text">Жалоба на комментарий пользователя</strong></p>
+			          <p class="text-center fz-14"><strong class="fz-14 complaint-bold-text letter-spacing-05">Жалоба на комментарий пользователя</strong></p>
 
 			          <div class="w-100 m-0 mb-2 p-2 d-flex flex-row comment-in-report-modal">
 <?
@@ -134,7 +134,7 @@
 			          </div>
 
 			          <div class="form-group">
-			            <label class="fz-14">Пожалуйста, уточните <strong class="fz-14 complaint-bold-text">причину</strong> жалобы:</label>
+			            <label class="fz-14">Пожалуйста, уточните <strong class="fz-14 complaint-bold-text letter-spacing-05">причину</strong> жалобы:</label>
 			            
 			            <div class="form-check m-1">
 			              <input class="form-check-input" type="radio" name="complaintReasons" id="spamAdvertising" value="spamAdvertising">
@@ -173,13 +173,13 @@
 			          </div>
 
 			          <div class="form-group">
-			            <label for="commentOnComplaint"><strong class="fz-14 complaint-bold-text">Комментарий</strong></label>
+			            <label for="commentOnComplaint"><strong class="fz-14 complaint-bold-text letter-spacing-05">Комментарий</strong></label>
 			            <textarea class="form-control fz-14 textarea" rows="5" name="commentOnComplaint" maxlength="500" placeholder="Не более 500 символов"></textarea>
 			          </div>
 
 			          <div class="w-100 d-flex flex-row-reverse justify-content-center">
-			             <input type="submit" class="btn w-35 m-0 btn-skip" value="Отмена" data-dismiss="modal" aria-label="Close">
-			             <input type="submit" class="btn w-35 m-0 mr-4 btn-red font-weight" 
+			             <input type="submit" class="btn w-35 m-0 btn-skip fz-14" value="Отмена" data-dismiss="modal" aria-label="Close">
+			             <input type="submit" class="btn w-35 m-0 mr-4 btn-red fz-14" 
 			             				value="Отправить" 
 			             				data-complaintauthor = '<?= $author_uuid; ?>' 
 			             				data-complaintreceiver = '<?= $receiver_uuid; ?>' 
@@ -315,7 +315,7 @@
       			</div>
 
       			<div class="modal-body">
-        			<label for="email-recovery-input" class="fz-14 w-100 text-center font-weight-bold text-white">Укажите email, который вы использовали для входа на сайт</label>
+        			<label for="email-recovery-input" class="fz-14 w-100 text-center font-weight-bold letter-spacing-05 text-white">Укажите email, который вы использовали для входа на сайт</label>
         			<input type="text" class="w-100 form-control mb-2" id="email-recovery-input" name="recpassEmail" placeholder="example@mail.ru">
         			<em id="recovery-password-message"></em>
         			<p type="submit" class="btn btn-standard fz-15 w-100 m-0 mt-2" name="recoveryPassword" onclick="event.preventDefault();recoveryPassword();">Получить пароль</p>
@@ -364,22 +364,22 @@
 						    </svg>
 
 						    <div class="w-100 m-0 mt-2 mb-2 p-2 block-user-content">
-						    	<p class="fz-15 w-100 m-0 p-1 font-weight-bold">
+						    	<p class="fz-15 w-100 m-0 p-1 font-weight-bold letter-spacing-05">
 						    		Более подробная статистика, которая содержит:
 						    	</p>
-						    	<p class="fz-15 w-100 m-0 p-1 pl-3 pr-3">
+						    	<p class="fz-14 w-100 m-0 p-1 pl-3 pr-3">
 						    		- количество оценок пользователей в зависимости от пола
 						    	</p>
-						    	<p class="fz-15 w-100 m-0 p-1 pl-3 pr-3">
+						    	<p class="fz-14 w-100 m-0 p-1 pl-3 pr-3">
 						    		- количество сохранений, включая разделение по полу
 						    	</p>
-						    	<p class="fz-15 w-100 m-0 p-1 pl-3 pr-3">
+						    	<p class="fz-14 w-100 m-0 p-1 pl-3 pr-3">
 						    		- историю сохранений
 						    	</p>
-						    	<p class="fz-15 w-100 m-0 p-1 font-weight-bold">
+						    	<p class="fz-15 w-100 m-0 p-1 font-weight-bold letter-spacing-05">
 						    		Возможность менять пользовательское имя каждые три месяца
 						    	</p>
-						    	<!--<p class="fz-15 w-100 m-0 p-1 font-weight-bold">
+						    	<!--<p class="fz-15 w-100 m-0 p-1 font-weight-bold letter-spacing-05">
 						    		Отсутствие рекламы
 						    	</p>-->
 						    </div>
@@ -393,12 +393,12 @@
 								}else if (check_premium_active($current_user_uuid))
 								{
 ?>
-									<p class="w-100 m-0 mt-3 p-0 fz-15 text-center font-weight-bold">В данный момент премиум активен</p>
+									<p class="w-100 m-0 mt-3 p-0 fz-15 text-center font-weight-bold letter-spacing-05">В данный момент премиум активен</p>
 <?
 								}else if (check_premium_trial_period_used($current_user_uuid))
 								{
 ?>
-									<p class="w-100 m-0 mt-3 p-0 fz-15 text-center font-weight-bold">Пробная версия окончена</p>
+									<p class="w-100 m-0 mt-3 p-0 fz-15 text-center font-weight-bold letter-spacing-05">Пробная версия окончена</p>
 <?
 								}
 ?>
