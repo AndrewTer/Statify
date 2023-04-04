@@ -94,6 +94,7 @@
     <div class="row main-footer w-100"><? include("includes/footer.php"); ?></div>
 
     <script defer type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
     <script defer type="text/javascript" src="js/friendship.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
   </body>
