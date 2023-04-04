@@ -18,9 +18,6 @@
 					<p class="m-0 fz-16">
 						<?= ($comments_list_count) > 0 ? $comments_list_count : ''; ?>
 					</p>
-
-						<!--<i class="fa fa-comments-o fz-18 m-0 <?= ($comments_list_count) > 0 ? 'mr-2' : ''; ?>" aria-hidden="true"></i>-->
-					</p>
 				</div>
 			</a>
 		</div>
