@@ -96,6 +96,7 @@
 
                       if ($user_uuid != $comment_author_uuid && $comment_user_ban_check == 'success')
                         echo '<a class="report-comment m-0 p-0 d-none" 
+                                  data-toggle="tooltip" data-placement="bottom" title="Пожаловаться"
                                   onclick="event.preventDefault();openReportCommentModal(\''.$user_uuid.'\',\''.$comment_author_uuid.'\',\''.$comment_uuid.'\');">
                                 <i class="fa fa-ban fz-13 m-0 p-1" aria-hidden="true"></i>
                               </a>';
@@ -159,8 +160,8 @@
                           (check_only_friends_can_comment_photos($photo_user_uuid) && user_friendly_status($user_uuid, $photo_user_uuid) == 'friend'))
                       {
 ?>
-                      <p class="m-0 mt-2 p-0 fz-12 font-weight-bold add-reply-to-comment-p" id="add-reply-<?= preg_replace('[-]', '', $comment_uuid); ?>" onclick="event.preventDefault();addReplyToCommentBlock(<?= '\''.preg_replace('[-]', '', $user_uuid).'\',\''.preg_replace('[-]', '', $photo_uuid).'\',\''.preg_replace('[-]', '', $comment_uuid).'\''; ?>);">Ответить</p>
-                      <p class="m-0 mt-2 p-0 fz-12 font-weight-bold hide-reply-to-comment-p" id="hide-reply-<?= preg_replace('[-]', '', $comment_uuid); ?>" onclick="event.preventDefault();delReplyToCommentBlock(<?= '\''.preg_replace('[-]', '', $comment_uuid).'\''; ?>);">Отмена</p>
+                      <p class="m-0 mt-2 p-0 fz-12 font-weight-bold letter-spacing-05 add-reply-to-comment-p" id="add-reply-<?= preg_replace('[-]', '', $comment_uuid); ?>" onclick="event.preventDefault();addReplyToCommentBlock(<?= '\''.preg_replace('[-]', '', $user_uuid).'\',\''.preg_replace('[-]', '', $photo_uuid).'\',\''.preg_replace('[-]', '', $comment_uuid).'\''; ?>);">Ответить</p>
+                      <p class="m-0 mt-2 p-0 fz-12 font-weight-bold letter-spacing-05 hide-reply-to-comment-p" id="hide-reply-<?= preg_replace('[-]', '', $comment_uuid); ?>" onclick="event.preventDefault();delReplyToCommentBlock(<?= '\''.preg_replace('[-]', '', $comment_uuid).'\''; ?>);">Отмена</p>
 <?
                       }
 ?>
