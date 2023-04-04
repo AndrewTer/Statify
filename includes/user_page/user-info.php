@@ -21,7 +21,7 @@
   if (ban_check($current_user_uuid) == 'success')
   {
 ?>
-  <hr class="hr-user-info">
+  <hr class="hr-user-info mt-0">
 
   <div class="m-0 p-0 d-flex flex-row justify-content-center align-items-center" id="user-profile-menu">
     <p class="m-0 p-2 fz-16 pointer active" id="user-profile-menu-bio">Профиль</p>
