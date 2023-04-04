@@ -40,7 +40,7 @@
           <div class="p-5 h-100 d-flex justify-content-center align-items-center" id="content-info-section">
             <section class="w-100 m-0 p-3 d-flex flex-column align-items-center" id="content-info">
               <img width="130" src="imgs/logo.png">
-              <p class="w-100 text-center m-0 mt-3 p-0 fz-13 font-weight-bold">Сервис для оценивания фотографий людей</p>
+              <p class="w-100 text-center m-0 mt-3 p-0 fz-14 font-weight-bold letter-spacing-05">Сервис для оценивания фотографий людей</p>
 
               <div class="w-100 m-0 mt-2 p-5">
                 <div class="m-0 p-0 d-flex flex-row align-items-center">
@@ -192,7 +192,7 @@
                   <input type="submit" class="btn btn-standard w-100 m-0 fz-15" name="login" value="Войти">
 
                   <div class="text-center mt-2">
-                    <a class="fz-15 font-weight-bold text-white pe-auto recovery-link" onclick="event.preventDefault();openRecoveryPasswordModal();">Забыли пароль?</a>
+                    <a class="fz-15 font-weight-bold letter-spacing-05 text-white pe-auto recovery-link" onclick="event.preventDefault();openRecoveryPasswordModal();">Забыли пароль?</a>
                   </div>
                 </form>
               </div>
