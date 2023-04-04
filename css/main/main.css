@@ -529,6 +529,11 @@ blockquote p:after {
   background-color: var(--hr-user-info-bg-color);
 }
 
+.vr-user-info {
+  width: 1px;
+  background-color: var(--hr-user-info-bg-color);
+}
+
 .hr-with-text {
   display: block;
   text-align: center;

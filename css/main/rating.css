@@ -51,10 +51,6 @@
 
 /* Solo photo card */
 
-#rating-menu-star-icon {
-   color: var(--star-icon-color) !important;
-}
-
 #rating-user-photo {
    animation: show 1.5s;
 }
