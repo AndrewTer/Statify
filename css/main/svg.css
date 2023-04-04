@@ -55,11 +55,11 @@
 }
 
 .active-star {
-  stroke: var(--star-icon-color);
+  fill: var(--star-icon-color);
 }
 
 .inactive-star {
-  stroke: gray;
+  fill: gray;
 }
 
 p .svg-social-icons {
