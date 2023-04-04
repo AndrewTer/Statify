@@ -5,7 +5,7 @@
   {
 ?>
 <div class="block-search-and-sort suggestions-top-block p-0 text-center d-none d-md-block">
-  <p class="fz-14 font-weight-bold m-0 p-2">Возможные друзья</p>
+  <p class="fz-14 font-weight-bold letter-spacing-05 m-0 p-2">Возможные друзья</p>
   <hr class="hr-user-info m-0 mb-2">
 <?
     for ($potential_friends_num = 0; $potential_friends_num < count($potential_friends_list); $potential_friends_num++)

@@ -1,5 +1,5 @@
 <div class="block-user-content m-0 text-center d-none d-md-block">
-  <h5 class="title-user-info fz-14 fw-700 m-0 p-1 text-center">Популярные теги</h5>
+  <h5 class="title-user-info fz-14 fw-700 letter-spacing-05 m-0 p-1 text-center">Популярные теги</h5>
   <hr class="hr-user-info">
 
   <div class="row m-0 p-0">

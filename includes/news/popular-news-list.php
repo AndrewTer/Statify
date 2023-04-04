@@ -7,7 +7,7 @@
 ?>
 
 <div class="w-100 m-0 block-user-content">
-	<h5 class="fz-15 m-0 p-0 font-weight-bold">Новые пользователи</h5>
+	<h5 class="fz-15 m-0 p-0 font-weight-bold letter-spacing-05">Новые пользователи</h5>
 	<hr class="hr-user-info">
 
 	<div class="m-0 p-0 position-relative">
@@ -71,7 +71,7 @@
 ?>
 <div class="w-100 m-0 mt-3 block-user-content">
 	<div class="m-0 p-0 d-flex flex-row align-items-center" id="show-more-popular-photos-sorted-by-rating">
-		<h5 class="fz-15 m-0 p-0 font-weight-bold">По рейтингу</h5>
+		<h5 class="fz-15 m-0 p-0 font-weight-bold letter-spacing-05">По рейтингу</h5>
 <?
 		if (count(get_photos_list_sorted_by_rating(9, 91)))
 		{
@@ -142,7 +142,7 @@
 ?>
 <div class="w-100 m-0 block-user-content <?= ($photos_sorted_by_rating_list) ? 'mt-3' : ''; ?>">
 	<div class="m-0 p-0 d-flex flex-row align-items-center" id="show-more-popular-photos-sorted-by-number-of-comments">
-		<h5 class="fz-15 m-0 p-0 font-weight-bold">Самые комментируемые</h5>
+		<h5 class="fz-15 m-0 p-0 font-weight-bold letter-spacing-05">Самые комментируемые</h5>
 <?
 		if (get_most_commented_photos_list(9, 91))
 		{
@@ -212,7 +212,7 @@
 ?>
 <div class="w-100 m-0 block-user-content <?= ($photos_sorted_by_rating_list || $most_commented_photos_list) ? 'mt-3' : ''; ?>">
 	<div class="m-0 p-0 d-flex flex-row align-items-center" id="show-more-popular-photos-sorted-by-number-of-saves">
-		<h5 class="fz-15 m-0 p-0 font-weight-bold">Самые сохраняемые</h5>
+		<h5 class="fz-15 m-0 p-0 font-weight-bold letter-spacing-05">Самые сохраняемые</h5>
 <?
 		if (get_photos_list_sorted_by_number_of_saves(9, 91))
 		{

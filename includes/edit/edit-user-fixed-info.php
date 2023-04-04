@@ -11,7 +11,7 @@
     $user_nickname = get_user_nickname($user_uuid);
 ?>
   <div class="form-group m-0 p-0 mb-3 d-flex flex-row align-items-center">
-    <label class="fz-13 fw-700 m-0 mr-auto p-0 h-100">Пол</label>
+    <label class="fz-13 fw-700 letter-spacing-05 m-0 mr-auto p-0 h-100">Пол</label>
     <p class="m-0 ml-auto p-0 h-100 text-right">
     <?
       switch ($user_gender) {
@@ -32,7 +32,7 @@
   </div>
 
   <div class="form-group m-0 p-0 d-flex flex-row align-items-center">
-    <label class="fz-13 fw-700 m-0 mr-auto p-0 h-100 justify-content-start">Пользовательское имя</label>
+    <label class="fz-13 fw-700 letter-spacing-05 m-0 mr-auto p-0 h-100 justify-content-start">Пользовательское имя</label>
     <p class="m-0 ml-auto p-0 h-100 text-right d-flex flex-row flex-wrap text-break justify-content-end align-items-center" id="edit-user-nickname-text"><?= ($user_nickname) ? $user_nickname : 'Не указано'; ?>
 <?
     if ($premium_status && check_nickname_change_date($user_uuid))
@@ -69,7 +69,7 @@
           <div class="form-group w-100 m-0 p-0">
             <div class="d-flex flex-row justify-content-center align-items-center m-0 p-0">
               <input type="text" id="new-nickname-edit" class="form-control m-0 input-field justify-content-start" placeholder="максимум 20 символов" autocomplete="off" value="<?= ($user_nickname) ? $user_nickname : ''; ?>">
-              <input type="submit" class="btn btn-sm btn-skip fz-13 skip-rate-btn ml-3" value="Сохранить"></input>
+              <input type="submit" class="btn btn-sm btn-skip fz-14 skip-rate-btn ml-3" value="Сохранить"></input>
             </div>
             <div class="d-flex flex-row justify-content-center align-items-center m-0 p-0">
               <em id="new-nickname-edit-message" class="text-left w-100"></em>

@@ -1,5 +1,5 @@
 <div class="block-search-and-sort mb-3 p-0 text-center">
-  <p class="fz-14 fw-700 m-0 p-2">Топ 10 пользователей</p>
+  <p class="fz-14 fw-700 m-0 p-2 letter-spacing-05">Топ 10 пользователей</p>
   <hr class="hr-user-info m-0 mb-2">
 <?
     $top_ten_users_list = get_top_ten_users();

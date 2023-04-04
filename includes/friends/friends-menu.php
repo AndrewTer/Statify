@@ -1,7 +1,7 @@
 <div class="block-search-and-sort p-0 m-0">
   <table class="table table-borderless m-0">
     <tbody>
-        <tr class="friends-sort-list-item first-item" data-href="friends?sort=all-friends">
+        <tr class="friends-sort-list-item first-item letter-spacing-05" data-href="friends?sort=all-friends">
           <th scope="row">
             Все друзья
             <span id="friends-count">
@@ -13,13 +13,13 @@
           </th>
         </tr>
 
-        <tr class="friends-sort-list-item" data-href="friends?sort=online">
+        <tr class="friends-sort-list-item letter-spacing-05" data-href="friends?sort=online">
           <th scope="row">
             Друзья онлайн
           </th>
         </tr>
 
-        <tr class="friends-sort-list-item" data-href="friends?sort=subscribers">
+        <tr class="friends-sort-list-item letter-spacing-05" data-href="friends?sort=subscribers">
           <th scope="row">
             Подписчики
             <span id="friends-count">
@@ -31,7 +31,7 @@
           </th>
         </tr>
 
-        <tr class="friends-sort-list-item" data-href="friends?sort=subscriptions">
+        <tr class="friends-sort-list-item letter-spacing-05" data-href="friends?sort=subscriptions">
           <th scope="row">
             Подписки
             <span id="friends-count">
@@ -43,7 +43,7 @@
           </th>
         </tr>
         
-        <tr class="friends-sort-list-item last-item collapsed" id="show-all-requests" data-toggle="collapse" role="button" href="#friendshipRequestsOptions" aria-expanded="false" aria-controls="friendshipRequestsOptions">
+        <tr class="friends-sort-list-item last-item collapsed letter-spacing-05" id="show-all-requests" data-toggle="collapse" role="button" href="#friendshipRequestsOptions" aria-expanded="false" aria-controls="friendshipRequestsOptions">
           <th scope="row">
             Заявки в друзья 
             

@@ -4,9 +4,13 @@
   if (user_friendly_status($user_uuid, $current_user_uuid) == 'friend' || $current_user_uuid == $user_uuid)
   {
 ?>
-  <span class="mt-2 fz-16">
-    <i class="fa fa-star-o active-star" aria-hidden="true"></i>
-    <?= (get_user_rating_among_all_users($current_user_uuid) != 0) ? get_user_rating_among_all_users($current_user_uuid) : '0 %'; ?>
+  <span class="mt-2 d-flex flex-row align-items-stretch">
+    <p class="m-0 p-0">
+      <svg class="active-star" width="20px" height="20px" viewBox="0 0 24 24" fill="none">
+        <path d="M17.2 20.7501C17.0776 20.7499 16.9573 20.7189 16.85 20.6601L12 18.1101L7.14999 20.6601C7.02675 20.7262 6.88746 20.7566 6.74786 20.7478C6.60825 20.7389 6.47391 20.6912 6.35999 20.6101C6.24625 20.5267 6.15796 20.4133 6.10497 20.2826C6.05199 20.1519 6.03642 20.0091 6.05999 19.8701L6.99999 14.4701L3.05999 10.6501C2.96124 10.5512 2.89207 10.4268 2.86027 10.2907C2.82846 10.1547 2.83529 10.0124 2.87999 9.88005C2.92186 9.74719 3.00038 9.62884 3.10652 9.53862C3.21266 9.4484 3.34211 9.38997 3.47999 9.37005L8.89999 8.58005L11.33 3.67005C11.3991 3.55403 11.4973 3.45795 11.6147 3.39123C11.7322 3.32451 11.8649 3.28943 12 3.28943C12.1351 3.28943 12.2678 3.32451 12.3853 3.39123C12.5027 3.45795 12.6008 3.55403 12.67 3.67005L15.1 8.58005L20.52 9.37005C20.6579 9.38997 20.7873 9.4484 20.8935 9.53862C20.9996 9.62884 21.0781 9.74719 21.12 9.88005C21.1647 10.0124 21.1715 10.1547 21.1397 10.2907C21.1079 10.4268 21.0387 10.5512 20.94 10.6501L17 14.4701L17.93 19.8701C17.9536 20.0091 17.938 20.1519 17.885 20.2826C17.832 20.4133 17.7437 20.5267 17.63 20.6101C17.5034 20.6976 17.3539 20.7463 17.2 20.7501ZM12 16.5201C12.121 16.5215 12.2403 16.5488 12.35 16.6001L16.2 18.6001L15.47 14.3101C15.4502 14.1897 15.4589 14.0664 15.4953 13.9501C15.5318 13.8337 15.595 13.7275 15.68 13.6401L18.8 10.6401L14.49 10.0001C14.3708 9.98109 14.2578 9.93401 14.1605 9.86271C14.0631 9.79141 13.9841 9.69795 13.93 9.59005L12 5.69005L10.07 9.60005C10.0159 9.70795 9.9369 9.80141 9.83952 9.87271C9.74214 9.94401 9.62918 9.99109 9.50999 10.0101L5.19999 10.6401L8.31999 13.6401C8.40493 13.7275 8.46817 13.8337 8.50464 13.9501C8.54111 14.0664 8.54979 14.1897 8.52999 14.3101L7.79999 18.6301L11.65 16.6301C11.7573 16.5683 11.8767 16.5308 12 16.5201Z"></path>
+      </svg>
+    </p>
+    <p class="m-0 ml-1 p-0 fz-16"><?= (get_user_rating_among_all_users($current_user_uuid) != 0) ? get_user_rating_among_all_users($current_user_uuid) : '0 %'; ?></p>
   </span>
 <?
   }
@@ -38,10 +42,6 @@
                     <path d="M4,12.828V36c0,2.2,1.8,4,4,4h32c2.2,0,4-1.8,4-4V12.828l-20,20L4,12.828z"></path>
                   </svg>
                 </p>
-
-                <!--<svg fill="var(--main-text-color)" class="m-0 p-0 ml-2 pointer" id="user-profile-add-photo-icon" width="33px" height="33px" viewBox="-1 0 19 19" xmlns="http://www.w3.org/2000/svg" data-href="edit">
-                  <path d="M16.5 9.5a8 8 0 1 1-8-8 8 8 0 0 1 8 8zm-2.874-2.287a.803.803 0 0 0-.8-.8h-2.054v-.251a.802.802 0 0 0-.8-.8h-2.93a.802.802 0 0 0-.8.8v.25H4.186a.802.802 0 0 0-.8.8v5.166a.802.802 0 0 0 .8.8h8.639a.803.803 0 0 0 .8-.8zm-2.692 2.582a2.427 2.427 0 1 1-2.428-2.427 2.428 2.428 0 0 1 2.428 2.427zm-4.055 0a1.627 1.627 0 1 0 1.627-1.627A1.63 1.63 0 0 0 6.88 9.795zm2.75-3.931a.4.4 0 1 0 .4.4.4.4 0 0 0-.4-.4z"></path>
-                </svg>-->
               </div>';
       else
         echo '<p class="btn btn-standard user-profile-action-btn m-0 mt-2 p-1" data-href="edit">Редактировать</p>';
@@ -61,7 +61,7 @@
                 <p class="btn btn-standard user-profile-action-btn w-100 m-0 p-1 pointer" data-u="'.$user_uuid.'" data-f="'.$current_user_uuid.'" id="add-friend-from-user-page-btn">Добавить в друзья</p>
 
                 <div class="m-0 p-0" role="group">
-                  <svg class="m-0 ml-2 pointer" id="user-profile-more-menu-icon" data-toggle="dropdown" aria-expanded="false" width="28px" height="28px" fill="var(--main-text-color)" version="1.1" xmlns:x="&amp;ns_extend;" xmlns:i="&amp;ns_ai;" xmlns:graph="&amp;ns_graphs;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64px" height="64px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+                  <svg class="m-0 ml-2 pointer" id="user-profile-more-menu-icon" data-toggle="dropdown" aria-expanded="false" width="28px" height="28px" fill="var(--main-text-color)" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
                     <path d="M12,24C5.4,24,0,18.6,0,12S5.4,0,12,0s12,5.4,12,12S18.6,24,12,24z M12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10 S17.5,2,12,2z"></path>
                     <circle cx="7" cy="12" r="1.5"></circle>
                     <circle cx="12" cy="12" r="1.5"></circle>

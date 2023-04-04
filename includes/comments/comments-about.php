@@ -1,5 +1,5 @@
 <div class="block-search-and-sort p-0 text-center d-none d-md-block">
-  <p class="fz-14 fw-700 m-0 p-2">О пользователе</p>
+  <p class="fz-14 fw-700 letter-spacing-05 m-0 p-2">О пользователе</p>
   <hr class="hr-user-info m-0 mb-2">
 
   <div class="row m-0 p-0 mt-2 mb-2 ml-3 mr-3 d-flex align-items-center justify-content-center">

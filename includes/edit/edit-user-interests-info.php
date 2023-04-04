@@ -12,7 +12,7 @@
 ?>  
     <form id="edit-user-interests-block" data-attr="<?= $user_uuid; ?>" action="" method="POST" onSubmit="return editUserInterestsValidation();">
       <div class="form-group w-100 m-0 mb-3 pl-4 pr-4 d-flex align-items-center" id="edit-gender-preference">
-        <label class="font-weight-bold p-0 m-0 w-40">Пол</label>
+        <label class="font-weight-bold letter-spacing-05 p-0 m-0 w-40">Пол</label>
         <select class="form-control m-0 p-0 w-60 input-field" id="edit-input-select-gender-preference">
         <?
           $genders_list = get_genders_list();
@@ -28,7 +28,7 @@
       </div>
 
       <div class="form-group w-100 m-0 mb-3 pl-4 pr-4 d-flex align-items-center" id="edit-age-preference">
-        <label class="font-weight-bold m-0 p-0 w-50">Возрастной диапазон</label>
+        <label class="font-weight-bold letter-spacing-05 m-0 p-0 w-50">Возрастной диапазон</label>
         <div class="m-0 p-0 w-50 d-flex flex-wrap justify-content-center align-items-center">
 <?
         if ($user_age < 18)
@@ -94,7 +94,7 @@
         </div>
       </div>
 
-      <input type="submit" class="btn btn-standard w-100 m-0" value="Сохранить интересы">
+      <input type="submit" class="btn btn-standard w-100 m-0 fz-14" value="Сохранить интересы">
             
     </form>
 <?

@@ -11,7 +11,7 @@
     $user_gender = get_user_gender($user_uuid);
 ?>
 
-  <div class="w-100 m-0 p-0 d-flex flex-row align-items-center">
+  <div class="w-100 m-0 p-0 d-flex flex-row align-items-stretch">
 <?
     if ($user_country && $user_city)
       echo '<p class="m-0 p-0">
@@ -37,7 +37,7 @@
 ?>
   </div>
 
-  <div class="w-100 m-0 mt-2 p-0 d-flex flex-row align-items-center">
+  <div class="w-100 m-0 mt-2 p-0 d-flex flex-row align-items-stretch">
 <?
     if ($user_birthday)
       echo '<p class="m-0 p-0">
@@ -56,7 +56,7 @@
 ?>
   </div>
 
-  <div class="w-100 m-0 mt-2 p-0 d-flex flex-row align-items-center">
+  <div class="w-100 m-0 mt-2 p-0 d-flex flex-row align-items-stretch">
 <?
   switch ($user_gender) {
     case 'male':

@@ -10,7 +10,7 @@
 <div class="modal-body">
   <form id="edit-user-data-block" data-attr="<?= $user_uuid; ?>" action="" method="POST" onSubmit="return editUserDataValidation();">
     <div class="form-group w-100 m-0 mb-3 pl-4 pr-4 d-flex align-items-center">
-      <label class="font-weight-bold p-0 m-0 w-40">Имя</label>
+      <label class="font-weight-bold letter-spacing-05 p-0 m-0 w-40">Имя</label>
       <div class="m-0 p-0 w-60 d-flex flex-column align-items-center">
         <input type="text" id="name-edit" class="form-control input-field" value="<?= $user_name; ?>" autocomplete="off" placeholder="Допустимые символы: А-я">
         <em id="name-edit-message" class="text-center"></em>
@@ -18,7 +18,7 @@
     </div>
 
     <div class="form-group w-100 m-0 mt-3 mb-3 pl-4 pr-4 d-flex align-items-center">
-      <label class="font-weight-bold p-0 m-0 w-40">Фамилия</label>
+      <label class="font-weight-bold letter-spacing-05 p-0 m-0 w-40">Фамилия</label>
       <div class="m-0 p-0 w-60 d-flex flex-column align-items-center">
         <input type="text" id="surname-edit" class="form-control input-field" value="<?= $user_surname; ?>" autocomplete="off" placeholder="Допустимые символы: А-я">
         <em id="surname-edit-message" class="text-center"></em>
@@ -26,7 +26,7 @@
     </div>
 
     <div class="form-group w-100 m-0 mt-3 mb-3 pl-4 pr-4 d-flex align-items-center" id="edit-date-born">
-      <label class="font-weight-bold m-0 p-0 w-40">Дата рождения</label>
+      <label class="font-weight-bold letter-spacing-05 m-0 p-0 w-40">Дата рождения</label>
       <div class="m-0 p-0 w-60 d-flex flex-column align-items-center">
         <input type="date" id="date-born-edit" class="form-control input-field" min="1940-01-01" max="<?= date("Y-m-d"); ?>" value="<?= $user_birthday; ?>">
         <em id="date-born-edit-message" class="text-center"></em>
@@ -36,7 +36,7 @@
     <hr class="hr-user-info">
 
     <div class="form-group w-100 m-0 mt-3 mb-3 pl-4 pr-4 d-flex align-items-center" id="edit-country">
-      <label class="font-weight-bold m-0 p-0 w-40">Страна</label>
+      <label class="font-weight-bold letter-spacing-05 m-0 p-0 w-40">Страна</label>
       <select class="form-control m-0 p-0 w-60 input-field" id="edit-input-select-country">
         <?
           $countries_list = get_country_list();
@@ -57,7 +57,7 @@
     </div>
 
     <div class="form-group w-100 m-0 mt-3 mb-3 pl-4 pr-4 d-flex align-items-center" id="edit-city" data-attr = "<?= get_user_city($user_uuid); ?>">
-      <label class="font-weight-bold m-0 p-0 w-40">Город</label>
+      <label class="font-weight-bold letter-spacing-05 m-0 p-0 w-40">Город</label>
       <select class="form-control m-0 p-0 w-60 input-field" id="edit-input-select-city"></select>
     </div>
 
@@ -101,6 +101,6 @@
       </div>
     </div>
 
-    <input type="submit" class="btn btn-standard w-100 m-0" value="Сохранить изменения"> 
+    <input type="submit" class="btn btn-standard w-100 m-0 fz-14" value="Сохранить изменения"> 
   </form>
 </div>

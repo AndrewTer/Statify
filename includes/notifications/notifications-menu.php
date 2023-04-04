@@ -3,7 +3,7 @@
 <div class="block-search-and-sort p-0 m-0 mb-3">
   <table class="table table-borderless m-0">
     <tbody>        
-        <tr class="notifications-sort-list-item" id="show-all-requests" data-href="notifications">
+        <tr class="notifications-sort-list-item letter-spacing-05" id="show-all-requests" data-href="notifications">
           <th scope="row">
             Уведомления
             <span class="notifications-count" id="notifications-count"><?= ($notifications_all_count > 0) ? $notifications_all_count : ''; ?></span>

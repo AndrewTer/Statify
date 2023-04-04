@@ -1,13 +1,13 @@
 <div class="block-search-and-sort mb-3 p-0">
   <table class="table table-borderless m-0">
     <tbody>
-        <tr class="news-sort-list-item first-item" data-href="news?sort=mine">
+        <tr class="news-sort-list-item first-item letter-spacing-05" data-href="news?sort=mine">
           <th scope="row">
             Мои новости
           </th>
         </tr>
 
-        <tr class="news-sort-list-item" data-href="news?sort=friends">
+        <tr class="news-sort-list-item letter-spacing-05" data-href="news?sort=friends">
           <th scope="row">
             Новости друзей
           </th>
@@ -19,7 +19,7 @@
           </th>
         </tr>
 
-        <tr class="news-sort-list-item last-item" data-href="news?sort=popular">
+        <tr class="news-sort-list-item last-item letter-spacing-05" data-href="news?sort=popular">
           <th class="d-flex flex-row align-items-center">
             Популярное
             <svg class="ml-auto mr-0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 256 256" xml:space="preserve" fill="red">
