@@ -23,7 +23,7 @@
 ?>
           <div class="other-picture-card">
             <div class="mx-auto d-block other-picture-card-img">
-              <img class="offline pointer border-radius-10" 
+              <img class="offline pointer border-radius-15" 
                     src="<?= 'users/'.$photo_user_uuid.'/'.$photo_file; ?>" 
                     alt="<?= get_user_fullname($photo_user_uuid); ?>" 
                     onclick="event.preventDefault();openProfilePictureModal(<?= '\''.$user_uuid.'\',\''.$photo_user_uuid.'\',\''.$photo_file.'\''; ?>);">

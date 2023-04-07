@@ -32,7 +32,7 @@
 ?>
             <div class="profile-picture-card">
               <div class="mx-auto d-block profile-picture-card-avatar">
-                <img class="offline border-radius-10 pointer" src="<?= 'users/'.$current_user_uuid.'/'.$photo_file; ?>" alt="<?= get_user_fullname($current_user_uuid); ?>" onclick="event.preventDefault();openProfilePictureModal(<?= '\''.$user_uuid.'\',\''.$current_user_uuid.'\',\''.$photo_file.'\''; ?>);">
+                <img class="offline border-radius-15 pointer" src="<?= 'users/'.$current_user_uuid.'/'.$photo_file; ?>" alt="<?= get_user_fullname($current_user_uuid); ?>" onclick="event.preventDefault();openProfilePictureModal(<?= '\''.$user_uuid.'\',\''.$current_user_uuid.'\',\''.$photo_file.'\''; ?>);">
               </div>
             </div>
 <?

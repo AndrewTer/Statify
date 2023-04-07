@@ -14,7 +14,21 @@
   </span>
 <?
   }
+?>
+  <span class="m-0 mt-1 p-0 d-flex flex-row align-items-center">
+    <p class="m-0 p-0">
+      <svg class="m-0 p-0" width="9px" height="9px" viewBox="-4.5 0 20 20" fill="var(--main-text-color)">
+        <g transform="translate(-305.000000, -6679.000000)" fill="var(--main-text-color)"> 
+          <g transform="translate(56.000000, 160.000000)"> 
+            <path d="M249.365851,6538.70769 L249.365851,6538.70769 C249.770764,6539.09744 250.426289,6539.09744 250.830166,6538.70769 L259.393407,6530.44413 C260.202198,6529.66364 260.202198,6528.39747 259.393407,6527.61699 L250.768031,6519.29246 C250.367261,6518.90671 249.720021,6518.90172 249.314072,6519.28247 L249.314072,6519.28247 C248.899839,6519.67121 248.894661,6520.31179 249.302681,6520.70653 L257.196934,6528.32352 C257.601847,6528.71426 257.601847,6529.34685 257.196934,6529.73759 L249.365851,6537.29462 C248.960938,6537.68437 248.960938,6538.31795 249.365851,6538.70769"></path>
+          </g>
+        </g>
+      </svg>
+    </p>
 
+    <p class="m-0 ml-1 p-0 fz-12">Подробнее</p>
+  </span>
+<?
   if ($page_status && $current_user_uuid == $user_uuid)
   {
     $latest_avatar_date = get_latest_avatar_date_upload($user_uuid);
@@ -24,7 +38,7 @@
               <p class="btn btn-standard user-profile-action-btn m-0 p-1" data-href="edit">Редактировать</p>
 
               <p class="m-0 p-0 ml-2 pointer" data-toggle="tooltip" data-placement="bottom" title="Обновить фотографию">
-                <svg fill="var(--main-text-color)" id="user-profile-add-photo-icon" width="33px" height="33px" viewBox="-1 0 19 19" xmlns="http://www.w3.org/2000/svg" data-href="edit">
+                <svg fill="var(--main-text-color)" id="user-profile-add-photo-icon" width="33px" height="33px" viewBox="-1 0 19 19" data-href="edit">
                   <path d="M16.5 9.5a8 8 0 1 1-8-8 8 8 0 0 1 8 8zm-2.874-2.287a.803.803 0 0 0-.8-.8h-2.054v-.251a.802.802 0 0 0-.8-.8h-2.93a.802.802 0 0 0-.8.8v.25H4.186a.802.802 0 0 0-.8.8v5.166a.802.802 0 0 0 .8.8h8.639a.803.803 0 0 0 .8-.8zm-2.692 2.582a2.427 2.427 0 1 1-2.428-2.427 2.428 2.428 0 0 1 2.428 2.427zm-4.055 0a1.627 1.627 0 1 0 1.627-1.627A1.63 1.63 0 0 0 6.88 9.795zm2.75-3.931a.4.4 0 1 0 .4.4.4.4 0 0 0-.4-.4z"></path>
                 </svg>
               </p>
@@ -61,12 +75,12 @@
                 <p class="btn btn-standard user-profile-action-btn w-100 m-0 p-1 pointer" data-u="'.$user_uuid.'" data-f="'.$current_user_uuid.'" id="add-friend-from-user-page-btn">Добавить в друзья</p>
 
                 <div class="m-0 p-0" role="group">
-                  <svg class="m-0 ml-2 pointer" id="user-profile-more-menu-icon" data-toggle="dropdown" aria-expanded="false" width="28px" height="28px" fill="var(--main-text-color)" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
-                    <path d="M12,24C5.4,24,0,18.6,0,12S5.4,0,12,0s12,5.4,12,12S18.6,24,12,24z M12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10 S17.5,2,12,2z"></path>
-                    <circle cx="7" cy="12" r="1.5"></circle>
-                    <circle cx="12" cy="12" r="1.5"></circle>
-                    <circle cx="17" cy="12" r="1.5"></circle>
-                  </svg>
+                  <p class="m-0 ml-2 p-0 d-flex align-items-center justify-content-center border-radius-circle" id="user-profile-more-menu-icon" data-toggle="dropdown" aria-expanded="false">
+                    <svg class="m-0 p-0 pointer" width="33px" height="33px" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="var(--main-text-color)" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M8.4707 10.7402L12.0007 14.2602L15.5307 10.7402" stroke="var(--main-text-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </p>
 
                   <div class="dropdown-menu dropdown-menu-right user-profile-dropdown-menu mt-1 p-0" aria-labelledby="user-profile-more-menu-icon">
                     <a class="dropdown-item only-one-item pt-2 pb-2" 
@@ -83,12 +97,12 @@
                 <p class="btn btn-red user-profile-action-btn w-100 m-0 p-1 pointer" data-u="'.$user_uuid.'" data-f="'.$current_user_uuid.'" id="del-friend-from-user-page-btn">Убрать из друзей</p>
 
                 <div class="m-0 p-0" role="group">
-                  <svg class="m-0 ml-2 pointer" id="user-profile-more-menu-icon" data-toggle="dropdown" aria-expanded="false" width="28px" height="28px" fill="var(--main-text-color)" version="1.1" xmlns:x="&amp;ns_extend;" xmlns:i="&amp;ns_ai;" xmlns:graph="&amp;ns_graphs;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
-                    <path d="M12,24C5.4,24,0,18.6,0,12S5.4,0,12,0s12,5.4,12,12S18.6,24,12,24z M12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10 S17.5,2,12,2z"></path>
-                    <circle cx="7" cy="12.5" r="1.5"></circle>
-                    <circle cx="12" cy="12.5" r="1.5"></circle>
-                    <circle cx="17" cy="12.5" r="1.5"></circle>
-                  </svg>
+                  <p class="m-0 ml-2 p-0 d-flex align-items-center justify-content-center border-radius-circle" id="user-profile-more-menu-icon" data-toggle="dropdown" aria-expanded="false">
+                    <svg class="m-0 p-0 pointer" width="33px" height="33px" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="var(--main-text-color)" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M8.4707 10.7402L12.0007 14.2602L15.5307 10.7402" stroke="var(--main-text-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </p>
 
                   <div class="dropdown-menu dropdown-menu-right user-profile-dropdown-menu mt-1 p-0" aria-labelledby="user-profile-more-menu-icon">
                     <a class="dropdown-item only-one-item pt-2 pb-2" 
@@ -105,12 +119,12 @@
                 <p class="btn btn-red user-profile-action-btn w-100 m-0 p-1 pointer" data-u="'.$user_uuid.'" data-f="'.$current_user_uuid.'" id="del-request-from-user-page-btn">Отменить заявку</p>
 
                 <div class="m-0 p-0" role="group">
-                  <svg class="m-0 ml-2 pointer" id="user-profile-more-menu-icon" data-toggle="dropdown" aria-expanded="false" width="28px" height="28px" fill="var(--main-text-color)" version="1.1" xmlns:x="&amp;ns_extend;" xmlns:i="&amp;ns_ai;" xmlns:graph="&amp;ns_graphs;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64px" height="64px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
-                    <path d="M12,24C5.4,24,0,18.6,0,12S5.4,0,12,0s12,5.4,12,12S18.6,24,12,24z M12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10 S17.5,2,12,2z"></path>
-                    <circle cx="7" cy="12" r="1.5"></circle>
-                    <circle cx="12" cy="12" r="1.5"></circle>
-                    <circle cx="17" cy="12" r="1.5"></circle>
-                  </svg>
+                  <p class="m-0 ml-2 p-0 d-flex align-items-center justify-content-center border-radius-circle" id="user-profile-more-menu-icon" data-toggle="dropdown" aria-expanded="false">
+                    <svg class="m-0 p-0 pointer" width="33px" height="33px" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="var(--main-text-color)" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M8.4707 10.7402L12.0007 14.2602L15.5307 10.7402" stroke="var(--main-text-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </p>
 
                   <div class="dropdown-menu dropdown-menu-right user-profile-dropdown-menu mt-1 p-0" aria-labelledby="user-profile-more-menu-icon">
                     <a class="dropdown-item only-one-item pt-2 pb-2" 
@@ -141,12 +155,12 @@
                 </div>
 
                 <div class="m-0 p-0" role="group">
-                  <svg class="m-0 ml-2 pointer" id="user-profile-more-menu-icon" data-toggle="dropdown" aria-expanded="false" width="28px" height="28px" fill="var(--main-text-color)" version="1.1" xmlns:x="&amp;ns_extend;" xmlns:i="&amp;ns_ai;" xmlns:graph="&amp;ns_graphs;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64px" height="64px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
-                    <path d="M12,24C5.4,24,0,18.6,0,12S5.4,0,12,0s12,5.4,12,12S18.6,24,12,24z M12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10 S17.5,2,12,2z"></path>
-                    <circle cx="7" cy="12" r="1.5"></circle>
-                    <circle cx="12" cy="12" r="1.5"></circle>
-                    <circle cx="17" cy="12" r="1.5"></circle>
-                  </svg>
+                  <p class="m-0 ml-2 p-0 d-flex align-items-center justify-content-center border-radius-circle" id="user-profile-more-menu-icon" data-toggle="dropdown" aria-expanded="false">
+                    <svg class="m-0 p-0 pointer" width="33px" height="33px" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="var(--main-text-color)" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M8.4707 10.7402L12.0007 14.2602L15.5307 10.7402" stroke="var(--main-text-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </p>
 
                   <div class="dropdown-menu dropdown-menu-right user-profile-dropdown-menu mt-1 p-0" aria-labelledby="user-profile-more-menu-icon">
                     <a class="dropdown-item only-one-item pt-2 pb-2" 
@@ -164,12 +178,12 @@
                 <p class="btn btn-standard user-profile-action-btn w-100 m-0 p-1 pointer" data-u="'.$user_uuid.'" data-f="'.$current_user_uuid.'" id="add-friend-from-subscriber-from-user-page-btn">Добавить в друзья</p>
 
                 <div class="m-0 p-0" role="group">
-                  <svg class="m-0 ml-2 pointer" id="user-profile-more-menu-icon" data-toggle="dropdown" aria-expanded="false" width="28px" height="28px" fill="var(--main-text-color)" version="1.1" xmlns:x="&amp;ns_extend;" xmlns:i="&amp;ns_ai;" xmlns:graph="&amp;ns_graphs;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64px" height="64px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
-                    <path d="M12,24C5.4,24,0,18.6,0,12S5.4,0,12,0s12,5.4,12,12S18.6,24,12,24z M12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10 S17.5,2,12,2z"></path>
-                    <circle cx="7" cy="12" r="1.5"></circle>
-                    <circle cx="12" cy="12" r="1.5"></circle>
-                    <circle cx="17" cy="12" r="1.5"></circle>
-                  </svg>
+                  <p class="m-0 ml-2 p-0 d-flex align-items-center justify-content-center border-radius-circle" id="user-profile-more-menu-icon" data-toggle="dropdown" aria-expanded="false">
+                    <svg class="m-0 p-0 pointer" width="33px" height="33px" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="var(--main-text-color)" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M8.4707 10.7402L12.0007 14.2602L15.5307 10.7402" stroke="var(--main-text-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </p>
 
                   <div class="dropdown-menu dropdown-menu-right user-profile-dropdown-menu mt-1 p-0" aria-labelledby="user-profile-more-menu-icon">
                     <a class="dropdown-item only-one-item pt-2 pb-2" 
@@ -186,12 +200,12 @@
                 <p class="btn btn-red user-profile-action-btn m-0 p-1 pointer" data-u="'.$user_uuid.'" data-f="'.$current_user_uuid.'" id="del-subscribed-from-user-page-btn">Отписаться</p>
 
                 <div class="m-0 p-0" role="group">
-                  <svg class="m-0 ml-2 pointer" id="user-profile-more-menu-icon" data-toggle="dropdown" aria-expanded="false" width="28px" height="28px" fill="var(--main-text-color)" version="1.1" xmlns:x="&amp;ns_extend;" xmlns:i="&amp;ns_ai;" xmlns:graph="&amp;ns_graphs;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64px" height="64px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
-                    <path d="M12,24C5.4,24,0,18.6,0,12S5.4,0,12,0s12,5.4,12,12S18.6,24,12,24z M12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10 S17.5,2,12,2z"></path>
-                    <circle cx="7" cy="12" r="1.5"></circle>
-                    <circle cx="12" cy="12" r="1.5"></circle>
-                    <circle cx="17" cy="12" r="1.5"></circle>
-                  </svg>
+                  <p class="m-0 ml-2 p-0 d-flex align-items-center justify-content-center border-radius-circle" id="user-profile-more-menu-icon" data-toggle="dropdown" aria-expanded="false">
+                    <svg class="m-0 p-0 pointer" width="33px" height="33px" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="var(--main-text-color)" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M8.4707 10.7402L12.0007 14.2602L15.5307 10.7402" stroke="var(--main-text-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </p>
 
                   <div class="dropdown-menu dropdown-menu-right user-profile-dropdown-menu mt-1 p-0" aria-labelledby="user-profile-more-menu-icon">
                     <a class="dropdown-item only-one-item pt-2 pb-2" 

@@ -32,7 +32,7 @@
 
           echo '<div class="saved-card">
                   <div class="mx-auto d-block saved-picture-card">
-                    <img class="offline border-radius-10 pointer" 
+                    <img class="offline border-radius-15 pointer" 
                           src="users/'.$photo_file_user_uuid.'/'.$photo_file.'" 
                           alt="'.get_user_fullname($photo_file_user_uuid).'" 
                           onclick="event.preventDefault();openProfilePictureModal(\''.$user_uuid.'\',\''.$photo_file_user_uuid.'\',\''.$photo_file.'\');">
