@@ -27,7 +27,10 @@
   --calendar-icon-color-invert: 100%;
   --premium-star-icon-filter-inactive: invert(54%) sepia(1%) saturate(1734%) hue-rotate(336deg) brightness(94%) contrast(87%);
 
+  --standard-btn-color: #07689F;
   --skip-btn-color: #007bff;
+
+  --standard-btn-hover-color: #0086b3;
 
   --scrollbar-color: #474748;
 
@@ -84,7 +87,10 @@
   --calendar-icon-color-invert: 100%;
   --premium-star-icon-filter-inactive: invert(54%) sepia(1%) saturate(1734%) hue-rotate(336deg) brightness(94%) contrast(87%);
 
+  --standard-btn-color: #07689F;
   --skip-btn-color: #007bff;
+
+  --standard-btn-hover-color: #0086b3;
 
   --scrollbar-color: #474748;
 
@@ -141,7 +147,10 @@
   --calendar-icon-color-invert: 100%;
   --premium-star-icon-filter-inactive: invert(54%) sepia(1%) saturate(1734%) hue-rotate(336deg) brightness(94%) contrast(87%);
 
+  --standard-btn-color: #07689F;
   --skip-btn-color: #007bff;
+
+  --standard-btn-hover-color: #0086b3;
 
   --scrollbar-color: #474748;
 
@@ -198,7 +207,10 @@
   --calendar-icon-color-invert: 100%;
   --premium-star-icon-filter-inactive: invert(54%) sepia(1%) saturate(1734%) hue-rotate(336deg) brightness(94%) contrast(87%);
 
+  --standard-btn-color: #07689F;
   --skip-btn-color: #007bff;
+
+  --standard-btn-hover-color: #0086b3;
 
   --scrollbar-color: rgba(46, 69, 132, .6);
 
@@ -260,7 +272,10 @@
   --calendar-icon-color-invert: 100%;
   --premium-star-icon-filter-inactive: invert(54%) sepia(1%) saturate(1734%) hue-rotate(336deg) brightness(94%) contrast(87%);
 
+  --standard-btn-color: #07689F;
   --skip-btn-color: #007bff;
+
+  --standard-btn-hover-color: #0086b3;
 
   --scrollbar-color: rgba(46, 69, 132, .6);
 
@@ -293,7 +308,7 @@
 
 .bahama-blue-theme {
   --main-text-color: #262727;
-  --hover-text-color: #07689F;
+  --hover-text-color: #53526B;
   --input-text-color: #262626;
   --header-footer-text-color: #ffffff;
 
@@ -301,36 +316,39 @@
   --second-place-color: #737373;
   --third-place-color: #a46628;
 
-  --main-menu-icon-color: #07689F;
+  --main-menu-icon-color: #53526B;
   --main-menu-icon-hover-color: #4073BF;
 
-  --text-border-color: #cccccc;
+  --text-border-color: #e6e6e6;
   --offline-color: lightgray;
 
-  --statistic-text-color: #07689F;
+  --statistic-text-color: #53526B;
 
   --news-user-link-color: #004880;
 
   --star-icon-color: #ff7b00;
-  --social-icon-color: #07689F;
+  --social-icon-color: #53526B;
   --save-icon-color: #4073BF;
-  --saved-icon-color: #07689F;
+  --saved-icon-color: #53526B;
   --calendar-icon-color-invert: 0%;
   --premium-star-icon-filter-inactive: invert(54%) sepia(1%) saturate(1734%) hue-rotate(336deg) brightness(94%) contrast(87%);
 
-  --skip-btn-color: #07689F;
+  --standard-btn-color: #53526B;
+  --skip-btn-color: #53526B;
 
-  --scrollbar-color: #cccccc;
+  --standard-btn-hover-color: #6361b3;
 
-  --body-bg-color: #f4f4f4;
-  --header-footer-bg-color: #07689F;
+  --scrollbar-color: #e6e6e6;
+
+  --body-bg-color: #F7F6FC;
+  --header-footer-bg-color: #53526B;
   --content-block-bg-color: #ffffff;
   --content-block-bg-color-without-transparency: #ffffff;
 
   --mobile-menu-bg-color: #ffffff;
   --settings-menu-bg-color: #ffffff;
 
-  --hr-user-info-bg-color: #cccccc;
+  --hr-user-info-bg-color: #e6e6e6;
   --block-hover-bg-color: #e6f0ff;
   --block-with-stats-by-star-rating: rgba(255, 255, 255, 0.9);
 
@@ -338,7 +356,7 @@
   --toast-error-bg-color: rgba(140, 0, 0, 0.8);
 
   --header-footer-border-color: #A2D5F2;
-  --content-block-border-color: #d9d9d9;
+  --content-block-border-color: #e6e6e6;
   --input-field-border-color: #07689F;
   --modal-border: none;
 
@@ -522,6 +540,18 @@ blockquote p:after {
   -webkit-border-radius: 10px !important;
   -moz-border-radius: 10px !important;
   border-radius: 10px !important;
+}
+
+.border-radius-15 {
+  -webkit-border-radius: 15px !important;
+  -moz-border-radius: 15px !important;
+  border-radius: 15px !important;
+}
+
+.border-radius-circle {
+  -webkit-border-radius: 90% !important;
+  -moz-border-radius: 90% !important;
+  border-radius: 90% !important;
 }
 
 .rotate-180 {
@@ -714,9 +744,9 @@ blockquote p:after {
 .block-search-and-sort {
   border: 1px solid var(--content-block-border-color);
   background: var(--content-block-bg-color);
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
 }
 
 .input-with-icon i {
@@ -788,7 +818,7 @@ blockquote p:after {
 }
 
 .btn-standard {
-  background: #07689F;
+  background: var(--standard-btn-color);
 }
 
 .btn-skip {
@@ -804,7 +834,7 @@ blockquote p:after {
 .btn-standard:hover,
 .btn-skip:hover {
   color: white;
-  background: #0086b3;
+  background: var(--standard-btn-hover-color);
 }
 
 .btn-red:hover {

@@ -76,9 +76,9 @@
   max-width: 175px;
   border: none;
   background: var(--settings-menu-bg-color);
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
   overflow: hidden;
   top: 50px;
   transition: max-height 0.3s;

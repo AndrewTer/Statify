@@ -31,9 +31,9 @@
 }
 
 #show-all-requests:hover th {
-  -webkit-border-radius: 10px 10px 0 0;
-  -moz-border-radius: 10px 10px 0 0;
-  border-radius: 10px 10px 0 0;
+  -webkit-border-radius: 15px 15px 0 0;
+  -moz-border-radius: 15px 15px 0 0;
+  border-radius: 15px 15px 0 0;
 }
 
 #read-all-notifications {
@@ -42,9 +42,9 @@
 
 #read-all-notifications:hover th {
   background: var(--block-hover-bg-color);
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
 }
 
 #notifications-count {
@@ -60,9 +60,9 @@
   padding: 3px;
   border: 1px solid var(--content-block-border-color);
   background: var(--content-block-bg-color);
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
 }
 
 .new-notification {

@@ -29,7 +29,7 @@
 
 				$result .= '<div class="popular-picture-card m-1 grid-item position-relative">
 					<div class="m-0 p-0">
-						<img class="offline w-100 border-radius-10" src="users/'.$photo_user_uuid.'/'.$photo_name.'" alt="'.$photo_user_name.'" onclick="event.preventDefault();openProfilePictureModal(\''.$user_uuid.'\',\''.$photo_user_uuid.'\',\''.$photo_name.'\');">
+						<img class="offline w-100 border-radius-15" src="users/'.$photo_user_uuid.'/'.$photo_name.'" alt="'.$photo_user_name.'" onclick="event.preventDefault();openProfilePictureModal(\''.$user_uuid.'\',\''.$photo_user_uuid.'\',\''.$photo_name.'\');">
 					</div>
 				</div>';
 	  	}

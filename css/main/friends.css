@@ -17,9 +17,9 @@
    padding: 10px;
    border: 1px solid var(--content-block-border-color);
    background: var(--content-block-bg-color);
-   -webkit-border-radius: 10px;
-   -moz-border-radius: 10px;
-   border-radius: 10px;
+   -webkit-border-radius: 15px;
+   -moz-border-radius: 15px;
+   border-radius: 15px;
 }
 
 #friend-search-card {
@@ -40,9 +40,9 @@
    border: 1px solid var(--content-block-border-color);
    background: var(--content-block-bg-color);
    backdrop-filter: blur(10px);
-   -webkit-border-radius: 10px;
-   -moz-border-radius: 10px;
-   border-radius: 10px;
+   -webkit-border-radius: 15px;
+   -moz-border-radius: 15px;
+   border-radius: 15px;
    z-index: 1;
 }
 
@@ -74,9 +74,9 @@
 }
 
 .friends-sort-list-item.first-item:hover th {
-  -webkit-border-radius: 10px 10px 0 0;
-  -moz-border-radius: 10px 10px 0 0;
-  border-radius: 10px 10px 0 0;
+  -webkit-border-radius: 15px 15px 0 0;
+  -moz-border-radius: 15px 15px 0 0;
+  border-radius: 15px 15px 0 0;
 }
 
 .friends-sort-list-item.last-item:hover th {
@@ -86,9 +86,9 @@
 }
 
 .friends-sort-list-item.last-item.collapsed:hover th {
-  -webkit-border-radius: 0 0 10px 10px;
-  -moz-border-radius: 0 0 10px 10px;
-  border-radius: 0 0 10px 10px;
+  -webkit-border-radius: 0 0 15px 15px;
+  -moz-border-radius: 0 0 15px 15px;
+  border-radius: 0 0 15px 15px;
 }
 
 .friends-sort-list-item:hover th,

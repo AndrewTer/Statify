@@ -8,9 +8,9 @@
 }
 
 #view-all-photos:hover {
-   -webkit-border-radius: 10px;
-   -moz-border-radius: 10px;
-   border-radius: 0 0 10px 10px;
+   -webkit-border-radius: 0 0 15px 15px;
+   -moz-border-radius: 0 0 15px 15px;
+   border-radius: 0 0 15px 15px;
    background: var(--block-hover-bg-color);
 }
 

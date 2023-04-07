@@ -49,9 +49,8 @@
   fill: var(--hover-text-color);
 }
 
-#user-profile-more-menu-icon:hover path,
-#user-profile-more-menu-icon:hover circle  {
-  fill: var(--hover-text-color);
+#user-profile-more-menu-icon:hover svg path {
+  stroke: var(--hover-text-color);
 }
 
 .active-star {

@@ -26,9 +26,9 @@
 .block-edit-user-confirm-email {
    border: 1px solid var(--content-block-border-color);
    background: var(--content-block-bg-color);
-   -webkit-border-radius: 10px;
-   -moz-border-radius: 10px;
-   border-radius: 10px;
+   -webkit-border-radius: 15px;
+   -moz-border-radius: 15px;
+   border-radius: 15px;
 }
 
 #edit-user-info {
@@ -41,9 +41,9 @@
    padding: 10px;
    border: 1px solid var(--content-block-border-color);
    background: var(--content-block-bg-color);
-   -webkit-border-radius: 10px;
-   -moz-border-radius: 10px;
-   border-radius: 10px;
+   -webkit-border-radius: 15px;
+   -moz-border-radius: 15px;
+   border-radius: 15px;
 }
 
 .block-edit-user-fixed-info,
@@ -76,9 +76,9 @@
    width: 100%;
    padding: 15px;
    border: 2px dashed #8b8c8d;
-   -webkit-border-radius: 10px;
-   -moz-border-radius: 10px;
-   border-radius: 10px;
+   -webkit-border-radius: 15px;
+   -moz-border-radius: 15px;
+   border-radius: 15px;
 }
 
 .upload-user-photo-label {
@@ -91,9 +91,9 @@
 }
 
 #upload-new-avatar:hover {
-   -webkit-border-radius: 0 0 10px 10px;
-   -moz-border-radius: 0 0 10px 10px;
-   border-radius: 0 0 10px 10px;
+   -webkit-border-radius: 0 0 15px 15px;
+   -moz-border-radius: 0 0 15px 15px;
+   border-radius: 0 0 15px 15px;
    background: var(--block-hover-bg-color);
 }
 

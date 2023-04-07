@@ -7,9 +7,9 @@
    padding: 10px;
    border: 1px solid var(--content-block-border-color);
    background: var(--content-block-bg-color);
-   -webkit-border-radius: 10px;
-   -moz-border-radius: 10px;
-   border-radius: 10px;
+   -webkit-border-radius: 15px;
+   -moz-border-radius: 15px;
+   border-radius: 15px;
 }
 
 #all-search-card {

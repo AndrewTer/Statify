@@ -27,10 +27,10 @@
 .user-profile-dropdown-menu {
    border: 1px solid var(--content-block-border-color);
    background: var(--content-block-bg-color);
-   backdrop-filter: blur(10px);
-   -webkit-border-radius: 10px;
-   -moz-border-radius: 10px;
-   border-radius: 10px;
+   backdrop-filter: blur(15px);
+   -webkit-border-radius: 15px;
+   -moz-border-radius: 15px;
+   border-radius: 15px;
    z-index: 1;
 }
 
@@ -146,9 +146,9 @@
   padding: 10px;
   border: 1px solid var(--content-block-border-color);
   background: var(--content-block-bg-color);
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
 }
 
 #block-with-info-by-user,
@@ -244,9 +244,9 @@
 
 .chart.radar-chart {
   border: 1px solid var(--content-block-border-color);
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
   background: var(--body-bg-color);
 }
 

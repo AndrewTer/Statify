@@ -8,7 +8,7 @@
 
 #rating-photos-view-solo-svg.active path,
 #rating-photos-view-list-svg.active path {
-  fill: #07689F;
+  fill: var(--main-menu-icon-color);
 }
 
 /* Photo list */
@@ -57,18 +57,18 @@
 
 .rating-card {
    border: 1px solid var(--content-block-border-color);
-   -webkit-border-radius: 10px;
-   -moz-border-radius: 10px;
-   border-radius: 10px;
+   -webkit-border-radius: 15px;
+   -moz-border-radius: 15px;
+   border-radius: 15px;
    background: var(--content-block-bg-color);
 }
 
 .rating-card-photo {
    width: 100%;
    cursor: pointer;
-   -webkit-border-radius: 10px !important;
-   -moz-border-radius: 10px !important;
-   border-radius: 10px !important;
+   -webkit-border-radius: 15px !important;
+   -moz-border-radius: 15px !important;
+   border-radius: 15px !important;
 }
 
 /* Rating Stars */

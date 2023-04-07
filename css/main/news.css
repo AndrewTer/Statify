@@ -13,9 +13,9 @@
    padding: 3px;
    border: 1px solid var(--content-block-border-color);
    background: var(--content-block-bg-color);
-   -webkit-border-radius: 10px;
-   -moz-border-radius: 10px;
-   border-radius: 10px;
+   -webkit-border-radius: 15px;
+   -moz-border-radius: 15px;
+   border-radius: 15px;
 }
 
 .news-friend-card-avatar img {
@@ -97,15 +97,15 @@
    padding: 2px 7px !important;
    color: whitesmoke;
    background: rgba(0, 0, 0, .7);
-   -webkit-border-radius: 5px;
-   -moz-border-radius: 5px;
-   border-radius: 5px;
+   -webkit-border-radius: 5px 5px 5px 10px;
+   -moz-border-radius: 5px 5px 5px 10px;
+   border-radius: 5px 5px 5px 10px;
 }
 
 .gold-gradient-border .popular-card-badge {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 5px 5px 5px 15px;
+  -moz-border-radius: 5px 5px 5px 15px;
+  border-radius: 5px 5px 5px 15px;
 }
 
 .gold-gradient-border .popular-card-badge {
@@ -137,7 +137,9 @@
   position: relative;
   margin: 0.24rem!important;
   background: #222;
-  border-radius: 7px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
 }
 
 .gold-gradient-border::after {
@@ -151,9 +153,9 @@
   background: linear-gradient(60deg, #FFFFE5, gold, yellow, #FFD700, #ff7b00, #FFAE33);
   background-size: 300% 300%;
   background-position: 0 50%;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
   animation: moveGradient 4s alternate infinite;
 }
 
@@ -176,15 +178,15 @@
 }
 
 .news-sort-list-item.first-item th:hover {
-   -webkit-border-radius: 10px 10px 0 0;
-   -moz-border-radius: 10px 10px 0 0;
-   border-radius: 10px 10px 0 0;
+   -webkit-border-radius: 15px 15px 0 0;
+   -moz-border-radius: 15px 15px 0 0;
+   border-radius: 15px 15px 0 0;
 }
 
 .news-sort-list-item.last-item th:hover {
-   -webkit-border-radius: 0 0 10px 10px;
-   -moz-border-radius: 0 0 10px 10px;
-   border-radius: 0 0 10px 10px;
+   -webkit-border-radius: 0 0 15px 15px;
+   -moz-border-radius: 0 0 15px 15px;
+   border-radius: 0 0 15px 15px;
 }
 
 .news-sort-list-item:hover th {
@@ -231,9 +233,9 @@
 
 #view-all-top-ten-users:hover {
    color: var(--hover-text-color);
-   -webkit-border-radius: 0 0 10px 10px;
-   -moz-border-radius: 0 0 10px 10px;
-   border-radius: 0 0 10px 10px;
+   -webkit-border-radius: 0 0 15px 15px;
+   -moz-border-radius: 0 0 15px 15px;
+   border-radius: 0 0 15px 15px;
    background: var(--block-hover-bg-color);
 }
 
@@ -248,9 +250,9 @@
    -ms-overflow-style: none;
    scrollbar-width: none;
    cursor: grab;
-   -webkit-border-radius: 10px;
-   -moz-border-radius: 10px;
-   border-radius: 10px;
+   -webkit-border-radius: 15px;
+   -moz-border-radius: 15px;
+   border-radius: 15px;
 }
 
 .new-users-slider::-webkit-scrollbar {
