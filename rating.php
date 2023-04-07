@@ -107,7 +107,7 @@
 
         <div class="col-12 col-sm-12 col-md-12 col-lg-10 col-xl-10" id="main-rating-card-block">
           <div class="content container-fluid m-0 p-0">
-            <div class="m-0 mb-1 p-0 d-flex flex-row align-items-center" id="rating-menu-block">
+            <div class="m-0 mb-1 d-flex flex-row align-items-center block-user-content" id="rating-menu-block">
 <?
             switch ($user_gender_preference) {
               case 'male':
@@ -179,8 +179,6 @@
                 </div>
               </div>
             </div>
-
-            <hr class="hr-user-info m-0">
 
             <div class="m-0 p-0" id="rating-photos-container"></div>
           </div>
