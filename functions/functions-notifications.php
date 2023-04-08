@@ -63,7 +63,7 @@
 
 					<div class="w-100 p-0">
 						<div class="m-0 p-0 d-flex flex-row align-items-center">
-							<a class="notifications-user-fullname pointer" href="./?u=<?= get_user_nickname($author_uuid); ?>">
+							<a class="notifications-user-fullname pointer font-weight-bold" href="./?u=<?= get_user_nickname($author_uuid); ?>">
 <?
 							if ($author_premium_status)
 							{
@@ -102,15 +102,15 @@
 <?
 						switch ($author_gender) {
 							case 'male':
-								echo 'Добавил комментарий к вашей <a href="comments?p='.preg_replace('[-]', '', $picture_uuid).'"><em class="notifications-link">фотографии</em></a>&nbsp;';
+								echo 'Добавил комментарий к вашей <a href="comments?p='.preg_replace('[-]', '', $picture_uuid).'"><em class="notifications-link font-weight-bold">фотографии</em></a>&nbsp;';
 								break;
 
 							case 'female':
-								echo 'Добавила комментарий к вашей <a href="comments?p='.preg_replace('[-]', '', $picture_uuid).'"><em class="notifications-link">фотографии</em></a>&nbsp;';
+								echo 'Добавила комментарий к вашей <a href="comments?p='.preg_replace('[-]', '', $picture_uuid).'"><em class="notifications-link font-weight-bold">фотографии</em></a>&nbsp;';
 								break;
 					        			
 							default:
-								echo 'Пользователь добавил комментарий к вашей <a href="comments?p='.preg_replace('[-]', '', $picture_uuid).'"><em class="notifications-link">фотографии</em></a>&nbsp;';
+								echo 'Пользователь добавил комментарий к вашей <a href="comments?p='.preg_replace('[-]', '', $picture_uuid).'"><em class="notifications-link font-weight-bold">фотографии</em></a>&nbsp;';
 								break;
 						}
 ?>
@@ -197,7 +197,7 @@
 
 					<div class="w-100 p-0">
 						<div class="m-0 p-0 d-flex flex-row align-items-center">
-							<a class="notifications-user-fullname pointer" href="./?u=<?= get_user_nickname($sender_uuid); ?>">
+							<a class="notifications-user-fullname pointer font-weight-bold" href="./?u=<?= get_user_nickname($sender_uuid); ?>">
 <?
 							if ($sender_premium_status)
 							{
@@ -236,15 +236,15 @@
 <?
 						switch ($sender_gender) {
 							case 'male':
-								echo 'Отправил вам <a href="friends?sort=received"><em class="notifications-link">заявку в друзья</em></a>';
+								echo 'Отправил вам <a href="friends?sort=received"><em class="notifications-link font-weight-bold">заявку в друзья</em></a>';
 								break;
 
 							case 'female':
-								echo 'Отправила вам <a href="friends?sort=received"><em class="notifications-link">заявку в друзья</em></a>';
+								echo 'Отправила вам <a href="friends?sort=received"><em class="notifications-link font-weight-bold">заявку в друзья</em></a>';
 								break;
 					        			
 							default:
-								echo 'Пользователь отправил вам <a href="friends?sort=received"><em class="notifications-link">заявку в друзья</em></a>';
+								echo 'Пользователь отправил вам <a href="friends?sort=received"><em class="notifications-link font-weight-bold">заявку в друзья</em></a>';
 								break;
 						}
 ?>

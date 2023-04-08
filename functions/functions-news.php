@@ -75,7 +75,7 @@
           {
 ?>
 						<a href="./?u=<?= get_user_nickname($user_uuid); ?>" class="news-user-fullname pointer">
-							<p class="row m-0 fz-16 d-flex align-items-center"><?= ($user_info_name || $user_info_surname) ? $user_info_fullname : 'Имя не указано'; ?>
+							<p class="row m-0 fz-16 d-flex align-items-center font-weight-bold"><?= ($user_info_name || $user_info_surname) ? $user_info_fullname : 'Имя не указано'; ?>
 	              <svg class="ml-2 premium-star active" width="15px" height="15px" viewBox="0 0 48.00 48.00" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#2ACAEA" stroke-width="0.00048000000000000007" transform="matrix(1, 0, 0, 1, 0, 0)rotate(0)">
 	                <defs>  
 	                  <linearGradient id="premium-logo-gradient-<?= $hash_modal; ?>" x1="50%" y1="0%" x2="50%" y2="100%" > 
@@ -99,7 +99,7 @@
           {
 ?>
 						<a href="./?u=<?= get_user_nickname($user_uuid); ?>" class="news-user-fullname pointer">
-							<p class="row m-0 fz-16"><?= ($user_info_name || $user_info_surname) ? $user_info_fullname : 'Имя не указано'; ?></p>
+							<p class="row m-0 fz-16 font-weight-bold"><?= ($user_info_name || $user_info_surname) ? $user_info_fullname : 'Имя не указано'; ?></p>
 						</a>
 <?
           }
@@ -122,7 +122,7 @@
 						}
 ?>
 							<a class="pointer" href="./?u=<?= get_user_nickname($friend_uuid); ?>">
-								<em class="news-user-link"><?= ($friend_info_nickname) ? '@'.$friend_info_nickname : ''; ?></em>
+								<em class="news-user-link font-weight-bold"><?= ($friend_info_nickname) ? '@'.$friend_info_nickname : ''; ?></em>
 							</a>
 
 						</p>
@@ -184,7 +184,7 @@
           {
 ?>
 						<a href="./?u=<?= get_user_nickname($user_uuid); ?>" class="news-user-fullname pointer">
-							<p class="row m-0 fz-16 d-flex align-items-center"><?= ($user_info_name || $user_info_surname) ? $user_info_fullname : 'Имя не указано'; ?>
+							<p class="row m-0 fz-16 d-flex align-items-center font-weight-bold"><?= ($user_info_name || $user_info_surname) ? $user_info_fullname : 'Имя не указано'; ?>
 	              <svg class="ml-2 premium-star active" width="15px" height="15px" viewBox="0 0 48.00 48.00" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#2ACAEA" stroke-width="0.00048000000000000007" transform="matrix(1, 0, 0, 1, 0, 0)rotate(0)">
 	                <defs>  
 	                  <linearGradient id="premium-logo-gradient-<?= $hash_modal; ?>" x1="50%" y1="0%" x2="50%" y2="100%" > 
@@ -207,7 +207,7 @@
           }else
           {
 ?>
-						<a href="./?u=<?= get_user_nickname($user_uuid); ?>" class="news-user-fullname pointer">
+						<a href="./?u=<?= get_user_nickname($user_uuid); ?>" class="news-user-fullname pointer font-weight-bold">
 							<p class="row m-0 fz-16"><?= ($user_info_name || $user_info_surname) ? $user_info_fullname : 'Имя не указано'; ?></p>
 						</a>
 <?
