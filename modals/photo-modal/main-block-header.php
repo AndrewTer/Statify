@@ -20,7 +20,7 @@
 ?>
 		</a>
 
-		<a class="m-0 p-0 ml-3 modal-header-user-fullname" href="<?= ($current_user_uuid == $user_uuid) ? './' : './?u='.get_user_nickname($user_uuid) ?>" 
+		<a class="m-0 p-0 ml-3 modal-header-user-fullname font-weight-bold" href="<?= ($current_user_uuid == $user_uuid) ? './' : './?u='.get_user_nickname($user_uuid) ?>" 
 			title="<?= get_user_fullname($user_uuid); ?>">
 <?
 		if ($premium_status)

@@ -15,7 +15,7 @@
 						</svg>
 					</p>
 
-					<p class="m-0 fz-16">
+					<p class="m-0 fz-16 font-weight-bold">
 						<?= ($comments_list_count) > 0 ? $comments_list_count : ''; ?>
 					</p>
 				</div>
