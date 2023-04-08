@@ -812,6 +812,7 @@ blockquote p:after {
 .btn-skip,
 .btn-red {
   color: white;
+  font-weight: bold;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   border-radius: 15px;

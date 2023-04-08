@@ -103,11 +103,6 @@
   cursor: pointer;
 }
 
-.person-info {
-  padding: 0;
-  padding-left: 1rem !important;
-}
-
 #block-user-title {
   display: none;
 }
@@ -126,6 +121,10 @@
   font-weight: normal;
   color: var(--main-text-color);
   word-wrap: break-word;
+}
+
+#more-user-info:hover {
+  text-decoration: underline;
 }
 
 #block-general-values {
