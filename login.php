@@ -248,7 +248,7 @@
                         <p class="m-0 fz-13 text-center">Создавая аккаунт, я соглашаюсь с <a id="login-link" href="about?sort=rules" target="_blank">правилами сайта</a> и даю согласие на <a id="login-link" href="about?sort=consent" target="_blank">обработку персональных данных</a>.</p>
                       </div>
                       
-                      <input type="submit" class="btn btn-success w-100 m-0 fz-15" id="reg-btn" name="registration" value="Зарегистрироваться">
+                      <input type="submit" class="btn btn-success w-100 m-0 fz-15 font-weight-bold" id="reg-btn" name="registration" value="Зарегистрироваться">
                     </div> 
                 </form>
               </div>
