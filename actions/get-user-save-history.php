@@ -14,7 +14,7 @@ if (isset($_POST['user_uuid']) && strlen($_POST['user_uuid']) > 0 && (preg_match
 
   if ($premium_status)
     if ($page_status)
-    	echo '<h5 class="position-relative fz-14 text-center">
+    	echo '<h5 class="position-relative fz-14 text-center font-weight-bold">
               <svg class="position-absolute svg-hide-history-icon" width="17px" height="17px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="event.preventDefault();hideUserSaveHistory();">
                 <defs>  
                   <linearGradient id="premium-icon-hide-history" x1="50%" y1="0%" x2="50%" y2="100%" > 
@@ -33,13 +33,13 @@ if (isset($_POST['user_uuid']) && strlen($_POST['user_uuid']) > 0 && (preg_match
           	<hr class="hr-user-info">
           	<ul class="nav nav-tabs row m-0 p-0" id="saves-history">
               <li class="nav-item col-4 m-0 p-0">
-                <a class="nav-link fz-13 p-0 text-center active" data-toggle="tab" href="#saves-history-today">Сегодня</a>
+                <a class="nav-link fz-13 p-0 text-center font-weight-bold active" data-toggle="tab" href="#saves-history-today">Сегодня</a>
               </li>
               <li class="nav-item col-4 m-0 p-0">
-                <a class="nav-link fz-13 p-0 text-center" data-toggle="tab" href="#saves-history-week">Неделя</a>
+                <a class="nav-link fz-13 p-0 text-center font-weight-bold" data-toggle="tab" href="#saves-history-week">Неделя</a>
               </li>
               <li class="nav-item col-4 m-0 p-0">
-                <a class="nav-link fz-13 p-0 text-center" data-toggle="tab" href="#saves-history-month">Месяц</a>
+                <a class="nav-link fz-13 p-0 text-center font-weight-bold" data-toggle="tab" href="#saves-history-month">Месяц</a>
               </li>
             </ul>
 
@@ -48,22 +48,22 @@ if (isset($_POST['user_uuid']) && strlen($_POST['user_uuid']) > 0 && (preg_match
                 <table class="table table-borderless table-user-statistics w-100 m-0">
                   <tbody>
                     <tr>
-                      <td class="fz-12 pl-1 text-left">Мои сохранения</td>
+                      <td class="fz-12 pl-1 text-left font-weight-bold">Мои сохранения</td>
                       <th class="fz-12 pr-1" scope="row">'.count_saves_by_user($user_uuid, 'day').'</th>
                     </tr>
                     <tr>
                     	<td colspan="2"><hr class="hr-user-info m-0"></td>
                     </tr>
                     <tr>
-                      <td class="fz-12 pl-1 text-left">Мужская аудитория</td>
+                      <td class="fz-12 pl-1 text-left font-weight-bold">Мужская аудитория</td>
                       <th class="fz-12 pr-1" scope="row">'.count_get_saves_by_genders_and_date($user_uuid, 'male', 'day').'</th>
                     </tr>
                     <tr>
-                      <td class="fz-12 pl-1 text-left">Женская аудитория</td>
+                      <td class="fz-12 pl-1 text-left font-weight-bold">Женская аудитория</td>
                       <th class="fz-12 pr-1" scope="row">'.count_get_saves_by_genders_and_date($user_uuid, 'female', 'day').'</th>
                     </tr>
                     <tr>
-                      <td class="fz-12 pl-1 text-left">Иная аудитория</td>
+                      <td class="fz-12 pl-1 text-left font-weight-bold">Иная аудитория</td>
                       <th class="fz-12 pr-1" scope="row">'.count_get_saves_by_genders_and_date($user_uuid, 'other', 'day').'</th>
                     </tr>
                   </tbody>
@@ -74,22 +74,22 @@ if (isset($_POST['user_uuid']) && strlen($_POST['user_uuid']) > 0 && (preg_match
                 <table class="table table-borderless table-user-statistics w-100 m-0">
                   <tbody>
                     <tr>
-                      <td class="fz-12 pl-1 text-left">Мои сохранения</td>
+                      <td class="fz-12 pl-1 text-left font-weight-bold">Мои сохранения</td>
                       <th class="fz-12 pr-1" scope="row">'.count_saves_by_user($user_uuid, 'week').'</th>
                     </tr>
                     <tr>
                     	<td colspan="2"><hr class="hr-user-info m-0"></td>
                     </tr>
                     <tr>
-                      <td class="fz-12 pl-1 text-left">Мужская аудитория</td>
+                      <td class="fz-12 pl-1 text-left font-weight-bold">Мужская аудитория</td>
                       <th class="fz-12 pr-1" scope="row">'.count_get_saves_by_genders_and_date($user_uuid, 'male', 'week').'</th>
                     </tr>
                     <tr>
-                      <td class="fz-12 pl-1 text-left">Женская аудитория</td>
+                      <td class="fz-12 pl-1 text-left font-weight-bold">Женская аудитория</td>
                       <th class="fz-12 pr-1" scope="row">'.count_get_saves_by_genders_and_date($user_uuid, 'female', 'week').'</th>
                     </tr>
                     <tr>
-                      <td class="fz-12 pl-1 text-left">Иная аудитория</td>
+                      <td class="fz-12 pl-1 text-left font-weight-bold">Иная аудитория</td>
                       <th class="fz-12 pr-1" scope="row">'.count_get_saves_by_genders_and_date($user_uuid, 'other', 'week').'</th>
                     </tr>
                   </tbody>
@@ -100,22 +100,22 @@ if (isset($_POST['user_uuid']) && strlen($_POST['user_uuid']) > 0 && (preg_match
                 <table class="table table-borderless table-user-statistics w-100 m-0">
                   <tbody>
                     <tr>
-                      <td class="fz-12 pl-1 text-left">Мои сохранения</td>
+                      <td class="fz-12 pl-1 text-left font-weight-bold">Мои сохранения</td>
                       <th class="fz-12 pr-1" scope="row">'.count_saves_by_user($user_uuid, 'month').'</th>
                     </tr>
                     <tr>
                     	<td colspan="2"><hr class="hr-user-info m-0"></td>
                     </tr>
                     <tr>
-                      <td class="fz-12 pl-1 text-left">Мужская аудитория</td>
+                      <td class="fz-12 pl-1 text-left font-weight-bold">Мужская аудитория</td>
                       <th class="fz-12 pr-1" scope="row">'.count_get_saves_by_genders_and_date($user_uuid, 'male', 'month').'</th>
                     </tr>
                     <tr>
-                      <td class="fz-12 pl-1 text-left">Женская аудитория</td>
+                      <td class="fz-12 pl-1 text-left font-weight-bold">Женская аудитория</td>
                       <th class="fz-12 pr-1" scope="row">'.count_get_saves_by_genders_and_date($user_uuid, 'female', 'month').'</th>
                     </tr>
                     <tr>
-                      <td class="fz-12 pl-1 text-left">Иная аудитория</td>
+                      <td class="fz-12 pl-1 text-left font-weight-bold">Иная аудитория</td>
                       <th class="fz-12 pr-1" scope="row">'.count_get_saves_by_genders_and_date($user_uuid, 'other', 'month').'</th>
                     </tr>
                   </tbody>

@@ -15,8 +15,16 @@
 	$cookie_key = $_COOKIE['key']; 
 
 	$user_uuid = get_user_uuid_by_cookie($cookie_login, $cookie_key);
+	$page_status = check_user_page_status($user_uuid);
 
-	echo '<div class="col-12 row m-0 p-0 main-content-saves">';
-	include("../includes/user_page/saves/saves-content.php");
-	echo '</div>';
+	if ($page_status)
+	{
+		echo '<div class="col-12 row m-0 p-0 main-content-saves">';
+		include("../includes/user_page/saves/saves-content.php");
+		echo '</div>';
+	}else
+	{
+		$current_user_uuid = $user_uuid;
+		include("../includes/user_page/registration-completion.php");
+	}
 ?>

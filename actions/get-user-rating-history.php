@@ -31,19 +31,19 @@ if (isset($_POST['user_uuid']) && strlen($_POST['user_uuid']) > 0 && (preg_match
     $svg_more_history_icon = '';
 
   if ($page_status)
-    echo '<h5 class="position-relative fz-14 text-center">История оценок '.$svg_more_history_icon.'</h5>
+    echo '<h5 class="position-relative fz-14 text-center font-weight-bold">История оценок '.$svg_more_history_icon.'</h5>
     
           <hr class="hr-user-info">
 
           <ul class="nav nav-tabs row m-0 p-0" id="rating-history">
             <li class="nav-item col-4 m-0 p-0">
-              <a class="nav-link fz-13 p-0 text-center active" data-toggle="tab" href="#rating-history-today">Сегодня</a>
+              <a class="nav-link fz-13 p-0 text-center font-weight-bold active" data-toggle="tab" href="#rating-history-today">Сегодня</a>
             </li>
             <li class="nav-item col-4 m-0 p-0">
-              <a class="nav-link fz-13 p-0 text-center" data-toggle="tab" href="#rating-history-week">Неделя</a>
+              <a class="nav-link fz-13 p-0 text-center font-weight-bold" data-toggle="tab" href="#rating-history-week">Неделя</a>
             </li>
             <li class="nav-item col-4 m-0 p-0">
-              <a class="nav-link fz-13 p-0 text-center" data-toggle="tab" href="#rating-history-month">Месяц</a>
+              <a class="nav-link fz-13 p-0 text-center font-weight-bold" data-toggle="tab" href="#rating-history-month">Месяц</a>
             </li>
           </ul>
 
@@ -52,11 +52,11 @@ if (isset($_POST['user_uuid']) && strlen($_POST['user_uuid']) > 0 && (preg_match
               <table class="table table-borderless table-user-statistics w-100 m-0">
               <tbody>
                 <tr>
-                  <td class="fz-12 pl-1">Поставлено оценок</td>
+                  <td class="fz-12 pl-1 font-weight-bold">Поставлено оценок</td>
                   <th class="fz-12 pr-1" scope="row">'.count_set_ratings($user_uuid, 'day').'</th>
                 </tr>
                 <tr>
-                  <td class="fz-12 pl-1">Получено оценок</td>
+                  <td class="fz-12 pl-1 font-weight-bold">Получено оценок</td>
                   <th class="fz-12 pr-1" scope="row">'.count_get_ratings($user_uuid, 'day').'</th>
                 </tr>
               </tbody>
@@ -67,11 +67,11 @@ if (isset($_POST['user_uuid']) && strlen($_POST['user_uuid']) > 0 && (preg_match
               <table class="table table-borderless table-user-statistics w-100 m-0">
               <tbody>
                 <tr>
-                  <td class="fz-12 pl-1">Поставлено оценок</td>
+                  <td class="fz-12 pl-1 font-weight-bold">Поставлено оценок</td>
                   <th class="fz-12 pr-1" scope="row">'.count_set_ratings($user_uuid, 'week').'</th>
                 </tr>
                 <tr>
-                  <td class="fz-12 pl-1">Получено оценок</td>
+                  <td class="fz-12 pl-1 font-weight-bold">Получено оценок</td>
                   <th class="fz-12 pr-1" scope="row">'.count_get_ratings($user_uuid, 'week').'</th>
                 </tr>
               </tbody>
@@ -82,11 +82,11 @@ if (isset($_POST['user_uuid']) && strlen($_POST['user_uuid']) > 0 && (preg_match
               <table class="table table-borderless table-user-statistics w-100 m-0">
               <tbody>
                 <tr>
-                  <td class="fz-12 pl-1">Поставлено оценок</td>
+                  <td class="fz-12 pl-1 font-weight-bold">Поставлено оценок</td>
                   <th class="fz-12 pr-1" scope="row">'.count_set_ratings($user_uuid, 'month').'</th>
                 </tr>
                 <tr>
-                  <td class="fz-12 pl-1">Получено оценок</td>
+                  <td class="fz-12 pl-1 font-weight-bold">Получено оценок</td>
                   <th class="fz-12 pr-1" scope="row">'.count_get_ratings($user_uuid, 'month').'</th>
                 </tr>
               </tbody>
