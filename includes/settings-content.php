@@ -3,7 +3,7 @@
 ?>
 <div class="col-12 p-0">
   <div class="block-edit-user-info p-0" id="all-user-settings-block" data-attr="<?= $user_uuid; ?>">
-    <p class="fz-17 text-center mt-2 mb-2">Настройки</p>
+    <p class="fz-17 text-center font-weight-bold mt-2 mb-2">Настройки</p>
     <hr class="hr-user-info">
 
     <div class="modal-body settings-modal-body">
@@ -117,7 +117,7 @@
       </div>
     </div>
 
-    <div class="hr-with-text"><span class="m-0">Приватность</span></div>
+    <div class="hr-with-text"><span class="m-0 font-weight-bold">Приватность</span></div>
 
     <div class="modal-body settings-modal-body">
       <div class="d-flex flex-row justify-content-center align-items-center m-0 p-0 pt-1 pb-1 w-100">
@@ -180,7 +180,7 @@
       </div>
     </div>
 
-    <div class="hr-with-text"><span class="m-0">Оформление</span></div>
+    <div class="hr-with-text"><span class="m-0 font-weight-bold">Оформление</span></div>
 
     <div class="modal-body settings-modal-body">
       <div class="d-flex flex-wrap justify-content-center align-items-center m-0 p-0 pt-1 pb-1 w-100">

@@ -1,5 +1,5 @@
 <div class="about-card">
-	<p class="fz-20 m-0 p-0">Правила</p>
+	<p class="fz-16 m-0 p-0 font-weight-bold">Правила</p>
 	<hr class="hr-user-info">
 	<p class="fz-13 m-0 p-2 font-italic font-weight-bold about-remark">За нарушением тех или иных правил сайта могут последовать временные блокировки страниц пользователей вплоть до вечного бана.</p>
 	<hr class="hr-user-info">
@@ -17,7 +17,7 @@
 
 <div class="about-card mt-3">
 	<div class="d-flex align-items-center m-0 p-0">
-		<p class="fz-17 m-0 p-0 pr-3 mr-auto">Неприемлемый и нежелательный контент</p>
+		<p class="fz-16 m-0 p-0 pr-3 mr-auto font-weight-bold">Неприемлемый и нежелательный контент</p>
 	</div>
 	<hr class="hr-user-info">
 	<p class="fz-14 m-0 p-0">- флуд или спам в комментариях к фотографиям пользователей;</p>
@@ -37,7 +37,7 @@
 
 <div class="about-card mt-3">
 	<div class="d-flex align-items-center m-0 p-0">
-		<p class="fz-17 m-0 p-0 pr-3 mr-auto">Теги</p>
+		<p class="fz-16 m-0 p-0 pr-3 mr-auto font-weight-bold">Теги</p>
 	</div>
 	<hr class="hr-user-info">
 	<p class="fz-14 m-0 p-0">Теги должны описывать пользователя (хобби, сферы деятельности и т.д.) для его удобного поиска другими пользователями сайта со схожими интересами.</p>
@@ -45,7 +45,7 @@
 
 <div class="about-card mt-3">
 	<div class="d-flex align-items-center m-0 p-0">
-		<p class="fz-17 m-0 p-0 pr-3 mr-auto">Забаненные пользователи</p>
+		<p class="fz-16 m-0 p-0 pr-3 mr-auto font-weight-bold">Забаненные пользователи</p>
 	</div>
 	<hr class="hr-user-info">
 	<p class="fz-14 m-0 p-0">- после авторизации забаненные пользователи видят сообщение с причиной бана, включая дату прекращения бана в случае если получен временный бан;</p>

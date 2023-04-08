@@ -29,15 +29,15 @@ if($received_list)
           <div class="dropdown-menu dropdown-menu-right p-0" aria-labelledby="friend-menu-btn">
 <?
           if ($ban_check == 'success')
-            echo '<a class="dropdown-item pt-2 pb-2 first-item" href="" onclick="event.preventDefault();addFriendFromRequestList(\''.$user_uuid.'\',\''.$received_uuid.'\');">Принять заявку</a>
+            echo '<a class="dropdown-item pt-2 pb-2 first-item font-weight-bold" href="" onclick="event.preventDefault();addFriendFromRequestList(\''.$user_uuid.'\',\''.$received_uuid.'\');">Принять заявку</a>
                   <hr class="hr-user-info m-0">
-                  <a class="dropdown-item pt-2 pb-2" 
+                  <a class="dropdown-item pt-2 pb-2 font-weight-bold" 
                       href="" 
                       onclick="event.preventDefault();addSubscriberFromRequestList(\''.$user_uuid.'\',\''.$received_uuid.'\');">Отклонить заявку</a>
                   <hr class="hr-user-info m-0">
-                  <a class="dropdown-item pt-2 pb-2 last-item" onclick="event.preventDefault();openReportUserModal(\''.$user_uuid.'\',\''.$received_uuid.'\');" href="">Пожаловаться</a>';
+                  <a class="dropdown-item pt-2 pb-2 last-item font-weight-bold" onclick="event.preventDefault();openReportUserModal(\''.$user_uuid.'\',\''.$received_uuid.'\');" href="">Пожаловаться</a>';
           else
-            echo '<a class="dropdown-item pt-2 pb-2 only-one-item" 
+            echo '<a class="dropdown-item pt-2 pb-2 only-one-item font-weight-bold" 
                     href="" 
                     onclick="event.preventDefault();addSubscriberFromRequestList(\''.$user_uuid.'\',\''.$received_uuid.'\');">Отклонить заявку</a>';
 ?>
@@ -85,7 +85,7 @@ if($received_list)
             if ($premium_status)
             {
 ?>
-                <p class="username w-100 fz-16 m-0 d-flex align-items-center pointer text-hover"><?= get_user_fullname($received_uuid); ?>
+                <p class="username w-100 fz-16 m-0 d-flex align-items-center pointer text-hover font-weight-bold"><?= get_user_fullname($received_uuid); ?>
                   <svg class="ml-2 premium-star active" width="15px" height="15px" viewBox="0 0 48.00 48.00" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#2ACAEA" stroke-width="0.00048000000000000007" transform="matrix(1, 0, 0, 1, 0, 0)rotate(0)">
                     <defs>  
                       <linearGradient id="premium-logo-gradient-<?= $hash_modal; ?>" x1="50%" y1="0%" x2="50%" y2="100%" > 
@@ -107,7 +107,7 @@ if($received_list)
             }else
             {
 ?>
-                <p class="username w-100 fz-16 m-0 pointer text-hover"><?= get_user_fullname($received_uuid); ?></p>
+                <p class="username w-100 fz-16 m-0 pointer text-hover font-weight-bold"><?= get_user_fullname($received_uuid); ?></p>
 <?
             }
 ?>

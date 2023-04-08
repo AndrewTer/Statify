@@ -1,7 +1,7 @@
 <?
   include("requests/user-info.php");
 ?>
-<p class="title-awards-info fz-17 text-center mt-2 mb-2">Фотография профиля</p>
+<p class="title-awards-info fz-17 text-center mt-2 mb-2 font-weight-bold">Фотография профиля</p>
 <hr class="hr-user-info">
 
 <div class="container" id="block-upload-user-avatar">
@@ -16,7 +16,7 @@
       <div class="modal-content">
 
         <div class="modal-header">
-          <h5 class="modal-title text-center" id="modalLabel">Выбор миниатюры</h5>
+          <h5 class="modal-title text-center font-weight-bold" id="modalLabel">Выбор миниатюры</h5>
           <p class="modal-close" data-dismiss="modal" aria-label="Close">
             <svg viewBox="0 0 48 48" width="25px" height="25px" xmlns="http://www.w3.org/2000/svg" class="svg-close-icon">
               <rect width="48" height="48" fill="none"></rect>
@@ -48,7 +48,7 @@
   if (check_email_confirmed($user_uuid))
     if ($latest_avatar_date == 'success' && $page_status)
       echo '<div class="col-12 m-0 p-2" id="save-uploaded-avatar">
-              <input type="submit" class="btn btn-standard w-100 m-0" id="btn-save-new-avatar" value="Сохранить фотографию" onclick="event.preventDefault();saveNewUserAvatar();">
+              <input type="submit" class="btn btn-standard w-100 m-0 fz-14" id="btn-save-new-avatar" value="Сохранить фотографию" onclick="event.preventDefault();saveNewUserAvatar();">
             </div>
 
             <div class="col-12 m-0 p-0" id="upload-new-avatar">

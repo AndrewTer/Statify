@@ -23,7 +23,7 @@
     if ($premium_status_author_photo)
     {
 ?>
-      <p class="fz-16 m-0 w-100 text-left d-flex align-items-center"><?= get_user_fullname($photo_user_uuid); ?>
+      <p class="fz-16 m-0 w-100 text-left d-flex align-items-center font-weight-bold"><?= get_user_fullname($photo_user_uuid); ?>
         <svg class="ml-2 premium-star active" width="15px" height="15px" viewBox="0 0 48.00 48.00" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#2ACAEA" stroke-width="0.00048000000000000007" transform="matrix(1, 0, 0, 1, 0, 0)rotate(0)">
           <defs>  
             <linearGradient id="premium-logo-gradient-author-photo" x1="50%" y1="0%" x2="50%" y2="100%" > 
@@ -41,7 +41,7 @@
       </p>
 <?
     }else
-      echo '<p class="fz-16 m-0 w-100 text-left">'.get_user_fullname($photo_user_uuid).'</p>';
+      echo '<p class="fz-16 m-0 w-100 text-left font-weight-bold">'.get_user_fullname($photo_user_uuid).'</p>';
 ?>
       <p class="fz-12 m-0 w-100 text-left" id="nickname"><?= '@'.get_user_nickname($photo_user_uuid); ?></p>
     </a>
@@ -60,7 +60,7 @@
       </p>
 
       <div class="dropdown-menu dropdown-menu-right p-0" aria-labelledby="friend-menu-btn">
-        <a class="dropdown-item pt-2 pb-2 first-item" 
+        <a class="dropdown-item pt-2 pb-2 first-item font-weight-bold" 
             onclick="event.preventDefault();openMutualFriendsModal(<?= '\''.$user_uuid.'\',\''.$photo_user_uuid.'\''; ?>)" 
             href="" 
             aria-label="Общие друзей">Общие друзья</a>
@@ -70,60 +70,60 @@
         switch ($friendly_user_status) {
           case 'user':
             echo '<hr class="hr-user-info m-0">
-                  <a class="dropdown-item pt-2 pb-2"
+                  <a class="dropdown-item pt-2 pb-2 font-weight-bold"
                       href="" 
                       onclick="event.preventDefault();addFriendFromComments(\''.$user_uuid.'\',\''.$photo_user_uuid.'\');">Добавить в друзья</a>';
           break;
 
           case 'friend':
             echo '<hr class="hr-user-info m-0">
-                  <a class="dropdown-item pt-2 pb-2" 
+                  <a class="dropdown-item pt-2 pb-2 font-weight-bold" 
                       href="" 
                       onclick="event.preventDefault();delFriendFromComments(\''.$user_uuid.'\',\''.$photo_user_uuid.'\');">Убрать из друзей</a>';
           break;
 
           case 'submitter':
             echo '<hr class="hr-user-info m-0">
-                  <a class="dropdown-item pt-2 pb-2" 
+                  <a class="dropdown-item pt-2 pb-2 font-weight-bold" 
                       href="" 
                       onclick="event.preventDefault();delRequestFromComments(\''.$user_uuid.'\',\''.$photo_user_uuid.'\');">Отменить заявку</a>';
           break;
 
           case 'receiver':
             echo '<hr class="hr-user-info m-0">
-                  <a class="dropdown-item pt-2 pb-2" 
+                  <a class="dropdown-item pt-2 pb-2 font-weight-bold" 
                       href="" 
                       onclick="event.preventDefault();acceptFriendRequestFromComments(\''.$user_uuid.'\',\''.$photo_user_uuid.'\');">Принять заявку</a>
                   <hr class="hr-user-info m-0">
-                  <a class="dropdown-item pt-2 pb-2" 
+                  <a class="dropdown-item pt-2 pb-2 font-weight-bold" 
                       href="" 
                       onclick="event.preventDefault();declineFriendRequestFromComments(\''.$user_uuid.'\',\''.$photo_user_uuid.'\');">Отклонить заявку</a>';
           break;
 
           case 'subscriber':
             echo '<hr class="hr-user-info m-0">
-                  <a class="dropdown-item pt-2 pb-2" 
+                  <a class="dropdown-item pt-2 pb-2 font-weight-bold" 
                       href="" 
                       onclick="event.preventDefault();addFriendFromSubscriberFromComments(\''.$user_uuid.'\',\''.$photo_user_uuid.'\');">Добавить в друзья</a>';
           break;
 
           case 'subscribed':
             echo '<hr class="hr-user-info m-0">
-                  <a class="dropdown-item pt-2 pb-2" 
+                  <a class="dropdown-item pt-2 pb-2 font-weight-bold" 
                       href="" 
                       onclick="event.preventDefault();delSubscribedFromComments(\''.$user_uuid.'\',\''.$photo_user_uuid.'\');">Отписаться</a>';
           break;
 
           default:
             echo '<hr class="hr-user-info m-0">
-                  <a class="dropdown-item pt-2 pb-2" 
+                  <a class="dropdown-item pt-2 pb-2 font-weight-bold" 
                       href="" 
                       onclick="event.preventDefault();addFriendFromComments(\''.$user_uuid.'\',\''.$photo_user_uuid.'\');">Добавить в друзья</a>';
           break;
         }
 ?>
         <hr class="hr-user-info m-0">
-        <a class="dropdown-item pt-2 pb-2 last-item" onclick="event.preventDefault();openReportUserModal(<?= '\''.$user_uuid.'\',\''.$photo_user_uuid.'\''; ?>);" href="" aria-label="Пожаловаться">Пожаловаться</a>
+        <a class="dropdown-item pt-2 pb-2 last-item font-weight-bold" onclick="event.preventDefault();openReportUserModal(<?= '\''.$user_uuid.'\',\''.$photo_user_uuid.'\''; ?>);" href="" aria-label="Пожаловаться">Пожаловаться</a>
       </div>
     </div>
   </div>

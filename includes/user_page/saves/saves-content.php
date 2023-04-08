@@ -14,7 +14,7 @@
 ?>
       <div class="col-12 p-0">
         <div class="hr-with-text">
-          <span class="m-0" id="<?= $year_value; ?>"><?= $year_value.'&nbsp;год'; ?></span>
+          <span class="m-0 font-weight-bold" id="<?= $year_value; ?>"><?= $year_value.'&nbsp;год'; ?></span>
         </div>
 
         <div class="row m-0 mt-3 mb-3 p-2 justify-content-start block-search-and-sort">

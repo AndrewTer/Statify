@@ -40,16 +40,16 @@
 <?
 	$page1left = $page2left = $page1right = $page2right = $pervpage = $nextpage = '';
 
-	if ($page != 1) $pervpage = '<a class="fz-13 m-2 pt-1 pb-1 page-num d-flex justify-content-center align-items-center" href="notifications?page=1"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a><a class="fz-13 m-2 pt-1 pb-1 page-num d-flex justify-content-center align-items-center" href="notifications?page='. ($page - 1) .'"><i class="fa fa-angle-left" aria-hidden="true"></i></a>';
+	if ($page != 1) $pervpage = '<a class="fz-13 m-2 pt-1 pb-1 page-num d-flex justify-content-center align-items-center font-weight-bold" href="notifications?page=1"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a><a class="fz-13 m-2 pt-1 pb-1 page-num d-flex justify-content-center align-items-center" href="notifications?page='. ($page - 1) .'"><i class="fa fa-angle-left" aria-hidden="true"></i></a>';
 
-	if ($page != $total_count_notifications_pages) $nextpage = '<a class="fz-13 m-2 pt-1 pb-1 page-num d-flex justify-content-center align-items-center" href="notifications?page='. ($page + 1) .'"><i class="fa fa-angle-right" aria-hidden="true"></i></a><a class="fz-13 m-2 pt-1 pb-1 page-num d-flex justify-content-center align-items-center" href="notifications?page=' .$total_count_notifications_pages. '"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>';
+	if ($page != $total_count_notifications_pages) $nextpage = '<a class="fz-13 m-2 pt-1 pb-1 page-num d-flex justify-content-center align-items-center font-weight-bold" href="notifications?page='. ($page + 1) .'"><i class="fa fa-angle-right" aria-hidden="true"></i></a><a class="fz-13 m-2 pt-1 pb-1 page-num d-flex justify-content-center align-items-center" href="notifications?page=' .$total_count_notifications_pages. '"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>';
 
-	if ($page - 2 > 0) $page2left = '<a class="fz-13 m-2 pt-1 pb-1 page-num d-flex justify-content-center align-items-center" href="notifications?page='. ($page - 2) .'">'. ($page - 2) .'</a>';
-	if ($page - 1 > 0) $page1left = '<a class="fz-13 m-2 pt-1 pb-1 page-num d-flex justify-content-center align-items-center" href="notifications?page='. ($page - 1) .'">'. ($page - 1) .'</a>';
-	if ($page + 2 <= $total_count_notifications_pages) $page2right = '<a class="fz-13 m-2 pt-1 pb-1 page-num d-flex justify-content-center align-items-center" href="notifications?page='. ($page + 2) .'">'. ($page + 2) .'</a>';
-	if ($page + 1 <= $total_count_notifications_pages) $page1right = '<a class="fz-13 m-2 pt-1 pb-1 page-num d-flex justify-content-center align-items-center" href="notifications?page='. ($page + 1) .'">'. ($page + 1) .'</a>';
+	if ($page - 2 > 0) $page2left = '<a class="fz-13 m-2 pt-1 pb-1 page-num d-flex justify-content-center align-items-center font-weight-bold" href="notifications?page='. ($page - 2) .'">'. ($page - 2) .'</a>';
+	if ($page - 1 > 0) $page1left = '<a class="fz-13 m-2 pt-1 pb-1 page-num d-flex justify-content-center align-items-center font-weight-bold" href="notifications?page='. ($page - 1) .'">'. ($page - 1) .'</a>';
+	if ($page + 2 <= $total_count_notifications_pages) $page2right = '<a class="fz-13 m-2 pt-1 pb-1 page-num d-flex justify-content-center align-items-center font-weight-bold" href="notifications?page='. ($page + 2) .'">'. ($page + 2) .'</a>';
+	if ($page + 1 <= $total_count_notifications_pages) $page1right = '<a class="fz-13 m-2 pt-1 pb-1 page-num d-flex justify-content-center align-items-center font-weight-bold" href="notifications?page='. ($page + 1) .'">'. ($page + 1) .'</a>';
 
 	if ($total_count_notifications_pages > 1)
-		echo $pervpage.$page2left.$page1left.'<p class="fz-13 m-2 pt-1 pb-1 current-page-num d-flex justify-content-center align-items-center">'.$page.'</p>'.$page1right.$page2right.$nextpage;
+		echo $pervpage.$page2left.$page1left.'<p class="fz-13 m-2 pt-1 pb-1 current-page-num d-flex justify-content-center align-items-center font-weight-bold">'.$page.'</p>'.$page1right.$page2right.$nextpage;
 ?>
 </div>

@@ -1,4 +1,4 @@
-<p class="text-center mt-2 mb-2 fz-17">Постоянная информация</p>
+<p class="text-center mt-2 mb-2 fz-17 font-weight-bold">Постоянная информация</p>
 <hr class="hr-user-info"> 
 <div class="modal-body">
 

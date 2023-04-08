@@ -58,7 +58,7 @@
               echo '<img class="m-0 ml-2 mr-3 p-0 offline" src="imgs/no-avatar.png" alt="'.get_user_fullname($photo_user_uuid).'">';
 ?>
         <div class="m-0 p-0 pr-2 d-flex flex-column word-wrap">
-          <p class="m-0 p-0 fz-14"><?= cut_string_to_N_character(get_user_fullname($photo_user_uuid), 20); ?></p>
+          <p class="m-0 p-0 fz-14 font-weight-bold"><?= cut_string_to_N_character(get_user_fullname($photo_user_uuid), 20); ?></p>
           <p class="m-0 p-0 fz-11" style="font-style: italic;">@<?= get_user_nickname($photo_user_uuid); ?></p>
         </div> 
       </a>        

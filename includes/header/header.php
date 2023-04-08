@@ -70,7 +70,7 @@
 
       <a class="m-0 p-0" href="./">
         <p class="card-title username w-100 fz-15 d-flex justify-content-center align-items-center font-weight-bold letter-spacing-05 text-center"><?= (get_user_nickname($user_uuid)) ? $user_fullname : ''; ?></p>
-        <p class="fz-12 m-0 text-center"><?= (get_user_nickname($user_uuid)) ? '@'.get_user_nickname($user_uuid) : ''; ?></p>
+        <p class="fz-12 m-0 text-center font-italic"><?= (get_user_nickname($user_uuid)) ? '@'.get_user_nickname($user_uuid) : ''; ?></p>
       </a>
 
       <div class="hr-with-text w-100 m-0 mt-3 mb-2">
@@ -83,7 +83,7 @@
             </p>
 <?
           if (get_user_rating_among_all_users($user_uuid) != 0)
-            echo '<p class="fz-15 m-0 ml-2 p-0">'.get_user_rating_among_all_users($user_uuid).'</p>';
+            echo '<p class="fz-15 m-0 ml-2 p-0 font-weight-bold">'.get_user_rating_among_all_users($user_uuid).'</p>';
 ?>
           </div>
         </span>

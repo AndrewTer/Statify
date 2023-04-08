@@ -46,7 +46,7 @@
     if ($premium_status)
     {
 ?>
-      <a class="m-0 text-break text-left friends-user-fullname pointer" href="./?u=<?= get_user_nickname($potential_friend_uuid); ?>">
+      <a class="m-0 text-break text-left friends-user-fullname pointer font-weight-bold" href="./?u=<?= get_user_nickname($potential_friend_uuid); ?>">
         <p class="fz-14 m-0 p-0 d-flex align-items-center"><?= get_user_fullname($potential_friend_uuid); ?>
           <svg class="ml-1 premium-star active" width="12px" height="12px" viewBox="0 0 48.00 48.00" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#2ACAEA" stroke-width="0.00048000000000000007" transform="matrix(1, 0, 0, 1, 0, 0)rotate(0)">
             <defs>  
@@ -70,7 +70,7 @@
     }else
     {
 ?>
-      <a class="m-0 text-break text-left friends-user-fullname pointer" href="./?u=<?= get_user_nickname($potential_friend_uuid); ?>">
+      <a class="m-0 text-break text-left friends-user-fullname pointer font-weight-bold" href="./?u=<?= get_user_nickname($potential_friend_uuid); ?>">
         <p class="fz-14 m-0 p-0"><?= get_user_fullname($potential_friend_uuid); ?></p>
       </a>
 <?

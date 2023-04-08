@@ -1,4 +1,4 @@
-<p class="fz-17 text-center mt-2 mb-2">Теги</p>
+<p class="fz-17 text-center mt-2 mb-2 font-weight-bold">Теги</p>
 <hr class="hr-user-info"> 
 <div class="modal-body">
   <div class="tags-block">

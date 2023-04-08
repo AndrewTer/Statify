@@ -1,5 +1,5 @@
 <div class="m-0 p-0" id="interests-content">
-  <p class="fz-17 text-center mt-2 mb-2">Интересы</p>
+  <p class="fz-17 text-center mt-2 mb-2 font-weight-bold">Интересы</p>
   <hr class="hr-user-info"> 
   <div class="modal-body">
 <?

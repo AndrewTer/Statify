@@ -35,7 +35,7 @@
                 <a class="first-text pointer" href="./?u=<?= get_user_nickname($top_ten_user_uuid); ?>"><?= $top_ten_user_fullname; ?></a>
               </div>
 
-              <div class="text-center first-text m-0 ml-auto p-0"><?= round((int)get_user_rating_among_all_users($top_ten_user_uuid)).'%'; ?></div>
+              <div class="text-center first-text m-0 ml-auto p-0 font-weight-bold"><?= round((int)get_user_rating_among_all_users($top_ten_user_uuid)).'%'; ?></div>
             </div>
 
             <hr class='hr-user-info ml-3 mr-3'>
@@ -63,7 +63,7 @@
                 <a class="second-text pointer" href="./?u=<?= get_user_nickname($top_ten_user_uuid); ?>"><?= $top_ten_user_fullname; ?></a>
               </div>
               
-              <div class="text-center second-text m-0 ml-auto p-0"><?= round((int)get_user_rating_among_all_users($top_ten_user_uuid)).'%'; ?></div>
+              <div class="text-center second-text m-0 ml-auto p-0 font-weight-bold"><?= round((int)get_user_rating_among_all_users($top_ten_user_uuid)).'%'; ?></div>
             </div>
 
             <hr class='hr-user-info ml-3 mr-3'>
@@ -91,7 +91,7 @@
                 <a class="third-text pointer" href="./?u=<?= get_user_nickname($top_ten_user_uuid); ?>"><?= $top_ten_user_fullname; ?></a>
               </div>
 
-              <div class="text-center third-text m-0 ml-auto p-0"><?= round((int)get_user_rating_among_all_users($top_ten_user_uuid)).'%'; ?></div>
+              <div class="text-center third-text m-0 ml-auto p-0 font-weight-bold"><?= round((int)get_user_rating_among_all_users($top_ten_user_uuid)).'%'; ?></div>
             </div>
 <?
           break;
@@ -133,7 +133,7 @@
           <a class="pointer" href="./?u=<?= get_user_nickname($top_ten_user_uuid); ?>"><?= $top_ten_user_fullname; ?></a>
         </div>
 
-        <div class="text-center m-0 ml-auto p-0"><?= round((int)get_user_rating_among_all_users($top_ten_user_uuid)).'%'; ?></div>
+        <div class="text-center m-0 ml-auto p-0 font-weight-bold"><?= round((int)get_user_rating_among_all_users($top_ten_user_uuid)).'%'; ?></div>
       </div>
 <?
 

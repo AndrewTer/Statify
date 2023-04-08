@@ -1,10 +1,10 @@
 <div class="about-card">
-	<p class="fz-20 m-0 p-0">Помощь</p>
+	<p class="fz-16 m-0 p-0 font-weight-bold">Помощь</p>
 </div>
 
 <div class="about-card mt-3">
 	<div class="d-flex align-items-center m-0 p-0">
-		<p class="fz-17 m-0 p-0">Основные страницы сайта</p>
+		<p class="fz-16 m-0 p-0 font-weight-bold">Основные страницы сайта</p>
 	</div>
 	<hr class="hr-user-info">
 	<p class="fz-14 m-0 p-0">Страницы, доступные всем пользователям:</p>
@@ -31,7 +31,7 @@
 
 <div class="about-card mt-3">
 	<div class="d-flex align-items-center m-0 p-0">
-		<p class="fz-17 m-0 p-0">Что такое рейтинг пользователя</p>
+		<p class="fz-16 m-0 p-0 font-weight-bold">Что такое рейтинг пользователя</p>
 	</div>
 	<hr class="hr-user-info">
 	<p class="fz-14 m-0 p-0 pb-2">У каждого зарегистрированного пользователя имеется рейтинг - значение в процентах, которое формируется на основе оценок, поставленных его фотографиям другими пользователями сайта.</p>
@@ -44,7 +44,7 @@
 
 <div class="about-card mt-3">
 	<div class="d-flex align-items-center m-0 p-0">
-		<p class="fz-17 m-0 p-0 pr-3 mr-auto">Меню в шапке сайта</p>
+		<p class="fz-16 m-0 p-0 pr-3 mr-auto font-weight-bold">Меню в шапке сайта</p>
 	</div>
 	<hr class="hr-user-info">
 	<p class="fz-14 m-0 mb-2 p-0">Меню содержит ссылку для перехода к настройкам профиля, ссылку на страницу с информацией о сайте, переключатель темы профиля, а также возможность выхода из профиля.</p>
@@ -55,7 +55,7 @@
 
 <div class="about-card mt-3">
 	<div class="d-flex align-items-center m-0 p-0">
-		<p class="fz-17 m-0 p-0 pr-3 mr-auto">Окно с фотографией пользователя</p>
+		<p class="fz-16 m-0 p-0 pr-3 mr-auto font-weight-bold">Окно с фотографией пользователя</p>
 	</div>
 	<hr class="hr-user-info">
 	<p class="fz-14 m-0 mb-2 p-0">При нажатии по фотографии любого пользователя открывается окно с этой самой фотографией.</p>
@@ -77,7 +77,7 @@
 
 <div class="about-card mt-3">
 	<div class="d-flex align-items-center m-0 p-0">
-		<p class="fz-17 m-0 p-0 pr-3 mr-auto">Страница пользователя</p>
+		<p class="fz-16 m-0 p-0 pr-3 mr-auto font-weight-bold">Страница пользователя</p>
 	</div>
 	<hr class="hr-user-info">
 	<p class="fz-14 m-0 p-0">На странице пользователя находятся блоки:</p>
@@ -122,7 +122,7 @@
 
 <div class="about-card mt-3">
 	<div class="d-flex align-items-center m-0 p-0">
-		<p class="fz-17 m-0 p-0 pr-3 mr-auto">Страница редактирования</p>
+		<p class="fz-16 m-0 p-0 pr-3 mr-auto font-weight-bold">Страница редактирования</p>
 	</div>
 	<hr class="hr-user-info">
 	<p class="fz-14 m-0 p-0">Содержит личные данные, список тегов, интересы и текущую фотографию пользователя с возможностью редактирования всех этих данных, а также блок подтверждения email, который отображается после изменения email пользователем на странице с настройками.</p>
@@ -130,7 +130,7 @@
 
 <div class="about-card mt-3">
 	<div class="d-flex align-items-center m-0 p-0">
-		<p class="fz-17 m-0 p-0 pr-3 mr-auto">Страница новостей</p>
+		<p class="fz-16 m-0 p-0 pr-3 mr-auto font-weight-bold">Страница новостей</p>
 	</div>
 	<hr class="hr-user-info">
 	<p class="fz-14 m-0 p-0">Содержит список новостей (добавление в друзья, смена фотографии профиля) текущего пользователя, список новостей друзей пользователя, а также ТОП-10 пользователей по рейтингу среди всех пользователей сайта.</p>
@@ -138,7 +138,7 @@
 
 <div class="about-card mt-3">
 	<div class="d-flex align-items-center m-0 p-0">
-		<p class="fz-17 m-0 p-0 pr-3 mr-auto">Страница со списком друзей</p>
+		<p class="fz-16 m-0 p-0 pr-3 mr-auto font-weight-bold">Страница со списком друзей</p>
 	</div>
 	<hr class="hr-user-info">
 	<p class="fz-14 m-0 p-0">Содержит список всех друзей пользователя, список друзей, которые находятся в данный момент на сайте, список подписчиков, список пользователей, на которых подписан текущий пользователь, список заявок в друзья от других пользователей, а также список отправленных заявок в друзья от текущего пользователя.</p>
@@ -146,7 +146,7 @@
 
 <div class="about-card mt-3">
 	<div class="d-flex align-items-center m-0 p-0">
-		<p class="fz-17 m-0 p-0 pr-3 mr-auto">Страница с фотографиями пользователя</p>
+		<p class="fz-16 m-0 p-0 pr-3 mr-auto font-weight-bold">Страница с фотографиями пользователя</p>
 	</div>
 	<hr class="hr-user-info">
 	<p class="fz-14 m-0 p-0">Содержит список всех фотографий пользователя с возможностью перехода по годам.</p>
@@ -154,7 +154,7 @@
 
 <div class="about-card mt-3">
 	<div class="d-flex align-items-center m-0 p-0">
-		<p class="fz-17 m-0 p-0 pr-3 mr-auto">Страница с сохранёнными фотографиями</p>
+		<p class="fz-16 m-0 p-0 pr-3 mr-auto font-weight-bold">Страница с сохранёнными фотографиями</p>
 	</div>
 	<hr class="hr-user-info">
 	<p class="fz-14 m-0 p-0">Содержит список с фотографиями пользователей, которые сохранил текущий пользователь.</p>
@@ -162,7 +162,7 @@
 
 <div class="about-card mt-3">
 	<div class="d-flex align-items-center m-0 p-0">
-		<p class="fz-17 m-0 p-0 pr-3 mr-auto">Страница поиска</p>
+		<p class="fz-16 m-0 p-0 pr-3 mr-auto font-weight-bold">Страница поиска</p>
 	</div>
 	<hr class="hr-user-info">
 	<p class="fz-14 m-0 p-0">Позволяет получить список всех пользователей, чьи данные (имя, фамилия, никнейм, теги) совпадают с введённым текстом в поле ввода для поиска.</p>
@@ -170,7 +170,7 @@
 
 <div class="about-card mt-3">
 	<div class="d-flex align-items-center m-0 p-0">
-		<p class="fz-17 m-0 p-0 pr-3 mr-auto">Страница для оценивания фотографий пользователей</p>
+		<p class="fz-16 m-0 p-0 pr-3 mr-auto font-weight-bold">Страница для оценивания фотографий пользователей</p>
 	</div>
 	<hr class="hr-user-info">
 	<p class="fz-14 m-0 mb-2 p-0">Содержит блок, включащий в себя фотографию другого пользователя, поле с выбором количества звёзд, а также кнопки с возможностями оценить конкретную фотографию и перейти к следующей фотографии.</p>
@@ -182,7 +182,7 @@
 
 <div class="about-card mt-3">
 	<div class="d-flex align-items-center m-0 p-0">
-		<p class="fz-17 m-0 p-0 pr-3 mr-auto">Страница с уведомлениями</p>
+		<p class="fz-16 m-0 p-0 pr-3 mr-auto font-weight-bold">Страница с уведомлениями</p>
 	</div>
 	<hr class="hr-user-info">
 	<p class="fz-14 m-0 mb-2 p-0">Содержит список с уведомлениями (комментарии под фотографиями от других пользователей, заявки в друзья).</p>
@@ -194,7 +194,7 @@
 
 <div class="about-card mt-3">
 	<div class="d-flex align-items-center m-0 p-0">
-		<p class="fz-17 m-0 p-0 pr-3 mr-auto">Страница с настройками</p>
+		<p class="fz-16 m-0 p-0 pr-3 mr-auto font-weight-bold">Страница с настройками</p>
 	</div>
 	<hr class="hr-user-info">
 	<p class="fz-14 m-0 mb-2 p-0">Позволяет пользователю изменить email и пароль от аккаунта, а также выйти из своего аккаунта на всех устройствах и браузерах, в которых был ранее осуществлён вход.</p>

@@ -15,7 +15,7 @@
     {
 ?>
       <p id="friend-menu-btn" data-toggle="dropdown" aria-expanded="false">
-        <svg fill="var(--main-text-color)" width="20px" height="20px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg fill="var(--main-text-color)" width="20px" height="20px" viewBox="0 0 24 24">
           <path d="M2,12a2,2,0,1,1,2,2A2,2,0,0,1,2,12Zm10,2a2,2,0,1,0-2-2A2,2,0,0,0,12,14Zm8-4a2,2,0,1,0,2,2A2,2,0,0,0,20,10Z"></path>
         </svg>
       </p>
@@ -33,7 +33,7 @@
           case 'subscribed':
 ?>
             <p id="friend-menu-btn" data-toggle="dropdown" aria-expanded="false">
-              <svg fill="var(--main-text-color)" width="20px" height="20px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg fill="var(--main-text-color)" width="20px" height="20px" viewBox="0 0 24 24">
                 <path d="M2,12a2,2,0,1,1,2,2A2,2,0,0,1,2,12Zm10,2a2,2,0,1,0-2-2A2,2,0,0,0,12,14Zm8-4a2,2,0,1,0,2,2A2,2,0,0,0,20,10Z"></path>
               </svg>
             </p>
@@ -53,19 +53,19 @@
       {
         switch ($friendly_user_status) {
           case 'user':
-            echo '<a class="dropdown-item pt-2 pb-2 first-item" 
+            echo '<a class="dropdown-item pt-2 pb-2 first-item font-weight-bold" 
                       href="" 
                       onclick="event.preventDefault();addFriendFromSearchList(\''.$user_uuid.'\',\''.$search_uuid.'\',\''.$hash_modal.'\');">Добавить в друзья</a>';
             break;
 
           case 'submitter':
-            echo '<a class="dropdown-item pt-2 pb-2 first-item" 
+            echo '<a class="dropdown-item pt-2 pb-2 first-item font-weight-bold" 
                       href="" 
                       onclick="event.preventDefault();delRequestFromSearchList(\''.$user_uuid.'\',\''.$search_uuid.'\',\''.$hash_modal.'\');">Отменить заявку</a>';
             break;
 
           case 'receiver':
-            echo '<a class="dropdown-item pt-2 pb-2 first-item" 
+            echo '<a class="dropdown-item pt-2 pb-2 first-item font-weight-bold" 
                       href="" 
                       onclick="event.preventDefault();acceptFriendRequestFromSearchList(\''.$user_uuid.'\',\''.$search_uuid.'\',\''.$hash_modal.'\');">Принять заявку</a>
                   <hr class="hr-user-info m-0">
@@ -75,19 +75,19 @@
             break;
 
           case 'subscriber':
-            echo '<a class="dropdown-item pt-2 pb-2 first-item" 
+            echo '<a class="dropdown-item pt-2 pb-2 first-item font-weight-bold" 
                       href="" 
                       onclick="event.preventDefault();addFriendFromSubscriberFromSearchList(\''.$user_uuid.'\',\''.$search_uuid.'\',\''.$hash_modal.'\');">Добавить в друзья</a>';
           break;
 
           case 'subscribed':
-            echo '<a class="dropdown-item pt-2 pb-2 first-item" 
+            echo '<a class="dropdown-item pt-2 pb-2 first-item font-weight-bold" 
                       href="" 
                       onclick="event.preventDefault();delSubscribedFromSearchList(\''.$user_uuid.'\',\''.$search_uuid.'\',\''.$hash_modal.'\');">Отписаться</a>';
             break;
 
           default:
-            echo '<a class="dropdown-item pt-2 pb-2 first-item" 
+            echo '<a class="dropdown-item pt-2 pb-2 first-item font-weight-bold" 
                       href="" 
                       onclick="event.preventDefault();addFriendFromSearchList(\''.$user_uuid.'\',\''.$search_uuid.'\',\''.$hash_modal.'\');">Добавить в друзья</a>';
             break;
@@ -95,7 +95,7 @@
 
         echo '
           <hr class="hr-user-info m-0">
-          <a class="dropdown-item pt-2 pb-2 last-item" onclick="event.preventDefault();openReportUserModal(\''.$user_uuid.'\',\''.$search_uuid.'\');" href="">Пожаловаться</a>';
+          <a class="dropdown-item pt-2 pb-2 last-item font-weight-bold" onclick="event.preventDefault();openReportUserModal(\''.$user_uuid.'\',\''.$search_uuid.'\');" href="">Пожаловаться</a>';
       }else
       {
         switch ($friendly_user_status) {
@@ -104,17 +104,17 @@
             break;
 
           case 'submitter':
-            echo '<a class="dropdown-item pt-2 pb-2 only-one-item" 
+            echo '<a class="dropdown-item pt-2 pb-2 only-one-item font-weight-bold" 
                       href="" 
                       onclick="event.preventDefault();delRequestFromSearchList(\''.$user_uuid.'\',\''.$search_uuid.'\',\''.$hash_modal.'\');">Отменить заявку</a>';
             break;
 
           case 'receiver':
-            echo '<a class="dropdown-item pt-2 pb-2 first-item" 
+            echo '<a class="dropdown-item pt-2 pb-2 first-item font-weight-bold" 
                       href="" 
                       onclick="event.preventDefault();acceptFriendRequestFromSearchList(\''.$user_uuid.'\',\''.$search_uuid.'\',\''.$hash_modal.'\');">Принять заявку</a>
                   <hr class="hr-user-info m-0">
-                  <a class="dropdown-item pt-2 pb-2 last-item" 
+                  <a class="dropdown-item pt-2 pb-2 last-item font-weight-bold" 
                       href="" 
                       onclick="event.preventDefault();declineFriendRequestFromSearchList(\''.$user_uuid.'\',\''.$search_uuid.'\',\''.$hash_modal.'\');">Отклонить заявку</a>';
             break;
@@ -124,7 +124,7 @@
           break;
 
           case 'subscribed':
-            echo '<a class="dropdown-item pt-2 pb-2 only-one-item" 
+            echo '<a class="dropdown-item pt-2 pb-2 only-one-item font-weight-bold" 
                       href="" 
                       onclick="event.preventDefault();delSubscribedFromSearchList(\''.$user_uuid.'\',\''.$search_uuid.'\',\''.$hash_modal.'\');">Отписаться</a>';
             break;
@@ -177,7 +177,7 @@
         if ($premium_status)
         {
 ?>
-          <p class="username text-hover fz-16 m-0 d-flex align-items-center"><?= get_user_fullname($search_uuid); ?>
+          <p class="username text-hover fz-16 m-0 d-flex align-items-center font-weight-bold"><?= get_user_fullname($search_uuid); ?>
             <svg class="ml-2 premium-star active" width="15px" height="15px" viewBox="0 0 48.00 48.00" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#2ACAEA" stroke-width="0.00048000000000000007" transform="matrix(1, 0, 0, 1, 0, 0)rotate(0)">
               <defs>  
                 <linearGradient id="premium-logo-gradient-<?= $hash_modal; ?>" x1="50%" y1="0%" x2="50%" y2="100%" > 
@@ -199,7 +199,7 @@
         }else
         {
 ?>
-          <p class="username text-hover fz-16 m-0 p-0"><?= get_user_fullname($search_uuid); ?></p>
+          <p class="username text-hover fz-16 m-0 p-0 font-weight-bold"><?= get_user_fullname($search_uuid); ?></p>
 <?
         }
 ?>

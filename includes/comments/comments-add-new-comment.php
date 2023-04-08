@@ -1,5 +1,5 @@
 <div class="m-0 p-2 pl-3 pr-3 d-flex flex-row align-items-center">
-  <p class="fz-14 m-0 p-0 pt-1 pb-1 mr-auto" id="comments-count">Комментарии: <?= ($comments_list) ? count($comments_list) : 0; ?></p>
+  <p class="fz-13 m-0 p-0 pt-1 pb-1 mr-auto font-weight-bold" id="comments-count">Комментарии: <?= ($comments_list) ? count($comments_list) : 0; ?></p>
 <?
   if (get_latest_avatar($user_uuid))
     if ((!check_only_friends_can_comment_photos($photo_user_uuid) && !check_only_friends_can_read_comments_on_photos($photo_user_uuid)) ||
@@ -12,7 +12,7 @@
               <div class="nav-item m-0 p-1">
                 <a class="nav-link m-0 p-0 text-center d-flex flex-row justify-content-center align-items-center">
                   <i class="fa fa-commenting-o fz-18 p-1 pl-2 pr-2 m-0" id="show-comment-text-field-icon" aria-hidden="true"></i>
-                  <p class="fz-14 p-1 m-0" id="show-comment-text-field-p">Добавить комментарий</p>
+                  <p class="fz-13 p-1 m-0 font-weight-bold" id="show-comment-text-field-p">Добавить комментарий</p>
                 </a>
               </div>
             </div>
@@ -22,7 +22,7 @@
               <div class="nav-item m-0 p-1">
                 <a class="nav-link m-0 p-0 text-center d-flex flex-row justify-content-center align-items-center">
                   <i class="fa fa-times fz-18 p-1 pl-2 pr-2 m-0" id="hide-comment-text-field-icon" aria-hidden="true"></i>
-                  <p class="fz-14 p-1 m-0" id="hide-comment-text-field-p">Скрыть</p>
+                  <p class="fz-13 p-1 m-0 font-weight-bold" id="hide-comment-text-field-p">Скрыть</p>
                 </a>
               </div>
             </div>';

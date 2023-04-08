@@ -1,4 +1,4 @@
-<p class="title-awards-info text-center mt-2 mb-2 fz-17">Подтверждение email</p>
+<p class="title-awards-info text-center mt-2 mb-2 fz-17 font-weight-bold">Подтверждение email</p>
 <hr class="hr-user-info"> 
 <div class="modal-body">
   <div class="form-group col-12 row m-0 p-0 mb-3">

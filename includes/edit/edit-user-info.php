@@ -5,7 +5,7 @@
   $user_surname = get_user_surname($user_uuid);
   $user_birthday = get_user_birthday($user_uuid);
 ?>
-<p class="fz-17 text-center mt-2 mb-2">Основное</p>
+<p class="fz-17 text-center mt-2 mb-2 font-weight-bold">Основное</p>
 <hr class="hr-user-info"> 
 <div class="modal-body">
   <form id="edit-user-data-block" data-attr="<?= $user_uuid; ?>" action="" method="POST" onSubmit="return editUserDataValidation();">

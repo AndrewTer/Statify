@@ -11,7 +11,7 @@
       $news_date_main = $news_date_list[0];
 ?>
       <div class="hr-with-text">
-        <span><?= corrected_date_with_text_month($news_date_main); ?></span>
+        <span class="font-weight-bold"><?= corrected_date_with_text_month($news_date_main); ?></span>
       </div>
 <?
       for ($i=0; $i < $news_list_count; $i++)
@@ -56,19 +56,19 @@
 <?
   $page1left = $page2left = $page1right = $page2right = $pervpage = $nextpage = '';
 
-  if ($page != 1) $pervpage = '<a class="fz-13 m-2 pt-1 pb-1 page-num d-flex justify-content-center align-items-center" href="news?sort=mine&page=1" aria-label="Переход на первую страницу с новостями"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a><a class="fz-13 m-2 pt-1 pb-1 page-num d-flex justify-content-center align-items-center" href="news?sort=mine&page='. ($page - 1) .'" aria-label="Переход на предыдущую страницу с новостями"><i class="fa fa-angle-left" aria-hidden="true"></i></a>';
+  if ($page != 1) $pervpage = '<a class="fz-13 m-2 pt-1 pb-1 page-num d-flex justify-content-center align-items-center font-weight-bold" href="news?sort=mine&page=1" aria-label="Переход на первую страницу с новостями"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a><a class="fz-13 m-2 pt-1 pb-1 page-num d-flex justify-content-center align-items-center" href="news?sort=mine&page='. ($page - 1) .'" aria-label="Переход на предыдущую страницу с новостями"><i class="fa fa-angle-left" aria-hidden="true"></i></a>';
 
   // Проверяем нужны ли стрелки вперед
-  if ($page != $total_count_news_pages) $nextpage = '<a class="fz-13 m-2 pt-1 pb-1 page-num d-flex justify-content-center align-items-center" href="news?sort=mine&page='. ($page + 1) .'" aria-label="Переход на следующую страницу с новостями"><i class="fa fa-angle-right" aria-hidden="true"></i></a><a class="fz-13 m-2 pt-1 pb-1 page-num d-flex justify-content-center align-items-center" href="news?sort=mine&page=' .$total_count_news_pages. '" aria-label="Переход на последнюю страницу с новостями"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>';
+  if ($page != $total_count_news_pages) $nextpage = '<a class="fz-13 m-2 pt-1 pb-1 page-num d-flex justify-content-center align-items-center font-weight-bold" href="news?sort=mine&page='. ($page + 1) .'" aria-label="Переход на следующую страницу с новостями"><i class="fa fa-angle-right" aria-hidden="true"></i></a><a class="fz-13 m-2 pt-1 pb-1 page-num d-flex justify-content-center align-items-center" href="news?sort=mine&page=' .$total_count_news_pages. '" aria-label="Переход на последнюю страницу с новостями"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>';
 
   // Находим две ближайшие станицы с обоих краев, если они есть
-  if($page - 2 > 0) $page2left = '<a class="fz-13 m-2 pt-1 pb-1 page-num d-flex justify-content-center align-items-center" href="news?sort=mine&page='. ($page - 2) .'" aria-label="Переход на две страницы назад">'. ($page - 2) .'</a>';
-  if($page - 1 > 0) $page1left = '<a class="fz-13 m-2 pt-1 pb-1 page-num d-flex justify-content-center align-items-center" href="news?sort=mine&page='. ($page - 1) .'" aria-label="Переход на предыдущую страницу с новостями">'. ($page - 1) .'</a>';
-  if($page + 2 <= $total_count_news_pages) $page2right = '<a class="fz-13 m-2 pt-1 pb-1 page-num d-flex justify-content-center align-items-center" href="news?sort=mine&page='. ($page + 2) .'" aria-label="Переход на две страницы вперёд">'. ($page + 2) .'</a>';
-  if($page + 1 <= $total_count_news_pages) $page1right = '<a class="fz-13 m-2 pt-1 pb-1 page-num d-flex justify-content-center align-items-center" href="news?sort=mine&page='. ($page + 1) .'" aria-label="Переход на следующую страницу с новостями">'. ($page + 1) .'</a>';
+  if($page - 2 > 0) $page2left = '<a class="fz-13 m-2 pt-1 pb-1 page-num d-flex justify-content-center align-items-center font-weight-bold" href="news?sort=mine&page='. ($page - 2) .'" aria-label="Переход на две страницы назад">'. ($page - 2) .'</a>';
+  if($page - 1 > 0) $page1left = '<a class="fz-13 m-2 pt-1 pb-1 page-num d-flex justify-content-center align-items-center font-weight-bold" href="news?sort=mine&page='. ($page - 1) .'" aria-label="Переход на предыдущую страницу с новостями">'. ($page - 1) .'</a>';
+  if($page + 2 <= $total_count_news_pages) $page2right = '<a class="fz-13 m-2 pt-1 pb-1 page-num d-flex justify-content-center align-items-center font-weight-bold" href="news?sort=mine&page='. ($page + 2) .'" aria-label="Переход на две страницы вперёд">'. ($page + 2) .'</a>';
+  if($page + 1 <= $total_count_news_pages) $page1right = '<a class="fz-13 m-2 pt-1 pb-1 page-num d-flex justify-content-center align-items-center font-weight-bold" href="news?sort=mine&page='. ($page + 1) .'" aria-label="Переход на следующую страницу с новостями">'. ($page + 1) .'</a>';
 
   // Вывод меню
   if ($total_count_news_pages > 1)
-    echo $pervpage.$page2left.$page1left.'<p class="fz-13 m-2 pt-1 pb-1 current-page-num d-flex justify-content-center align-items-center">'.$page.'</p>'.$page1right.$page2right.$nextpage;
+    echo $pervpage.$page2left.$page1left.'<p class="fz-13 m-2 pt-1 pb-1 current-page-num d-flex justify-content-center align-items-center font-weight-bold">'.$page.'</p>'.$page1right.$page2right.$nextpage;
 ?>
   </div>

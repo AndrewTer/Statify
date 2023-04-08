@@ -124,7 +124,7 @@
 ?>
 			<div class="popular-picture-card m-1 grid-item position-relative">
 				<div class="m-0 p-0 <?= $gradient_border_class; ?>">
-					<span class="position-absolute popular-card-badge fz-13 <?= $text_color_class; ?>"><i class="fa fa-star-o fz-13 p-0 pr-2 m-0 <?= $text_color_class; ?>" aria-hidden="true"></i><?= round(remove_zeros_after_dot($rating_number), 1); ?></span>
+					<span class="position-absolute popular-card-badge fz-13 font-weight-bold <?= $text_color_class; ?>"><i class="fa fa-star-o fz-13 p-0 pr-2 m-0 <?= $text_color_class; ?>" aria-hidden="true"></i><?= round(remove_zeros_after_dot($rating_number), 1); ?></span>
 					<img class="<?= $offline_class; ?> w-100 border-radius-15" src="<?= 'users/'.$photo_user_uuid.'/'.$photo_name; ?>" alt="<?= $photo_user_name; ?>" onclick="event.preventDefault();openProfilePictureModal(<?= '\''.$user_uuid.'\',\''.$photo_user_uuid.'\',\''.$photo_name.'\''; ?>);">
 				</div>
 			</div>
@@ -194,7 +194,7 @@
 ?>
 			<div class="popular-picture-card m-1 grid-item position-relative">
 				<div class="m-0 p-0 <?= $gradient_border_class; ?>">
-					<span class="position-absolute popular-card-badge fz-13 <?= $text_color_class; ?>"><i class="fa fa-comments-o fz-13 p-0 pr-2 m-0 <?= $text_color_class; ?>" aria-hidden="true"></i><?= rounding_number_by_places($comments_count); ?></span>
+					<span class="position-absolute popular-card-badge fz-13 font-weight-bold <?= $text_color_class; ?>"><i class="fa fa-comments-o fz-13 p-0 pr-2 m-0 <?= $text_color_class; ?>" aria-hidden="true"></i><?= rounding_number_by_places($comments_count); ?></span>
 					<img class="<?= $offline_class; ?> w-100 border-radius-15" src="<?= 'users/'.$photo_user_uuid.'/'.$photo_name; ?>" alt="<?= $photo_user_name; ?>" onclick="event.preventDefault();openProfilePictureModal(<?= '\''.$user_uuid.'\',\''.$photo_user_uuid.'\',\''.$photo_name.'\''; ?>);">
 				</div>
 			</div>
@@ -264,7 +264,7 @@
 ?>
 			<div class="popular-picture-card m-1 grid-item position-relative">
 				<div class="m-0 p-0 <?= $gradient_border_class; ?>">
-					<span class="position-absolute popular-card-badge fz-13 <?= $text_color_class; ?>"><i class="fa fa-bookmark-o fz-13 p-0 pr-2 m-0 <?= $text_color_class; ?>" aria-hidden="true"></i><?= rounding_number_by_places($saves_count); ?></span>
+					<span class="position-absolute popular-card-badge fz-13 font-weight-bold <?= $text_color_class; ?>"><i class="fa fa-bookmark-o fz-13 p-0 pr-2 m-0 <?= $text_color_class; ?>" aria-hidden="true"></i><?= rounding_number_by_places($saves_count); ?></span>
 					<img class="<?= $offline_class; ?> w-100 border-radius-15" style="<?= $border_style; ?>" src="<?= 'users/'.$photo_user_uuid.'/'.$photo_name; ?>" alt="<?= $photo_user_name; ?>" onclick="event.preventDefault();openProfilePictureModal(<?= '\''.$user_uuid.'\',\''.$photo_user_uuid.'\',\''.$photo_name.'\''; ?>);">
 				</div>
 			</div>
