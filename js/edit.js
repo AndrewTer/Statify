@@ -68,7 +68,7 @@ function countTags() {
 function createTag() {
     tagsList.querySelectorAll("li").forEach(li => li.remove());
     tags.slice().reverse().forEach(tag =>{
-        let liTag = `<li class="tags-field d-flex flex-row align-items-center">
+        let liTag = `<li class="tags-field font-weight-bold d-flex flex-row align-items-center">
                       ${tag}
                       <svg viewBox="0 0 48 48" class="svg-close-icon pointer" onclick="remove(this, '${tag}')">
                         <rect width="48" height="48" fill="none"></rect>
