@@ -10,7 +10,7 @@
 
         if (!is_null($user_tags_list))
           for ($tags_num = 0; $tags_num < count($user_tags_list); $tags_num++)
-            echo '<li class="tags-field d-flex flex-row align-items-center">'
+            echo '<li class="tags-field font-weight-bold d-flex flex-row align-items-center">'
                   .$user_tags_list[$tags_num]
                   .'<svg viewBox="0 0 48 48" class="svg-close-icon pointer" onclick="remove(this, \''.$user_tags_list[$tags_num].'\')">
                         <rect width="48" height="48" fill="none"></rect>
