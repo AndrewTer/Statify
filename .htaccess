@@ -23,10 +23,10 @@ RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
 #RewriteRule ^(.*)$ /403 [F,L]
 
 #403 Доступ запрещен
-ErrorDocument 403 http://localhost/ubeauty/403
+ErrorDocument 403 http://localhost/statify/403
 
 #404 Страница не найдена
-ErrorDocument 404 http://localhost/ubeauty/404
+ErrorDocument 404 http://localhost/statify/404
 
 # Отключает вывод ошибок и записывает их в log-файл
 #php_flag display_startup_errors off
