@@ -13,7 +13,7 @@
 <?
       for ($tags_num = 0; $tags_num < count($tags_array); $tags_num++)
       {
-        echo '<a href="search?q='.$tags_array[$tags_num].'"><li>'.$tags_array[$tags_num].'</li></a>';
+        echo '<a href="search?q='.$tags_array[$tags_num].'"><li class="font-weight-bold">'.$tags_array[$tags_num].'</li></a>';
       }
 ?>
     </ul>

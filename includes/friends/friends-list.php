@@ -102,7 +102,7 @@
           if ($premium_status)
           {
 ?>
-            <p class="username pointer text-hover w-100 fz-16 d-flex align-items-center font-weight-bold"><?= get_user_fullname($friend_uuid); ?>
+            <p class="username pointer text-hover search-content w-100 fz-16 d-flex align-items-center font-weight-bold"><?= get_user_fullname($friend_uuid); ?>
               <svg class="ml-2 premium-star active" width="15px" height="15px" viewBox="0 0 48.00 48.00" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#2ACAEA" stroke-width="0.00048000000000000007" transform="matrix(1, 0, 0, 1, 0, 0)rotate(0)">
                 <defs>  
                   <linearGradient id="premium-logo-gradient-<?= $hash_modal; ?>" x1="50%" y1="0%" x2="50%" y2="100%" > 
@@ -124,7 +124,7 @@
           }else
           {
 ?>
-            <p class="username pointer text-hover w-100 fz-16 m-0 font-weight-bold"><?= get_user_fullname($friend_uuid); ?></p>
+            <p class="username pointer text-hover search-content w-100 fz-16 m-0 font-weight-bold"><?= get_user_fullname($friend_uuid); ?></p>
 <?
           }
 ?>
