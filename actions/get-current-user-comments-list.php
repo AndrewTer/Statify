@@ -1,9 +1,10 @@
 <?php 
 	defined('mystatify');
+	include("../functions/functions.php");
+	include("../functions/database-functions.php");
 	include("../functions/functions-comments.php");
 	include("../functions/functions-user-data.php");
 	include("../functions/functions-for-check.php");
-	include("../functions/functions.php");
 	require_once(realpath('../includes/connection.php'));
 
 	$result = '';
