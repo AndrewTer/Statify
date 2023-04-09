@@ -277,7 +277,7 @@
 ?>
 								</span>
 
-								<div class="hr-with-text mt-2 mb-2"><span class="m-0 fz-15 font-weight-bold">Теги</span></div>
+								<div class="hr-with-text mt-2 mb-3"><span class="m-0 fz-15 font-weight-bold">Теги</span></div>
 
 <?
 								$tags_array = get_user_tags($user_uuid);
@@ -294,7 +294,7 @@
 						      echo '<p class="m-0 p-0 fz-14 font-weight-bold text-center w-100">Список тегов пуст</p>';
 ?>
 
-								<div class="hr-with-text mt-2 mb-2"><span class="m-0 fz-15 font-weight-bold">Социальные сети</span></div>
+								<div class="hr-with-text mt-3 mb-2"><span class="m-0 fz-15 font-weight-bold">Социальные сети</span></div>
 
 								<span class="m-0 p-0 w-100 d-flex flex-row align-items-center justify-content-center">
 <?

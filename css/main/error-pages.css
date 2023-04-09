@@ -6,16 +6,8 @@
   background-color: #636465;
 }
 
-.browser-block {
-  width: 60px;
-}
-
 #main-page-link:hover {
   color:  white;
-}
-
-.fa.fa-dot-circle-o {
-  color: #00ace6;
 }
 
 @media (max-width: 800px) {
