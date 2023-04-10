@@ -52,7 +52,7 @@
             </div>
 
             <div class="col-12 m-0 p-0" id="upload-new-avatar">
-              <label class="upload-user-photo-label fz-14 letter-spacing-05 w-100 text-center m-0" data-toggle="modal" data-target="#updateUserProfilePhotoModal" for="input-new-user-avatar">Выбрать фотографию</label>
+              <label class="upload-user-photo-label fz-14 font-weight-bold w-100 text-center m-0" data-toggle="modal" data-target="#updateUserProfilePhotoModal" for="input-new-user-avatar">Выбрать фотографию</label>
               <input type="file" name="image" id="input-new-user-avatar" accept="image/jpeg, image/jpg, image/png, image/webp, image/bmp">
             </div>';
     else

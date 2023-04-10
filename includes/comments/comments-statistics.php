@@ -1,6 +1,6 @@
 <div class="block-search-and-sort mt-3 p-0 text-center d-none d-md-block" id="comments-block-user-rating">
   <div class="m-0 p-0" id="comments-rating-area">
-    <p class="fz-14 fw-700 letter-spacing-05 m-0 p-2">Статистика</p>
+    <p class="fz-14 font-weight-bold m-0 p-2">Статистика</p>
     <hr class="hr-user-info m-0 mb-2">
 
     <div class="row m-0 p-0 mt-2 mb-2 ml-3 mr-3 d-flex align-items-center justify-content-center">

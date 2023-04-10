@@ -151,7 +151,7 @@
 ?>
                       </a>
                   
-                      <p class="m-0 p-0 fz-13 font-weight-bold letter-spacing-05"><?= (($author_uuid_replying_comment) ? '<a class="m-0 p-0" href="./?u='.get_user_nickname($author_uuid_replying_comment).'"><span class="m-0 p-0 nickname-author-reply-to-comment-p">'.get_user_nickname($author_uuid_replying_comment).'</span></a>, ' : '').str_replace(array("\r\n", "\r", "\n"), '<br>', $comment_text); ?> 
+                      <p class="m-0 p-0 fz-13 font-weight-bold"><?= (($author_uuid_replying_comment) ? '<a class="m-0 p-0" href="./?u='.get_user_nickname($author_uuid_replying_comment).'"><span class="m-0 p-0 nickname-author-reply-to-comment-p">'.get_user_nickname($author_uuid_replying_comment).'</span></a>, ' : '').str_replace(array("\r\n", "\r", "\n"), '<br>', $comment_text); ?> 
                       </p>
 <?
                     if (get_latest_avatar($user_uuid))
@@ -160,8 +160,8 @@
                           (check_only_friends_can_comment_photos($photo_user_uuid) && user_friendly_status($user_uuid, $photo_user_uuid) == 'friend'))
                       {
 ?>
-                      <p class="m-0 mt-2 p-0 fz-12 font-weight-bold letter-spacing-05 add-reply-to-comment-p" id="add-reply-<?= preg_replace('[-]', '', $comment_uuid); ?>" onclick="event.preventDefault();addReplyToCommentBlock(<?= '\''.preg_replace('[-]', '', $user_uuid).'\',\''.preg_replace('[-]', '', $photo_uuid).'\',\''.preg_replace('[-]', '', $comment_uuid).'\''; ?>);">Ответить</p>
-                      <p class="m-0 mt-2 p-0 fz-12 font-weight-bold letter-spacing-05 hide-reply-to-comment-p" id="hide-reply-<?= preg_replace('[-]', '', $comment_uuid); ?>" onclick="event.preventDefault();delReplyToCommentBlock(<?= '\''.preg_replace('[-]', '', $comment_uuid).'\''; ?>);">Отмена</p>
+                      <p class="m-0 mt-2 p-0 fz-12 font-weight-bold add-reply-to-comment-p" id="add-reply-<?= preg_replace('[-]', '', $comment_uuid); ?>" onclick="event.preventDefault();addReplyToCommentBlock(<?= '\''.preg_replace('[-]', '', $user_uuid).'\',\''.preg_replace('[-]', '', $photo_uuid).'\',\''.preg_replace('[-]', '', $comment_uuid).'\''; ?>);">Ответить</p>
+                      <p class="m-0 mt-2 p-0 fz-12 font-weight-bold hide-reply-to-comment-p" id="hide-reply-<?= preg_replace('[-]', '', $comment_uuid); ?>" onclick="event.preventDefault();delReplyToCommentBlock(<?= '\''.preg_replace('[-]', '', $comment_uuid).'\''; ?>);">Отмена</p>
 <?
                       }
 ?>

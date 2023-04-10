@@ -11,7 +11,7 @@
     $user_nickname = get_user_nickname($user_uuid);
 ?>
   <div class="form-group m-0 p-0 mb-3 d-flex flex-row align-items-center">
-    <label class="fz-13 fw-700 letter-spacing-05 m-0 mr-auto p-0 h-100">Пол</label>
+    <label class="fz-13 font-weight-bold m-0 mr-auto p-0 h-100">Пол</label>
     <p class="m-0 ml-auto p-0 h-100 text-right">
     <?
       switch ($user_gender) {
@@ -32,7 +32,7 @@
   </div>
 
   <div class="form-group m-0 p-0 d-flex flex-row align-items-center">
-    <label class="fz-13 fw-700 letter-spacing-05 m-0 mr-auto p-0 h-100 justify-content-start">Пользовательское имя</label>
+    <label class="fz-13 font-weight-bold m-0 mr-auto p-0 h-100 justify-content-start">Пользовательское имя</label>
     <p class="m-0 ml-auto p-0 h-100 text-right d-flex flex-row flex-wrap text-break justify-content-end align-items-center" id="edit-user-nickname-text"><?= ($user_nickname) ? $user_nickname : 'Не указано'; ?>
 <?
     if ($premium_status && check_nickname_change_date($user_uuid))

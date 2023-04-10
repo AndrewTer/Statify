@@ -7,7 +7,7 @@
     {
 ?>
       <div class="block-search-and-sort mt-3 p-0 text-center d-none d-md-block">
-        <p class="fz-14 fw-700 letter-spacing-05 m-0 p-2">Другие фотографии</p>
+        <p class="fz-14 font-weight-bold m-0 p-2">Другие фотографии</p>
         <hr class="hr-user-info m-0"> 
 
         <div class="m-2 p-0 other-user-pictures-list">

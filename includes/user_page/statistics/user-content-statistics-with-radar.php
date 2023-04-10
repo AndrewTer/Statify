@@ -1,6 +1,6 @@
 <div class="row m-0 p-0 w-100 person-info" id="block-with-statistics-by-user">
 
-  <div id="block-rating-left" class="mb-3 p-0 order-2 order-sm-1 order-md-1 order-lg-1 order-xl-1">
+  <div id="block-rating-left" class="mb-3 p-0 order-2 order-sm-2 order-md-1 order-lg-1 order-xl-1">
     <div class="block-user-content">
       
       <h5 class="position-relative fz-14 text-center font-weight-bold">Оценки пользователей
@@ -333,7 +333,7 @@
 
   </div>
 
-  <div id="block-rating-right" class="mb-3 p-0 order-1 order-sm-2 order-md-2 order-lg-2 order-xl-2">
+  <div id="block-rating-right" class="mb-3 p-0 order-1 order-sm-1 order-md-2 order-lg-2 order-xl-2">
     <div class="block-user-content d-flex justify-content-center row m-0">
 <?
         if ($page_status)

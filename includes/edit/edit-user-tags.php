@@ -23,10 +23,10 @@
 
     <div class="tags-block-details w-100 m-0">
       <div class="w-50 p-0 m-0 d-flex justify-content-start align-items-center">
-        <p class="fz-13 fw-700 letter-spacing-05 p-0 m-0">Осталось:&nbsp;<span>5</span></p>
+        <p class="fz-13 font-weight-bold p-0 m-0">Осталось:&nbsp;<span>5</span></p>
       </div>
       <div class="w-50 p-0 m-0 d-flex justify-content-end align-items-center">
-        <p class="fz-13 letter-spacing-05 p-0 m-0 btn-delete-tags">Удалить теги</p>
+        <p class="fz-13 p-0 m-0 btn-delete-tags">Удалить теги</p>
       </div>
     </div>
   </div>

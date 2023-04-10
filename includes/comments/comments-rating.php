@@ -4,7 +4,7 @@
 ?>
 <div class="block-search-and-sort mt-3 p-0 text-center d-none d-md-block" id="comments-block-user-rating">
   <div class="m-0 p-0" id="comments-rating-area">
-    <p class="fz-14 fw-700 m-0 p-2">Моя оценка</p>
+    <p class="fz-14 font-weight-bold m-0 p-2">Моя оценка</p>
     <hr class="hr-user-info m-0 mb-2">
 <?
     $current_photo_rating_value = get_user_rating_from_current_user($user_uuid, $photo_user_uuid, $photo_uuid);

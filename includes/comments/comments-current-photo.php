@@ -23,7 +23,7 @@
     if ($premium_status_author_photo)
     {
 ?>
-      <p class="fz-16 m-0 w-100 text-left d-flex align-items-center font-weight-bold"><?= get_user_fullname($photo_user_uuid); ?>
+      <p class="fz-17 m-0 w-100 text-left d-flex align-items-center font-weight-bold"><?= get_user_fullname($photo_user_uuid); ?>
         <svg class="ml-2 premium-star active" width="15px" height="15px" viewBox="0 0 48.00 48.00" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#2ACAEA" stroke-width="0.00048000000000000007" transform="matrix(1, 0, 0, 1, 0, 0)rotate(0)">
           <defs>  
             <linearGradient id="premium-logo-gradient-author-photo" x1="50%" y1="0%" x2="50%" y2="100%" > 
