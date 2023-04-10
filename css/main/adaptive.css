@@ -159,7 +159,12 @@
     margin: 0 !important;
   }
 
+  .section-user-info {
+    padding-top: 20px !important;
+  }
+
   #block-user-main-info {
+    align-items: center !important;
     flex-direction: column !important;
   }
 
@@ -317,6 +322,12 @@
   #log-section,
   #reg-section {
     width: 100% !important;
+  }
+}
+
+@media (min-width: 576px) and (max-width:  915px) {
+  #block-user-main-info {
+    align-items: flex-start !important;
   }
 }
 
