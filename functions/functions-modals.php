@@ -101,6 +101,7 @@
 			$current_user_city = get_user_city_name($user_uuid);
 			$current_user_birthday = get_user_birthday($user_uuid);
 			$current_user_gender = get_user_gender($user_uuid);
+			$current_user_registration_date = get_user_registration_date($user_uuid);
 
 			$current_user_gender_preference = get_user_gender_preference($user_uuid);
 			$current_user_minimum_age_preference = get_user_minimum_age_preference($user_uuid);
@@ -352,6 +353,10 @@
       						echo '<p class="m-0 p-0 fz-14 font-weight-bold text-center w-100">Доступно только для друзей</p>';
 ?>
 								</span>
+<?
+							if ($user_uuid == $current_user_uuid)
+  							echo '<hr class="hr-user-info mt-2 mb-3"><p class="m-0 p-0 fz-13 text-center w-100">Дата регистрации: <span>'.(($current_user_registration_date) ? corrected_date_with_text_month(date($current_user_registration_date)) : "Отсутствует").'</span></p>';
+?>
 			        </div>
 			      </div>
 

@@ -608,6 +608,20 @@ blockquote p:after {
   margin-left: 15px;
 }
 
+.framed-text-title {
+  position: absolute !important; 
+  top: -13px; 
+  left: 0;
+}
+
+.framed-text-title span {
+  background: var(--content-block-bg-color-without-transparency);
+  border: 1px solid var(--content-block-border-color);
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+}
+
 .main-header {
   z-index: 2;
 }

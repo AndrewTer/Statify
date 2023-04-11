@@ -172,6 +172,28 @@
 
 //----------------------------------------------------------------------------------------------------------------
 
+  function get_user_registration_date($user_uuid)
+  {
+    if (!empty($user_uuid))
+    {
+        $user_registration_date_query = pg_query("SELECT creation_date
+                                         FROM users
+                                         WHERE uuid = '{$user_uuid}'
+                                         LIMIT 1")
+                                or trigger_error(pg_last_error().$user_registration_date_query);
+
+        if($user_registration_date_result = pg_fetch_row($user_registration_date_query))
+        {
+            $user_registration_date = $user_registration_date_result[0];
+            return $user_registration_date;
+        } else
+            return null;
+    }else
+        return null;
+  }
+
+//----------------------------------------------------------------------------------------------------------------
+
   function get_user_tags($user_uuid)
   {
     if (!empty($user_uuid))
