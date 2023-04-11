@@ -13,11 +13,11 @@
       $year_value = $years_list[$years_num][0];
 ?>
       <div class="col-12 p-0">
-        <div class="hr-with-text">
-          <span class="m-0 font-weight-bold" id="<?= $year_value; ?>"><?= $year_value.'&nbsp;год'; ?></span>
+        <div class="w-100 framed-text-title d-flex flex-row align-items-center justify-content-center">
+          <span class="fz-14 m-0 p-1 pl-3 pr-3 font-weight-bold text-center" id="<?= $year_value; ?>"><?= $year_value.'&nbsp;год'; ?></span>
         </div>
 
-        <div class="row m-0 mt-3 mb-3 p-2 justify-content-start block-search-and-sort">
+        <div class="row m-0 mt-3 <?= ($years_num < count($years_list) - 1) ? 'mb-4' : ''; ?> p-2 pt-4 justify-content-start block-search-and-sort">
 
 <?
       for ($saves_num = 0; $saves_num < count($saves_list); $saves_num++)

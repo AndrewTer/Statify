@@ -2,7 +2,7 @@
   $page_status = check_user_page_status($current_user_uuid);
   $premium_status = check_premium_active($current_user_uuid);
 
-  include("../requests/user-info.php");
+  include("../requests/user-info-for-statistics.php");
 
   if (ban_check($user_uuid) == 'success')
   {
