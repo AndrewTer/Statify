@@ -66,7 +66,7 @@
     <link rel="stylesheet" type="text/css" href="css/main/adaptive.css">
     <link rel="stylesheet" href="css/cropper.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.6.4.js"></script>
 
     <noscript>
       <meta http-equiv="refresh" content="0; url=noscript">
