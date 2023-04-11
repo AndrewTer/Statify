@@ -1,5 +1,5 @@
 <?
-  include("requests/user-info.php");
+  include("requests/user-info-for-statistics.php");
 
   $user_name = get_user_name($user_uuid);
   $user_surname = get_user_surname($user_uuid);

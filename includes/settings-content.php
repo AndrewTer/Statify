@@ -1,5 +1,5 @@
 <?
-  include("requests/user-info.php");
+  include("requests/user-info-for-statistics.php");
 ?>
 <div class="col-12 p-0">
   <div class="block-edit-user-info p-0" id="all-user-settings-block" data-attr="<?= $user_uuid; ?>">

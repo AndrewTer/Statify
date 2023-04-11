@@ -1,5 +1,5 @@
 <?
-  include("requests/user-info.php");
+  include("requests/user-info-for-statistics.php");
 ?>
 <p class="title-awards-info fz-17 text-center mt-2 mb-2 font-weight-bold">Фотография профиля</p>
 <hr class="hr-user-info">

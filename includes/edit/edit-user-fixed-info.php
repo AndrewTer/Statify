@@ -5,7 +5,7 @@
 <? 
   if ($page_status)
   {
-    include("requests/user-info.php");
+    include("requests/user-info-for-statistics.php");
 
     $user_gender = get_user_gender($user_uuid);
     $user_nickname = get_user_nickname($user_uuid);
