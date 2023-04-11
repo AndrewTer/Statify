@@ -18,7 +18,5 @@
      $user_gender_uuid = $user_info_result[0];
      $user_country_uuid = $user_info_result[2];
      $user_city_uuid = $user_info_result[1];
-
-     $creation_date = $user_info_result[3];
    }
 ?>
