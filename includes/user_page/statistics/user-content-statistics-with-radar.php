@@ -212,7 +212,7 @@
                 </tr>
 
                 <tr class="w-100 d-flex flex-row align-items-center pl-3 pr-3">
-                  <td class="col-5 fz-13 fw-700">
+                  <td class="col-5 fz-13 font-weight-bold">
                     Всего
                   </td>
                   <td class="col-4"></td>
@@ -233,7 +233,7 @@
         </div>
 <?
         }else
-          echo '<p class="w-100 text-center f-13 fw-700 m-0">Недоступно</p>';
+          echo '<p class="w-100 text-center f-13 font-weight-bold m-0">Недоступно</p>';
 ?>
     </div>
 
@@ -327,7 +327,7 @@
           </div>
 <?
         }else
-          echo '<p class="w-100 text-center f-13 fw-700 m-0">Недоступно</p>';
+          echo '<p class="w-100 text-center f-13 font-weight-bold m-0">Недоступно</p>';
 ?>
     </div>
 
@@ -341,7 +341,7 @@
                   <canvas class="m-0 p-0" height="200" id="radarChartDark"></canvas>
                 </div>';
         else
-          echo '<p class="w-100 text-center f-13 fw-700 m-0">Диаграмма недоступна</p>';
+          echo '<p class="w-100 text-center f-13 font-weight-bold m-0">Диаграмма недоступна</p>';
 ?>
       <div class="col-12 p-0 mt-2">
 <?
@@ -391,7 +391,7 @@
         </table>
 <?
       }else
-        echo '<p class="w-100 text-center f-13 fw-700 m-0">Статистика недоступна</p>';
+        echo '<p class="w-100 text-center f-13 font-weight-bold m-0">Статистика недоступна</p>';
 ?>
       </div>
     </div>

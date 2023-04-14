@@ -6,7 +6,7 @@
 	<div class="about-card w-100">
 		<div class="w-100 m-0 p-0 d-flex flex-row">
 			<p class="fz-14 m-0 mr-auto p-0 font-weight-bold">Версия 2.0.0</p>
-			<p class="fz-14 m-0 ml-auto p-0 font-weight-bold">05.04.2023</p>
+			<p class="fz-14 m-0 ml-auto p-0 font-weight-bold">15.04.2023</p>
 		</div>
 		<hr class="hr-user-info">
 		<div class="w-100 m-0 p-0">

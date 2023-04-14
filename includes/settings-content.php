@@ -206,9 +206,9 @@
         <div class="m-2 ml-5 mr-5 p-0 justify-content-center align-items-center text-center">
           <p class="fz-13 font-weight-bold m-0 mb-2 p-0">Светлая тема</p>
           <div class="m-0 p-0 d-flex flex-row justify-content-center align-items-center">
-            <div class="radio_btn settings_design_theme_radio_btn m-1" id="design-theme-bahama-blue" data-toggle="tooltip" data-placement="bottom" title="Bahama blue">
-              <input id="design-theme-bahama-blue-input" type="radio" name="choose-design-theme" value="bahama-blue">
-              <label class="m-0 text-center" for="design-theme-bahama-blue-input"></label>
+            <div class="radio_btn settings_design_theme_radio_btn m-1" id="design-theme-denim" data-toggle="tooltip" data-placement="bottom" title="Denim">
+              <input id="design-theme-denim-input" type="radio" name="choose-design-theme" value="denim">
+              <label class="m-0 text-center" for="design-theme-denim-input"></label>
             </div>
           </div>
         </div>
@@ -229,7 +229,6 @@
         </div>
 
       </div>
-
     </div>
 
     <hr class="hr-user-info">
