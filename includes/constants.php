@@ -3,6 +3,6 @@
 		'host' => 'localhost',
 		'username' => 'postgres',
 		'password' => 'caan',
-		'database' => 'UBeauty'
+		'database' => 'Statify'
 	);
 ?>
