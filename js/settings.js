@@ -476,10 +476,10 @@ $("input[name='choose-design-theme']").click(function()
 			localStorage.setItem("theme", "ocean-depths");
 			break;
 
-		case 'bahama-blue':
+		case 'denim':
 			$(document.body).removeClass();
-			$(document.body).addClass("bahama-blue-theme");
-			localStorage.setItem("theme", "bahama-blue");
+			$(document.body).addClass("denim-theme");
+			localStorage.setItem("theme", "denim");
 			break;
 
 		default:
@@ -510,8 +510,8 @@ switch (localStorage.getItem("theme")) {
       $("input[name=choose-design-theme][value='ocean-depths']").prop('checked', true);
       break;
 
-    case 'bahama-blue':
-      $("input[name=choose-design-theme][value='bahama-blue']").prop('checked', true);
+    case 'denim':
+      $("input[name=choose-design-theme][value='denim']").prop('checked', true);
       break;
 
     default:

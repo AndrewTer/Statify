@@ -1,7 +1,11 @@
 <div class="mr-auto m-0 p-1 current-photo-menu photo-menu-rating-left d-flex align-items-center justify-content-center">
 	<div class="nav-item w-100 m-0 p-0 d-flex flex-row justify-content-center align-items-center">
 		<a class="nav-link w-100 m-0 p-0 text-center" onclick="displayPhotoMenuBlock();">
-			<i class="fa fa-chevron-left fz-18 p-1 m-0" aria-hidden="true"></i>
+			<p class="m-0 p-0">
+				<svg width="28px" height="28px" viewBox="0 0 24 24" fill="none">
+					<path fill-rule="evenodd" clip-rule="evenodd" d="M15.7071 4.29289C16.0976 4.68342 16.0976 5.31658 15.7071 5.70711L9.41421 12L15.7071 18.2929C16.0976 18.6834 16.0976 19.3166 15.7071 19.7071C15.3166 20.0976 14.6834 20.0976 14.2929 19.7071L7.29289 12.7071C7.10536 12.5196 7 12.2652 7 12C7 11.7348 7.10536 11.4804 7.29289 11.2929L14.2929 4.29289C14.6834 3.90237 15.3166 3.90237 15.7071 4.29289Z" fill="var(--main-text-color)"></path>
+				</svg>
+			</p>
 		</a>
 	</div>
 </div>
@@ -28,7 +32,11 @@
 <div class="ml-auto m-0 p-1 current-photo-menu photo-menu-rating-right d-flex align-items-center justify-content-center">
 	<div class="nav-item w-100 m-0 p-0 d-flex flex-row justify-content-center align-items-center">
 		<a class="nav-link w-100 m-0 p-0 text-center rate-btn" id="rate-btn" onclick="event.preventDefault();addRatingOnPhoto(<?= '\''.$current_user_uuid.'\', \''.$user_uuid.'\', \''.$picture_name.'\''; ?>);">
-			<i class="fa fa-check fz-18 p-1 m-0" aria-hidden="true"></i>
+			<p class="m-0 p-0">
+				<svg width="38px" height="38px" viewBox="0 0 24 24" fill="none">
+					<path d="M7 12L9.89075 14.8907V14.8907C9.95114 14.951 10.049 14.9511 10.1094 14.8907V14.8907L17 8" stroke="var(--main-text-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+				</svg>
+			</p>
 		</a>
 	</div>
 </div>

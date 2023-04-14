@@ -19,7 +19,7 @@
 									<a class="nav-link w-100 m-0 p-0 text-center" onclick="displayBlockSetRating();">
 										<div class="nav-item w-100 m-0 p-0 d-flex flex-row justify-content-center align-items-center">
 											<p class="m-0 p-0">
-												<svg class="m-0 p-0" width="24px" height="24px" viewBox="0 0 24 24" fill="none">
+												<svg class="m-0 p-0" width="28px" height="28px" viewBox="0 0 24 24" fill="none">
 													<path fill-rule="evenodd" clip-rule="evenodd" d="M13.1467 4.13112C12.7115 3.12752 11.2883 3.12751 10.8531 4.13112L8.87333 8.69665L3.91947 9.16869C2.83051 9.27246 2.3907 10.626 3.2107 11.3501L6.94099 14.6438L5.85911 19.501C5.62129 20.5688 6.77271 21.4053 7.7147 20.8492L11.9999 18.3193L16.2851 20.8492C17.2271 21.4053 18.3785 20.5688 18.1407 19.501L17.0588 14.6438L20.7891 11.3501C21.6091 10.626 21.1693 9.27246 20.0804 9.16869L15.1265 8.69665L13.1467 4.13112ZM12 15.9968L12.5083 16.2969L15.8125 18.2477L14.9783 14.5023L14.85 13.9261L15.2925 13.5353L18.1689 10.9956L14.3491 10.6316L13.7613 10.5756L13.5265 10.034L12 6.51388V15.9968Z" fill="var(--main-text-color)"></path>
 												</svg>
 											</p>

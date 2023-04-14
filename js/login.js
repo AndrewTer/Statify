@@ -71,8 +71,8 @@ function recoveryPassword()
                     switch (data)
                     {
                         case 'success':
-                            $('.recovery-modal-body').html('<p class="fz-14 w-100 m-0 p-0 text-center font-weight-bold text-white">На ваш email отправлено письмо с новым паролем!</p>'
-                                                            + '<p class="fz-13 w-100 m-0 p-0 text-center">(Письмо может оказаться в папке <strong class="text-white">Спам</strong>)</p>');
+                            $('#recovery-modal-body').html('<p class="fz-15 w-100 m-0 p-0 text-center font-weight-bold text-white">На ваш email отправлено письмо с новым паролем!</p>'
+                                                            + '<p class="fz-13 w-100 m-0 p-0 text-center">(Письмо может оказаться в папке <span class="fz-14 text-white">Спам</span>)</p>');
                             break;
 
                         case 'empty':

@@ -16,8 +16,8 @@ var Charts = (function () {
                 this.borderColor = "#00FFFF";
                 break;
 
-            case 'bahama-blue':
-                this.tickColor = "#262626";
+            case 'denim':
+                this.tickColor = "#515151";
                 this.linesColor = "lightgray";
                 this.borderColor = "#3886B2";
                 break;

@@ -58,9 +58,9 @@ switch (localStorage.getItem("theme")) {
     $(document.body).addClass("ocean-depths-theme");
     break;
 
-  case 'bahama-blue':
+  case 'denim':
     $(document.body).removeClass();
-    $(document.body).addClass("bahama-blue-theme");
+    $(document.body).addClass("denim-theme");
     break;
 
   default:
