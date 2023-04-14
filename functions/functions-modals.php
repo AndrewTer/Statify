@@ -593,7 +593,7 @@
         			</p>
       			</div>
 
-      			<div class="modal-body">
+      			<div class="modal-body" id="recovery-modal-body">
         			<label for="email-recovery-input" class="fz-14 w-100 text-center font-weight-bold text-white">Укажите email, который вы использовали для входа на сайт</label>
         			<input type="text" class="w-100 form-control mb-2" id="email-recovery-input" name="recpassEmail" placeholder="example@mail.ru">
         			<em id="recovery-password-message"></em>

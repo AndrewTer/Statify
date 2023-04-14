@@ -307,9 +307,9 @@
   --header-element-hover-border-color: lightgray;
 }
 
-.bahama-blue-theme {
-  --main-text-color: #262727;
-  --hover-text-color: #53526B;
+.denim-theme {
+  --main-text-color: #2e2e2e;
+  --hover-text-color: #094276;
   --input-text-color: #262626;
   --header-footer-text-color: #ffffff;
 
@@ -317,32 +317,32 @@
   --second-place-color: #737373;
   --third-place-color: #a46628;
 
-  --main-menu-icon-color: #53526B;
-  --main-menu-icon-hover-color: #4073BF;
+  --main-menu-icon-color: #0f5594;
+  --main-menu-icon-hover-color: #0c66b7;
 
   --text-border-color: #e6e6e6;
   --offline-color: lightgray;
 
-  --statistic-text-color: #53526B;
+  --statistic-text-color: #0f5594;
 
   --news-user-link-color: #004880;
 
-  --star-icon-color: #ff7b00;
-  --social-icon-color: #53526B;
+  --star-icon-color: #FF8819;
+  --social-icon-color: #0f5594;
   --save-icon-color: #4073BF;
-  --saved-icon-color: #53526B;
+  --saved-icon-color: #0c66b7;
   --calendar-icon-color-invert: 0%;
   --premium-star-icon-filter-inactive: invert(54%) sepia(1%) saturate(1734%) hue-rotate(336deg) brightness(94%) contrast(87%);
 
-  --standard-btn-color: #53526B;
-  --skip-btn-color: #53526B;
+  --standard-btn-color: #0c66b7;
+  --skip-btn-color: #0c66b7;
 
-  --standard-btn-hover-color: #6361b3;
+  --standard-btn-hover-color: #3C84C5;
 
-  --scrollbar-color: #e6e6e6;
+  --scrollbar-color: #4c4c4c;
 
   --body-bg-color: #F7F6FC;
-  --header-footer-bg-color: #53526B;
+  --header-footer-bg-color: #0c66b7;
   --content-block-bg-color: #ffffff;
   --content-block-bg-color-without-transparency: #ffffff;
 
@@ -356,14 +356,14 @@
   --toast-success-bg-color: rgba(0, 140, 0, 0.8);
   --toast-error-bg-color: rgba(140, 0, 0, 0.8);
 
-  --header-footer-border-color: #A2D5F2;
+  --header-footer-border-color: #147fdf;
   --content-block-border-color: #e6e6e6;
   --input-field-border-color: #07689F;
   --modal-border: none;
 
   --font-weight-active-star: bold;
 
-  --header-element-border-color: #999999;
+  --header-element-border-color: #c7c7c7;
   --header-element-hover-border-color: whitesmoke;
 }
 
