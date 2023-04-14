@@ -46,8 +46,8 @@ if (isset($_POST['email']))
 		$headers = "MIME-Version: 1.0" . "\r\n"; 
 		$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n"; 
 		$headers .= "From: ".$from."\r\n".
-					"Reply-To: ".$from."\r\n".
-					"X-Mailer: PHP/".phpversion();
+								"Reply-To: ".$from."\r\n".
+								"X-Mailer: PHP/".phpversion();
 		$sub = '=?UTF-8?B?'.base64_encode($subject).'?=';
 		$email_send = mail($to,$sub,$message,$headers);
 
@@ -56,7 +56,7 @@ if (isset($_POST['email']))
 			$update_password = pg_query("UPDATE users SET password = '{$encrypted_password}' WHERE email='{$received_email}'");
 			
 			echo "success";
-    		return;
+    	return;
 		}else
 		{
 			echo "error";
