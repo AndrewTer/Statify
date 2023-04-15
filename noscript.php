@@ -13,17 +13,18 @@
     <link rel="stylesheet" type="text/css" href="css/main/main.css">
     <link rel="stylesheet" type="text/css" href="css/main/svg.css">
     <link rel="stylesheet" type="text/css" href="css/main/header-footer.css">
-    <link rel="stylesheet" type="text/css" href="css/main/error-pages.css">
+    <link rel="stylesheet" type="text/css" href="css/main/login.css">
+    <script type="text/javascript" src='js/jquery-3.6.4.js'></script>
     <title>Используется устаревший браузер | Statify</title>
   </head>
   <body>
     <div class="row main-header fixed-top"><?php include("includes/header/header-login.php"); ?></div>
 
     <div class="container-fluid main-body d-flex flex-column justify-content-center align-items-center p-0">
-      <div id="noscript-content">
+      <div class="m-4 p-4" id="error-content">
         <p class="fz-20 w-100 m-0 p-0 text-center font-weight-bold">Для работы необходима поддержка JavaScript</p>
       
-        <hr class="hr-line w-100 m-0 mt-2 mb-2">
+        <hr class="hr-user-info w-100 m-0 mt-2 mb-2">
 
         <p class="fz-15 m-0 mt-1 mb-1 text-center font-weight-bold">Statify не работает должным образом без JavaScript.</p>
         <p class="fz-15 m-0">Включите <span class="fz-15 font-weight-bold">JavaScript</span> в настройках вашего браузера, либо загрузите и установите один из этих <span class="fz-15 font-weight-bold">браузеров</span>:</p>
@@ -234,7 +235,7 @@
           </a>
         </div>
 
-        <p class="m-0 mt-3 text-center"><a class="fz-16 font-weight-bold" id="main-page-link" href="./">Переход на главную страницу</a></p>
+        <p class="m-0 mt-3 text-center"><a class="fz-16 font-weight-bold text-white" href="./">Переход на главную страницу</a></p>
       </div> 
     </div>
 
