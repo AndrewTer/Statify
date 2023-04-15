@@ -21,7 +21,7 @@
 	</div>
 	<div class="about-card w-100 mt-3">
 		<div class="w-100 m-0 p-0 d-flex flex-row">
-			<p class="fz-14 m-0 mr-auto p-0 font-weight-bold">Версия 1.1.2</p>
+			<p class="fz-14 m-0 mr-auto p-0 font-weight-bold">Версия 1.3.0</p>
 			<p class="fz-14 m-0 ml-auto p-0 font-weight-bold">06.03.2023</p>
 		</div>
 		<hr class="hr-user-info">
@@ -36,7 +36,7 @@
 	</div>
 	<div class="about-card w-100 mt-3">
 		<div class="w-100 m-0 p-0 d-flex flex-row">
-			<p class="fz-14 m-0 mr-auto p-0 font-weight-bold">Версия 1.1.1</p>
+			<p class="fz-14 m-0 mr-auto p-0 font-weight-bold">Версия 1.2.0</p>
 			<p class="fz-14 m-0 ml-auto p-0 font-weight-bold">04.02.2023</p>
 		</div>
 		<hr class="hr-user-info">
