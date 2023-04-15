@@ -38,15 +38,23 @@ h2 {
   padding: 4vh;
 }
 
-#login-content {
-  min-height: 581px !important;
-  max-height: 790px !important;
+#login-content
+,#error-content {
   border: 1px solid #474748;
   background: rgba(26, 26, 26, .6);
   backdrop-filter: blur(5px);
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   border-radius: 15px;
+}
+
+#login-content {
+  min-height: 581px !important;
+  max-height: 790px !important;
+}
+
+#error-content {
+  background: rgba(26, 26, 26, .9);
 }
 
 #content-info-section {
