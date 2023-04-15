@@ -1,4 +1,4 @@
-<div class="m-0 p-0" id="photo-menu-content">
+<div class="m-0 mt-3 p-0" id="photo-menu-content">
   <div class="block-search-and-sort p-0 m-0 mb-3">
     <table class="table table-borderless m-0">
       <tbody>
