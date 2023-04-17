@@ -210,7 +210,7 @@
 ?>
 								</span>
 
-								<div class="hr-with-text mt-2 mb-2"><span class="m-0 fz-15 font-weight-bold">Интересы</span></div>
+								<div class="hr-with-text mt-2 mb-2"><span class="m-0 fz-15 font-weight-bold">Предпочтения</span></div>
 
 								<span class="m-0 p-0 w-100 d-flex flex-row align-items-center">
 <?

@@ -36,7 +36,7 @@
 }
 
 .block-edit-user-avatar,
-.block-edit-user-interests,
+.block-edit-user-preferences,
 .block-edit-user-tags {
    padding: 10px;
    border: 1px solid var(--content-block-border-color);
@@ -48,7 +48,7 @@
 
 .block-edit-user-fixed-info,
 .block-edit-user-confirm-email,
-.block-edit-user-interests,
+.block-edit-user-preferences,
 .block-edit-user-tags {
    margin-top: 15px;
 }
