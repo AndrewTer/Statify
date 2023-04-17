@@ -19,7 +19,7 @@
 
 <div class="col-12 col-sm-7 col-md-7 col-lg-7 edit-user-info">
   <div class="block-edit-user-info p-0"><? include('includes/edit/edit-user-info.php'); ?></div>
-  <div class="block-edit-user-interests p-0"><? include('includes/edit/edit-user-interests-info.php'); ?></div>
+  <div class="block-edit-user-preferences p-0"><? include('includes/edit/edit-user-preferences-info.php'); ?></div>
   <div class="block-edit-user-tags p-0"><? include('includes/edit/edit-user-tags.php'); ?></div>
 </div>
 <script type="text/javascript" src="js/edit.js"></script>
