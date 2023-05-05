@@ -6,11 +6,9 @@
 		case 'comments':
 			include('includes/notifications/notifications-list-comments.php');
 			break;
-
 		case 'requests':
 			include('includes/notifications/notifications-list-requests.php');
 			break;
-
 		default:
 			include('includes/notifications/notifications-list-all.php');
 			break;

@@ -3,16 +3,15 @@
   include("requests/all-notifications-count.php");
 
   $page_status = check_user_page_status($user_uuid);
-  $avatar_exists = get_latest_avatar($user_uuid);
+  $avatar_exists = get_user_avatar($user_uuid);
   $user_fullname = get_user_fullname($user_uuid);
-
   $premium_status = check_premium_active($user_uuid);
+  $user_latest_photo_date = get_latest_user_photo_date_upload($user_uuid);
 ?>
 <div class="header w-100 container-fluid m-0 p-0 d-flex justify-content-center align-items-center" id="main-header-block" data-attr="<?= $user_uuid; ?>">
 
   <div class="header-mobile w-100 row m-0 h-100 d-sm-flex d-lg-none d-xl-none">
-    
-    <div class="col-2 navbar-menu p-0">
+    <div class="navbar-menu m-0 p-0">
       <div class="nav-menu-container d-flex justify-content-start align-items-center m-0 p-0 w-100 h-100">
         <input class="checkbox-menu" type="checkbox" id="mobile-menu-checkbox" aria-label="Меню" />       
         <div class="hamburger-lines d-flex flex-column justify-content-between">
@@ -23,13 +22,21 @@
       </div>
     </div>
 
-    <div class="col-8 d-flex justify-content-center align-items-center header-logo">
-      <a class="m-0 p-0" href="rate">
-        <img width="80" src="imgs/logo.png">
+    <div class="m-0 ml-5 p-0 d-flex justify-content-start align-items-center header-logo">
+      <a class="m-0 p-0 pb-1" href="rate">
+        <img width="80" src="imgs/logo.png" alt="Statify">
       </a>
     </div>
 
-    <div class="col-2 p-0 m-0 d-flex justify-content-end align-items-center user-header-menu">
+    <div class="p-0 m-0 ml-auto d-flex justify-content-end align-items-center user-header-menu">
+      <a class="m-0 p-1 mr-2 d-flex justify-content-center align-items-center" href="activity" aria-label="Переход на страницу с активностью" data-toggle="tooltip" data-placement="bottom" title="Активность">
+        <p class="m-0 p-0">
+          <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none">
+            <path d="M16.19 2H7.81C4.17 2 2 4.17 2 7.81V16.18C2 19.83 4.17 22 7.81 22H16.18C19.82 22 21.99 19.83 21.99 16.19V7.81C22 4.17 19.83 2 16.19 2ZM17.26 9.96L14.95 12.94C14.66 13.31 14.25 13.55 13.78 13.6C13.31 13.66 12.85 13.53 12.48 13.24L10.65 11.8C10.58 11.74 10.5 11.74 10.46 11.75C10.42 11.75 10.35 11.77 10.29 11.85L7.91 14.94C7.76 15.13 7.54 15.23 7.32 15.23C7.16 15.23 7 15.18 6.86 15.07C6.53 14.82 6.47 14.35 6.72 14.02L9.1 10.93C9.39 10.56 9.8 10.32 10.27 10.26C10.73 10.2 11.2 10.33 11.57 10.62L13.4 12.06C13.47 12.12 13.54 12.12 13.59 12.11C13.63 12.11 13.7 12.09 13.76 12.01L16.07 9.03C16.32 8.7 16.8 8.64 17.12 8.9C17.45 9.17 17.51 9.64 17.26 9.96Z" fill="var(--header-footer-text-color)"></path>
+          </svg>
+        </p>
+      </a>
+
       <a class="m-0 p-1 mr-3 d-flex justify-content-center align-items-center" href="notifications" aria-label="Переход на страницу с уведомлениями" data-toggle="tooltip" data-placement="bottom" title="Уведомления">
         <p class="m-0 p-0">
           <svg fill="var(--header-footer-text-color)" height="22px" width="22px" viewBox="0 0 448 512">
@@ -43,11 +50,25 @@
 ?>        
       </a>
 <?
+      if ($user_latest_photo_date == 'success' && check_user_page_status($user_uuid) && check_email_confirmed($user_uuid))
+      {
+?>
+
+        <button class="btn mr-3 p-1 d-flex flex-row align-items-center justify-content-center" id="header-btn-add-new-photo-mobile" data-toggle="tooltip" data-placement="bottom" title="Добавить фотографию" data-href="add-photo">
+          <svg width="22px" height="22px" viewBox="0 0 24 24" fill="none">
+            <path d="M21 11V18C21 19.1046 20.1046 20 19 20H5C3.89543 20 3 19.1046 3 18V9C3 7.89543 3.89543 7 5 7H6.5C7.12951 7 7.72229 6.70361 8.1 6.2L9.15 4.8C9.52771 4.29639 10.1205 4 10.75 4H13.25" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M18.5 4V6.5M18.5 9V6.5M18.5 6.5H16M18.5 6.5H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle cx="12" cy="13" r="4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></circle>
+          </svg>
+        </button>
+<?
+      }
+
       if ($avatar_exists) 
       {
-        $preview_photo_check = file_exists('users/'.$user_uuid.'/'.get_latest_avatar_preview($user_uuid)) ? 1 : 0;
+        $preview_photo_check = file_exists('users/'.$user_uuid.'/'.get_user_avatar_preview($user_uuid)) ? 1 : 0;
 
-        echo '<img class="rounded-circle m-0 p-0 user-header-menu-picture" src="users/'.$user_uuid.'/'.($preview_photo_check == 1 ? get_latest_avatar_preview($user_uuid) : get_latest_avatar($user_uuid)).'" alt="'.$user_fullname.'">';
+        echo '<img class="rounded-circle m-0 p-0 user-header-menu-picture" src="users/'.$user_uuid.'/'.($preview_photo_check == 1 ? get_user_avatar_preview($user_uuid) : get_user_avatar($user_uuid)).'" alt="'.$user_fullname.'">';
       }else
         echo '<img class="rounded-circle m-0 p-0 user-header-menu-picture" src="imgs/no-avatar.png" alt="'.$user_fullname.'">';
 ?>
@@ -62,9 +83,9 @@
       if ($avatar_exists)
         echo '<img class="btn-md online rounded-circle" 
                 id="userImg" 
-                src="users/'.$user_uuid.'/'.get_latest_avatar($user_uuid).'" 
+                src="users/'.$user_uuid.'/'.get_user_avatar($user_uuid).'" 
                 alt="'.$user_fullname.'" 
-                onclick="event.preventDefault();openProfilePictureModal(\''.$user_uuid.'\',\''.$user_uuid.'\',\''.get_latest_avatar($user_uuid).'\');">';
+                onclick="event.preventDefault();openProfilePictureModal(\''.$user_uuid.'\',\''.$user_uuid.'\',\''.get_user_avatar($user_uuid).'\');">';
       else
         echo '<img class="btn-md online rounded-circle" id="userImg" src="imgs/no-avatar.png" alt="'.$user_fullname.'">';
 ?>
@@ -106,7 +127,7 @@
 <?
     }
 ?>
-    <a class="w-100 m-0 p-0 pt-2 pb-2 d-flex flex-row align-items-center font-weight-bold" href="news?sort=popular" aria-label="Новости">
+    <a class="w-100 m-0 p-0 pt-2 pb-2 d-flex flex-row align-items-center font-weight-bold" href="news" aria-label="Новости">
       <svg class="m-0 p-0 svg-main-menu-icon" width="22px" height="22px" viewBox="0 0 24 24">
         <path d="M19.875 3H4.125C2.953 3 2 3.897 2 5v14c0 1.103.953 2 2.125 2h15.75C21.047 21 22 20.103 22 19V5c0-1.103-.953-2-2.125-2zm0 16H4.125c-.057 0-.096-.016-.113-.016-.007 0-.011.002-.012.008L3.988 5.046c.007-.01.052-.046.137-.046h15.75c.079.001.122.028.125.008l.012 13.946c-.007.01-.052.046-.137.046z"></path>
         <path d="M6 7h6v6H6zm7 8H6v2h12v-2h-4zm1-4h4v2h-4zm0-4h4v2h-4z"></path>
@@ -114,7 +135,7 @@
       <p class="fz-14 letter-spacing-05 w-100 m-0 ml-3 p-0 text-left">Новости</p>
     </a>
 
-    <a class="w-100 m-0 p-0 pt-2 pb-2 d-flex flex-row align-items-center font-weight-bold" href="friends?sort=all-friends" aria-label="Друзья">
+    <a class="w-100 m-0 p-0 pt-2 pb-2 d-flex flex-row align-items-center font-weight-bold" href="friends" aria-label="Друзья">
       <svg class="m-0 p-0 svg-main-menu-icon" width="22px" height="22px" viewBox="0 0 24 24" fill="none">
         <path d="M15.5385 11.4899C17.7949 11.4899 19.641 9.65316 19.641 7.40826C19.641 5.16336 17.7949 3.32663 15.5385 3.32663C15.4359 3.32663 15.3334 3.32663 15.2308 3.32663C15.8462 4.34704 16.2564 5.57153 16.2564 6.79602C16.2564 8.53071 15.5385 10.1634 14.4103 11.3879C14.718 11.4899 15.1282 11.4899 15.5385 11.4899Z"></path>
         <path d="M17.2821 13.6326H16.2565C17.7949 14.9591 18.8206 17 18.8206 19.2448C18.8206 19.7551 18.718 20.1632 18.6154 20.5714C19.9488 20.3673 20.7693 20.0612 21.2821 19.7551C21.7949 19.4489 22.0001 18.9387 22.0001 18.3265C22.0001 15.7755 19.8462 13.6326 17.2821 13.6326Z"></path>
@@ -147,44 +168,71 @@
 
   <div class="header-full w-100 row m-0 h-100 d-none d-sm-none d-md-none d-lg-flex d-xl-flex justify-content-between">
 
-    <div class="m-0 ml-2 mr-auto d-flex justify-content-center align-items-center header-logo">
-      <a class="m-0 p-0 pb-1" href="rate">
-        <img width="90" src="imgs/logo.png">
+    <div class="m-0 d-flex justify-content-start align-items-center header-logo col-lg-2 col-xl-2">
+      <a class="m-0 p-0 pb-1" id="full-header-logo-link" href="rate">
+        <img width="90" src="imgs/logo.png" alt="Statify">
       </a>
     </div>
 
-    <div class="m-0 p-0 input-with-icon d-flex flex-row align-items-center position-relative" id="header-search">
-      <svg class="position-absolute" width="17px" height="17px" viewBox="0 0 24 24" fill="none">
-        <circle cx="10" cy="10" r="6" stroke="var(--header-element-hover-border-color)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></circle>
-        <path d="M14.5 14.5L19 19" stroke="var(--header-element-hover-border-color)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></path>
-      </svg>
-      <input type="text" class="fz-14 w-100 mt-2 mb-2 p-0 input-field d-flex align-items-center" id="header-search-input" placeholder="Поиск" autocomplete="off">    
-    </div>
+    <div class="m-0 p-0 col-lg-10 col-xl-10 d-flex flex-row" id="full-header-content">
+      <div class="m-0 p-0 input-with-icon d-flex flex-row align-items-center position-relative" id="header-search">
+        <svg class="position-absolute" width="19px" height="19px" viewBox="0 0 24 24" fill="none">
+          <circle cx="10" cy="10" r="6" stroke="var(--header-element-hover-border-color)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></circle>
+          <path d="M14.5 14.5L19 19" stroke="var(--header-element-hover-border-color)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <input type="text" class="fz-14 w-100 mt-2 mb-2 p-0 input-field d-flex align-items-center" id="header-search-input" placeholder="Поиск" autocomplete="off">    
+      </div>
 
-    <div class="m-0 ml-auto p-0 d-flex justify-content-end align-items-center user-header-menu">
-      <a class="m-0 p-1 mr-3 d-flex justify-content-center align-items-center" href="notifications" aria-label="Переход на страницу с уведомлениями" data-toggle="tooltip" data-placement="bottom" title="Уведомления">
-        <p class="m-0 p-0">
-          <svg fill="var(--header-footer-text-color)" height="22px" width="22px" viewBox="0 0 448 512">
-            <path d="M222.987,510c31.418,0,57.529-22.646,62.949-52.5H160.038C165.458,487.354,191.569,510,222.987,510z"></path>
-            <path d="M432.871,352.059c-22.25-22.25-49.884-32.941-49.884-141.059c0-79.394-57.831-145.269-133.663-157.83h-4.141 c4.833-5.322,7.779-12.389,7.779-20.145c0-16.555-13.42-29.975-29.975-29.975s-29.975,13.42-29.975,29.975 c0,7.755,2.946,14.823,7.779,20.145h-4.141C120.818,65.731,62.987,131.606,62.987,211c0,108.118-27.643,118.809-49.893,141.059 C-17.055,382.208,4.312,434,47.035,434H398.93C441.568,434,463.081,382.269,432.871,352.059z"></path> 
-          </svg>
-        </p>
+      <div class="m-0 ml-auto p-0 d-flex justify-content-end align-items-center user-header-menu">
+        <a class="m-0 p-1 mr-3 d-flex justify-content-center align-items-center" href="activity" aria-label="Переход на страницу с активностью" data-toggle="tooltip" data-placement="bottom" title="Активность">
+          <p class="m-0 p-0">
+            <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none">
+              <path d="M16.19 2H7.81C4.17 2 2 4.17 2 7.81V16.18C2 19.83 4.17 22 7.81 22H16.18C19.82 22 21.99 19.83 21.99 16.19V7.81C22 4.17 19.83 2 16.19 2ZM17.26 9.96L14.95 12.94C14.66 13.31 14.25 13.55 13.78 13.6C13.31 13.66 12.85 13.53 12.48 13.24L10.65 11.8C10.58 11.74 10.5 11.74 10.46 11.75C10.42 11.75 10.35 11.77 10.29 11.85L7.91 14.94C7.76 15.13 7.54 15.23 7.32 15.23C7.16 15.23 7 15.18 6.86 15.07C6.53 14.82 6.47 14.35 6.72 14.02L9.1 10.93C9.39 10.56 9.8 10.32 10.27 10.26C10.73 10.2 11.2 10.33 11.57 10.62L13.4 12.06C13.47 12.12 13.54 12.12 13.59 12.11C13.63 12.11 13.7 12.09 13.76 12.01L16.07 9.03C16.32 8.7 16.8 8.64 17.12 8.9C17.45 9.17 17.51 9.64 17.26 9.96Z" fill="var(--header-footer-text-color)"></path>
+            </svg>
+          </p>
+        </a>
+
+        <a class="m-0 p-0 mr-3 d-flex justify-content-center align-items-center" href="notifications" aria-label="Переход на страницу с уведомлениями" data-toggle="tooltip" data-placement="bottom" title="Уведомления">
+          <p class="m-0 p-0">
+            <svg fill="var(--header-footer-text-color)" height="23px" width="23px" viewBox="0 0 448 512">
+              <path d="M222.987,510c31.418,0,57.529-22.646,62.949-52.5H160.038C165.458,487.354,191.569,510,222.987,510z"></path>
+              <path d="M432.871,352.059c-22.25-22.25-49.884-32.941-49.884-141.059c0-79.394-57.831-145.269-133.663-157.83h-4.141 c4.833-5.322,7.779-12.389,7.779-20.145c0-16.555-13.42-29.975-29.975-29.975s-29.975,13.42-29.975,29.975 c0,7.755,2.946,14.823,7.779,20.145h-4.141C120.818,65.731,62.987,131.606,62.987,211c0,108.118-27.643,118.809-49.893,141.059 C-17.055,382.208,4.312,434,47.035,434H398.93C441.568,434,463.081,382.269,432.871,352.059z"></path> 
+            </svg>
+          </p>
 <?
         if ($notifications_all_count > 0)
           echo '<p class="fz-12 p-0 pr-2 pl-2 notifications-count" id="notification-count">'.(($notifications_all_count > 99) ? '99+' : $notifications_all_count).'</p>';
 ?>
-      </a>
-<? 
+        </a>
+
+<?
+      if ($user_latest_photo_date == 'success' && check_user_page_status($user_uuid) && check_email_confirmed($user_uuid))
+      {
+?>
+
+        <button class="btn mr-3 pl-3 pr-3 d-flex flex-row align-items-center justify-content-center" id="header-btn-add-new-photo" data-toggle="tooltip" data-placement="bottom" title="Добавить фотографию" data-href="add-photo">
+          <svg width="22px" height="22px" viewBox="0 0 24 24" fill="none">
+            <path d="M21 11V18C21 19.1046 20.1046 20 19 20H5C3.89543 20 3 19.1046 3 18V9C3 7.89543 3.89543 7 5 7H6.5C7.12951 7 7.72229 6.70361 8.1 6.2L9.15 4.8C9.52771 4.29639 10.1205 4 10.75 4H13.25" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M18.5 4V6.5M18.5 9V6.5M18.5 6.5H16M18.5 6.5H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle cx="12" cy="13" r="4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></circle>
+          </svg>
+
+          <p class="m-0 ml-2 p-0 fz-14 font-weight-bold text-white">Добавить</p>
+        </button>
+<?
+      }
+
       if ($avatar_exists) 
       {
-        $preview_photo_check = file_exists('users/'.$user_uuid.'/'.get_latest_avatar_preview($user_uuid)) ? 1 : 0;
+        $preview_photo_check = file_exists('users/'.$user_uuid.'/'.get_user_avatar_preview($user_uuid)) ? 1 : 0;
 
-        echo '<img class="rounded-circle m-0 p-0 user-header-menu-picture" src="users/'.$user_uuid.'/'.($preview_photo_check == 1 ? get_latest_avatar_preview($user_uuid) : get_latest_avatar($user_uuid)).'" alt="'.$user_fullname.'">';
+        echo '<img class="rounded-circle m-0 p-0 user-header-menu-picture" src="users/'.$user_uuid.'/'.($preview_photo_check == 1 ? get_user_avatar_preview($user_uuid) : get_user_avatar($user_uuid)).'" alt="'.$user_fullname.'">';
       }else
         echo '<img class="rounded-circle m-0 p-0 user-header-menu-picture" src="imgs/no-avatar.png" alt="'.$user_fullname.'">';
         
       include("includes/header/settings-menu.php"); 
 ?>
+      </div>
     </div>
 
   </div>

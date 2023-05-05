@@ -2,7 +2,7 @@
   <div class="header-full w-100 row m-0 h-100">
     <div class="col-12 d-flex justify-content-center align-items-center header-logo">
       <a class="m-0 p-0" href="./">
-        <img width="80" src="imgs/logo.png">
+        <img width="80" src="imgs/logo.png" alt="Statify">
       </a>
     </div>
   </div>

@@ -1,24 +1,29 @@
-<div class="row m-0 p-0 p-3">
-  <div class="mr-auto d-flex flex-row align-items-center">
+<div class="m-0 p-3 d-flex flex-row align-items-start">
+  <div class="mr-auto ml-0 d-flex flex-row align-items-center">
 <?
-  $preview_author_photo_check = file_exists('users/'.$photo_user_uuid.'/'.get_latest_avatar_preview($photo_user_uuid)) ? 1 : 0;
+  $preview_author_photo_check = file_exists('users/'.$photo_user_uuid.'/'.get_user_avatar_preview($photo_user_uuid)) ? 1 : 0;
   $premium_status_author_photo = check_premium_active($photo_user_uuid);
 
   if (!is_null(check_user_online_status($photo_user_uuid)))
-    echo '<img class="rounded-circle online m-0 p-0 rounded-saved-user-picture" 
-                src="users/'.$photo_user_uuid.'/'.($preview_author_photo_check == 1 ? get_latest_avatar_preview($photo_user_uuid) : get_latest_avatar($photo_user_uuid)).'" 
-                alt="'.get_user_fullname($photo_user_uuid).'" 
-                onclick="event.preventDefault();openProfilePictureModal(\''.$user_uuid.'\',\''.$photo_user_uuid.'\',\''.get_latest_avatar($photo_user_uuid).'\', 1);">';
+    if (get_user_avatar($photo_user_uuid))
+      echo '<img class="rounded-circle online m-0 p-0 rounded-saved-user-picture" 
+                  src="users/'.$photo_user_uuid.'/'.($preview_author_photo_check == 1 ? get_user_avatar_preview($photo_user_uuid) : get_user_avatar($photo_user_uuid)).'" 
+                  alt="'.get_user_fullname($photo_user_uuid).'" 
+                  onclick="event.preventDefault();openProfilePictureModal(\''.$user_uuid.'\',\''.$photo_user_uuid.'\',\''.get_user_avatar($photo_user_uuid).'\', 1);">';
+    else
+      echo '<img class="rounded-circle online m-0 p-0 rounded-saved-user-picture" src="imgs/no-avatar.png" alt="'.get_user_fullname($photo_user_uuid).'">';
   else
-    echo '<img class="rounded-circle offline m-0 p-0 rounded-saved-user-picture" 
-                src="users/'.$photo_user_uuid.'/'.($preview_author_photo_check == 1 ? get_latest_avatar_preview($photo_user_uuid) : get_latest_avatar($photo_user_uuid)).'" 
-                alt="'.get_user_fullname($photo_user_uuid).'" 
-                onclick="event.preventDefault();openProfilePictureModal(\''.$user_uuid.'\',\''.$photo_user_uuid.'\',\''.get_latest_avatar($photo_user_uuid).'\', 1);">';
+    if (get_user_avatar($photo_user_uuid))
+      echo '<img class="rounded-circle offline m-0 p-0 rounded-saved-user-picture" 
+                  src="users/'.$photo_user_uuid.'/'.($preview_author_photo_check == 1 ? get_user_avatar_preview($photo_user_uuid) : get_user_avatar($photo_user_uuid)).'" 
+                  alt="'.get_user_fullname($photo_user_uuid).'" 
+                  onclick="event.preventDefault();openProfilePictureModal(\''.$user_uuid.'\',\''.$photo_user_uuid.'\',\''.get_user_avatar($photo_user_uuid).'\', 1);">';
+    else
+      echo '<img class="rounded-circle offline m-0 p-0 rounded-saved-user-picture" src="imgs/no-avatar.png" alt="'.get_user_fullname($photo_user_uuid).'">';
 ?>
 
     <a class="comment-user-fullname m-0 p-0 ml-3 pointer text-hover" 
-        href="./?u=<?= get_user_nickname($photo_user_uuid); ?>"
-        title="<?= get_user_fullname($photo_user_uuid); ?>">
+        href="./?u=<?= get_user_nickname($photo_user_uuid); ?>">
 <?
     if ($premium_status_author_photo)
     {
@@ -51,15 +56,15 @@
   if ($user_uuid != $photo_user_uuid)
   {
 ?>
-  <div class="m-0 p-0" id="user-menu-block">
-    <div class="friend-menu m-0 dropdown" id="user-menu" role="group">
-      <p id="friend-menu-btn" data-toggle="dropdown" aria-expanded="false">
+  <div class="m-0 ml-auto p-0" id="user-menu-block">
+    <div class="dropdown-action-menu m-0 dropdown" id="user-menu" role="group">
+      <p id="dropdown-action-menu-btn" data-toggle="dropdown" aria-expanded="false">
         <svg fill="var(--main-text-color)" width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M2,12a2,2,0,1,1,2,2A2,2,0,0,1,2,12Zm10,2a2,2,0,1,0-2-2A2,2,0,0,0,12,14Zm8-4a2,2,0,1,0,2,2A2,2,0,0,0,20,10Z"></path>
         </svg>
       </p>
 
-      <div class="dropdown-menu dropdown-menu-right p-0" aria-labelledby="friend-menu-btn">
+      <div class="dropdown-menu dropdown-menu-right p-0" aria-labelledby="dropdown-action-menu-btn">
         <a class="dropdown-item pt-2 pb-2 first-item font-weight-bold" 
             onclick="event.preventDefault();openMutualFriendsModal(<?= '\''.$user_uuid.'\',\''.$photo_user_uuid.'\''; ?>)" 
             href="" 
@@ -128,10 +133,32 @@
     </div>
   </div>
 <?
-  }
+  }else
+    echo '<a class="m-0 ml-auto p-0 pointer" href="edit-photo?p='.preg_replace('[-]', '', get_photo_uuid_by_name($photo_name)).'">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M16.6158 4.58063C16.9876 4.20886 17.4918 4 18.0176 4C18.2779 4 18.5357 4.05128 18.7762 4.1509C19.0168 4.25052 19.2353 4.39655 19.4194 4.58063C19.6035 4.76471 19.7495 4.98325 19.8491 5.22376C19.9487 5.46428 20 5.72206 20 5.98239C20 6.24272 19.9487 6.5005 19.8491 6.74102C19.7495 6.98153 19.6035 7.20007 19.4194 7.38415L8.52146 18.2821C8.00882 18.7947 7.3665 19.1584 6.66317 19.3342L4 20L4.66579 17.3368C4.84163 16.6335 5.2053 15.9912 5.71794 15.4785L16.6158 4.58063Z" stroke="var(--main-text-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M14 7L17 10" stroke="var(--main-text-color)" stroke-width="2" stroke-linejoin="round"></path>
+              <path d="M13 20L20 20" stroke="var(--main-text-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+
+            
+          </a>';
 ?>
 </div>
 
 <hr class="hr-user-info m-0">
 <img class="w-100" id="userImg" src="users/<?= $photo_user_uuid.'/'.$photo_name; ?>" alt="<?= get_user_fullname($photo_user_uuid); ?>">
 <hr class="hr-user-info m-0">
+<?
+  $current_photo_tags_array = get_current_photo_tags(get_photo_uuid_by_name($photo_name));
+
+  if (!is_null($current_photo_tags_array))
+  {
+    echo '<ul class="tags-list m-2 p-0 d-flex flex-wrap">';
+
+    for ($tags_num = 0; $tags_num < count($current_photo_tags_array); $tags_num++)
+      echo '<a href="search?p=tags&q='.$current_photo_tags_array[$tags_num].'"><li class="font-weight-bold">#'.$current_photo_tags_array[$tags_num].'</li></a>';
+    
+    echo '</ul><hr class="hr-user-info m-0">';
+  }
+?>

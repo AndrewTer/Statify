@@ -19,14 +19,14 @@ if($received_list)
     <div class="w-100 p-0" id="friends-block-<?= $hash_modal; ?>">
       
       <div class="friend-card m-0 mb-3 p-2 pl-3 pr-3" id="friends-block-content-<?= $hash_modal; ?>">
-        <div class="friend-menu m-0 dropdown" role="group">
-          <p id="friend-menu-btn" class="btn" data-toggle="dropdown" aria-expanded="false">
+        <div class="dropdown-action-menu m-0 dropdown" role="group">
+          <p id="dropdown-action-menu-btn" class="btn" data-toggle="dropdown" aria-expanded="false">
             <svg fill="var(--main-text-color)" width="22px" height="22px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path d="M2,12a2,2,0,1,1,2,2A2,2,0,0,1,2,12Zm10,2a2,2,0,1,0-2-2A2,2,0,0,0,12,14Zm8-4a2,2,0,1,0,2,2A2,2,0,0,0,20,10Z"></path>
             </svg>
           </p>
               
-          <div class="dropdown-menu dropdown-menu-right p-0" aria-labelledby="friend-menu-btn">
+          <div class="dropdown-menu dropdown-menu-right p-0" aria-labelledby="dropdown-action-menu-btn">
 <?
           if ($ban_check == 'success')
             echo '<a class="dropdown-item pt-2 pb-2 first-item font-weight-bold" href="" onclick="event.preventDefault();addFriendFromRequestList(\''.$user_uuid.'\',\''.$received_uuid.'\');">Принять заявку</a>
@@ -49,30 +49,30 @@ if($received_list)
 
           <div class="friend-card-avatar d-flex align-items-start justify-content-start p-0 mr-3">
 <?
-          $preview_photo_check = file_exists('users/'.$received_uuid.'/'.get_latest_avatar_preview($received_uuid)) ? 1 : 0;
+          $preview_photo_check = file_exists('users/'.$received_uuid.'/'.get_user_avatar_preview($received_uuid)) ? 1 : 0;
           if ($ban_check == 'success')
             if (!is_null(check_user_online_status($received_uuid)))
-              if (get_latest_avatar($received_uuid))
+              if (get_user_avatar($received_uuid))
                 echo '<img class="rounded-circle online m-0 p-0 pointer" width="70px" height="70px"
-                            src="users/'.$received_uuid.'/'.($preview_photo_check == 1 ? get_latest_avatar_preview($received_uuid) : get_latest_avatar($received_uuid)).'" 
+                            src="users/'.$received_uuid.'/'.($preview_photo_check == 1 ? get_user_avatar_preview($received_uuid) : get_user_avatar($received_uuid)).'" 
                             alt="'.get_user_fullname($received_uuid).'" 
-                            onclick="event.preventDefault();openProfilePictureModal(\''.$user_uuid.'\',\''.$received_uuid.'\',\''.get_latest_avatar($received_uuid).'\');">';
+                            onclick="event.preventDefault();openProfilePictureModal(\''.$user_uuid.'\',\''.$received_uuid.'\',\''.get_user_avatar($received_uuid).'\');">';
               else
                 echo '<img class="rounded-circle online m-0 p-0" width="70px" height="70px" src="imgs/no-avatar.png" alt="'.get_user_fullname($received_uuid).'">';
             else
-              if (get_latest_avatar($received_uuid))
+              if (get_user_avatar($received_uuid))
                 echo '<img class="rounded-circle offline m-0 p-0 pointer" width="70px" height="70px" 
-                            src="users/'.$received_uuid.'/'.($preview_photo_check == 1 ? get_latest_avatar_preview($received_uuid) : get_latest_avatar($received_uuid)).'" 
+                            src="users/'.$received_uuid.'/'.($preview_photo_check == 1 ? get_user_avatar_preview($received_uuid) : get_user_avatar($received_uuid)).'" 
                             alt="'.get_user_fullname($received_uuid).'" 
-                            onclick="event.preventDefault();openProfilePictureModal(\''.$user_uuid.'\',\''.$received_uuid.'\',\''.get_latest_avatar($received_uuid).'\');">';
+                            onclick="event.preventDefault();openProfilePictureModal(\''.$user_uuid.'\',\''.$received_uuid.'\',\''.get_user_avatar($received_uuid).'\');">';
               else
                 echo '<img class="rounded-circle offline m-0 p-0" width="70px" height="70px" src="imgs/no-avatar.png" alt="'.get_user_fullname($received_uuid).'">';
           else
-            if (get_latest_avatar($received_uuid))
+            if (get_user_avatar($received_uuid))
                 echo '<img class="rounded-circle offline m-0 p-0 pointer" width="70px" height="70px"
-                            src="users/'.$received_uuid.'/'.($preview_photo_check == 1 ? get_latest_avatar_preview($received_uuid) : get_latest_avatar($received_uuid)).'" 
+                            src="users/'.$received_uuid.'/'.($preview_photo_check == 1 ? get_user_avatar_preview($received_uuid) : get_user_avatar($received_uuid)).'" 
                             alt="'.get_user_fullname($received_uuid).'" 
-                            onclick="event.preventDefault();openProfilePictureModal(\''.$user_uuid.'\',\''.$received_uuid.'\',\''.get_latest_avatar($received_uuid).'\');">';
+                            onclick="event.preventDefault();openProfilePictureModal(\''.$user_uuid.'\',\''.$received_uuid.'\',\''.get_user_avatar($received_uuid).'\');">';
               else
                 echo '<img class="rounded-circle offline m-0 p-0" width="70px" height="70px" src="imgs/no-avatar.png" alt="'.get_user_fullname($received_uuid).'">';
 ?>

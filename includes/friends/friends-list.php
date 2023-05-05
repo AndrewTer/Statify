@@ -1,9 +1,13 @@
 <ul id="block-friend" class="p-0">
-
   <div class="w-100 p-0">
     <div class="friend-card ml-0 mr-0 mt-0" id="friend-search-card">
-      <div class="w-100 m-0 input-with-icon">
-        <i class="fa fa-search" aria-hidden="true"></i>
+      <div class="w-100 m-0 d-flex flex-row align-items-center">
+        <p class="m-0 p-0 mr-2">
+          <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none">
+            <circle cx="10" cy="10" r="6" stroke="var(--main-text-color)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></circle>
+            <path d="M14.5 14.5L19 19" stroke="var(--main-text-color)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </p>
         <input type="text" class="fz-14 w-100 p-1 input-field" id="friendlist-search" placeholder="Поиск друзей">
       </div>
     </div>
@@ -34,14 +38,14 @@
   <li class="w-100 p-0 user-card" id="friends-block-<?= $hash_modal; ?>">
       
     <div class="friend-card m-0 mb-3 p-2 pl-3 pr-3" id="friends-block-content-<?= $hash_modal; ?>">
-      <div class="friend-menu m-0 dropdown" role="group">
-        <p id="friend-menu-btn" data-toggle="dropdown" aria-expanded="false">
-          <svg fill="var(--main-text-color)" width="20px" height="20px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <div class="dropdown-action-menu m-0 dropdown" role="group">
+        <p id="dropdown-action-menu-btn" data-toggle="dropdown" aria-expanded="false">
+          <svg fill="var(--main-text-color)" width="20px" height="20px" viewBox="0 0 24 24">
             <path d="M2,12a2,2,0,1,1,2,2A2,2,0,0,1,2,12Zm10,2a2,2,0,1,0-2-2A2,2,0,0,0,12,14Zm8-4a2,2,0,1,0,2,2A2,2,0,0,0,20,10Z"></path>
           </svg>
         </p>
 
-        <div class="dropdown-menu dropdown-menu-right p-0" aria-labelledby="friend-menu-btn">
+        <div class="dropdown-menu dropdown-menu-right p-0" aria-labelledby="dropdown-action-menu-btn">
 <?
           if ($ban_check == 'success')
             echo '<a class="dropdown-item pt-2 pb-2 first-item font-weight-bold" 
@@ -66,30 +70,30 @@
         
         <div class="d-flex align-items-start justify-content-start p-0 mr-3">
 <?
-        $preview_photo_check = file_exists('users/'.$friend_uuid.'/'.get_latest_avatar_preview($friend_uuid)) ? 1 : 0;
+        $preview_photo_check = file_exists('users/'.$friend_uuid.'/'.get_user_avatar_preview($friend_uuid)) ? 1 : 0;
         if ($ban_check == 'success')
           if (!is_null(check_user_online_status($friend_uuid)))
-            if (get_latest_avatar($friend_uuid))
+            if (get_user_avatar($friend_uuid))
               echo '<img class="rounded-circle online m-0 p-0 pointer" width="70px" height="70px"
-                          src="users/'.$friend_uuid.'/'.($preview_photo_check == 1 ? get_latest_avatar_preview($friend_uuid) : get_latest_avatar($friend_uuid)).'" 
+                          src="users/'.$friend_uuid.'/'.($preview_photo_check == 1 ? get_user_avatar_preview($friend_uuid) : get_user_avatar($friend_uuid)).'" 
                           alt="'.get_user_fullname($friend_uuid).'" 
-                          onclick="event.preventDefault();openProfilePictureModal(\''.$user_uuid.'\',\''.$friend_uuid.'\',\''.get_latest_avatar($friend_uuid).'\');">';
+                          onclick="event.preventDefault();openProfilePictureModal(\''.$user_uuid.'\',\''.$friend_uuid.'\',\''.get_user_avatar($friend_uuid).'\');">';
             else
               echo '<img class="rounded-circle online m-0 p-0" width="70px" height="70px" src="imgs/no-avatar.png" alt="'.get_user_fullname($friend_uuid).'">';
           else
-            if (get_latest_avatar($friend_uuid))
+            if (get_user_avatar($friend_uuid))
               echo '<img class="rounded-circle offline m-0 p-0 pointer" width="70px" height="70px"
-                          src="users/'.$friend_uuid.'/'.($preview_photo_check == 1 ? get_latest_avatar_preview($friend_uuid) : get_latest_avatar($friend_uuid)).'" 
+                          src="users/'.$friend_uuid.'/'.($preview_photo_check == 1 ? get_user_avatar_preview($friend_uuid) : get_user_avatar($friend_uuid)).'" 
                           alt="'.get_user_fullname($friend_uuid).'" 
-                          onclick="event.preventDefault();openProfilePictureModal(\''.$user_uuid.'\',\''.$friend_uuid.'\',\''.get_latest_avatar($friend_uuid).'\');">';
+                          onclick="event.preventDefault();openProfilePictureModal(\''.$user_uuid.'\',\''.$friend_uuid.'\',\''.get_user_avatar($friend_uuid).'\');">';
             else
               echo '<img class="rounded-circle offline m-0 p-0" width="70px" height="70px" src="imgs/no-avatar.png" alt="'.get_user_fullname($friend_uuid).'">';
         else
-          if (get_latest_avatar($friend_uuid))
+          if (get_user_avatar($friend_uuid))
             echo '<img class="rounded-circle offline m-0 p-0 pointer" width="70px" height="70px"
-                        src="users/'.$friend_uuid.'/'.($preview_photo_check == 1 ? get_latest_avatar_preview($friend_uuid) : get_latest_avatar($friend_uuid)).'" 
+                        src="users/'.$friend_uuid.'/'.($preview_photo_check == 1 ? get_user_avatar_preview($friend_uuid) : get_user_avatar($friend_uuid)).'" 
                         alt="'.get_user_fullname($friend_uuid).'" 
-                        onclick="event.preventDefault();openProfilePictureModal(\''.$user_uuid.'\',\''.$friend_uuid.'\',\''.get_latest_avatar($friend_uuid).'\');">';
+                        onclick="event.preventDefault();openProfilePictureModal(\''.$user_uuid.'\',\''.$friend_uuid.'\',\''.get_user_avatar($friend_uuid).'\');">';
           else
             echo '<img class="rounded-circle offline m-0 p-0" width="70px" height="70px" src="imgs/no-avatar.png" alt="'.get_user_fullname($friend_uuid).'">';
 ?>
@@ -103,7 +107,7 @@
           {
 ?>
             <p class="username pointer text-hover search-content w-100 fz-16 d-flex align-items-center font-weight-bold"><?= get_user_fullname($friend_uuid); ?>
-              <svg class="ml-2 premium-star active" width="15px" height="15px" viewBox="0 0 48.00 48.00" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#2ACAEA" stroke-width="0.00048000000000000007" transform="matrix(1, 0, 0, 1, 0, 0)rotate(0)">
+              <svg class="ml-2 premium-star active" width="15px" height="15px" viewBox="0 0 48.00 48.00" fill="none" stroke="#2ACAEA" stroke-width="0.00048000000000000007" transform="matrix(1, 0, 0, 1, 0, 0)rotate(0)">
                 <defs>  
                   <linearGradient id="premium-logo-gradient-<?= $hash_modal; ?>" x1="50%" y1="0%" x2="50%" y2="100%" > 
                     <stop offset="0%" stop-color="#7A5FFF">

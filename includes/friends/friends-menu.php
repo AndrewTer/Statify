@@ -2,7 +2,7 @@
   <table class="table table-borderless m-0">
     <tbody>
         <tr class="friends-sort-list-item first-item letter-spacing-05" data-href="friends?sort=all-friends">
-          <th scope="row">
+          <th scope="row" class="fz-14">
             Все друзья
             <span id="friends-count">
               <? 
@@ -14,7 +14,7 @@
         </tr>
 
         <tr class="friends-sort-list-item letter-spacing-05" data-href="friends?sort=online">
-          <th scope="row">
+          <th scope="row" class="fz-14">
             Друзья онлайн
           </th>
         </tr>
@@ -32,7 +32,7 @@
         </tr>
 
         <tr class="friends-sort-list-item letter-spacing-05" data-href="friends?sort=subscriptions">
-          <th scope="row">
+          <th scope="row" class="fz-14">
             Подписки
             <span id="friends-count">
               <?
@@ -44,7 +44,7 @@
         </tr>
         
         <tr class="friends-sort-list-item last-item collapsed letter-spacing-05" id="show-all-requests" data-toggle="collapse" role="button" href="#friendshipRequestsOptions" aria-expanded="false" aria-controls="friendshipRequestsOptions">
-          <th scope="row">
+          <th scope="row" class="fz-14">
             Заявки в друзья 
             
             <svg class="m-0 mb-1" fill="var(--main-text-color)" width="14px" height="14px" viewBox="-1 0 19 19" xmlns="http://www.w3.org/2000/svg">
@@ -66,7 +66,7 @@
     <table class="table table-borderless m-0">
       <tbody>
         <tr class="friendships-list-item" data-href="friends?sort=received">
-          <th scope="row">
+          <th scope="row" class="fz-14">
             Полученные
             <span id="friends-count">
               <?
@@ -77,7 +77,7 @@
           </th>
         </tr>
         <tr class="friendships-list-item" data-href="friends?sort=submitted">
-          <th scope="row">
+          <th scope="row" class="fz-14">
             Отправленные
             <span id="friends-count">
               <?

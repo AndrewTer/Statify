@@ -1,5 +1,5 @@
-<script type="text/javascript" src="js/popper.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/libs/popper.min.js"></script>
+<script type="text/javascript" src="js/libs/bootstrap.min.js"></script>
 
 <div class="w-100 m-0 mb-3 p-0 d-flex flex-column block-user-content">
   <div class="w-100 m-0 p-2 d-flex flex-row align-items-center" id="block-user-main-info">

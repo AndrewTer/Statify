@@ -23,15 +23,15 @@
 <?
         for ($photos_num = 0; $photos_num < count($photos_list); $photos_num++)
         {
-          $photo_file = $photos_list[$photos_num][0];
-          $photo_creation_date = $photos_list[$photos_num][1];
+          $photo_file = $photos_list[$photos_num]['name'];
+          $photo_creation_date = $photos_list[$photos_num]['date'];
 
           if ($photo_creation_date == $year_value)
           {
             $hash_modal = sha1($current_user_uuid.$photo_file);
 ?>
-            <div class="profile-picture-card">
-              <div class="mx-auto d-block profile-picture-card-avatar">
+            <div class="user-photo-card">
+              <div class="mx-auto d-block user-photo-card-content">
                 <img class="offline border-radius-15 pointer" src="<?= 'users/'.$current_user_uuid.'/'.$photo_file; ?>" alt="<?= get_user_fullname($current_user_uuid); ?>" onclick="event.preventDefault();openProfilePictureModal(<?= '\''.$user_uuid.'\',\''.$current_user_uuid.'\',\''.$photo_file.'\''; ?>);">
               </div>
             </div>
@@ -75,17 +75,17 @@
 <?
     }else
       echo '
-      <div class="p-0 w-100 h-100">
-        <div class="w-100 p-0">
-          <span class="d-flex justify-content-center p-5 w-100">
-            <strong class="h5 text-center">'.(($user_uuid == $current_user_uuid) ? 'У вас пока нет фотографий' : 'У пользователя нет фотографий').'</strong>
-          </span>
-        </div>
-      </div>';
+        <div class="p-0 w-100 h-100">
+          <div class="w-100 p-0">
+            <span class="d-flex justify-content-center p-5 w-100">
+              <strong class="h5 text-center">'.(($user_uuid == $current_user_uuid) ? 'У вас пока нет фотографий' : 'У пользователя нет фотографий').'</strong>
+            </span>
+          </div>
+        </div>';
   }else
   {
 ?>
-    <div class="w-100 m-0 p-0"><?= ban_user_message($current_user_uuid); ?></div>
+    <div class="w-100 m-0 mt-2 p-0"><?= ban_user_message($current_user_uuid); ?></div>
 <?
   }
 ?>

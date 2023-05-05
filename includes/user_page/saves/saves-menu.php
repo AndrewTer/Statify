@@ -1,16 +1,5 @@
 <div class="m-0 mt-3 p-0" id="saves-menu-content">
   <div class="block-search-and-sort p-0 m-0 mb-3">
-    <table class="table table-borderless m-0">
-      <tbody>
-        <tr class="saves-resize-list-item">
-          <th scope="row" class="text-center" id="saves-card-large" style="border-right: 1px solid var(--hr-user-info-bg-color);"><i class="fa fa-th-large fz-15" aria-hidden="true"></i></th>
-          <th scope="row" class="text-center" id="saves-card-small"><i class="fa fa-th fz-15" aria-hidden="true"></i></th>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="block-search-and-sort p-0 m-0">
     <table class="table table-borderless m-0" id="saves-menu-by-years">
       <tbody>
   <?
@@ -28,7 +17,7 @@
             $border_class = 'last-item';
   
         echo '<tr class="saves-sort-list-item '.$border_class.'" data-href="#'.$year_value.'">
-                <th scope="row" class="text-center">'.$year_value.'</th>
+                <th scope="row" class="text-center fz-14">'.$year_value.'</th>
               </tr>';
       }
   ?>

@@ -37,14 +37,6 @@
 
 <div class="about-card mt-3">
 	<div class="d-flex align-items-center m-0 p-0">
-		<p class="fz-16 m-0 p-0 pr-3 mr-auto font-weight-bold">Теги</p>
-	</div>
-	<hr class="hr-user-info">
-	<p class="fz-14 m-0 p-0">Теги должны описывать пользователя (хобби, сферы деятельности и т.д.) для его удобного поиска другими пользователями сайта со схожими интересами.</p>
-</div>
-
-<div class="about-card mt-3">
-	<div class="d-flex align-items-center m-0 p-0">
 		<p class="fz-16 m-0 p-0 pr-3 mr-auto font-weight-bold">Забаненные пользователи</p>
 	</div>
 	<hr class="hr-user-info">

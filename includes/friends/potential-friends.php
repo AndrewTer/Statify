@@ -5,7 +5,7 @@
   {
 ?>
 <div class="block-search-and-sort suggestions-top-block p-0 text-center d-none d-md-block">
-  <p class="fz-14 font-weight-bold letter-spacing-05 m-0 p-2">Возможные друзья</p>
+  <p class="fz-15 font-weight-bold letter-spacing-05 m-0 p-2">Возможные друзья</p>
   <hr class="hr-user-info m-0 mb-2">
 <?
     for ($potential_friends_num = 0; $potential_friends_num < count($potential_friends_list); $potential_friends_num++)
@@ -21,21 +21,21 @@
 
     <div class="potential-card-avatar d-flex align-items-center justify-content-center m-0 p-0">
 <?
-    $preview_photo_check = file_exists('users/'.$potential_friend_uuid.'/'.get_latest_avatar_preview($potential_friend_uuid)) ? 1 : 0;
+    $preview_photo_check = file_exists('users/'.$potential_friend_uuid.'/'.get_user_avatar_preview($potential_friend_uuid)) ? 1 : 0;
     if (!is_null(check_user_online_status($potential_friend_uuid)))
-      if (get_latest_avatar($potential_friend_uuid))
+      if (get_user_avatar($potential_friend_uuid))
         echo '<img class="rounded-circle online m-0 p-0 w-100"
-                    src="users/'.$potential_friend_uuid.'/'.($preview_photo_check == 1 ? get_latest_avatar_preview($potential_friend_uuid) : get_latest_avatar($potential_friend_uuid)).'" 
+                    src="users/'.$potential_friend_uuid.'/'.($preview_photo_check == 1 ? get_user_avatar_preview($potential_friend_uuid) : get_user_avatar($potential_friend_uuid)).'" 
                     alt="'.get_user_fullname($potential_friend_uuid).'"
-                    onclick="event.preventDefault();openProfilePictureModal(\''.$user_uuid.'\', \''.$potential_friend_uuid,'\', \''.get_latest_avatar($potential_friend_uuid).'\');">';
+                    onclick="event.preventDefault();openProfilePictureModal(\''.$user_uuid.'\', \''.$potential_friend_uuid,'\', \''.get_user_avatar($potential_friend_uuid).'\');">';
       else
         echo '<img class="rounded-circle online m-0 p-0 w-100" src="imgs/no-avatar.png" alt="'.get_user_fullname($potential_friend_uuid).'">';
     else
-      if (get_latest_avatar($potential_friend_uuid))
+      if (get_user_avatar($potential_friend_uuid))
         echo '<img class="rounded-circle offline m-0 p-0 w-100" 
-                    src="users/'.$potential_friend_uuid.'/'.($preview_photo_check == 1 ? get_latest_avatar_preview($potential_friend_uuid) : get_latest_avatar($potential_friend_uuid)).'" 
+                    src="users/'.$potential_friend_uuid.'/'.($preview_photo_check == 1 ? get_user_avatar_preview($potential_friend_uuid) : get_user_avatar($potential_friend_uuid)).'" 
                     alt="'.get_user_fullname($potential_friend_uuid).'" 
-                    onclick="event.preventDefault();openProfilePictureModal(\''.$user_uuid.'\',\''.$potential_friend_uuid.'\',\''.get_latest_avatar($potential_friend_uuid).'\');">';
+                    onclick="event.preventDefault();openProfilePictureModal(\''.$user_uuid.'\',\''.$potential_friend_uuid.'\',\''.get_user_avatar($potential_friend_uuid).'\');">';
       else
         echo '<img class="rounded-circle offline m-0 p-0 w-100" src="imgs/no-avatar.png" alt="'.get_user_fullname($potential_friend_uuid).'">';
 ?>

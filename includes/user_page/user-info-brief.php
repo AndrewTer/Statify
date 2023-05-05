@@ -30,48 +30,32 @@
 <?
   if ($page_status && $current_user_uuid == $user_uuid)
   {
-    $latest_avatar_date = get_latest_avatar_date_upload($user_uuid);
-    
-    if ($latest_avatar_date == 'success' && check_user_page_status($user_uuid) && check_email_confirmed($user_uuid))
+    if (!check_email_confirmed($user_uuid))
       echo '<div class="m-0 p-0 mt-2 d-flex flex-row justify-content-center align-items-center">
-              <p class="btn btn-standard user-profile-action-btn m-0 p-1" data-href="edit">Редактировать</p>
+              <p class="btn btn-standard user-profile-action-btn m-0 p-1 fz-14" data-href="edit">Редактировать</p>
 
-              <p class="m-0 p-0 ml-2 pointer" data-toggle="tooltip" data-placement="bottom" title="Обновить фотографию">
-                <svg fill="var(--main-text-color)" id="user-profile-add-photo-icon" width="33px" height="33px" viewBox="-1 0 19 19" data-href="edit">
-                  <path d="M16.5 9.5a8 8 0 1 1-8-8 8 8 0 0 1 8 8zm-2.874-2.287a.803.803 0 0 0-.8-.8h-2.054v-.251a.802.802 0 0 0-.8-.8h-2.93a.802.802 0 0 0-.8.8v.25H4.186a.802.802 0 0 0-.8.8v5.166a.802.802 0 0 0 .8.8h8.639a.803.803 0 0 0 .8-.8zm-2.692 2.582a2.427 2.427 0 1 1-2.428-2.427 2.428 2.428 0 0 1 2.428 2.427zm-4.055 0a1.627 1.627 0 1 0 1.627-1.627A1.63 1.63 0 0 0 6.88 9.795zm2.75-3.931a.4.4 0 1 0 .4.4.4.4 0 0 0-.4-.4z"></path>
+              <p class="m-0 p-1 ml-2 pointer d-flex align-items-center justify-content-center" id="email-confirm" data-toggle="tooltip" data-placement="bottom" title="Подтвердить email">
+                <svg width="17px" height="17px" viewBox="0 0 48 48" fill="var(--content-block-bg-color-without-transparency)" data-href="edit" style="margin: 2px;">
+                  <path d="M0 0h48v48H0z" fill="none"></path>
+                  <path d="M42.371,8.8C41.705,8.304,40.89,8,40,8H8C7.11,8,6.295,8.304,5.629,8.8L24,27.172L42.371,8.8z"></path>
+                  <path d="M4,12.828V36c0,2.2,1.8,4,4,4h32c2.2,0,4-1.8,4-4V12.828l-20,20L4,12.828z"></path>
                 </svg>
               </p>
             </div>';
     else
-    {
-      if (!check_email_confirmed($user_uuid))
-        echo '<div class="m-0 p-0 mt-2 d-flex flex-row justify-content-center align-items-center">
-                <p class="btn btn-standard user-profile-action-btn m-0 p-1" data-href="edit">Редактировать</p>
-
-                <p class="m-0 p-1 ml-2 pointer d-flex align-items-center justify-content-center" id="email-confirm" data-toggle="tooltip" data-placement="bottom" title="Подтвердить email">
-                  <svg width="17px" height="17px" viewBox="0 0 48 48" fill="var(--content-block-bg-color-without-transparency)" data-href="edit" style="margin: 2px;">
-                    <path d="M0 0h48v48H0z" fill="none"></path>
-                    <path d="M42.371,8.8C41.705,8.304,40.89,8,40,8H8C7.11,8,6.295,8.304,5.629,8.8L24,27.172L42.371,8.8z"></path>
-                    <path d="M4,12.828V36c0,2.2,1.8,4,4,4h32c2.2,0,4-1.8,4-4V12.828l-20,20L4,12.828z"></path>
-                  </svg>
-                </p>
-              </div>';
-      else
-        echo '<p class="btn btn-standard user-profile-action-btn m-0 mt-2 p-1" data-href="edit">Редактировать</p>';
-    }
+      echo '<p class="btn btn-standard user-profile-action-btn m-0 mt-2 p-1 fz-14" data-href="edit">Редактировать</p>';
   }
 
   $user_ban_check = ban_check($current_user_uuid);
 
   if ($user_ban_check == 'success')
   {
-
     $friendly_user_status = user_friendly_status($user_uuid, $current_user_uuid);
 
     switch ($friendly_user_status) {
       case 'user':
         echo '<div class="m-0 p-0 mt-2 d-flex flex-row justify-content-center align-items-center">
-                <p class="btn btn-standard user-profile-action-btn w-100 m-0 p-1 pointer" data-u="'.$user_uuid.'" data-f="'.$current_user_uuid.'" id="add-friend-from-user-page-btn">Добавить в друзья</p>
+                <p class="btn btn-standard user-profile-action-btn w-100 m-0 p-1 pointer fz-14" data-u="'.$user_uuid.'" data-f="'.$current_user_uuid.'" id="add-friend-from-user-page-btn">Добавить в друзья</p>
 
                 <div class="m-0 p-0" role="group">
                   <p class="m-0 ml-2 p-0 d-flex align-items-center justify-content-center border-radius-circle" id="user-profile-more-menu-icon" data-toggle="dropdown" aria-expanded="false">
@@ -138,7 +122,7 @@
       case 'receiver':
         echo '<div class="m-0 p-0 mt-2 d-flex flex-row justify-content-center align-items-center">
                 <div class="m-0 p-0 w-100" role="group">
-                  <p class="btn btn-standard user-profile-action-btn m-0 p-1 pointer" id="user-profile-answer-request" data-u="'.$user_uuid.'" data-f="'.$current_user_uuid.'" data-toggle="dropdown" aria-expanded="false">Ответить на заявку</p>
+                  <p class="btn btn-standard user-profile-action-btn m-0 p-1 pointer fz-14" id="user-profile-answer-request" data-u="'.$user_uuid.'" data-f="'.$current_user_uuid.'" data-toggle="dropdown" aria-expanded="false">Ответить на заявку</p>
 
                   <div class="dropdown-menu dropdown-menu-right user-profile-dropdown-menu mt-1 p-0" aria-labelledby="user-profile-answer-request">
                     <a class="dropdown-item pt-2 pb-2 first-item font-weight-bold" 
@@ -174,7 +158,7 @@
 
       case 'subscriber':
         echo '<div class="m-0 p-0 mt-2 d-flex flex-row justify-content-center align-items-center">
-                <p class="btn btn-standard user-profile-action-btn w-100 m-0 p-1 pointer" data-u="'.$user_uuid.'" data-f="'.$current_user_uuid.'" id="add-friend-from-subscriber-from-user-page-btn">Добавить в друзья</p>
+                <p class="btn btn-standard user-profile-action-btn w-100 m-0 p-1 pointer fz-14" data-u="'.$user_uuid.'" data-f="'.$current_user_uuid.'" id="add-friend-from-subscriber-from-user-page-btn">Добавить в друзья</p>
 
                 <div class="m-0 p-0" role="group">
                   <p class="m-0 ml-2 p-0 d-flex align-items-center justify-content-center border-radius-circle" id="user-profile-more-menu-icon" data-toggle="dropdown" aria-expanded="false">
@@ -219,11 +203,6 @@
       default:
       break;
     }
-  }else
-  {
-?>
-    <div class="m-0 mt-3 mb-3 p-0 pt-3 pb-3"><?= ban_user_message($current_user_uuid); ?></div>
-<?
   }
 ?>
 </div>

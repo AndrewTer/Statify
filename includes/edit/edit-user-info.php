@@ -1,9 +1,9 @@
 <?
-  include("requests/user-info-for-statistics.php");
+include("requests/user-info-for-statistics.php");
 
-  $user_name = get_user_name($user_uuid);
-  $user_surname = get_user_surname($user_uuid);
-  $user_birthday = get_user_birthday($user_uuid);
+$user_name = get_user_name($user_uuid);
+$user_surname = get_user_surname($user_uuid);
+$user_birthday = get_user_birthday($user_uuid);
 ?>
 <p class="fz-17 text-center mt-2 mb-2 font-weight-bold">Основное</p>
 <hr class="hr-user-info"> 
@@ -38,21 +38,21 @@
     <div class="form-group w-100 m-0 mt-3 mb-3 pl-4 pr-4 d-flex align-items-center" id="edit-country">
       <label class="font-weight-bold m-0 p-0 w-40">Страна</label>
       <select class="form-control m-0 p-0 w-60 input-field" id="edit-input-select-country">
-        <?
-          $countries_list = get_country_list();
-          $user_country = get_user_country($user_uuid);
+<?
+      $countries_list = get_country_list();
+      $user_country = get_user_country($user_uuid);
 
-          for ($countries_num = 0; $countries_num < count($countries_list); $countries_num++)
-            if ($countries_list[$countries_num][0] == $user_country)
-              echo '<option value="'.$countries_list[$countries_num][0].'" selected>'.$countries_list[$countries_num][1].'</option>';
-            else
-              echo '<option value="'.$countries_list[$countries_num][0].'">'.$countries_list[$countries_num][1].'</option>';
+      for ($countries_num = 0; $countries_num < count($countries_list); $countries_num++)
+        if ($countries_list[$countries_num][0] == $user_country)
+          echo '<option value="'.$countries_list[$countries_num][0].'" selected>'.$countries_list[$countries_num][1].'</option>';
+        else
+          echo '<option value="'.$countries_list[$countries_num][0].'">'.$countries_list[$countries_num][1].'</option>';
 
-          if ($user_country == 'Other')
-            echo '<option value="Other" selected>Иная страна</option>';
-          else
-            echo '<option value="Other">Иная страна</option>'
-        ?>
+      if ($user_country == 'Other')
+        echo '<option value="Other" selected>Иная страна</option>';
+      else
+        echo '<option value="Other">Иная страна</option>'
+?>
       </select>
     </div>
 

@@ -42,7 +42,7 @@
 ?>
                   <div class="d-flex flex-row align-items-start m-0 p-0 pt-2 pb-2 w-100 comment-body <?= ($comment_number == 1) ? 'comment-body-first' : ''; ?>" id="<?= preg_replace('[-]', '', $comment_uuid); ?>" style="<?= 'margin-left:'.$level.'px !important; width: calc(100% - '.$level.'px) !important;'; ?>">
 <?
-                  $preview_comment_author_photo_check = file_exists('users/'.$comment_author_uuid.'/'.get_latest_avatar_preview($comment_author_uuid)) ? 1 : 0;
+                  $preview_comment_author_photo_check = file_exists('users/'.$comment_author_uuid.'/'.get_user_avatar_preview($comment_author_uuid)) ? 1 : 0;
                   
                   $mt1 = 'mt-1';
                   
@@ -56,29 +56,29 @@
 
                   if ($comment_user_ban_check == 'success')
                       if (!is_null(check_user_online_status($comment_author_uuid)))
-                          if (get_latest_avatar($comment_author_uuid))
+                          if (get_user_avatar($comment_author_uuid))
                               echo '<img class="rounded-circle online m-0 '.$mt1.' mr-3 p-0 rounded-saved-user-picture" 
-                                          src="users/'.$comment_author_uuid.'/'.($preview_comment_author_photo_check == 1 ? get_latest_avatar_preview($comment_author_uuid) : get_latest_avatar($comment_author_uuid)).'" 
+                                          src="users/'.$comment_author_uuid.'/'.($preview_comment_author_photo_check == 1 ? get_user_avatar_preview($comment_author_uuid) : get_user_avatar($comment_author_uuid)).'" 
                                           alt="'.get_user_fullname($comment_author_uuid).'" 
-                                          onclick="event.preventDefault();openProfilePictureModal(\''.$user_uuid.'\',\''.$comment_author_uuid.'\',\''.get_latest_avatar($comment_author_uuid).'\''.(($photo_user_uuid == $comment_author_uuid) ? ', 1' : '').');">';
+                                          onclick="event.preventDefault();openProfilePictureModal(\''.$user_uuid.'\',\''.$comment_author_uuid.'\',\''.get_user_avatar($comment_author_uuid).'\''.(($photo_user_uuid == $comment_author_uuid) ? ', 1' : '').');">';
                           else
                               echo '<img class="rounded-circle online m-0 '.$mt1.' mr-3 p-0 rounded-saved-user-picture" 
                                           src="imgs/no-avatar.png" 
                                           alt="'.get_user_fullname($comment_author_uuid).'">';
                       else
-                          if (get_latest_avatar($comment_author_uuid))
+                          if (get_user_avatar($comment_author_uuid))
                               echo '<img class="rounded-circle offline m-0 '.$mt1.' mr-3 p-0 rounded-saved-user-picture" 
-                                          src="users/'.$comment_author_uuid.'/'.($preview_comment_author_photo_check == 1 ? get_latest_avatar_preview($comment_author_uuid) : get_latest_avatar($comment_author_uuid)).'" 
+                                          src="users/'.$comment_author_uuid.'/'.($preview_comment_author_photo_check == 1 ? get_user_avatar_preview($comment_author_uuid) : get_user_avatar($comment_author_uuid)).'" 
                                           alt="'.get_user_fullname($comment_author_uuid).'" 
-                                          onclick="event.preventDefault();openProfilePictureModal(\''.$user_uuid.'\',\''.$comment_author_uuid.'\',\''.get_latest_avatar($comment_author_uuid).'\''.(($photo_user_uuid == $comment_author_uuid) ? ', 1' : '').');">';
+                                          onclick="event.preventDefault();openProfilePictureModal(\''.$user_uuid.'\',\''.$comment_author_uuid.'\',\''.get_user_avatar($comment_author_uuid).'\''.(($photo_user_uuid == $comment_author_uuid) ? ', 1' : '').');">';
                           else
                               echo '<img class="rounded-circle offline m-0 '.$mt1.' mr-3 p-0 rounded-saved-user-picture" 
                                           src="imgs/no-avatar.png" 
                                           alt="'.get_user_fullname($comment_author_uuid).'">';
                   else
-                      if (get_latest_avatar($comment_author_uuid))
+                      if (get_user_avatar($comment_author_uuid))
                           echo '<img class="rounded-circle offline m-0 '.$mt1.' mr-3 p-0 rounded-saved-user-picture" 
-                                      src="users/'.$comment_author_uuid.'/'.($preview_comment_author_photo_check == 1 ? get_latest_avatar_preview($comment_author_uuid) : get_latest_avatar($comment_author_uuid)).'" 
+                                      src="users/'.$comment_author_uuid.'/'.($preview_comment_author_photo_check == 1 ? get_user_avatar_preview($comment_author_uuid) : get_user_avatar($comment_author_uuid)).'" 
                                       alt="'.get_user_fullname($comment_author_uuid).'">';
                       else
                           echo '<img class="rounded-circle offline m-0 '.$mt1.' mr-3 p-0 rounded-saved-user-picture" 
@@ -89,22 +89,33 @@
                     <div class="w-100 m-0 p-0">
 <?
                       if ($user_uuid == $comment_author_uuid && check_time_to_delete_comment($user_uuid, $photo_uuid, $comment_uuid) && !check_for_replies_to_comment($comment_uuid))
-                        echo '<a class="delete-comment m-0 p-0" 
+                        echo '<a class="delete-comment m-0 p-0"
+                                  data-toggle="tooltip" data-placement="bottom" title="Удалить" 
                                   onclick="event.preventDefault();delComment(\''.$user_uuid.'\',\''.$photo_uuid.'\',\''.$comment_uuid.'\');">
-                                <i class="fa fa-times fz-13 m-0 p-1" aria-hidden="true"></i>
+                                <p class="m-0 p-0">
+                                  <svg viewBox="0 0 48 48" width="16px" height="16px" class="svg-close-icon">
+                                    <rect width="48" height="48" fill="none"></rect>
+                                    <path d="M26.8,24,37.4,13.5a2.1,2.1,0,0,0,.2-2.7,1.9,1.9,0,0,0-3-.2L24,21.2,13.4,10.6a1.9,1.9,0,0,0-3,.2,2.1,2.1,0,0,0,.2,2.7L21.2,24,10.6,34.5a2.1,2.1,0,0,0-.2,2.7,1.9,1.9,0,0,0,3,.2L24,26.8,34.6,37.4a1.9,1.9,0,0,0,3-.2,2.1,2.1,0,0,0-.2-2.7Z"></path>
+                                  </svg>
+                                </p>
                               </a>';
 
                       if ($user_uuid != $comment_author_uuid && $comment_user_ban_check == 'success')
                         echo '<a class="report-comment m-0 p-0 d-none" 
                                   data-toggle="tooltip" data-placement="bottom" title="Пожаловаться"
                                   onclick="event.preventDefault();openReportCommentModal(\''.$user_uuid.'\',\''.$comment_author_uuid.'\',\''.$comment_uuid.'\');">
-                                <i class="fa fa-ban fz-13 m-0 p-1" aria-hidden="true"></i>
+                                <p class="m-0 p-0">
+                                  <svg width="16px" height="16px" viewBox="0 0 24 24" class="svg-report-icon">
+                                    <path d="M12 7C12.5523 7 13 7.44772 13 8V13C13 13.5523 12.5523 14 12 14C11.4477 14 11 13.5523 11 13V8C11 7.44772 11.4477 7 12 7Z"></path>
+                                    <path d="M12 17C12.5523 17 13 16.5523 13 16C13 15.4477 12.5523 15 12 15C11.4477 15 11 15.4477 11 16C11 16.5523 11.4477 17 12 17Z"></path>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM4 12C4 7.58172 7.58172 4 12 4C16.4183 4 20 7.58172 20 12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12Z"></path>
+                                  </svg>
+                                </p>
                               </a>';
 ?>
 
                       <a class="w-75 m-0 p-0 d-block comment-user-fullname pointer"
-                                href="./?u=<?= get_user_nickname($comment_author_uuid); ?>"
-                                title="<?= get_user_fullname($comment_author_uuid); ?>">
+                                href="./?u=<?= get_user_nickname($comment_author_uuid); ?>">
 <?
                         if ($photo_user_uuid == $comment_author_uuid)
                           if ($premium_status_comment_user)
@@ -154,7 +165,7 @@
                       <p class="m-0 p-0 fz-13 font-weight-bold"><?= (($author_uuid_replying_comment) ? '<a class="m-0 p-0" href="./?u='.get_user_nickname($author_uuid_replying_comment).'"><span class="m-0 p-0 nickname-author-reply-to-comment-p">'.get_user_nickname($author_uuid_replying_comment).'</span></a>, ' : '').str_replace(array("\r\n", "\r", "\n"), '<br>', $comment_text); ?> 
                       </p>
 <?
-                    if (get_latest_avatar($user_uuid))
+                    if (get_user_avatar($user_uuid))
                       if (!check_only_friends_can_comment_photos($photo_user_uuid) || 
                           ($user_uuid == $photo_user_uuid) ||
                           (check_only_friends_can_comment_photos($photo_user_uuid) && user_friendly_status($user_uuid, $photo_user_uuid) == 'friend'))

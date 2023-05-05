@@ -7,7 +7,7 @@
     <p class="fz-15 w-100 m-0 ml-3 p-0 text-left font-weight-bold">Профиль</p>
   </a>
 
-  <a class="w-100 m-0 p-0 pl-2 pt-2 pb-2 d-flex flex-row align-items-center font-weight-bold" data-href="news?sort=popular" aria-label="Новости">
+  <a class="w-100 m-0 p-0 pl-2 pt-2 pb-2 d-flex flex-row align-items-center font-weight-bold" data-href="news" aria-label="Новости">
     <svg class="m-0 p-0 svg-main-menu-icon" width="25px" height="25px" viewBox="0 0 24 24">
       <path d="M19.875 3H4.125C2.953 3 2 3.897 2 5v14c0 1.103.953 2 2.125 2h15.75C21.047 21 22 20.103 22 19V5c0-1.103-.953-2-2.125-2zm0 16H4.125c-.057 0-.096-.016-.113-.016-.007 0-.011.002-.012.008L3.988 5.046c.007-.01.052-.046.137-.046h15.75c.079.001.122.028.125.008l.012 13.946c-.007.01-.052.046-.137.046z"></path>
       <path d="M6 7h6v6H6zm7 8H6v2h12v-2h-4zm1-4h4v2h-4zm0-4h4v2h-4z"></path>
@@ -15,7 +15,7 @@
     <p class="fz-15 w-100 m-0 ml-3 p-0 text-left font-weight-bold">Новости</p>
   </a>
 
-  <a class="w-100 m-0 p-0 pl-2 pt-2 pb-2 d-flex flex-row align-items-center font-weight-bold" data-href="friends?sort=all-friends" aria-label="Друзья">
+  <a class="w-100 m-0 p-0 pl-2 pt-2 pb-2 d-flex flex-row align-items-center font-weight-bold" data-href="friends" aria-label="Друзья">
     <svg class="m-0 p-0 svg-main-menu-icon" width="25px" height="25px" viewBox="0 0 24 24" fill="none">
       <path d="M15.5385 11.4899C17.7949 11.4899 19.641 9.65316 19.641 7.40826C19.641 5.16336 17.7949 3.32663 15.5385 3.32663C15.4359 3.32663 15.3334 3.32663 15.2308 3.32663C15.8462 4.34704 16.2564 5.57153 16.2564 6.79602C16.2564 8.53071 15.5385 10.1634 14.4103 11.3879C14.718 11.4899 15.1282 11.4899 15.5385 11.4899Z"></path>
       <path d="M17.2821 13.6326H16.2565C17.7949 14.9591 18.8206 17 18.8206 19.2448C18.8206 19.7551 18.718 20.1632 18.6154 20.5714C19.9488 20.3673 20.7693 20.0612 21.2821 19.7551C21.7949 19.4489 22.0001 18.9387 22.0001 18.3265C22.0001 15.7755 19.8462 13.6326 17.2821 13.6326Z"></path>
