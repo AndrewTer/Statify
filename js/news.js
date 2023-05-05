@@ -1,12 +1,34 @@
-$('#view-all-top-ten-users').click(function() {
-    if (!$(this).data('shown'))
-    {
-        $(this).text('Свернуть список');
-        $(this).data('shown', true);
-    }else {
-        $(this).text('Показать всех');
-        $(this).data('shown', false);
+$('#showmore-feed-button').click(function () {
+  var selector = '#block-news .feed-news-list'; 
+  var target = $(this);
+  var page = target.attr('data-page');
+  var pageMax = target.attr('data-max');
+  page++;
+ 
+  $.ajax({
+    url: '?sort=feed&page=' + page,  
+    dataType: 'html',
+    success: function(data) {
+      $(selector).append($(data).find(selector).html());
     }
+  });
+ 
+  target.attr('data-page', page);
+  if (page ==  pageMax)
+    target.hide();
+ 
+  return false;
+});
+
+$('#view-all-top-ten-users').click(function() {
+  if (!$(this).data('shown'))
+  {
+    $(this).text('Свернуть список');
+    $(this).data('shown', true);
+  }else {
+    $(this).text('Показать всех');
+    $(this).data('shown', false);
+  }
 });
 
 function showMorePopularPhotosSortedByRating(current_user)
@@ -87,44 +109,45 @@ function hideMorePopularPhotosSortedByNumberOfComments(current_user)
   $('#show-more-popular-photos-sorted-by-number-of-comments').html('<h5 class="fz-15 m-0 p-0 font-weight-bold letter-spacing-05">Самые комментируемые</h5><p class="m-0 ml-auto mr-0 p-0 fz-14 news-popular-top-p" onclick="event.preventDefault();showMorePopularPhotosSortedByNumberOfComments(\'' + current_user + '\');">Топ 100</p>');
 }
 
+if (document.querySelector('.new-users-slider'))
+{
+  const newUsersSlider = document.querySelector('.new-users-slider');
+  let isDown = false;
+  let startX;
+  let sLeft;
+  newUsersSlider.scrollLeft = 0;
 
-
-const newUsersSlider = document.querySelector('.new-users-slider');
-let isDown = false;
-let startX;
-let sLeft;
-newUsersSlider.scrollLeft = 0;
-
-newUsersSlider.addEventListener('mousedown', (e) => {
-  isDown = true;
-  startX = e.pageX;
-  sLeft = newUsersSlider.scrollLeft;
-});
-
-newUsersSlider.addEventListener('mouseleave', () => {
-  isDown = false;
-});
-
-newUsersSlider.addEventListener('mouseup', () => {
-  isDown = false;
-});
-
-newUsersSlider.addEventListener('mousemove', (e) => {
-  if(!isDown) return;
-  e.preventDefault();
-  const x = e.pageX;
-  const dragged = x - startX;
-  newUsersSlider.scrollLeft = sLeft - dragged;
-}); 
-
-newUsersSlider.addEventListener("wheel", function (e) {
-  let sliderElementWidth = document.querySelector('.slider-element').offsetWidth;
-
-  if (e.deltaY > 0) 
-    newUsersSlider.scrollLeft += sliderElementWidth;
-  else 
-    newUsersSlider.scrollLeft -= sliderElementWidth;
+  newUsersSlider.addEventListener('mousedown', (e) => {
+    isDown = true;
+    startX = e.pageX;
+    sLeft = newUsersSlider.scrollLeft;
   });
+
+  newUsersSlider.addEventListener('mouseleave', () => {
+    isDown = false;
+  });
+
+  newUsersSlider.addEventListener('mouseup', () => {
+    isDown = false;
+  });
+
+  newUsersSlider.addEventListener('mousemove', (e) => {
+    if(!isDown) return;
+    e.preventDefault();
+    const x = e.pageX;
+    const dragged = x - startX;
+    newUsersSlider.scrollLeft = sLeft - dragged;
+  }); 
+
+  newUsersSlider.addEventListener("wheel", function (e) {
+    let sliderElementWidth = document.querySelector('.slider-element').offsetWidth;
+
+    if (e.deltaY > 0) 
+      newUsersSlider.scrollLeft += sliderElementWidth;
+    else 
+      newUsersSlider.scrollLeft -= sliderElementWidth;
+  });
+}
 
 $(document).ready(function() {
   $('.new-users-next-btn').click(function(event) {
@@ -160,4 +183,4 @@ $('.new-users-slider').scroll(function() {
   /*if ($(this).scrollLeft() < $('.new-users-slider').width()) {
     $('.new-users-next-btn').addClass('disable');
   }*/
-}).scroll(); 
+}).scroll();

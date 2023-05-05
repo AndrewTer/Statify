@@ -9,7 +9,10 @@
 
 		include("btn-save.php");
 	}else
+	{
+		include("btn-change-avatar.php");
 		include("btn-statistics.php");
+	}
 ?>   	      		
 	</div>
 </div>

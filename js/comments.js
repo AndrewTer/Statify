@@ -6,7 +6,7 @@ function addCommentBlock(photo_uuid, author_uuid) {
 	userCommentBlock.insertAdjacentHTML('afterbegin', 
 		`<div class="m-0 p-2 pl-3 pr-3">
         	<textarea class="textarea m-0 w-100 fz-14" id="new-comment-text" placeholder="Введите текст комментария"></textarea>
-        	<input type="submit" class="btn btn-standard w-100 m-0" value="Добавить комментарий" onclick="event.preventDefault();addNewComment('` + photo_uuid + `', '` + author_uuid + `');">
+        	<input type="submit" class="btn btn-standard w-100 m-0 mt-1" value="Добавить комментарий" onclick="event.preventDefault();addNewComment('` + photo_uuid + `', '` + author_uuid + `');">
     	 </div>
     	 <hr class="hr-user-info m-0">`);
 

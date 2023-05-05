@@ -1,454 +1,370 @@
-const 
-    tagsList = document.querySelector(".tags-block-content ul"),
-    tagsInput = document.querySelector(".tags-block-content input"),
-    tagsNumb = document.querySelector(".tags-block-details span"),
-    countriesList = document.querySelector("#edit-input-select-country"),
-    citiesList = $("#edit-input-select-city");
+const countriesList = document.querySelector("#edit-input-select-country"),
+      citiesList = $("#edit-input-select-city");
 
-let maxTags = 5,
-    userUuid = $("#edit-user-data-block").attr('data-attr'),
+let userUuid = $("#edit-user-data-block").attr('data-attr'),
     userCity = $("#edit-city").attr('data-attr');
     user_uuid_data = 'user_uuid='+userUuid;
 
-var tags = [],
-    cities = [];
+var cities = [];
 
 $("#name-edit").on("keypress", function(e) {
-    var chars = /[А-яЁё\s]/,
-        val = String.fromCharCode(e.which),
-        checkInputCharacters = chars.test(val),
-        maxCharacters = 30;
+  var chars = /[А-яЁё\s]/,
+      val = String.fromCharCode(e.which),
+      checkInputCharacters = chars.test(val),
+      maxCharacters = 30;
   
-    if (!checkInputCharacters) 
-        return false;
+  if (!checkInputCharacters) 
+    return false;
 
-    if ($(this).val().length >= maxCharacters)
-        $(this).val($(this).val().substr(0, maxCharacters));
+  if ($(this).val().length >= maxCharacters)
+    $(this).val($(this).val().substr(0, maxCharacters));
 });
 
 $("#surname-edit").on("keypress", function(e) {
-    var chars = /[А-яЁё\s]/,
-        val = String.fromCharCode(e.which),
-        checkInputCharacters = chars.test(val),
-        maxCharacters = 30;
+  var chars = /[А-яЁё\s]/,
+      val = String.fromCharCode(e.which),
+      checkInputCharacters = chars.test(val),
+      maxCharacters = 30;
   
-    if (!checkInputCharacters) 
-        return false;
-
-    if ($(this).val().length >= maxCharacters)
-        $(this).val($(this).val().substr(0, maxCharacters));
-});
-
-$("#tags-edit").on("keypress", function(e) {
-    var chars = /[А-яЁёA-z0-9\-\_\,]/,
-        val = String.fromCharCode(e.which),
-        checkInputCharacters = chars.test(val),
-        maxCharacters = 30;
-  
-    if (!checkInputCharacters) 
-        return false;
-
-    if ($(this).val().length >= maxCharacters)
-        $(this).val($(this).val().substr(0, maxCharacters));
-});
-
-// Tags
-
-function getTagsListFromUL(ul)
-{
-    let list = ul.querySelectorAll('li');
-    return [...list].map(item=>item.textContent);
-}
-
-function countTags() {
-    tagsInput.focus();
-    tagsNumb.innerText = maxTags - tags.length;
-}
-
-function createTag() {
-    tagsList.querySelectorAll("li").forEach(li => li.remove());
-    tags.slice().reverse().forEach(tag =>{
-        let liTag = `<li class="tags-field font-weight-bold d-flex flex-row align-items-center">
-                      ${tag}
-                      <svg viewBox="0 0 48 48" class="svg-close-icon pointer" onclick="remove(this, '${tag}')">
-                        <rect width="48" height="48" fill="none"></rect>
-                        <path d="M26.8,24,37.4,13.5a2.1,2.1,0,0,0,.2-2.7,1.9,1.9,0,0,0-3-.2L24,21.2,13.4,10.6a1.9,1.9,0,0,0-3,.2,2.1,2.1,0,0,0,.2,2.7L21.2,24,10.6,34.5a2.1,2.1,0,0,0-.2,2.7,1.9,1.9,0,0,0,3,.2L24,26.8,34.6,37.4a1.9,1.9,0,0,0,3-.2,2.1,2.1,0,0,0-.2-2.7Z"></path>
-                      </svg>
-                    </li>`;
-        tagsList.insertAdjacentHTML("afterbegin", liTag);
-    });
-    countTags();
-}
-
-function remove(element, tag) {
-    let index  = tags.indexOf(tag);
-    tags = [...tags.slice(0, index), ...tags.slice(index + 1)];
-    element.parentElement.remove();
-    countTags();
-}
-
-function addTag(e) {
-    if(e.key == "Enter"){
-        let tag = e.target.value.replace(/\s+/g, ' ');
-        if(tag.length > 1 && !tags.includes(tag)){
-            if(tags.length < 5){
-                tag.split(',').forEach(tag => {
-                    tags.push(tag);
-                    createTag();
-                });
-            }
-        }
-        e.target.value = "";
-    }
-}
-
-function editUserTags() {
-    var newTagsList = '';
-
-    $("#new-tags-list li").each(function() {
-        newTagsList = newTagsList + $(this).text() + ',';
-    });
-
-    newTagsList = newTagsList.substring(0, newTagsList.length - 1);
-
-    $.ajax({
-        url: "actions/edit-user-tags-data.php",
-        type: 'POST',
-        data: {"user_uuid": userUuid, "tags_list": newTagsList},
-        success: function (data) {
-            if(data == 'error')
-            {
-                $('.toast').addClass('toast-error');
-                $('.toast').removeClass('toast-success');
-                $('.toast-body').html('Системная ошибка!');
-                $('.toast').toast('show');
-            }else
-            {
-                $('.toast').addClass('toast-success');
-                $('.toast').removeClass('toast-error');
-                $('.toast-body').html('Теги успешно сохранены');
-                $('.toast').toast('show');
-
-                $(".tags-field").addClass('is-valid');
-                $(".tags-field svg").addClass('is-valid');
-
-                setTimeout(function(){ $('.tags-field').removeClass('is-valid'); $('.tags-field svg').removeClass('is-valid'); }, 5000)
-            }
-        },
-        error: function () {
-            $('.toast').addClass('toast-error');
-            $('.toast').removeClass('toast-success');
-            $('.toast-body').html('Системная ошибка!');
-            $('.toast').toast('show');
-        }
-    });  
-}
-
-// Update Info
-
-function checkForm() {
-    if (parseInt($('#w').val())) return true;
-    $('.error').html('Please select a crop region and then press Upload').show();
+  if (!checkInputCharacters) 
     return false;
-};
 
-// update info by cropping (onChange and onSelect events handler)
-function updateInfo(e) {
-    $('#x1').val(e.x);
-    $('#y1').val(e.y);
-    $('#x2').val(e.x2);
-    $('#y2').val(e.y2);
-    $('#w').val(e.w);
-    $('#h').val(e.h);
-};
+  if ($(this).val().length >= maxCharacters)
+    $(this).val($(this).val().substr(0, maxCharacters));
+});
 
-// clear info by cropping (onRelease event handler)
-function clearInfo() {
-    $('.upload-file-info #w').val('');
-    $('.upload-file-info #h').val('');
-};
+// Interests
 
-function editUserInterestsValidation()
-{
-    var user_uuid_edit = $("#edit-user-interests-block").attr('data-attr'),
-        user_gender_preference = $("#edit-input-select-gender-preference").val(),
-        user_age_preference = $("input[name='age-preference']:checked").val();
+function editUserInterests() {
+  var selectedInterestsList = '';
 
-    if (user_uuid_edit && user_gender_preference)
-    {
-        if (!user_age_preference && $("#before-adulthood"))
-            user_age_preference = 1;
+  $('input[name="interests"]:checked').each(function() {
+    selectedInterestsList = selectedInterestsList + this.value + ',';
+  });
 
-        var edit_user_interests = 'user_uuid=' + user_uuid_edit + '&user_gender_preference=' + user_gender_preference
-                                    + '&user_age_preference=' + user_age_preference;
+  selectedInterestsList = selectedInterestsList.substring(0, selectedInterestsList.length - 1);
 
-        $.ajax({
-            url: "actions/edit-user-interests.php",
-            type: 'POST',
-            data: edit_user_interests,
-            success: function (data) {
-                if(data == 'error')
-                {
-                    $('.toast').addClass('toast-error');
-                    $('.toast').removeClass('toast-success');
-                    $('.toast-body').html('Системная ошибка!');
-                    $('.toast').toast('show');
-                }else
-                {
-                    $('.toast').addClass('toast-success');
-                    $('.toast').removeClass('toast-error');
-                    $('.toast-body').html('Интересы успешно изменены');
-                    $('.toast').toast('show');
-                }
-            },
-            error: function () {
-                $('.toast').addClass('toast-error');
-                $('.toast').removeClass('toast-success');
-                $('.toast-body').html('Системная ошибка!');
-                $('.toast').toast('show');
-            }
-        });
-    }else
-    {
+  $.ajax({
+    url: "actions/edit-user-interests-data.php",
+    type: 'POST',
+    data: {"interests_list": selectedInterestsList},
+      success: function (data) {
+        if(data == 'error')
+        {
+          $('.toast').addClass('toast-error');
+          $('.toast').removeClass('toast-success');
+          $('.toast-body').html('Системная ошибка!');
+          $('.toast').toast('show');
+        }else
+        {
+          $('.toast').addClass('toast-success');
+          $('.toast').removeClass('toast-error');
+          $('.toast-body').html('Интересы успешно сохранены');
+          $('.toast').toast('show');
+
+          $(".tags-field").addClass('is-valid');
+          $(".tags-field svg").addClass('is-valid');
+        }
+      },
+      error: function () {
         $('.toast').addClass('toast-error');
         $('.toast').removeClass('toast-success');
         $('.toast-body').html('Системная ошибка!');
         $('.toast').toast('show');
-    }
+      }
+  });  
+}
 
-    return false;
+$("input:checkbox[name=interests]").change(function() {
+  if(this.checked)
+  {
+    $('#interests-label-' + this.value).css("color", "rgb(" + $(this).data("color") + ")");
+    $('#interests-label-' + this.value).css("border-color", "rgb(" + $(this).data("color") + ")");
+    $('#interests-label-' + this.value).css("background-color", "rgba(" + $(this).data("color") + ", .2)");
+  }
+  else
+  {
+    $('#interests-label-' + this.value).css("color", "var(--hover-text-color)");
+    $('#interests-label-' + this.value).css("border-color", "var(--text-border-color)");
+    $('#interests-label-' + this.value).css("background-color", "transparent");
+  }
+});
+
+// Update Info
+
+function editUserPreferencesValidation()
+{
+  var user_uuid_edit = $("#edit-user-preferences-block").attr('data-attr'),
+      user_gender_preference = $("#edit-input-select-gender-preference").val(),
+      user_age_preference = $("input[name='age-preference']:checked").val();
+
+  if (user_uuid_edit && user_gender_preference)
+  {
+    if (!user_age_preference && $("#before-adulthood"))
+      user_age_preference = 1;
+
+    var edit_user_interests = 'user_uuid=' + user_uuid_edit + '&user_gender_preference=' + user_gender_preference
+                              + '&user_age_preference=' + user_age_preference;
+
+    $.ajax({
+      url: "actions/edit-user-preferences.php",
+      type: 'POST',
+      data: edit_user_interests,
+      success: function (data) {
+        if(data == 'error')
+        {
+          $('.toast').addClass('toast-error');
+          $('.toast').removeClass('toast-success');
+          $('.toast-body').html('Системная ошибка!');
+          $('.toast').toast('show');
+        }else
+        {
+          $('.toast').addClass('toast-success');
+          $('.toast').removeClass('toast-error');
+          $('.toast-body').html('Предпочтения успешно изменены');
+          $('.toast').toast('show');
+        }
+      },
+      error: function () {
+        $('.toast').addClass('toast-error');
+        $('.toast').removeClass('toast-success');
+        $('.toast-body').html('Системная ошибка!');
+        $('.toast').toast('show');
+      }
+    });
+  }else
+  {
+    $('.toast').addClass('toast-error');
+    $('.toast').removeClass('toast-success');
+    $('.toast-body').html('Системная ошибка!');
+    $('.toast').toast('show');
+  }
+
+  return false;
 }
 
 function editUserDataValidation()
 {
-    var editCheck = 0;
+  var editCheck = 0;
 
-    if (!$("#name-edit").val())
+  if (!$("#name-edit").val())
+  {
+    $("#name-edit").addClass('is-invalid');
+    $("#name-edit-message").html('<span class="text-danger">Поле не заполнено!</span>');
+    editCheck++;
+  }else if ($("#name-edit").val() == 'null')
+  {
+    $("#name-edit").addClass('is-invalid');
+    $("#name-edit-message").html('<span class="text-danger">Введено некорректное значение!</span>');
+    editCheck++;
+  }else
+  {
+    if (!(/^[А-яЁё\s]*$/i.test($("#name-edit").val())))
     {
-        $("#name-edit").addClass('is-invalid');
-        $("#name-edit-message").html('<span class="text-danger">Поле не заполнено!</span>');
-        editCheck++;
-    }else if ($("#name-edit").val() == 'null')
-    {
-        $("#name-edit").addClass('is-invalid');
-        $("#name-edit-message").html('<span class="text-danger">Введено некорректное значение!</span>');
-        editCheck++;
+      $("#name-edit").addClass('is-invalid');
+      $("#name-edit-message").html('<span class="text-danger">Содержатся недопустимые символы!</span>');
+      editCheck++;
     }else {
-        if (!(/^[А-яЁё\s]*$/i.test($("#name-edit").val())))
-        {
-            $("#name-edit").addClass('is-invalid');
-            $("#name-edit-message").html('<span class="text-danger">Содержатся недопустимые символы!</span>');
-            editCheck++;
-        }else {
-            $("#name-edit").removeClass('is-invalid');
-            $("#name-edit").addClass('is-valid');
+      $("#name-edit").removeClass('is-invalid');
+      $("#name-edit").addClass('is-valid');
 
-            setTimeout(function(){ $('#name-edit').removeClass('is-valid'); }, 5000)
-            $("#name-edit-message").html('');
-        }
+      setTimeout(function(){ $('#name-edit').removeClass('is-valid'); }, 5000)
+      $("#name-edit-message").html('');
     }
+  }
 
-    if (!$("#surname-edit").val())
+  if (!$("#surname-edit").val())
+  {
+    $("#surname-edit").addClass('is-invalid');
+    $("#surname-edit-message").html('<span class="text-danger">Поле не заполнено!</span>');
+    editCheck++;
+  }else if ($("#surname-edit").val() == 'null')
+  {
+    $("#surname-edit").addClass('is-invalid');
+    $("#surname-edit-message").html('<span class="text-danger">Введено некорректное значение!</span>');
+    editCheck++;
+  }else {
+    if (!(/^[А-яЁё\s]*$/i.test($("#surname-edit").val())))
     {
-        $("#surname-edit").addClass('is-invalid');
-        $("#surname-edit-message").html('<span class="text-danger">Поле не заполнено!</span>');
-        editCheck++;
-    }else if ($("#surname-edit").val() == 'null')
-    {
-        $("#surname-edit").addClass('is-invalid');
-        $("#surname-edit-message").html('<span class="text-danger">Введено некорректное значение!</span>');
-        editCheck++;
+      $("#surname-edit").addClass('is-invalid');
+      $("#surname-edit-message").html('<span class="text-danger">Содержатся недопустимые символы!</span>');
+      editCheck++;
     }else {
-        if (!(/^[А-яЁё\s]*$/i.test($("#surname-edit").val())))
-        {
-            $("#surname-edit").addClass('is-invalid');
-            $("#surname-edit-message").html('<span class="text-danger">Содержатся недопустимые символы!</span>');
-            editCheck++;
-        }else {
-            $("#surname-edit").removeClass('is-invalid');
-            $("#surname-edit").addClass('is-valid');
+      $("#surname-edit").removeClass('is-invalid');
+      $("#surname-edit").addClass('is-valid');
 
-            setTimeout(function(){ $('#surname-edit').removeClass('is-valid'); }, 5000)
-            $("#surname-edit-message").html('');
-        }
+      setTimeout(function(){ $('#surname-edit').removeClass('is-valid'); }, 5000)
+      $("#surname-edit-message").html('');
     }
+  }
 
-    if (!$("#date-born-edit").val())
-    {
-        $("#date-born-edit").addClass('is-invalid');
-        $("#date-born-edit-message").html('<span class="text-danger">Поле не заполнено!</span>');
-        editCheck++;
-    }else{
-        $("#date-born-edit").removeClass('is-invalid');
-        $("#date-born-edit").addClass('is-valid');
+  if (!$("#date-born-edit").val())
+  {
+    $("#date-born-edit").addClass('is-invalid');
+    $("#date-born-edit-message").html('<span class="text-danger">Поле не заполнено!</span>');
+    editCheck++;
+  }else{
+    $("#date-born-edit").removeClass('is-invalid');
+    $("#date-born-edit").addClass('is-valid');
 
-        setTimeout(function(){ $('#date-born-edit').removeClass('is-valid'); }, 5000)
-        $("#date-born-edit-message").html('');
-    }
+    setTimeout(function(){ $('#date-born-edit').removeClass('is-valid'); }, 5000)
+    $("#date-born-edit-message").html('');
+  }
 
-    var vk_link_val = $("#vk-edit").val(),
-        inst_link_val = $("#inst-edit").val(),
-        ok_link_val = $("#ok-edit").val();
+  var vk_link_val = $("#vk-edit").val(),
+      inst_link_val = $("#inst-edit").val(),
+      ok_link_val = $("#ok-edit").val();
 
-    if (!vk_link_val.startsWith('https://vk.com/') && vk_link_val)
-    {
-        $("#vk-edit").addClass('is-invalid');
-        $("#vk-edit-message").html('<span class="text-danger">Ссылка некорректа!</span>');
-        editCheck++;
-    }else{
-        $("#vk-edit").removeClass('is-invalid');
-        $("#vk-edit").addClass('is-valid');
+  if (!vk_link_val.startsWith('https://vk.com/') && vk_link_val)
+  {
+    $("#vk-edit").addClass('is-invalid');
+    $("#vk-edit-message").html('<span class="text-danger">Ссылка некорректа!</span>');
+    editCheck++;
+  }else{
+    $("#vk-edit").removeClass('is-invalid');
+    $("#vk-edit").addClass('is-valid');
 
-        setTimeout(function(){ $('#vk-edit').removeClass('is-valid'); }, 5000)
-        $("#vk-edit-message").html('');
-    }
+    setTimeout(function(){ $('#vk-edit').removeClass('is-valid'); }, 5000)
+    $("#vk-edit-message").html('');
+  }
 
-    if (!inst_link_val.startsWith('https://instagram.com/') && inst_link_val)
-    {
-        $("#inst-edit").addClass('is-invalid');
-        $("#inst-edit-message").html('<span class="text-danger">Ссылка некорректа!</span>');
-        editCheck++;
-    }else{
-        $("#inst-edit").removeClass('is-invalid');
-        $("#inst-edit").addClass('is-valid');
+  if (!inst_link_val.startsWith('https://instagram.com/') && inst_link_val)
+  {
+    $("#inst-edit").addClass('is-invalid');
+    $("#inst-edit-message").html('<span class="text-danger">Ссылка некорректа!</span>');
+    editCheck++;
+  }else{
+    $("#inst-edit").removeClass('is-invalid');
+    $("#inst-edit").addClass('is-valid');
 
-        setTimeout(function(){ $('#inst-edit').removeClass('is-valid'); }, 5000)
-        $("#inst-edit-message").html('');
-    }
+    setTimeout(function(){ $('#inst-edit').removeClass('is-valid'); }, 5000)
+    $("#inst-edit-message").html('');
+  }
 
-    if (!ok_link_val.startsWith('https://ok.ru/') && ok_link_val)
-    {
-        $("#ok-edit").addClass('is-invalid');
-        $("#ok-edit-message").html('<span class="text-danger">Ссылка некорректа!</span>');
-        editCheck++;
-    }else{
-        $("#ok-edit").removeClass('is-invalid');
-        $("#ok-edit").addClass('is-valid');
+  if (!ok_link_val.startsWith('https://ok.ru/') && ok_link_val)
+  {
+    $("#ok-edit").addClass('is-invalid');
+    $("#ok-edit-message").html('<span class="text-danger">Ссылка некорректа!</span>');
+    editCheck++;
+  }else{
+    $("#ok-edit").removeClass('is-invalid');
+    $("#ok-edit").addClass('is-valid');
 
-        setTimeout(function(){ $('#ok-edit').removeClass('is-valid'); }, 5000)
-        $("#ok-edit-message").html('');
-    }
+    setTimeout(function(){ $('#ok-edit').removeClass('is-valid'); }, 5000)
+    $("#ok-edit-message").html('');
+  }
 
-    if (editCheck == 0)
-    {
-        var user_uuid_edit = $("#edit-user-data-block").attr('data-attr'),
-            user_name_edit = $("#name-edit").val(),
-            user_surname_edit = $("#surname-edit").val(),
-            user_date_born_edit = $("#date-born-edit").val(),
-            user_country_edit = $("#edit-input-select-country").val(),
-            user_city_edit = $("#edit-input-select-city").val(),
-            user_vk_link_edit = vk_link_val.trim().replace('https://vk.com/', ''),
-            user_inst_link_edit = inst_link_val.trim().replace('https://instagram.com/', ''),
-            user_ok_link_edit = ok_link_val.trim().replace('https://ok.ru/', '');
+  if (editCheck == 0)
+  {
+    var user_uuid_edit = $("#edit-user-data-block").attr('data-attr'),
+        user_name_edit = $("#name-edit").val(),
+        user_surname_edit = $("#surname-edit").val(),
+        user_date_born_edit = $("#date-born-edit").val(),
+        user_country_edit = $("#edit-input-select-country").val(),
+        user_city_edit = $("#edit-input-select-city").val(),
+        user_vk_link_edit = vk_link_val.trim().replace('https://vk.com/', ''),
+        user_inst_link_edit = inst_link_val.trim().replace('https://instagram.com/', ''),
+        user_ok_link_edit = ok_link_val.trim().replace('https://ok.ru/', '');
 
-        var edit_user_data = 'user_name=' + user_name_edit + '&user_surname=' + user_surname_edit 
+    var edit_user_data = 'user_name=' + user_name_edit + '&user_surname=' + user_surname_edit 
                         + '&user_date_born=' + user_date_born_edit
                         + '&user_country=' + user_country_edit + '&user_city=' + user_city_edit
                         + '&vk_link=' + user_vk_link_edit + '&inst_link=' + user_inst_link_edit + '&ok_link=' + user_ok_link_edit
                         + '&user_uuid=' + user_uuid_edit;
 
-        $.ajax({
-            url: "actions/edit-user-data.php",
-            type: 'POST',
-            data: edit_user_data,
-            success: function (data) {
-                if(data == 'error')
-                {
-                    $('.toast').addClass('toast-error');
-                    $('.toast').removeClass('toast-success');
-                    $('.toast-body').html('Системная ошибка!');
-                    $('.toast').toast('show');
-                }else
-                {
-                    $('.toast').addClass('toast-success');
-                    $('.toast').removeClass('toast-error');
-                    $('.toast-body').html('Данные успешно изменены');
-                    $('.toast').toast('show');
-
-                    $('.block-edit-user-interests').load(location.href + ' #interests-content');
-                }
-            },
-            error: function () {
-                $('.toast').addClass('toast-error');
-                $('.toast').removeClass('toast-success');
-                $('.toast-body').html('Системная ошибка!');
-                $('.toast').toast('show');
-            }
-        });
-        return false;
-    }else
-        return false;
+    $.ajax({
+      url: "actions/edit-user-data.php",
+      type: 'POST',
+      data: edit_user_data,
+      success: function (data) {
+        if(data == 'error')
+        {
+          $('.toast').addClass('toast-error');
+          $('.toast').removeClass('toast-success');
+          $('.toast-body').html('Системная ошибка!');
+          $('.toast').toast('show');
+        }else
+        {
+          $('.toast').addClass('toast-success');
+          $('.toast').removeClass('toast-error');
+          $('.toast-body').html('Данные успешно изменены');
+          $('.toast').toast('show');
+        }
+      },
+      error: function () {
+        $('.toast').addClass('toast-error');
+        $('.toast').removeClass('toast-success');
+        $('.toast-body').html('Системная ошибка!');
+        $('.toast').toast('show');
+      }
+    });
+    return false;
+  }else
+    return false;
 }
 
 function getCitiesListByCountry()
 {
-    selectedCountry = countriesList.value;
-    selected_country_data = 'country=' + selectedCountry;
+  selectedCountry = countriesList.value;
+  selected_country_data = 'country=' + selectedCountry;
 
-    citiesList.empty();
+  citiesList.empty();
 
-    $.ajax({
-        url: "actions/get-cities-list-for-selected-country.php",
-        type: 'POST',
-        dataType: 'json',
-        data: selected_country_data,
-        success: function (data) {
-            if (data != null)
-            {
-                for (var numResult = 0; numResult < data.length; numResult++)
-                {
-                    cities[numResult] = data[numResult];
+  $.ajax({
+    url: "actions/get-cities-list-for-selected-country.php",
+    type: 'POST',
+    dataType: 'json',
+    data: selected_country_data,
+    success: function (data) {
+      if (data != null)
+      {
+        for (var numResult = 0; numResult < data.length; numResult++)
+        {
+          cities[numResult] = data[numResult];
 
-                    if (cities[numResult][0] == userCity)
-                    {
-                        citiesList.append('<option value="'+cities[numResult][0]+'" selected>'+cities[numResult][1]+'</option>');
-                    }else
-                        citiesList.append('<option value="'+cities[numResult][0]+'">'+cities[numResult][1]+'</option>');
-                }
-
-                if (selectedCountry != 'Other')
-                    citiesList.append('<option value="Other">Иной город</option>');
-            }
+          if (cities[numResult][0] == userCity)
+            citiesList.append('<option value="'+cities[numResult][0]+'" selected>'+cities[numResult][1]+'</option>');
+          else
+            citiesList.append('<option value="'+cities[numResult][0]+'">'+cities[numResult][1]+'</option>');
         }
-    });
+
+        if (selectedCountry != 'Other')
+          citiesList.append('<option value="Other">Иной город</option>');
+      }
+    }
+  });
 }
 
-function saveNewUserAvatar()
+function delUserAvatar()
 {
-    var newAvatarImg = document.getElementById("user-avatar").src,
-        saveBtn = document.getElementById("btn-save-new-avatar");
+  $.ajax({
+    url: "actions/remove-user-avatar.php",
+    success: function (data) {
+      if(data == 'error')
+      {
+        $('.toast').addClass('toast-error');
+        $('.toast').removeClass('toast-success');
+        $('.toast-body').html('Системная ошибка!');
+        $('.toast').toast('show');
+      }else if (data == 'success')
+      {
+        $('.toast').addClass('toast-success');
+        $('.toast').removeClass('toast-error');
+        $('.toast-body').html('Фотография профиля успешно удалена');
+        $('.toast').toast('show');
 
-    if (newAvatarImg)
-    {
-        var new_avatar_data = 'user_uuid=' + userUuid + '&avatar_img=' + newAvatarImg;
-
-        saveBtn.disabled = true;
-
-        $.ajax({
-            url: "actions/upload-cropped-avatar.php",
-            type: 'POST',
-            data: new_avatar_data,
-            success: function (data) {
-                switch (data) {
-                    case 'success':
-                            $('.toast').addClass('toast-success');
-                            $('.toast').removeClass('toast-error');
-                            $('.toast-body').html('Фотография успешно обновлена');
-                            $('.toast').toast('show');
-                            $("#edit-user-profile-group-btn").html(`<div class="col-12 m-0 p-2"><div class="error-upload-user-photo-text text-center">Для обновления фотографии профиля с момента последнего обновления должна пройти неделя</div></div>`);
-                        break;
-
-                    default:
-                            $('.toast').addClass('toast-error');
-                            $('.toast').removeClass('toast-success');
-                            $('.toast-body').html('Системная ошибка!');
-                            $('.toast').toast('show');
-                            saveBtn.disabled = false;
-                        break;
-                }
-            }
-        });
+        $('#del-user-avatar-block').html('');
+        $('#user-avatar').attr('src', 'imgs/no-avatar.png');
+        $('.user-header-menu-picture').attr('src', 'imgs/no-avatar.png')
+      }
+    },
+    error: function () {
+      $('.toast').addClass('toast-error');
+      $('.toast').removeClass('toast-success');
+      $('.toast-body').html('Системная ошибка!');
+      $('.toast').toast('show');
     }
+  });
 }
 
 $(document).ready(function(e)
@@ -495,43 +411,6 @@ $(document).ready(function(e)
             $("#date-born-edit-message").html('');
             $("#edit-gender-preference").css("margin-top", "0px");
         }
-    });
-
-    $.ajax({
-        url: "actions/get-user-tags.php",
-        type: 'POST',
-        dataType: 'json',
-        data: user_uuid_data,
-        success: function (data) {
-            if (data != null)
-            {
-                for (var numResult = 0; numResult < data.length; numResult++)
-                {
-                    tags[numResult] = data[numResult];
-                    countTags();
-                    createTag();
-                }
-            }
-            
-        }
-    });
-
-    // Заполнение массива тегов существующими тегами пользователя
-
-    if (getTagsListFromUL(tagsList).length > 0)
-    {
-        tags = getTagsListFromUL(tagsList);
-        countTags();
-    }
-
-    tagsInput.addEventListener("keyup", addTag);
-
-    const removeTagsBtn = document.querySelector(".tags-block-details .btn-delete-tags");
-
-    removeTagsBtn.addEventListener("click", () =>{
-        tags.length = 0;
-        tagsList.querySelectorAll("li").forEach(li => li.remove());
-        countTags();
     });
 
     // Событие на изменение выбранного элемента в списке стран
@@ -633,7 +512,7 @@ function confirmEmail()
     }
 }
 
-function editUserNicknameValidation(user_uuid)
+function editUserNicknameValidation()
 {
     var new_nickname = $('#new-nickname-edit').val();
 
@@ -653,7 +532,7 @@ function editUserNicknameValidation(user_uuid)
 
     if (new_nickname)
     {
-      var user_new_nickname_data = 'user_uuid=' + user_uuid + '&user_nickname=' + new_nickname;
+      var user_new_nickname_data = 'user_nickname=' + new_nickname;
 
       $.ajax({
                 url: "actions/edit-user-nickname.php",

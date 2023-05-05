@@ -1,6 +1,7 @@
 <?
 	include("../functions/functions.php");
 	include("../functions/functions-comments.php");
+	include("../functions/functions-photos.php");
 ?>
 
 <div class="modal fade" id="ppm" tabindex="-1" role="dialog" aria-hidden="true">
@@ -14,3 +15,6 @@
 		</div>
 	</div>
 </div>
+
+<script defer type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/libs/popper.min.js"></script>

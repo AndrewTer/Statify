@@ -24,3 +24,52 @@ if (searchInput)
 		if (e.keyCode == 13)
 			searchUsers();
 });
+
+$('#showmore-search-users-button').click(function () {
+  var selector = '#block-search .block-search-result-content'; 
+  var target = $(this);
+  var page = target.attr('data-page');
+  var pageMax = target.attr('data-max');
+  var searchParameter = target.attr('data-p');
+  var searchText = target.attr('data-q');
+  page++;
+ 
+  $.ajax({
+    url: '?p=' + searchParameter + '&q=' + searchText + '&page=' + page,  
+    dataType: 'html',
+    success: function(data) {
+      $(selector).append($(data).find(selector).html());
+    }
+  });
+ 
+  target.attr('data-page', page);
+  if (page ==  pageMax)
+    target.hide();
+ 
+  return false;
+});
+
+
+$('#showmore-search-tags-button').click(function () {
+  var selector = '#block-search-all-photos-by-tag .user-photo-cards-list'; 
+  var target = $(this);
+  var page = target.attr('data-page');
+  var pageMax = target.attr('data-max');
+  var searchParameter = target.attr('data-p');
+  var searchText = target.attr('data-q');
+  page++;
+ 
+  $.ajax({
+    url: '?p=' + searchParameter + '&q=' + searchText + '&page=' + page,  
+    dataType: 'html',
+    success: function(data) {
+      $(selector).append($(data).find(selector).html());
+    }
+  });
+ 
+  target.attr('data-page', page);
+  if (page ==  pageMax)
+    target.hide();
+ 
+  return false;
+});

@@ -6,17 +6,26 @@
 		<a class="m-0 p-0" href="<?= ($current_user_uuid == $user_uuid) ? './' : './?u='.get_user_nickname($user_uuid); ?>" title="<?= get_user_fullname($user_uuid); ?>">
 <?
 		$ban_check = ban_check($user_uuid);
-		$preview_photo_check = file_exists('../users/'.$user_uuid.'/'.get_latest_avatar_preview($user_uuid)) ? 1 : 0;
+		$preview_photo_check = file_exists('../users/'.$user_uuid.'/'.get_user_avatar_preview($user_uuid)) ? 1 : 0;
 		$hash_current_user_photo_modal = sha1($user_uuid);
 		$premium_status = check_premium_active($user_uuid);
 		
 		if ($ban_check == 'success')
 			if (!is_null(check_user_online_status($user_uuid)))
-				echo '<img class="rounded-circle online m-0 p-0 rounded-saved-user-picture" src="users/'.$user_uuid.'/'.($preview_photo_check == 1 ? get_latest_avatar_preview($user_uuid) : get_latest_avatar($user_uuid)).'" alt="'.get_user_fullname($user_uuid).'">';
+				if (get_user_avatar($user_uuid))
+					echo '<img class="rounded-circle online m-0 p-0 rounded-saved-user-picture" src="users/'.$user_uuid.'/'.($preview_photo_check == 1 ? get_user_avatar_preview($user_uuid) : get_user_avatar($user_uuid)).'" alt="'.get_user_fullname($user_uuid).'">';
+				else
+					echo '<img class="rounded-circle online m-0 p-0 rounded-saved-user-picture" src="imgs/no-avatar.png" alt="'.get_user_fullname($user_uuid).'">';
 			else
-				echo '<img class="rounded-circle offline m-0 p-0 rounded-saved-user-picture" src="users/'.$user_uuid.'/'.($preview_photo_check == 1 ? get_latest_avatar_preview($user_uuid) : get_latest_avatar($user_uuid)).'" alt="'.get_user_fullname($user_uuid).'">';
+				if (get_user_avatar($user_uuid))
+					echo '<img class="rounded-circle offline m-0 p-0 rounded-saved-user-picture" src="users/'.$user_uuid.'/'.($preview_photo_check == 1 ? get_user_avatar_preview($user_uuid) : get_user_avatar($user_uuid)).'" alt="'.get_user_fullname($user_uuid).'">';
+				else
+					echo '<img class="rounded-circle offline m-0 p-0 rounded-saved-user-picture" src="imgs/no-avatar.png" alt="'.get_user_fullname($user_uuid).'">';
 		else
-			echo '<img class="rounded-circle offline m-0 p-0 rounded-saved-user-picture" src="users/'.$user_uuid.'/'.($preview_photo_check == 1 ? get_latest_avatar_preview($user_uuid) : get_latest_avatar($user_uuid)).'" alt="'.get_user_fullname($user_uuid).'">';
+			if (get_user_avatar($user_uuid))
+				echo '<img class="rounded-circle offline m-0 p-0 rounded-saved-user-picture" src="users/'.$user_uuid.'/'.($preview_photo_check == 1 ? get_user_avatar_preview($user_uuid) : get_user_avatar($user_uuid)).'" alt="'.get_user_fullname($user_uuid).'">';
+			else
+				echo '<img class="rounded-circle offline m-0 p-0 rounded-saved-user-picture" src="imgs/no-avatar.png" alt="'.get_user_fullname($user_uuid).'">';
 ?>
 		</a>
 
@@ -54,10 +63,29 @@
 		</a>
 	</div>
 
-	<p class="ml-auto modal-close" data-dismiss="modal" aria-label="Close">
-		<svg viewBox="0 0 48 48" width="25px" height="25px" xmlns="http://www.w3.org/2000/svg" class="svg-close-icon">
-			<rect width="48" height="48" fill="none"></rect>
-			<path d="M26.8,24,37.4,13.5a2.1,2.1,0,0,0,.2-2.7,1.9,1.9,0,0,0-3-.2L24,21.2,13.4,10.6a1.9,1.9,0,0,0-3,.2,2.1,2.1,0,0,0,.2,2.7L21.2,24,10.6,34.5a2.1,2.1,0,0,0-.2,2.7,1.9,1.9,0,0,0,3,.2L24,26.8,34.6,37.4a1.9,1.9,0,0,0,3-.2,2.1,2.1,0,0,0-.2-2.7Z"></path>
-		</svg>
-	</p>
+	<div class="m-0 ml-auto">
+<?
+	if ($current_user_uuid != $user_uuid)
+		echo '<p class="ml-auto modal-close" data-dismiss="modal" aria-label="Close">
+						<svg viewBox="0 0 48 48" width="25px" height="25px" class="svg-close-icon">
+							<rect width="48" height="48" fill="none"></rect>
+							<path d="M26.8,24,37.4,13.5a2.1,2.1,0,0,0,.2-2.7,1.9,1.9,0,0,0-3-.2L24,21.2,13.4,10.6a1.9,1.9,0,0,0-3,.2,2.1,2.1,0,0,0,.2,2.7L21.2,24,10.6,34.5a2.1,2.1,0,0,0-.2,2.7,1.9,1.9,0,0,0,3,.2L24,26.8,34.6,37.4a1.9,1.9,0,0,0,3-.2,2.1,2.1,0,0,0-.2-2.7Z"></path>
+						</svg>
+					</p>';
+	else
+			echo '<div class="dropdown-action-menu dropdown modal-close" role="group">
+      				<p id="dropdown-action-menu-btn" data-toggle="dropdown" aria-expanded="false">
+				        <svg fill="var(--main-text-color)" width="24px" height="24px" viewBox="0 0 24 24">
+				          <path d="M2,12a2,2,0,1,1,2,2A2,2,0,0,1,2,12Zm10,2a2,2,0,1,0-2-2A2,2,0,0,0,12,14Zm8-4a2,2,0,1,0,2,2A2,2,0,0,0,20,10Z"></path>
+				        </svg>
+				      </p>
+
+				      <div class="dropdown-menu dropdown-menu-right p-0" aria-labelledby="dropdown-action-menu-btn">
+				        <a class="dropdown-item pt-2 pb-2 first-item font-weight-bold" href="edit-photo?p='.preg_replace('[-]', '', get_photo_uuid_by_name($picture_name)).'" aria-label="Редактировать">Редактировать</a>
+				<hr class="hr-user-info m-0">
+				        <p class="dropdown-item m-0 pt-2 pb-2 last-item font-weight-bold" data-dismiss="modal" aria-label="Close" aria-label="Закрыть">Закрыть</p>
+				      </div>
+    				</div>';
+?>
+	</div>
 </div>

@@ -3,7 +3,7 @@
   $page = (isset($_GET['page'])) ? intval($_GET['page']) : 1;
 
   $notifications_query_input = "SELECT comm.author_uuid::varchar(36) as comment_author, 
-                                       pic.profile_picture as comment_picture, 
+                                       pic.photo_name as comment_picture, 
                                        comm.uuid::varchar(36) as comment_text,
                                        '' as sender_uuid,
                                        notice.creation_date as datetime,
@@ -11,7 +11,7 @@
                                 FROM public.notifications notice
                                      JOIN public.users_comments comm
                                        ON notice.comment_uuid = comm.uuid
-                                     JOIN public.users_avatars pic
+                                     JOIN public.users_photos pic
                                        ON comm.picture_uuid = pic.uuid
                                 WHERE pic.user_uuid = '{$user_uuid}'
                                 ORDER BY datetime DESC";

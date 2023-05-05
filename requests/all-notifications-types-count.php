@@ -3,7 +3,7 @@ $notifications_query_input_comments = "SELECT Count(*)
                                        FROM public.notifications notice
                                             JOIN public.users_comments comm
                                               ON notice.comment_uuid = comm.uuid
-                                            JOIN public.users_avatars pic
+                                            JOIN public.users_photos pic
                                               ON comm.picture_uuid = pic.uuid
                                        WHERE pic.user_uuid = '{$user_uuid}' AND notice.marked_read != 1";
 

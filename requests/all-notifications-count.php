@@ -3,7 +3,7 @@
                                   FROM public.notifications notice
                                        LEFT JOIN public.users_comments comm
                                          ON notice.comment_uuid = comm.uuid
-                                       LEFT JOIN public.users_avatars pic
+                                       LEFT JOIN public.users_photos pic
                                          ON comm.picture_uuid = pic.uuid
                                        LEFT JOIN public.friendship_requests request
                                          ON notice.friendship_request_uuid = request.uuid

@@ -3,7 +3,7 @@
 <?
 	if (check_saved_photo($current_user_uuid, $user_uuid, $picture_name) == 'saved')
 		echo '<a class="nav-link p-0 text-center d-flex flex-row justify-content-center align-items-center" 
-							style="border: none;" 
+							style="border: none;"
 							onclick="event.preventDefault();unsavePicture(\''.$current_user_uuid.'\',\''.$user_uuid.'\',\''.$picture_name.'\');">
 						<p class="m-0 p-0">
 							<svg width="22px" height="22px" viewBox="0 0 24 24" fill="none">
