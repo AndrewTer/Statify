@@ -13,6 +13,7 @@
 	  include("../functions/functions-for-check.php");
 	  include("../functions/functions-user-data.php");
 	  include("../functions/functions-modals.php");
+	  include("../functions/functions-photos.php");
 
 	  $user_uuid = $_POST['current_user'];
 		$photos_sorted_by_number_of_saves_list = get_photos_list_sorted_by_number_of_saves(9, 91);

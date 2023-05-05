@@ -13,7 +13,7 @@ if(isset($_POST['user']) && strlen($_POST['user']) > 0
 				                              FROM public.notifications notice
 				                                   JOIN public.users_comments comm
 				                                     ON notice.comment_uuid = comm.uuid
-				                                   JOIN public.users_avatars pic
+				                                   JOIN public.users_photos pic
 				                                     ON comm.picture_uuid = pic.uuid
 				                              WHERE pic.user_uuid = '{$user_uuid}'
 				                              UNION ALL

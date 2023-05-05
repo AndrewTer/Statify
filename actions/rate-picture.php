@@ -13,7 +13,7 @@
         
         if (in_array($mark, $marks_list))
         {
-            $photo_uuid_row = pg_query("SELECT uuid FROM users_avatars WHERE profile_picture = '{$photo_name}' LIMIT 1") 
+            $photo_uuid_row = pg_query("SELECT uuid FROM users_photos WHERE photo_name = '{$photo_name}' LIMIT 1") 
                                 or trigger_error(pg_last_error().$photo_uuid_row);
 
             if ($photo_uuid_data = pg_fetch_array($photo_uuid_row))
@@ -67,33 +67,33 @@
                             break;
 
                         default:
-                            $mark_text = "profile_picture = '{$photo_uuid}'";
+                            $mark_text = "photo_uuid = '{$photo_uuid}'";
                             break;
                     }
 
-                    $search_statistics_row = pg_query("SELECT 1 FROM users_avatars_statistics 
+                    $search_statistics_row = pg_query("SELECT 1 FROM users_photos_statistics 
                                                         WHERE user_uuid = '{$receiver_uuid}' 
-                                                                AND profile_picture = '{$photo_uuid}'")
+                                                                AND photo_uuid = '{$photo_uuid}'")
                                                 or trigger_error(pg_last_error().$search_statistics_row);
 
                     $search_statistics_row_check = pg_num_rows($search_statistics_row);
 
                     if ($search_statistics_row_check == 1)
                     {
-                        $update_avatar_statistics = pg_query("UPDATE users_avatars_statistics 
+                        $update_avatar_statistics = pg_query("UPDATE users_photos_statistics 
                                                                 SET $mark_text
                                                                 WHERE user_uuid = '{$receiver_uuid}'
-                                                                        AND profile_picture = '{$photo_uuid}'");
+                                                                        AND photo_uuid = '{$photo_uuid}'");
                     }else
                     {
-                        $add_avatar_statistics = pg_query("INSERT INTO users_avatars_statistics (user_uuid, profile_picture) 
+                        $add_avatar_statistics = pg_query("INSERT INTO users_photos_statistics (user_uuid, photo_uuid) 
                                                     VALUES ('{$receiver_uuid}', '{$photo_uuid}')") 
                                             or trigger_error(pg_last_error().$add_avatar_statistics);
 
-                        $update_avatar_statistics = pg_query("UPDATE users_avatars_statistics 
+                        $update_avatar_statistics = pg_query("UPDATE users_photos_statistics 
                                                                 SET $mark_text
                                                                 WHERE user_uuid = '{$receiver_uuid}'
-                                                                        AND profile_picture = '{$photo_uuid}'");
+                                                                        AND photo_uuid = '{$photo_uuid}'");
                     }
                 }
             }

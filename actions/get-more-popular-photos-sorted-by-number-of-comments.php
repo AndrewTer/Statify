@@ -13,6 +13,7 @@
 	  include("../functions/functions-for-check.php");
 	  include("../functions/functions-user-data.php");
 	  include("../functions/functions-modals.php");
+	  include("../functions/functions-photos.php");
 
 	  $user_uuid = $_POST['current_user'];
 		$photos_sorted_by_number_of_comments_list = get_most_commented_photos_list(9, 91);
