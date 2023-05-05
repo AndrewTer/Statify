@@ -14,18 +14,16 @@
     <link rel="stylesheet" type="text/css" href="css/main/svg.css">
     <link rel="stylesheet" type="text/css" href="css/main/header-footer.css">
     <link rel="stylesheet" type="text/css" href="css/main/login.css">
-    <script type="text/javascript" src='js/jquery-3.6.4.js'></script>
+    <script type="text/javascript" src='js/libs/jquery-3.6.4.js'></script>
     <title>Страница не найдена | Statify</title>
   </head>
   <body>
-    <div class="row main-header fixed-top"><?php include("includes/header/header-login.php"); ?></div>
+    <div class="row main-header fixed-top"><? include("includes/header/header-login.php"); ?></div>
 
     <div class="container-fluid main-body d-flex flex-column justify-content-center align-items-center p-0">
       <div class="m-4 p-4" id="error-content">
         <p class="fz-60 w-100 m-0 p-0 text-center font-weight-bold">404</p>
-      
         <hr class="hr-user-info w-100 m-0 mt-2 mb-2">
-
         <p class="fz-17 m-0 text-center font-weight-bold">К сожалению, запрашиваемая вами страница не найдена</p>
         <p class="fz-16 m-0 mt-3 font-weight-bold">Почему?</p>
         <span class="m-0 mt-1 ml-2 d-flex flex-row align-items-center">
@@ -52,7 +50,6 @@
           </p>
           <p class="m-0 ml-3 p-0 fz-15">Страница была удалена со времени вашего последнего посещения</p>
         </span>
-
         <p class="fz-15 m-0 mt-3 text-center">Для продолжения работы с сайтом вы можете перейти на <a class="fz-16 text-white font-weight-bold" href="./">главную страницу</a>.</p>
       </div>
     </div>

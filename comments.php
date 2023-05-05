@@ -22,7 +22,7 @@
       header("Location: login");
     else
       $user_identifier = 'identifier';
-  } else
+  }else
   {
     if (!empty($_COOKIE['login']) and !empty($_COOKIE['key']))
     {
@@ -70,7 +70,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Комментарии к фотографии пользователя сайта Statify">
+    <meta name="description" content="Комментарии к фотографии пользователя сайта">
     <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/main/main.css">
@@ -84,13 +84,13 @@
     <link rel="stylesheet" type="text/css" href="css/main/animation.css">
     <link rel="stylesheet" type="text/css" href="css/main/adaptive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script type="text/javascript" src='js/jquery-3.6.4.js'></script>
+    <script type="text/javascript" src='js/libs/jquery-3.6.4.js'></script>
 
     <noscript>
       <meta http-equiv="refresh" content="0; url=noscript">
     </noscript>
 
-    <title>Statify</title>
+    <title>Комментарии | Statify</title>
   </head>
   <body>
     <div class="row main-header fixed-top"><? include("includes/header/header.php"); ?></div>
@@ -111,13 +111,13 @@
     <script defer type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/comments.js"></script>
     <script defer type="text/javascript" src="js/friendship.js"></script>
-    <script type="text/javascript" src="js/popper.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/libs/popper.min.js"></script>
+    <script type="text/javascript" src="js/libs/bootstrap.min.js"></script>
   </body>
 </html>
 <?
-    } else
+    }else
       header("Location: ./");
-  } else
+  }else
     header("Location: login");
 ?>

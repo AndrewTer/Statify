@@ -6,8 +6,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Авторизация на сайте Statify! Оценивайте других пользователей, просматривайте свою статистику, оставляйте комментарии, добавляйте друзей!">
-    <meta name="Keywords" content="сервис, оценка, оценивание, просмотр статистики, фотографии, рейтинг, авторизация, регистрация">
+    <meta name="description" content="Создайте свой профиль или авторизуйтесь в Statify - сервисе для оценивания фотографий, где любой желающий может выложить свою фотографию!">
+    <meta name="Keywords" content="авторизация, регистрация, фотографии, сохранения, статистика, комментарии, сервис, оценка, оценивание, рейтинг">
     <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/main/main.css">
@@ -19,18 +19,17 @@
     <link rel="stylesheet" type="text/css" href="css/main/animation.css">
     <link rel="stylesheet" type="text/css" href="css/main/adaptive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script type="text/javascript" src="js/jquery-3.6.4.js"></script>
-    <script type="text/javascript" src="js/popper.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/libs/jquery-3.6.4.js"></script>
+    <script type="text/javascript" src="js/libs/popper.min.js"></script>
+    <script type="text/javascript" src="js/libs/bootstrap.min.js"></script>
 
     <noscript>
       <meta http-equiv="refresh" content="0; url=noscript">
     </noscript>
 
-    <title>Statify</title>
+    <title>Statify: Добро пожаловать</title>
   </head>
   <body>
-
     <div class="row main-header fixed-top"><? include("includes/header/header-login.php"); ?></div>
 
     <div class="container-fluid main-body p-0 d-flex align-items-center">
@@ -39,7 +38,7 @@
 
           <div class="p-5 h-100 d-flex justify-content-center align-items-center" id="content-info-section">
             <section class="w-100 m-0 p-3 d-flex flex-column align-items-center" id="content-info">
-              <img width="130" src="imgs/logo.png">
+              <img width="130" src="imgs/logo.png" alt="Statify">
               <p class="w-100 text-center m-0 mt-3 p-0 fz-14 font-weight-bold letter-spacing-05">Сервис для оценивания фотографий людей</p>
 
               <div class="w-100 m-0 mt-2 p-5">
@@ -191,8 +190,8 @@
                         
                   <input type="submit" class="btn btn-standard w-100 m-0 fz-15" name="login" value="Войти">
 
-                  <div class="text-center mt-2">
-                    <a class="fz-15 font-weight-bold letter-spacing-05 text-white pe-auto recovery-link" onclick="event.preventDefault();openRecoveryPasswordModal();">Забыли пароль?</a>
+                  <div class="text-center mt-4">
+                    <p class="fz-15 m-0 p-0 font-weight-bold letter-spacing-05 text-white pe-auto recovery-link" onclick="event.preventDefault();openRecoveryPasswordModal();">Забыли пароль?</p>
                   </div>
                 </form>
               </div>
@@ -203,53 +202,53 @@
                 <h2 class="fz-25 text-white p-2">Регистрация</h2>
 
                 <form name="regform" action="" method="POST" onSubmit="return regValidation();">
-                    <div class="form-group m-0">
-                      <div class="input-group mt-2">
-                        <input type="email" name="regEmail" id="email-reg" class="form-control" placeholder="Email">
-                        <div class="input-group-append">
-                          <button type="button" class="btn btn-standard m-0 border-0" onClick="return emailCheck();">
-                            <svg width="18px" height="18px" viewBox="0 0 48 48" fill="#ffffff">
-                              <path d="M0 0h48v48H0z" fill="none"></path>
-                              <path d="M42.371,8.8C41.705,8.304,40.89,8,40,8H8C7.11,8,6.295,8.304,5.629,8.8L24,27.172L42.371,8.8z"></path>
-                              <path d="M4,12.828V36c0,2.2,1.8,4,4,4h32c2.2,0,4-1.8,4-4V12.828l-20,20L4,12.828z"></path>
-                            </svg>
-                          </button>
-                        </div>
+                  <div class="form-group m-0">
+                    <div class="input-group mt-2">
+                      <input type="email" name="regEmail" id="email-reg" class="form-control" placeholder="Email">
+                      <div class="input-group-append">
+                        <button type="button" class="btn btn-standard m-0 pl-3 pr-3 border-0" onClick="return emailCheck();">
+                          <svg width="20px" height="20px" viewBox="0 0 48 48" fill="#ffffff">
+                            <path d="M0 0h48v48H0z" fill="none"></path>
+                            <path d="M42.371,8.8C41.705,8.304,40.89,8,40,8H8C7.11,8,6.295,8.304,5.629,8.8L24,27.172L42.371,8.8z"></path>
+                            <path d="M4,12.828V36c0,2.2,1.8,4,4,4h32c2.2,0,4-1.8,4-4V12.828l-20,20L4,12.828z"></path>
+                          </svg>
+                        </button>
                       </div>
-                      <em id="email-reg-message"></em>
                     </div>
+                    <em id="email-reg-message"></em>
+                  </div>
 
-                    <div id="full-reg-form" class="collapse m-0">
-                      <div class="form-group m-0 mt-3 mb-2">
-                        <label class="fz-13 font-weight-bold">Ваше имя</label>
-                        <input type="text" name="regUsername" id="username-reg" class="form-control">
-                        <em id="username-reg-message"></em>
-                      </div>
+                  <div id="full-reg-form" class="collapse m-0">
+                    <div class="form-group m-0 mt-3 mb-2">
+                      <label class="fz-13 font-weight-bold">Ваше имя</label>
+                      <input type="text" name="regUsername" id="username-reg" class="form-control">
+                      <em id="username-reg-message"></em>
+                    </div>
                       
-                      <div class="form-group m-0 mb-2">
-                        <label class="fz-13 font-weight-bold">Ваша фамилия</label>
-                        <input type="text" name="regUsersurname" id="usersurname-reg" class="form-control">
-                        <em id="usersurname-reg-message"></em>
-                      </div>
+                    <div class="form-group m-0 mb-2">
+                      <label class="fz-13 font-weight-bold">Ваша фамилия</label>
+                      <input type="text" name="regUsersurname" id="usersurname-reg" class="form-control">
+                      <em id="usersurname-reg-message"></em>
+                    </div>
                       
-                      <div class="form-group m-0 mb-2">
-                        <label class="fz-13 font-weight-bold">Пароль</label>
-                        <input type="password" name="regPassword" id="userpassword-reg" class="form-control" placeholder="*******">
-                        <em id="userpassword-reg-message"></em>
-                      </div>
+                    <div class="form-group m-0 mb-2">
+                      <label class="fz-13 font-weight-bold">Пароль</label>
+                      <input type="password" name="regPassword" id="userpassword-reg" class="form-control" placeholder="*******">
+                      <em id="userpassword-reg-message"></em>
+                    </div>
                       
-                      <div class="form-group m-0 mb-4">
-                        <label class="fz-13 font-weight-bold">Подтвердить пароль</label>
-                        <input type="password" name="regConfirm" id="userconfirm-reg" class="form-control" placeholder="*******">
-                        <em id="userconfirm-reg-message"></em>
-                      </div>
+                    <div class="form-group m-0 mb-4">
+                      <label class="fz-13 font-weight-bold">Подтвердить пароль</label>
+                      <input type="password" name="regConfirm" id="userconfirm-reg" class="form-control" placeholder="*******">
+                      <em id="userconfirm-reg-message"></em>
+                    </div>
                       
-                      <div class="form-group m-0 mb-4 p-0">
-                        <p class="m-0 fz-13 text-center">Создавая аккаунт, я соглашаюсь с <a id="login-link" href="about?sort=rules" target="_blank">правилами сайта</a> и даю согласие на <a id="login-link" href="about?sort=consent" target="_blank">обработку персональных данных</a>.</p>
-                      </div>
+                    <div class="form-group m-0 mb-4 p-0">
+                      <p class="m-0 fz-13 text-center">Создавая аккаунт, я соглашаюсь с <a id="login-link" href="about?sort=rules" target="_blank">правилами сайта</a> и даю согласие на <a id="login-link" href="about?sort=consent" target="_blank">обработку персональных данных</a>.</p>
+                    </div>
                       
-                      <input type="submit" class="btn btn-success w-100 m-0 fz-15 font-weight-bold" id="reg-btn" name="registration" value="Зарегистрироваться">
-                    </div> 
+                    <input type="submit" class="btn btn-success w-100 m-0 fz-15 font-weight-bold" id="reg-btn" name="registration" value="Зарегистрироваться">
+                  </div> 
                 </form>
               </div>
             </div>

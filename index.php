@@ -25,7 +25,7 @@
       header("Location: login");
     else
       $user_identifier = 'identifier';
-  } else
+  }else
   {
     if (!empty($_COOKIE['login']) and !empty($_COOKIE['key']))
     {
@@ -60,8 +60,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Statify - сервис для оценивания фотографий людей! Оценивайте фотографии других пользователей, просматривайте свою статистику, сохраняйте понравившиеся фотографии и добавляйте друзей!">
-    <meta name="Keywords" content="сервис, оценка, оценивание, рейтинг, просмотр статистики, фотографии, комментарии">
+    <meta name="description" content="Statify - это сервис для оценивания фотографий, где любой желающий может выложить свою фотографию! Делитесь своими фотографиями, оценивайте фотографии других пользователей, сохраняйте понравившиеся, формируйте свой рейтинг, комментируйте, добавляйте новых друзей!">
+    <meta name="Keywords" content="профиль, фотографии, сохранения, статистика, комментарии, сервис, оценка, оценивание, рейтинг">
     <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/main/main.css">
@@ -76,28 +76,26 @@
     <link rel="stylesheet" type="text/css" href="css/main/photo.css">
     <link rel="stylesheet" type="text/css" href="css/main/saves.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script type="text/javascript" src='js/jquery-3.6.4.js'></script>
+    <script type="text/javascript" src="js/libs/jquery-3.6.4.js"></script>
 
     <noscript>
       <meta http-equiv="refresh" content="0; url=noscript">
     </noscript>
 
-    <title>Statify</title>
+    <title><?= (get_user_fullname($current_user_uuid)) ? get_user_fullname($current_user_uuid).' - ' : ''; ?> Профиль | Statify</title>
   </head>
   <body>
     <div class="row main-header fixed-top"><? include("includes/header/header.php"); ?></div>
 
     <div class="container-fluid main-body p-0">
       <div class="row main-block m-0">
-
         <div class="main-menu d-none d-lg-block col-lg-2 col-xl-2 navbar-container"><? include("includes/menu.php"); ?></div>
-
         <div class="col-12 col-sm-12 col-md-12 col-lg-10 col-xl-10 main-content">
           <div class="content container-fluid m-0" id="user-page-content">
             <div class="row" id="user-page-content-row">
 <?
-              include("includes/user_page/user-info.php");
-              include("includes/user_page/user-content.php");
+            include("includes/user_page/user-info.php");
+            include("includes/user_page/user-content.php");
 ?>
             </div>
           </div>
@@ -113,6 +111,6 @@
   </body>
 </html>
 <?
-  } else
+  }else
     header("Location: login");
 ?>

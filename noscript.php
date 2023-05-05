@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="css/main/svg.css">
     <link rel="stylesheet" type="text/css" href="css/main/header-footer.css">
     <link rel="stylesheet" type="text/css" href="css/main/login.css">
-    <script type="text/javascript" src='js/jquery-3.6.4.js'></script>
+    <script type="text/javascript" src='js/libs/jquery-3.6.4.js'></script>
     <title>Используется устаревший браузер | Statify</title>
   </head>
   <body>

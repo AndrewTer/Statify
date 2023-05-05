@@ -6,13 +6,15 @@
   include("functions/functions-for-check.php");
   include("functions/functions-user-data.php");
   include("functions/functions-modals.php");
+
+  $sort = !empty($_GET['sort']) ? htmlspecialchars($_GET['sort']) : '';
 ?>
 <!DOCTYPE html>
 <html lang="ru">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Информация о сайте Statify">
+    <meta name="description" content="Информация о сайте">
     <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/main/main.css">
@@ -25,24 +27,47 @@
     <link rel="stylesheet" type="text/css" href="css/main/animation.css">
     <link rel="stylesheet" type="text/css" href="css/main/adaptive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script type="text/javascript" src='js/jquery-3.6.4.js'></script>
+    <script type="text/javascript" src='js/libs/jquery-3.6.4.js'></script>
 
     <noscript>
       <meta http-equiv="refresh" content="0; url=noscript">
     </noscript>
 
-    <title>Statify</title>
+    <title>
+<?
+  switch ($sort) {
+    case 'rules':
+      echo 'Правила';
+      break;
+    case 'consent':
+      echo 'Согласие на обработку персональных данных';
+      break;
+    case 'updates':
+      echo 'Обновления';
+      break;
+    case 'help':
+      echo 'Помощь';
+      break;
+    case 'limits':
+      echo 'Ограничения';
+      break;
+    default:
+      echo 'Обновления';
+      break;
+  }
+?>
+  | Statify</title>
   </head>
   <body>
 <?
     $user_identifier = 'empty';
 
     session_start();
-    if(session_status() !== PHP_SESSION_ACTIVE && isset($_SESSION['auth_user']) && $_SESSION['auth_user'] == 'yes_auth')
+    if (session_status() !== PHP_SESSION_ACTIVE && isset($_SESSION['auth_user']) && $_SESSION['auth_user'] == 'yes_auth')
     {
       $user_uuid = $_SESSION['user_uuid'];
       $user_identifier = 'identifier';
-    } else
+    }else
     {
       if (!empty($_COOKIE['login']) and !empty($_COOKIE['key']))
       {
@@ -77,8 +102,8 @@
 
     <div class="row main-footer w-100"><? include("includes/footer.php"); ?></div>
 
-    <script type="text/javascript" src="js/popper.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/libs/popper.min.js"></script>
+    <script type="text/javascript" src="js/libs/bootstrap.min.js"></script>
     <script defer type="text/javascript" src="js/main.js"></script>
   </body>
 </html>
