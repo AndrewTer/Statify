@@ -20,11 +20,13 @@
   stroke: var(--main-menu-icon-hover-color);
 }
 
-.svg-close-icon {
+.svg-close-icon,
+.svg-report-icon {
   fill: var(--main-text-color);
 }
 
-.svg-close-icon:hover {
+.svg-close-icon:hover,
+.svg-report-icon:hover {
   fill: var(--hover-text-color);
 }
 

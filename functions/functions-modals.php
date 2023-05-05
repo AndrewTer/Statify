@@ -278,21 +278,26 @@
 ?>
 								</span>
 
-								<div class="hr-with-text mt-2 mb-3"><span class="m-0 fz-15 font-weight-bold">Теги</span></div>
+								<div class="hr-with-text mt-2 mb-3"><span class="m-0 fz-15 font-weight-bold">Интересы</span></div>
 
 <?
-								$tags_array = get_user_tags($user_uuid);
+								$interests_array = get_user_interests($user_uuid);
 
-						    if (!is_null($tags_array))
+						    if ($interests_array)
 						    {
 						      echo '<ul class="tags-list p-0 m-0 d-flex flex-wrap">';
 
-						      for ($tags_num = 0; $tags_num < count($tags_array); $tags_num++)
-						        echo '<a href="search?q='.$tags_array[$tags_num].'"><li class="font-weight-bold">'.$tags_array[$tags_num].'</li></a>';
+						      for ($interests_num = 0; $interests_num < count($interests_array); $interests_num++)
+						        echo '<li class="fz-14 font-weight-bold" 
+						      						style="color: rgb('.$interests_array[$interests_num]['color'].');
+						      										border-color: rgb('.$interests_array[$interests_num]['color'].');
+						      										background-color: rgba('.$interests_array[$interests_num]['color'].', .2);">'
+						      					.$interests_array[$interests_num]['title']
+						      				.'</li>';
 
 						      echo '</ul>';
 						    }else
-						      echo '<p class="m-0 p-0 fz-14 font-weight-bold text-center w-100">Список тегов пуст</p>';
+						      echo '<p class="m-0 p-0 fz-14 font-weight-bold text-center w-100">Отсутствуют</p>';
 ?>
 
 								<div class="hr-with-text mt-3 mb-2"><span class="m-0 fz-15 font-weight-bold">Социальные сети</span></div>
@@ -397,8 +402,8 @@
 
 			          <div class="w-100 m-0 mb-2 p-2 d-flex flex-row comment-in-report-modal">
 <?
-                if (get_latest_avatar($receiver_uuid))
-                  echo '<img class="rounded-circle offline m-0 mr-3 p-0 rounded-saved-user-picture" src="users/'.$receiver_uuid.'/'.get_latest_avatar($receiver_uuid).'" alt="'.get_user_fullname($receiver_uuid).'">';
+                if (get_user_avatar($receiver_uuid))
+                  echo '<img class="rounded-circle offline m-0 mr-3 p-0 rounded-saved-user-picture" src="users/'.$receiver_uuid.'/'.get_user_avatar($receiver_uuid).'" alt="'.get_user_fullname($receiver_uuid).'">';
                 else
                   echo '<img class="rounded-circle offline m-0 mr-3 p-0 rounded-saved-user-picture" src="imgs/no-avatar.png" alt="'.get_user_fullname($receiver_uuid).'">';
 
@@ -494,21 +499,24 @@
 								<a class="m-0 p-0" href="./?u=<?= get_user_nickname($another_user_uuid) ?>" title="<?= get_user_fullname($another_user_uuid); ?>">
 <?
 								$ban_check = ban_check($another_user_uuid);
-								$preview_photo_check = file_exists('../users/'.$another_user_uuid.'/'.get_latest_avatar_preview($another_user_uuid)) ? 1 : 0;
+								$preview_photo_check = file_exists('../users/'.$another_user_uuid.'/'.get_user_avatar_preview($another_user_uuid)) ? 1 : 0;
 		
 								if ($ban_check == 'success')
-									if (get_latest_avatar($another_user_uuid))
+									if (get_user_avatar($another_user_uuid))
 										if (!is_null(check_user_online_status($another_user_uuid)))
-											echo '<img class="rounded-circle online m-0 p-0 rounded-saved-user-picture" src="users/'.$another_user_uuid.'/'.($preview_photo_check == 1 ? get_latest_avatar_preview($another_user_uuid) : get_latest_avatar($another_user_uuid)).'" alt="'.get_user_fullname($another_user_uuid).'">';
+											echo '<img class="rounded-circle online m-0 p-0 rounded-saved-user-picture" src="users/'.$another_user_uuid.'/'.($preview_photo_check == 1 ? get_user_avatar_preview($another_user_uuid) : get_user_avatar($another_user_uuid)).'" alt="'.get_user_fullname($another_user_uuid).'">';
 										else
-											echo '<img class="rounded-circle offline m-0 p-0 rounded-saved-user-picture" src="users/'.$another_user_uuid.'/'.($preview_photo_check == 1 ? get_latest_avatar_preview($another_user_uuid) : get_latest_avatar($another_user_uuid)).'" alt="'.get_user_fullname($another_user_uuid).'">';
+											echo '<img class="rounded-circle offline m-0 p-0 rounded-saved-user-picture" src="users/'.$another_user_uuid.'/'.($preview_photo_check == 1 ? get_user_avatar_preview($another_user_uuid) : get_user_avatar($another_user_uuid)).'" alt="'.get_user_fullname($another_user_uuid).'">';
 									else
 										if (!is_null(check_user_online_status($another_user_uuid)))
 											echo '<img class="rounded-circle online m-0 p-0 rounded-saved-user-picture" src="imgs/no-avatar.png" alt="'.get_user_fullname($another_user_uuid).'">';
 										else
 											echo '<img class="rounded-circle offline m-0 p-0 rounded-saved-user-picture" src="imgs/no-avatar.png" alt="'.get_user_fullname($another_user_uuid).'">';
 								else
-									echo '<img class="rounded-circle offline m-0 p-0 rounded-saved-user-picture" src="users/'.$another_user_uuid.'/'.($preview_photo_check == 1 ? get_latest_avatar_preview($another_user_uuid) : get_latest_avatar($another_user_uuid)).'" alt="'.get_user_fullname($another_user_uuid).'">';
+									if (get_user_avatar($another_user_uuid))
+										echo '<img class="rounded-circle offline m-0 p-0 rounded-saved-user-picture" src="users/'.$another_user_uuid.'/'.($preview_photo_check == 1 ? get_user_avatar_preview($another_user_uuid) : get_user_avatar($another_user_uuid)).'" alt="'.get_user_fullname($another_user_uuid).'">';
+									else
+										echo '<img class="rounded-circle offline m-0 p-0 rounded-saved-user-picture" src="imgs/no-avatar.png" alt="'.get_user_fullname($another_user_uuid).'">';
 ?>
 								</a>
 
@@ -535,24 +543,27 @@
 <?
 							do {
 								$mutual_friend_uuid = $mutual_friends_array[$mutual_friends_num];
-								$preview_photo_check = file_exists('../users/'.$mutual_friend_uuid.'/'.get_latest_avatar_preview($mutual_friend_uuid)) ? 1 : 0;
+								$preview_photo_check = file_exists('../users/'.$mutual_friend_uuid.'/'.get_user_avatar_preview($mutual_friend_uuid)) ? 1 : 0;
 ?>
 							<div class="m-2 p-0 d-flex flex-column justify-content-center align-items-center">
 								<a class="m-0 p-0" href="./?u=<?= get_user_nickname($mutual_friend_uuid); ?>">
 <?
-									if ($ban_check == 'success')
-										if (get_latest_avatar($mutual_friend_uuid))
+									if (ban_check($mutual_friend_uuid) == 'success')
+										if (get_user_avatar($mutual_friend_uuid))
 											if (!is_null(check_user_online_status($mutual_friend_uuid)))
-												echo '<img class="rounded-circle online m-0 p-0 rounded-saved-user-picture" src="users/'.$mutual_friend_uuid.'/'.($preview_photo_check == 1 ? get_latest_avatar_preview($mutual_friend_uuid) : get_latest_avatar($mutual_friend_uuid)).'" alt="'.get_user_fullname($mutual_friend_uuid).'">';
+												echo '<img class="rounded-circle online m-0 p-0 rounded-saved-user-picture" src="users/'.$mutual_friend_uuid.'/'.($preview_photo_check == 1 ? get_user_avatar_preview($mutual_friend_uuid) : get_user_avatar($mutual_friend_uuid)).'" alt="'.get_user_fullname($mutual_friend_uuid).'">';
 											else
-												echo '<img class="rounded-circle offline m-0 p-0 rounded-saved-user-picture" src="users/'.$mutual_friend_uuid.'/'.($preview_photo_check == 1 ? get_latest_avatar_preview($mutual_friend_uuid) : get_latest_avatar($mutual_friend_uuid)).'" alt="'.get_user_fullname($mutual_friend_uuid).'">';
+												echo '<img class="rounded-circle offline m-0 p-0 rounded-saved-user-picture" src="users/'.$mutual_friend_uuid.'/'.($preview_photo_check == 1 ? get_user_avatar_preview($mutual_friend_uuid) : get_user_avatar($mutual_friend_uuid)).'" alt="'.get_user_fullname($mutual_friend_uuid).'">';
 										else
 											if (!is_null(check_user_online_status($mutual_friend_uuid)))
 												echo '<img class="rounded-circle online m-0 p-0 rounded-saved-user-picture" src="imgs/no-avatar.png" alt="'.get_user_fullname($mutual_friend_uuid).'">';
 											else
 												echo '<img class="rounded-circle offline m-0 p-0 rounded-saved-user-picture" src="imgs/no-avatar.png" alt="'.get_user_fullname($mutual_friend_uuid).'">';
+									else
+										if (get_user_avatar($mutual_friend_uuid))
+											echo '<img class="rounded-circle offline m-0 p-0 rounded-saved-user-picture" src="users/'.$mutual_friend_uuid.'/'.($preview_photo_check == 1 ? get_user_avatar_preview($mutual_friend_uuid) : get_user_avatar($mutual_friend_uuid)).'" alt="'.get_user_fullname($mutual_friend_uuid).'">';
 										else
-											echo '<img class="rounded-circle offline m-0 p-0 rounded-saved-user-picture" src="users/'.$mutual_friend_uuid.'/'.($preview_photo_check == 1 ? get_latest_avatar_preview($mutual_friend_uuid) : get_latest_avatar($mutual_friend_uuid)).'" alt="'.get_user_fullname($mutual_friend_uuid).'">';
+											echo '<img class="rounded-circle offline m-0 p-0 rounded-saved-user-picture" src="imgs/no-avatar.png" alt="'.get_user_fullname($mutual_friend_uuid).'">';
 ?>
 									<p class="m-0 mt-2 p-0 text-center"><?= (mb_strwidth(get_user_fullname($mutual_friend_uuid)) > 15 ? mb_strimwidth(get_user_fullname($mutual_friend_uuid), 0, 15, "...") : get_user_fullname($mutual_friend_uuid)); ?></p>
 								</a>
@@ -643,20 +654,40 @@
 						    </svg>
 
 						    <div class="w-100 m-0 mt-2 mb-2 p-2 block-user-content">
-						    	<p class="fz-15 w-100 m-0 p-1 font-weight-bold">
-						    		Более подробная статистика, которая содержит:
+						    	<p class="w-100 m-0 p-1 font-weight-bold d-flex flex-row align-items-center">
+						    		<svg class="m-0" width="22px" height="22px" viewBox="0 0 24 24" fill="none">
+						    			<path d="M6,4 L18,4 C19.1045695,4 20,4.8954305 20,6 L20,18 C20,19.1045695 19.1045695,20 18,20 L6,20 C4.8954305,20 4,19.1045695 4,18 L4,6 C4,4.8954305 4.8954305,4 6,4 Z" stroke="url('#premium-logo-gradient-in-modal')" stroke-width="2" stroke-linecap="round" stroke-dasharray="0,0"></path>
+						    			<line x1="7.99991122" y1="17" x2="8" y2="11" stroke="url('#premium-logo-gradient-in-modal')" stroke-width="2" stroke-linecap="round" stroke-dasharray="0,0"></line>
+						    			<line x1="11.9999112" y1="17" x2="12" y2="8" stroke="url('#premium-logo-gradient-in-modal')" stroke-width="2" stroke-linecap="round" stroke-dasharray="0,0"></line>
+						    			<line x1="15.9999112" y1="17" x2="16" y2="14" stroke="url('#premium-logo-gradient-in-modal')" stroke-width="2" stroke-linecap="round" stroke-dasharray="0,0"></line>
+						    		</svg>
+						    		<span class="fz-15 m-0 ml-2">Более подробная статистика, которая содержит:</span>
 						    	</p>
-						    	<p class="fz-14 w-100 m-0 p-1 pl-3 pr-3">
+						    	<p class="fz-14 w-100 m-0 p-1 pl-5 pr-3">
 						    		- количество оценок пользователей в зависимости от пола
 						    	</p>
-						    	<p class="fz-14 w-100 m-0 p-1 pl-3 pr-3">
+						    	<p class="fz-14 w-100 m-0 p-1 pl-5 pr-3">
 						    		- количество сохранений, включая разделение по полу
 						    	</p>
-						    	<p class="fz-14 w-100 m-0 p-1 pl-3 pr-3">
+						    	<p class="fz-14 w-100 m-0 p-1 pl-5 pr-3">
 						    		- историю сохранений
 						    	</p>
-						    	<p class="fz-15 w-100 m-0 p-1 font-weight-bold">
-						    		Возможность менять пользовательское имя каждые три месяца
+						    	<p class="w-100 m-0 p-1 font-weight-bold d-flex flex-row align-items-start">
+						    		<svg fill="url('#premium-logo-gradient-in-modal')" width="22px" height="22px" viewBox="0 0 24 24">
+						    			<path d="M5.07,8A8,8,0,0,1,20,12" style="fill: none; stroke: url('#premium-logo-gradient-in-modal'); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path>
+						    			<path d="M18.93,16A8,8,0,0,1,4,12" style="fill: none; stroke: url('#premium-logo-gradient-in-modal'); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path>
+						    			<polyline points="5 3 5 8 10 8" style="fill: none; stroke: url('#premium-logo-gradient-in-modal'); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></polyline>
+						    			<polyline points="19 21 19 16 14 16" style="fill: none; stroke: url('#premium-logo-gradient-in-modal'); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></polyline>
+						    		</svg>
+						    		<span class="fz-15 m-0 ml-2">Возможность менять пользовательское имя каждые три месяца</span>
+						    	</p>
+						    	<p class="w-100 m-0 p-1 font-weight-bold d-flex flex-row align-items-center">
+						    		<svg width="22px" height="22px" viewBox="0 0 24 24" fill="none">
+					            <path stroke="url('#premium-logo-gradient-in-modal')" d="M21 11V18C21 19.1046 20.1046 20 19 20H5C3.89543 20 3 19.1046 3 18V9C3 7.89543 3.89543 7 5 7H6.5C7.12951 7 7.72229 6.70361 8.1 6.2L9.15 4.8C9.52771 4.29639 10.1205 4 10.75 4H13.25" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+					            <path stroke="url('#premium-logo-gradient-in-modal')" d="M18.5 4V6.5M18.5 9V6.5M18.5 6.5H16M18.5 6.5H21" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+					            <circle cx="12" cy="13" r="4" stroke="url('#premium-logo-gradient-in-modal')" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></circle>
+					          </svg>
+						    		<span class="fz-15 m-0 ml-2">Возможность добавлять новые фотографии каждые три дня</span>
 						    	</p>
 						    	<!--<p class="fz-15 w-100 m-0 p-1 font-weight-bold">
 						    		Отсутствие рекламы
@@ -665,21 +696,11 @@
 
 <?
 								if (!check_premium_active($current_user_uuid) && !check_premium_trial_period_used($current_user_uuid))
-								{
-?>
-	        				<p type="submit" class="btn btn-standard fz-15 w-100 m-0 mt-2" name="recoveryPassword" onclick="event.preventDefault();activatePremiumTrialPeriod('<?= $current_user_uuid; ?>');">Активировать</p>
-<?
-								}else if (check_premium_active($current_user_uuid))
-								{
-?>
-									<p class="w-100 m-0 mt-3 p-0 fz-15 text-center font-weight-bold">В данный момент премиум активен</p>
-<?
-								}else if (check_premium_trial_period_used($current_user_uuid))
-								{
-?>
-									<p class="w-100 m-0 mt-3 p-0 fz-15 text-center font-weight-bold">Пробная версия окончена</p>
-<?
-								}
+									echo '<p type="submit" class="btn btn-standard fz-15 w-100 m-0 mt-3" name="recoveryPassword" onclick="event.preventDefault();activatePremiumTrialPeriod(\''.$current_user_uuid.'\');">Активировать</p>';
+								else if (check_premium_active($current_user_uuid))
+									echo '<p class="w-100 m-0 mt-3 p-0 fz-15 text-center font-weight-bold">В данный момент премиум активен</p>';
+								else if (check_premium_trial_period_used($current_user_uuid))
+									echo '<p class="w-100 m-0 mt-3 p-0 fz-15 text-center font-weight-bold">Пробная версия окончена</p>';
 ?>
 	        			<hr class="hr-user-info m-0 mt-3 mb-2">
 	        			<p class="w-100 m-0 p-0 fz-13 text-center">Пробная версия даётся сроком на 1 месяц</p>
@@ -715,6 +736,9 @@
 			$number_of_ratings_from_male_mark_five = number_of_ratings_from_users_by_gender($current_user_uuid, 5, 'male');
 			$number_of_ratings_from_female_mark_five = number_of_ratings_from_users_by_gender($current_user_uuid, 5, 'female');
 			$number_of_ratings_from_other_mark_five = number_of_ratings_from_users_by_gender($current_user_uuid, 5, 'other');
+
+			$content_stat_active_star = '<p class="m-0 p-0 d-flex align-items-center"><svg class="active-star" width="18px" height="18px" viewBox="0 0 24 24" fill="none"><path d="M17.2 20.7501C17.0776 20.7499 16.9573 20.7189 16.85 20.6601L12 18.1101L7.14999 20.6601C7.02675 20.7262 6.88746 20.7566 6.74786 20.7478C6.60825 20.7389 6.47391 20.6912 6.35999 20.6101C6.24625 20.5267 6.15796 20.4133 6.10497 20.2826C6.05199 20.1519 6.03642 20.0091 6.05999 19.8701L6.99999 14.4701L3.05999 10.6501C2.96124 10.5512 2.89207 10.4268 2.86027 10.2907C2.82846 10.1547 2.83529 10.0124 2.87999 9.88005C2.92186 9.74719 3.00038 9.62884 3.10652 9.53862C3.21266 9.4484 3.34211 9.38997 3.47999 9.37005L8.89999 8.58005L11.33 3.67005C11.3991 3.55403 11.4973 3.45795 11.6147 3.39123C11.7322 3.32451 11.8649 3.28943 12 3.28943C12.1351 3.28943 12.2678 3.32451 12.3853 3.39123C12.5027 3.45795 12.6008 3.55403 12.67 3.67005L15.1 8.58005L20.52 9.37005C20.6579 9.38997 20.7873 9.4484 20.8935 9.53862C20.9996 9.62884 21.0781 9.74719 21.12 9.88005C21.1647 10.0124 21.1715 10.1547 21.1397 10.2907C21.1079 10.4268 21.0387 10.5512 20.94 10.6501L17 14.4701L17.93 19.8701C17.9536 20.0091 17.938 20.1519 17.885 20.2826C17.832 20.4133 17.7437 20.5267 17.63 20.6101C17.5034 20.6976 17.3539 20.7463 17.2 20.7501ZM12 16.5201C12.121 16.5215 12.2403 16.5488 12.35 16.6001L16.2 18.6001L15.47 14.3101C15.4502 14.1897 15.4589 14.0664 15.4953 13.9501C15.5318 13.8337 15.595 13.7275 15.68 13.6401L18.8 10.6401L14.49 10.0001C14.3708 9.98109 14.2578 9.93401 14.1605 9.86271C14.0631 9.79141 13.9841 9.69795 13.93 9.59005L12 5.69005L10.07 9.60005C10.0159 9.70795 9.9369 9.80141 9.83952 9.87271C9.74214 9.94401 9.62918 9.99109 9.50999 10.0101L5.19999 10.6401L8.31999 13.6401C8.40493 13.7275 8.46817 13.8337 8.50464 13.9501C8.54111 14.0664 8.54979 14.1897 8.52999 14.3101L7.79999 18.6301L11.65 16.6301C11.7573 16.5683 11.8767 16.5308 12 16.5201Z"></path></svg></p>';
+  		$content_stat_inactive_star = '<p class="m-0 p-0 d-flex align-items-center"><svg class="inactive-star" width="18px" height="18px" viewBox="0 0 24 24" fill="none"><path d="M17.2 20.7501C17.0776 20.7499 16.9573 20.7189 16.85 20.6601L12 18.1101L7.14999 20.6601C7.02675 20.7262 6.88746 20.7566 6.74786 20.7478C6.60825 20.7389 6.47391 20.6912 6.35999 20.6101C6.24625 20.5267 6.15796 20.4133 6.10497 20.2826C6.05199 20.1519 6.03642 20.0091 6.05999 19.8701L6.99999 14.4701L3.05999 10.6501C2.96124 10.5512 2.89207 10.4268 2.86027 10.2907C2.82846 10.1547 2.83529 10.0124 2.87999 9.88005C2.92186 9.74719 3.00038 9.62884 3.10652 9.53862C3.21266 9.4484 3.34211 9.38997 3.47999 9.37005L8.89999 8.58005L11.33 3.67005C11.3991 3.55403 11.4973 3.45795 11.6147 3.39123C11.7322 3.32451 11.8649 3.28943 12 3.28943C12.1351 3.28943 12.2678 3.32451 12.3853 3.39123C12.5027 3.45795 12.6008 3.55403 12.67 3.67005L15.1 8.58005L20.52 9.37005C20.6579 9.38997 20.7873 9.4484 20.8935 9.53862C20.9996 9.62884 21.0781 9.74719 21.12 9.88005C21.1647 10.0124 21.1715 10.1547 21.1397 10.2907C21.1079 10.4268 21.0387 10.5512 20.94 10.6501L17 14.4701L17.93 19.8701C17.9536 20.0091 17.938 20.1519 17.885 20.2826C17.832 20.4133 17.7437 20.5267 17.63 20.6101C17.5034 20.6976 17.3539 20.7463 17.2 20.7501ZM12 16.5201C12.121 16.5215 12.2403 16.5488 12.35 16.6001L16.2 18.6001L15.47 14.3101C15.4502 14.1897 15.4589 14.0664 15.4953 13.9501C15.5318 13.8337 15.595 13.7275 15.68 13.6401L18.8 10.6401L14.49 10.0001C14.3708 9.98109 14.2578 9.93401 14.1605 9.86271C14.0631 9.79141 13.9841 9.69795 13.93 9.59005L12 5.69005L10.07 9.60005C10.0159 9.70795 9.9369 9.80141 9.83952 9.87271C9.74214 9.94401 9.62918 9.99109 9.50999 10.0101L5.19999 10.6401L8.31999 13.6401C8.40493 13.7275 8.46817 13.8337 8.50464 13.9501C8.54111 14.0664 8.54979 14.1897 8.52999 14.3101L7.79999 18.6301L11.65 16.6301C11.7573 16.5683 11.8767 16.5308 12 16.5201Z"></path></svg></p>';
 ?>
 			<div class="modal fade" id="ratingStatisticsForPremiumModal" tabindex="-1" role="dialog" aria-hidden="true">
   			<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -735,13 +759,9 @@
         				<div class="w-100 m-0 p-0 d-flex flex-wrap justify-content-center">
      							<div class="m-2 p-0 number-of-ratings-doughnut-chart-block" id="number-of-ratings-mark-five-doughnut-chart-block">
      								<canvas class="m-0 p-0" id="number-of-ratings-mark-five-doughnut-chart" width="100" height="100"></canvas>
-     								<p class="fz-14 m-0 mb-3 p-0 w-100 text-center">
-     									<i class="fa fa-star-o active-star fz-14" aria-hidden="true"></i>
-     									<i class="fa fa-star-o active-star fz-14" aria-hidden="true"></i>
-     									<i class="fa fa-star-o active-star fz-14" aria-hidden="true"></i>
-     									<i class="fa fa-star-o active-star fz-14" aria-hidden="true"></i>
-     									<i class="fa fa-star-o active-star fz-14" aria-hidden="true"></i>
-     								</p>
+     								<div class="m-0 mb-3 p-0 w-100 d-flex flex-row align-items-center justify-content-center">
+     									<?= $content_stat_active_star.$content_stat_active_star.$content_stat_active_star.$content_stat_active_star.$content_stat_active_star; ?>
+     								</div>
      								<div class="number-of-ratings-doughnut-charts-legend m-0 mt-2 mb-2 p-0 w-100 d-flex flex-column justify-content-center align-items-center">
 	        						<div class="m-0 p-0 pl-4 pr-4 w-100 d-flex flex-row align-items-center">
 	        							<p class="m-0 p-0 number-of-ratings-doughnut-chart-legend-male"></p>
@@ -762,12 +782,9 @@
      							</div>
      							<div class="m-2 p-0 number-of-ratings-doughnut-chart-block" id="number-of-ratings-mark-four-doughnut-chart-block">
      								<canvas class="m-0 p-0" id="number-of-ratings-mark-four-doughnut-chart" width="100" height="100"></canvas>
-     								<p class="fz-14 m-0 mb-3 p-0 w-100 text-center">
-     									<i class="fa fa-star-o active-star fz-14" aria-hidden="true"></i>
-     									<i class="fa fa-star-o active-star fz-14" aria-hidden="true"></i>
-     									<i class="fa fa-star-o active-star fz-14" aria-hidden="true"></i>
-     									<i class="fa fa-star-o active-star fz-14" aria-hidden="true"></i>
-     								</p>
+     								<div class="m-0 mb-3 p-0 w-100 d-flex flex-row align-items-center justify-content-center">
+     									<?= $content_stat_active_star.$content_stat_active_star.$content_stat_active_star.$content_stat_active_star; ?>
+     								</div>
      								<div class="number-of-ratings-doughnut-charts-legend m-0 mt-2 mb-2 p-0 w-100 d-flex flex-column justify-content-center align-items-center">
 	        						<div class="m-0 p-0 pl-4 pr-4 w-100 d-flex flex-row align-items-center">
 	        							<p class="m-0 p-0 number-of-ratings-doughnut-chart-legend-male"></p>
@@ -788,11 +805,9 @@
      							</div>
      							<div class="m-2 p-0 number-of-ratings-doughnut-chart-block" id="number-of-ratings-mark-three-doughnut-chart-block">
      								<canvas class="m-0 p-0" id="number-of-ratings-mark-three-doughnut-chart" width="100" height="100"></canvas>
-     								<p class="fz-14 m-0 mb-3 p-0 w-100 text-center">
-     									<i class="fa fa-star-o active-star fz-14" aria-hidden="true"></i>
-     									<i class="fa fa-star-o active-star fz-14" aria-hidden="true"></i>
-     									<i class="fa fa-star-o active-star fz-14" aria-hidden="true"></i>
-     								</p>
+     								<div class="m-0 mb-3 p-0 w-100 d-flex flex-row align-items-center justify-content-center">
+     									<?= $content_stat_active_star.$content_stat_active_star.$content_stat_active_star; ?>
+     								</div>
      								<div class="number-of-ratings-doughnut-charts-legend m-0 mt-2 mb-2 p-0 w-100 d-flex flex-column justify-content-center align-items-center">
 	        						<div class="m-0 p-0 pl-4 pr-4 w-100 d-flex flex-row align-items-center">
 	        							<p class="m-0 p-0 number-of-ratings-doughnut-chart-legend-male"></p>
@@ -813,10 +828,9 @@
      							</div>
      							<div class="m-2 p-0 number-of-ratings-doughnut-chart-block" id="number-of-ratings-mark-two-doughnut-chart-block">
      								<canvas class="m-0 p-0" id="number-of-ratings-mark-two-doughnut-chart" width="100" height="100"></canvas>
-     								<p class="fz-14 m-0 mb-3 p-0 w-100 text-center">
-     									<i class="fa fa-star-o active-star fz-14" aria-hidden="true"></i>
-     									<i class="fa fa-star-o active-star fz-14" aria-hidden="true"></i>
-     								</p>
+     								<div class="m-0 mb-3 p-0 w-100 d-flex flex-row align-items-center justify-content-center">
+     									<?= $content_stat_active_star.$content_stat_active_star; ?>
+     								</div>
      								<div class="number-of-ratings-doughnut-charts-legend m-0 mt-2 mb-2 p-0 w-100 d-flex flex-column justify-content-center align-items-center">
 	        						<div class="m-0 p-0 pl-4 pr-4 w-100 d-flex flex-row align-items-center">
 	        							<p class="m-0 p-0 number-of-ratings-doughnut-chart-legend-male"></p>
@@ -837,9 +851,9 @@
      							</div>
      							<div class="m-2 p-0 number-of-ratings-doughnut-chart-block" id="number-of-ratings-mark-one-doughnut-chart-block">
      								<canvas class="m-0 p-0" id="number-of-ratings-mark-one-doughnut-chart" width="100" height="100"></canvas>
-     								<p class="fz-14 m-0 mb-3 p-0 w-100 text-center">
-     									<i class="fa fa-star-o active-star fz-14" aria-hidden="true"></i>
-     								</p>
+     								<div class="m-0 mb-3 p-0 w-100 d-flex flex-row align-items-center justify-content-center">
+     									<?= $content_stat_active_star; ?>
+     								</div>
      								<div class="number-of-ratings-doughnut-charts-legend m-0 mt-2 mb-2 p-0 w-100 d-flex flex-column justify-content-center align-items-center">
 	        						<div class="m-0 p-0 pl-4 pr-4 w-100 d-flex flex-row align-items-center">
 	        							<p class="m-0 p-0 number-of-ratings-doughnut-chart-legend-male"></p>

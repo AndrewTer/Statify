@@ -3,8 +3,8 @@
 	{
 		if (!empty($user_uuid) && isset($user_uuid) && (preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/', $user_uuid)))
 		{
-			$new_rating_card_query_text = "SELECT rating_photo.profile_picture
-										   								FROM users_avatars rating_photo
+			$new_rating_card_query_text = "SELECT rating_photo.photo_name
+										   								FROM users_photos rating_photo
 																				 	LEFT JOIN users
 																				 				ON rating_photo.user_uuid = users.uuid
 																			WHERE rating_photo.user_uuid != '{$user_uuid}'
@@ -60,8 +60,8 @@
 				$limit_and_offset_text = '';
 
 			$photo_array_for_rating_query = pg_query("SELECT rating_photo.user_uuid,
-		                                                   rating_photo.profile_picture
-		                                            FROM users_avatars rating_photo
+		                                                   rating_photo.photo_name
+		                                            FROM users_photos rating_photo
 		                                                LEFT JOIN users
 		                                                      ON rating_photo.user_uuid = users.uuid
 		                                            WHERE rating_photo.user_uuid != '{$user_uuid}'
@@ -110,7 +110,7 @@
 	{
 		if (!empty($rating_photo))
 		{
-			$user_uuid_query = pg_query("SELECT user_uuid FROM users_avatars WHERE profile_picture = '{$rating_photo}'")
+			$user_uuid_query = pg_query("SELECT user_uuid FROM users_photos WHERE photo_name = '{$rating_photo}'")
 								or trigger_error(pg_last_error().$user_uuid_query);
 
 			if ($user_uuid_result = pg_fetch_array($user_uuid_query))

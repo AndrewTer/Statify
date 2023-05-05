@@ -32,7 +32,7 @@
   padding: 10px !important;
 }
 
-/* User profile picture modal */
+/* User photo modal */
 .upp-modal-body {
   padding: 0 !important;
 }
@@ -118,72 +118,7 @@ input[name="complaintReasons"] {
   display: none;
 }
 
-/* Achievement Modal */
-
-.achievement-body {
-  --diameter: 270px;
-  --thickness: 3px;
-  --scale: 1;
-  --period: 3s;
-  --gradient: linear-gradient(#808080 0%, #595959 50%, #595959 100%);
-  transform-style: preserve-3d;
-  width: var(--diameter);
-  height: 244px;
-  animation: spin var(--period) linear infinite;
-}
-
-.side {
-  position: absolute;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.front {
-  transform: translateZ(calc(var(--thickness) / 2)); 
-  animation: flip-head var(--period) linear infinite;
-}
-
-.front img {
-  max-height: 244px;
-}
-
-.back {
-  transform: 
-  translateZ(calc(0px - var(--thickness) / 2)) 
-  rotateY(180deg);
-  animation: flip-tail var(--period) linear infinite;
-}
-
-.back img {
-  max-height: 244px;
-}
-
-.edge {
-  position: absolute;
-  left: -5%;
-  top: 3px;
-  width: var(--thickness);
-  max-height: 240px;
-  transform: 
-  translateX(calc(var(--diameter) / 2)) 
-  translateZ(calc(var(--thickness) / 2)) 
-  rotateY(90deg);
-  transform-origin: 0 0;
-  background-image: var(--gradient);
-}
-
-@keyframes spin {
-  0% {
-    transform: rotateY(0deg) scale(var(--scale));
-  }
-  100% {
-    transform: rotateY(360deg) scale(var(--scale));
-  }
-}
-
-/* Profile Picture Modal */
+/* Photo Modal */
 
 .modal-footer {
   border-top: 1px solid var(--hr-user-info-bg-color) !important;

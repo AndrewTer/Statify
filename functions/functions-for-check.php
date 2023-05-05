@@ -77,6 +77,27 @@
         return 0;
   }
 
+  function check_current_user_photo_to_avatar($user_uuid, $photo_uuid)
+  {
+    if (!empty($user_uuid) && isset($user_uuid)
+        && !empty($photo_uuid) && isset($photo_uuid)
+        && (preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/', $user_uuid))
+        && (preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/', $photo_uuid)))
+    {
+        $user_avatar_status_query = pg_query("SELECT * FROM users WHERE uuid = '{$user_uuid}' AND avatar_uuid = '{$photo_uuid}'")
+                                    or trigger_error(pg_last_error().$user_avatar_status_query);
+
+        $user_avatar_status_query_count = pg_num_rows($user_avatar_status_query);
+
+        if ($user_avatar_status_query_count == 1)
+        {
+          return 1;
+        }else
+            return 0;
+    }else
+        return 0;
+  }
+
   function check_nickname_exists($user_nickname)
   {
     if (!empty($user_nickname) && isset($user_nickname))
@@ -173,9 +194,11 @@
     {
         $saved_photo_query = pg_query("SELECT 1 
                                        FROM saves
-                                       WHERE author_uuid = '{$author_uuid}'
-                                             AND user_uuid = '{$user_uuid}'
-                                             AND profile_picture = '{$profile_picture}'") 
+                                            JOIN users_photos
+                                              ON saves.photo_uuid = users_photos.uuid
+                                       WHERE saves.author_uuid = '{$author_uuid}'
+                                             AND saves.user_uuid = '{$user_uuid}'
+                                             AND users_photos.photo_name = '{$profile_picture}'") 
                                 or trigger_error(pg_last_error().$saved_photo_query);
 
         $saved_photo_query_count = pg_num_rows($saved_photo_query);

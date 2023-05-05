@@ -25,35 +25,35 @@
 				<div class="w-100 m-0 mr-2 p-1 d-flex notifications-card-content">
 					<div class="notifications-author-card-avatar d-flex align-items-start justify-content-start p-0 mr-3">
 <?
-					$preview_photo_check = file_exists('users/'.$author_uuid.'/'.get_latest_avatar_preview($author_uuid)) ? 1 : 0;
+					$preview_photo_check = file_exists('users/'.$author_uuid.'/'.get_user_avatar_preview($author_uuid)) ? 1 : 0;
 
 					if ($ban_check == 'success')
 						if (!is_null(check_user_online_status($author_uuid))) 
-							if (get_latest_avatar($author_uuid))
+							if (get_user_avatar($author_uuid))
 								echo '<img class="rounded-circle online m-0 p-0 w-100" 
-											src="users/'.$author_uuid.'/'.($preview_photo_check == 1 ? get_latest_avatar_preview($author_uuid) : get_latest_avatar($author_uuid)).'" 
+											src="users/'.$author_uuid.'/'.($preview_photo_check == 1 ? get_user_avatar_preview($author_uuid) : get_user_avatar($author_uuid)).'" 
 											alt="'.$author_fullname.'" 
-											onclick="event.preventDefault();openProfilePictureModal(\''.$current_user_uuid.'\',\''.$author_uuid.'\',\''.get_latest_avatar($author_uuid).'\');">';
+											onclick="event.preventDefault();openProfilePictureModal(\''.$current_user_uuid.'\',\''.$author_uuid.'\',\''.get_user_avatar($author_uuid).'\');">';
 							else
 								echo '<img class="rounded-circle online m-0 p-0 w-100" 
 											src="imgs/no-avatar.png" 
 											alt="'.$author_fullname.'">';
 						else
-							if (get_latest_avatar($author_uuid))
+							if (get_user_avatar($author_uuid))
 								echo '<img class="rounded-circle offline m-0 p-0 w-100" 
-											src="users/'.$author_uuid.'/'.($preview_photo_check == 1 ? get_latest_avatar_preview($author_uuid) : get_latest_avatar($author_uuid)).'" 
+											src="users/'.$author_uuid.'/'.($preview_photo_check == 1 ? get_user_avatar_preview($author_uuid) : get_user_avatar($author_uuid)).'" 
 											alt="'.$author_fullname.'" 
-											onclick="event.preventDefault();openProfilePictureModal(\''.$current_user_uuid.'\',\''.$author_uuid.'\',\''.get_latest_avatar($author_uuid).'\');">';
+											onclick="event.preventDefault();openProfilePictureModal(\''.$current_user_uuid.'\',\''.$author_uuid.'\',\''.get_user_avatar($author_uuid).'\');">';
 							else
 								echo '<img class="rounded-circle offline m-0 p-0 w-100" 
 											src="imgs/no-avatar.png" 
 											alt="'.$author_fullname.'">';
 					else
-						if (get_latest_avatar($author_uuid))
+						if (get_user_avatar($author_uuid))
 							echo '<img class="rounded-circle offline m-0 p-0 w-100" 
-										src="users/'.$author_uuid.'/'.($preview_photo_check == 1 ? get_latest_avatar_preview($author_uuid) : get_latest_avatar($author_uuid)).'" 
+										src="users/'.$author_uuid.'/'.($preview_photo_check == 1 ? get_user_avatar_preview($author_uuid) : get_user_avatar($author_uuid)).'" 
 										alt="'.$author_fullname.'" 
-										onclick="event.preventDefault();openProfilePictureModal(\''.$current_user_uuid.'\',\''.$author_uuid.'\',\''.get_latest_avatar($author_uuid).'\');">';
+										onclick="event.preventDefault();openProfilePictureModal(\''.$current_user_uuid.'\',\''.$author_uuid.'\',\''.get_user_avatar($author_uuid).'\');">';
 						else
 							echo '<img class="rounded-circle offline m-0 p-0 w-100" 
 										src="imgs/no-avatar.png" 
@@ -158,35 +158,35 @@
 						<a class="m-0 p-0" href="search.php?q=<?= $sender_nickname; ?>" title="<?= $sender_fullname; ?>">
 <?
 						$ban_check = ban_check($sender_uuid);
-						$preview_photo_check = file_exists('users/'.$sender_uuid.'/'.get_latest_avatar_preview($sender_uuid)) ? 1 : 0;
+						$preview_photo_check = file_exists('users/'.$sender_uuid.'/'.get_user_avatar_preview($sender_uuid)) ? 1 : 0;
 
 						if ($ban_check == 'success')
 							if (!is_null(check_user_online_status($sender_uuid))) 
-								if (get_latest_avatar($sender_uuid))
+								if (get_user_avatar($sender_uuid))
 									echo '<img class="rounded-circle online m-0 p-0 w-100" 
-												src="users/'.$sender_uuid.'/'.($preview_photo_check == 1 ? get_latest_avatar_preview($sender_uuid) : get_latest_avatar($sender_uuid)).'" 
+												src="users/'.$sender_uuid.'/'.($preview_photo_check == 1 ? get_user_avatar_preview($sender_uuid) : get_user_avatar($sender_uuid)).'" 
 												alt="'.$sender_fullname.'" 
-												onclick="event.preventDefault();openProfilePictureModal(\''.$current_user_uuid.'\',\''.$sender_uuid.'\',\''.get_latest_avatar($sender_uuid).'\');">';
+												onclick="event.preventDefault();openProfilePictureModal(\''.$current_user_uuid.'\',\''.$sender_uuid.'\',\''.get_user_avatar($sender_uuid).'\');">';
 								else
 									echo '<img class="rounded-circle online m-0 p-0 w-100" 
 												src="imgs/no-avatar.png" 
 												alt="'.$sender_fullname.'">';
 							else
-								if (get_latest_avatar($sender_uuid))
+								if (get_user_avatar($sender_uuid))
 									echo '<img class="rounded-circle offline m-0 p-0 w-100" 
-												src="users/'.$sender_uuid.'/'.($preview_photo_check == 1 ? get_latest_avatar_preview($sender_uuid) : get_latest_avatar($sender_uuid)).'" 
+												src="users/'.$sender_uuid.'/'.($preview_photo_check == 1 ? get_user_avatar_preview($sender_uuid) : get_user_avatar($sender_uuid)).'" 
 												alt="'.$sender_fullname.'" 
-												onclick="event.preventDefault();openProfilePictureModal(\''.$current_user_uuid.'\',\''.$sender_uuid.'\',\''.get_latest_avatar($sender_uuid).'\');">';
+												onclick="event.preventDefault();openProfilePictureModal(\''.$current_user_uuid.'\',\''.$sender_uuid.'\',\''.get_user_avatar($sender_uuid).'\');">';
 								else
 									echo '<img class="rounded-circle offline m-0 p-0 w-100" 
 												src="imgs/no-avatar.png" 
 												alt="'.$sender_fullname.'">';
 						else
-							if (get_latest_avatar($sender_uuid))
+							if (get_user_avatar($sender_uuid))
 								echo '<img class="rounded-circle offline m-0 p-0 w-100" 
-											src="users/'.$sender_uuid.'/'.($preview_photo_check == 1 ? get_latest_avatar_preview($sender_uuid) : get_latest_avatar($sender_uuid)).'" 
+											src="users/'.$sender_uuid.'/'.($preview_photo_check == 1 ? get_user_avatar_preview($sender_uuid) : get_user_avatar($sender_uuid)).'" 
 											alt="'.$sender_fullname.'" 
-											onclick="event.preventDefault();openProfilePictureModal(\''.$current_user_uuid.'\',\''.$sender_uuid.'\',\''.get_latest_avatar($sender_uuid).'\');">';
+											onclick="event.preventDefault();openProfilePictureModal(\''.$current_user_uuid.'\',\''.$sender_uuid.'\',\''.get_user_avatar($sender_uuid).'\');">';
 							else
 								echo '<img class="rounded-circle offline m-0 p-0 w-100" 
 											src="imgs/no-avatar.png" 

@@ -9,34 +9,19 @@
 
 /* Saves sort  */
 
-.saves-sort-list-item,
-.saves-resize-list-item {
+.saves-sort-list-item {
   line-height: 15px;
   min-height: 15px;
   height: 15px;
 }
 
-.saves-sort-list-item:hover,
-.saves-resize-list-item th:hover {
+.saves-sort-list-item:hover {
   background: var(--block-hover-bg-color);
   cursor: pointer;
 }
 
-.saves-sort-list-item:hover th,
-.saves-resize-list-item th:hover i {
+.saves-sort-list-item:hover th {
   color: var(--hover-text-color);
-}
-
-.saves-resize-list-item #saves-card-large {
-  -webkit-border-radius: 15px 0 0 15px;
-  -moz-border-radius: 15px 0 0 15px;
-  border-radius: 15px 0 0 15px;
-}
-
-.saves-resize-list-item #saves-card-small {
-  -webkit-border-radius: 0 15px 15px 0;
-  -moz-border-radius: 0 15px 15px 0;
-  border-radius: 0 15px 15px 0;
 }
 
 .saves-sort-list-item.first-item:hover th {

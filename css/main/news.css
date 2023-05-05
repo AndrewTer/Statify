@@ -7,35 +7,36 @@
    width: 100%;
 }
 
-/* News content */
+/* Feed */
 
-.news-card {
-   padding: 3px;
-   border: 1px solid var(--content-block-border-color);
+.feed-news-card {
    background: var(--content-block-bg-color);
-   -webkit-border-radius: 15px;
-   -moz-border-radius: 15px;
-   border-radius: 15px;
+   border: 1px solid var(--content-block-border-color);
+   -webkit-border-radius: 15px !important;
+   -moz-border-radius: 15px !important;
+   border-radius: 15px !important;
+   backdrop-filter: blur(10px);
 }
 
-.news-friend-card-avatar img {
-   width: 50px !important;
-   height: 50px !important;
-   cursor: pointer;
+.feed-news-card img {
+  -webkit-border-radius: 15px !important;
+  -moz-border-radius: 15px !important;
+  border-radius: 15px !important;
 }
 
-.news-friend-card-avatar-update img {
-   width: 80px !important;
-   height: 80px !important;
-   cursor: pointer;
+.feed-news-card-info img {
+  width: 40px;
+  height: 40px;
+  -webkit-border-radius: 90% !important;
+  -moz-border-radius: 90% !important;
+  border-radius: 90% !important;
 }
 
-.news-user-link {
-   color: var(--news-user-link-color);
-}
-
-.news-user-fullname:hover p {
-   color: var(--hover-text-color) !important;
+.feed-news-tags-list {
+  bottom: 18px;
+  left: 18px; 
+  width: calc(100% - 36px); 
+  background-color: rgba(0, 0, 0, .8);
 }
 
 /* Popular */
@@ -113,23 +114,47 @@
   left: 0;
 }
 
-.popular-card-badge i {
+.popular-card-badge svg {
+   fill: whitesmoke;
+   width: 18px;
+   height: 18px;
+}
+
+.popular-card-badge p {
    color: whitesmoke;
 }
 
-.popular-card-text-color-first {
+.popular-card-text-color-first p {
    color: #FFD700 !important;
    font-size: 18px !important;
 }
 
-.popular-card-text-color-second {
-   color: #C0C0C0 !important; 
+.popular-card-text-color-first svg {
+   fill: #FFD700;
+   width: 24px;
+   height: 24px;
+}
+
+.popular-card-text-color-second p {
+   color: #C0C0C0 !important;
    font-size: 15px !important;
 }
 
-.popular-card-text-color-third {
-   color: #CD7F32 !important; 
+.popular-card-text-color-second svg {
+   fill: #C0C0C0;
+   width: 20px;
+   height: 20px;
+}
+
+.popular-card-text-color-third p {
+   color: #CD7F32 !important;
    font-size: 15px !important;
+}
+
+.popular-card-text-color-third svg {
+   fill: #CD7F32 !important;
+   width: 20px;
+   height: 20px;
 }
 
 .gold-gradient-border {

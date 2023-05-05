@@ -194,27 +194,33 @@
 
 //----------------------------------------------------------------------------------------------------------------
 
-  function get_user_tags($user_uuid)
+  function get_user_interests($user_uuid)
   {
-    if (!empty($user_uuid))
+    if (!empty($user_uuid) && isset($user_uuid) 
+        && (preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/', $user_uuid)))
     {
-        $user_tags_query = pg_query("SELECT tag_text
-                                     FROM tags
-                                     WHERE user_uuid = '{$user_uuid}'
-                                     LIMIT 5")
-                            or trigger_error(pg_last_error().$user_tags_query);
+        $user_interests_query = pg_query("SELECT types.title  as title
+                                                  ,types.value  as value
+                                                  ,types.color  as color
+                                          FROM users_interests      interests
+                                               JOIN interests_types types
+                                                 ON interests.interest_uuid = types.uuid
+                                                    AND interests.user_uuid = '{$user_uuid}'")
+                            or trigger_error(pg_last_error().$user_interests_query);
 
-        if ($user_tags_result = pg_fetch_row($user_tags_query))
+        if ($user_interests_result = pg_fetch_row($user_interests_query))
         {
-            $user_tags_array = [];
-            $user_tags_num = 0;
+            $user_interests_array = [];
+            $user_interests_num = 0;
 
             do {
-                $user_tags_array[$user_tags_num] = $user_tags_result[0];
-                $user_tags_num++;
-            }while ($user_tags_result = pg_fetch_row($user_tags_query));
+                $user_interests_array[$user_interests_num]['title'] = $user_interests_result[0];
+                $user_interests_array[$user_interests_num]['value'] = $user_interests_result[1];
+                $user_interests_array[$user_interests_num]['color'] = $user_interests_result[2];
+                $user_interests_num++;
+            }while ($user_interests_result = pg_fetch_row($user_interests_query));
 
-            return $user_tags_array;
+            return $user_interests_array;
         } else
             return null;
     } else
@@ -289,9 +295,9 @@
   {
     if (!empty($photo_uuid))
     {
-        $user_uuid_query = pg_query("SELECT user_uuid FROM users_avatars
-                                       WHERE uuid = '{$photo_uuid}'
-                                       LIMIT 1")
+        $user_uuid_query = pg_query("SELECT user_uuid FROM users_photos
+                                      WHERE uuid = '{$photo_uuid}'
+                                      LIMIT 1")
                                 or trigger_error(pg_last_error().$user_uuid_query);
 
         if($user_uuid_result = pg_fetch_row($user_uuid_query))
@@ -306,62 +312,20 @@
 
 //----------------------------------------------------------------------------------------------------------------
 
-  function get_photo_uuid_by_name($photo_name)
-  {
-    if (!empty($photo_name))
-    {
-        $photo_name_query = pg_query("SELECT uuid FROM users_avatars
-                                        WHERE profile_picture = '{$photo_name}'
-                                        LIMIT 1")
-                                or trigger_error(pg_last_error().$photo_name_query);
-
-        if($photo_name_result = pg_fetch_row($photo_name_query))
-        {
-            $current_photo_uuid = $photo_name_result[0];
-            return $current_photo_uuid;
-        }else
-            return null;
-    }else
-        return null;
-  }
-
-//----------------------------------------------------------------------------------------------------------------
-
-  function get_photo_name_by_uuid($photo_uuid)
-  {
-    if (!empty($photo_uuid))
-    {
-        $photo_name_query = pg_query("SELECT profile_picture FROM users_avatars
-                                      WHERE uuid = '{$photo_uuid}'
-                                      LIMIT 1")
-                                or trigger_error(pg_last_error().$photo_name_query);
-
-        if($photo_name_result = pg_fetch_row($photo_name_query))
-        {
-            $current_photo_name = $photo_name_result[0];
-            return $current_photo_name;
-        }else
-            return null;
-    }else
-        return null;
-  }
-
-//----------------------------------------------------------------------------------------------------------------
-
-  function get_latest_avatar($user_uuid)
+  function get_user_avatar($user_uuid)
   {
     if (!empty($user_uuid))
     {
-        $latest_avatar_query = pg_query("SELECT profile_picture
-                                         FROM users_avatars
-                                         WHERE user_uuid = '$user_uuid'
-                                         ORDER BY creation_date DESC
-                                         LIMIT 1")
-                                or trigger_error(pg_last_error().$latest_avatar_query);
+        $avatar_query = pg_query("SELECT up.photo_name
+                                         FROM users u
+                                              JOIN users_photos up
+                                                ON u.avatar_uuid = up.uuid
+                                         WHERE u.uuid = '$user_uuid'")
+                                or trigger_error(pg_last_error().$avatar_query);
 
-        if($latest_avatar_result = pg_fetch_row($latest_avatar_query))
+        if($avatar_result = pg_fetch_row($avatar_query))
         {
-            $user_profile_picture = $latest_avatar_result[0];
+            $user_profile_picture = $avatar_result[0];
             return $user_profile_picture;
         } else
             return null;
@@ -371,17 +335,17 @@
 
 //----------------------------------------------------------------------------------------------------------------
 
-  function get_latest_avatar_preview($user_uuid)
+  function get_user_avatar_preview($user_uuid)
   {
     if (!empty($user_uuid))
     {
-        $last_user_avatar = get_latest_avatar($user_uuid);
+        $user_avatar = get_user_avatar($user_uuid);
 
-        if ($last_user_avatar)
+        if ($user_avatar)
         {
-            $file_info = new SplFileInfo($last_user_avatar);
+            $file_info = new SplFileInfo($user_avatar);
             $file_ext = '.'.$file_info->getExtension();
-            $last_user_avatar_preview = stristr($last_user_avatar, $file_ext, true).'_90x90'.$file_ext;
+            $last_user_avatar_preview = stristr($user_avatar, $file_ext, true).'_90x90'.$file_ext;
 
             return $last_user_avatar_preview;
         } else
@@ -392,40 +356,44 @@
 
 //----------------------------------------------------------------------------------------------------------------
 
-  function get_latest_avatar_date_upload($user_uuid)
+  function get_latest_user_photo_date_upload($user_uuid)
   {
-    if (!empty($user_uuid))
+    if (!empty($user_uuid) && isset($user_uuid) 
+        && (preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/', $user_uuid)))
     {
-        $latest_date_upload_query = pg_query("SELECT creation_date
-                                              FROM users_avatars
-                                              WHERE user_uuid = '{$user_uuid}'
-                                              ORDER BY creation_date DESC
-                                              LIMIT 1")
-                                        or trigger_error(pg_last_error().$latest_date_upload_query);
+      $latest_date_upload_query = pg_query("SELECT creation_date
+                                            FROM users_photos
+                                            WHERE user_uuid = '{$user_uuid}'
+                                            ORDER BY creation_date DESC
+                                            LIMIT 1")
+                                    or trigger_error(pg_last_error().$latest_date_upload_query);
 
-        $latest_date_upload_query_rows_count = pg_num_rows($latest_date_upload_query);
+      $latest_date_upload_query_rows_count = pg_num_rows($latest_date_upload_query);
 
-        if ($latest_date_upload_query_rows_count == 1)
+      if ($latest_date_upload_query_rows_count == 1)
+      {
+        if ($latest_date_upload_result = pg_fetch_row($latest_date_upload_query))
         {
-            if ($latest_date_upload_result = pg_fetch_row($latest_date_upload_query))
-            {
-                $latest_date = $latest_date_upload_result[0];
-                $current_date_minus_week = date('Y-m-d', strtotime('-1 week'));
+          $latest_date = $latest_date_upload_result[0];
+          $current_date_minus_week = date('Y-m-d', strtotime('-1 week'));
+          $current_date_minus_three_days = date('Y-m-d', strtotime('-3 day'));
+          $premium_status = check_premium_active($user_uuid);
 
-                if (strtotime($latest_date) < strtotime($current_date_minus_week))
-                    return 'success';
-                else
-                    return null;           
-            }else
-                return null;
-        }elseif ($latest_date_upload_query_rows_count == 0)
-        {
+          if ((strtotime($latest_date) < strtotime($current_date_minus_week) && !$premium_status)
+              || (strtotime($latest_date) < strtotime($current_date_minus_three_days) && $premium_status))
             return 'success';
-        } else
-            return null;
+          else
+            return null;           
+        }else
+          return null;
+      }elseif ($latest_date_upload_query_rows_count == 0)
+      {
+        return 'success';
+      }else
+        return null;
 
     }else
-        return null;
+      return null;
   }
 
 //----------------------------------------------------------------------------------------------------------------
@@ -463,7 +431,7 @@
 
         }
 
-        $star_count_query = pg_query("SELECT {$star_selected} FROM users_avatars_statistics WHERE user_uuid = '{$user_uuid}' AND profile_picture = '{$current_picture}'") or trigger_error(pg_last_error().$star_count_query);
+        $star_count_query = pg_query("SELECT {$star_selected} FROM users_photos_statistics WHERE user_uuid = '{$user_uuid}' AND photo_uuid = '{$current_picture}'") or trigger_error(pg_last_error().$star_count_query);
 
         if ($star_count_result = pg_fetch_array($star_count_query))
         {
@@ -508,11 +476,9 @@
 
         $saves_count_query = pg_query("SELECT count(saves.uuid) 
                                         FROM saves
-                                             LEFT JOIN users_avatars
-                                                    ON saves.profile_picture = users_avatars.profile_picture
                                             {$gender_query_from_text}
                                         WHERE saves.user_uuid = '{$user_uuid}' 
-                                              AND users_avatars.uuid = '{$current_picture}' {$gender_query_where_text}")
+                                              AND saves.photo_uuid = '{$current_picture}' {$gender_query_where_text}")
                                    or trigger_error(pg_last_error().$saves_count_query);
 
         if ($saves_count_result = pg_fetch_array($saves_count_query))
@@ -528,37 +494,25 @@
 
 //----------------------------------------------------------------------------------------------------------------
 
-  function set_update_date_for_latest_avatar($user_uuid, $latest_avatar)
+  function add_new_user_photo_to_db($user_uuid, $new_user_photo)
   {
-    if (!empty($user_uuid) && !empty($latest_avatar))
+    if (!empty($user_uuid) && !empty($new_user_photo))
     {
-        $set_update_date_query = pg_query("UPDATE users_avatars SET update_date = NOW() WHERE user_uuid='{$user_uuid}' AND profile_picture = '{$latest_avatar}'") or trigger_error(pg_last_error().$set_update_date_query);
-    }
-  }
-
-  function add_new_avatar_to_db($user_uuid, $new_avatar)
-  {
-    if (!empty($user_uuid) && !empty($new_avatar))
-    {
-        $last_avatar = get_latest_avatar($user_uuid);
-        $add_new_avatar_query = pg_query("INSERT INTO users_avatars (profile_picture, creation_date, user_uuid) 
-                                            VALUES ('{$new_avatar}', NOW(), '{$user_uuid}')") 
-                                    or trigger_error(pg_last_error().$add_new_avatar_query);
+      $add_new_user_photo_query = pg_query("INSERT INTO users_photos (photo_name, creation_date, user_uuid) 
+                                            VALUES ('{$new_user_photo}', NOW(), '{$user_uuid}')") 
+                                    or trigger_error(pg_last_error().$add_new_user_photo_query);
         
-        if ($add_new_avatar_query)
+      if ($add_new_user_photo_query)
+      {
+        $new_user_photo_uuid = get_photo_uuid_by_name($new_user_photo);
+
+        if (isset($new_user_photo_uuid))
         {
-            $new_avatar_uuid = get_photo_uuid_by_name($new_avatar);
-
-            if (isset($new_avatar_uuid))
-            {
-                $add_new_avatar_statistics = pg_query("INSERT INTO users_avatars_statistics (user_uuid, profile_picture) 
-                                                    VALUES ('{$user_uuid}', '{$new_avatar_uuid}')") 
-                                            or trigger_error(pg_last_error().$add_new_avatar_statistics);
-
-                $add_new_avatar_news = pg_query("INSERT INTO news (author_uuid, news_type, old_photo, new_photo, creation_date) 
-                                                    VALUES ('{$user_uuid}', 'profilePhotoUpdate', '{$last_avatar}', '{$new_avatar}', NOW())") or trigger_error(pg_last_error().$add_new_avatar_news);
-            }
+          $add_new_user_photo_statistics = pg_query("INSERT INTO users_photos_statistics (user_uuid, photo_uuid) 
+                                                      VALUES ('{$user_uuid}', '{$new_user_photo_uuid}')") 
+                                            or trigger_error(pg_last_error().$add_new_user_photo_statistics);
         }
+      }
     }
   }
 

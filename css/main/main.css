@@ -28,7 +28,7 @@
   --calendar-icon-color-invert: 100%;
   --premium-star-icon-filter-inactive: invert(54%) sepia(1%) saturate(1734%) hue-rotate(336deg) brightness(94%) contrast(87%);
 
-  --standard-btn-color: #07689F;
+  --standard-btn-color: linear-gradient(to right, #07689F, #3d74d3, #3f86ed, #2199ca, #03abe4);
   --skip-btn-color: #007bff;
 
   --standard-btn-hover-color: #0086b3;
@@ -88,7 +88,7 @@
   --calendar-icon-color-invert: 100%;
   --premium-star-icon-filter-inactive: invert(54%) sepia(1%) saturate(1734%) hue-rotate(336deg) brightness(94%) contrast(87%);
 
-  --standard-btn-color: #07689F;
+  --standard-btn-color: linear-gradient(to right, #07689F, #3d74d3, #3f86ed, #2199ca, #03abe4);
   --skip-btn-color: #007bff;
 
   --standard-btn-hover-color: #0086b3;
@@ -148,7 +148,7 @@
   --calendar-icon-color-invert: 100%;
   --premium-star-icon-filter-inactive: invert(54%) sepia(1%) saturate(1734%) hue-rotate(336deg) brightness(94%) contrast(87%);
 
-  --standard-btn-color: #07689F;
+  --standard-btn-color: linear-gradient(to right, #07689F, #3d74d3, #3f86ed, #2199ca, #03abe4);
   --skip-btn-color: #007bff;
 
   --standard-btn-hover-color: #0086b3;
@@ -208,7 +208,7 @@
   --calendar-icon-color-invert: 100%;
   --premium-star-icon-filter-inactive: invert(54%) sepia(1%) saturate(1734%) hue-rotate(336deg) brightness(94%) contrast(87%);
 
-  --standard-btn-color: #07689F;
+  --standard-btn-color: linear-gradient(to right, #07689F, #3d74d3, #3f86ed, #2199ca, #03abe4);
   --skip-btn-color: #007bff;
 
   --standard-btn-hover-color: #0086b3;
@@ -273,7 +273,7 @@
   --calendar-icon-color-invert: 100%;
   --premium-star-icon-filter-inactive: invert(54%) sepia(1%) saturate(1734%) hue-rotate(336deg) brightness(94%) contrast(87%);
 
-  --standard-btn-color: #07689F;
+  --standard-btn-color: linear-gradient(to right, #07689F, #3d74d3, #3f86ed, #2199ca, #03abe4);
   --skip-btn-color: #007bff;
 
   --standard-btn-hover-color: #0086b3;
@@ -308,8 +308,8 @@
 }
 
 .denim-theme {
-  --main-text-color: #2e2e2e;
-  --hover-text-color: #094276;
+  --main-text-color: #4b4b4b;
+  --hover-text-color: #3d74d3;
   --input-text-color: #262626;
   --header-footer-text-color: #ffffff;
 
@@ -317,24 +317,24 @@
   --second-place-color: #737373;
   --third-place-color: #a46628;
 
-  --main-menu-icon-color: #0f5594;
-  --main-menu-icon-hover-color: #0c66b7;
+  --main-menu-icon-color: #3d74d3;
+  --main-menu-icon-hover-color: #07689F;
 
   --text-border-color: #e6e6e6;
   --offline-color: lightgray;
 
-  --statistic-text-color: #0f5594;
+  --statistic-text-color: #3d74d3;
 
-  --news-user-link-color: #004880;
+  --news-user-link-color: #3d74d3;
 
   --star-icon-color: #FF8819;
-  --social-icon-color: #0f5594;
-  --save-icon-color: #4073BF;
-  --saved-icon-color: #0c66b7;
+  --social-icon-color: #3d74d3;
+  --save-icon-color: #3d74d3;
+  --saved-icon-color: #07689F;
   --calendar-icon-color-invert: 0%;
   --premium-star-icon-filter-inactive: invert(54%) sepia(1%) saturate(1734%) hue-rotate(336deg) brightness(94%) contrast(87%);
 
-  --standard-btn-color: #0c66b7;
+  --standard-btn-color: linear-gradient(to right, #07689F, #3d74d3, #3f86ed, #2199ca, #03abe4);
   --skip-btn-color: #0c66b7;
 
   --standard-btn-hover-color: #3C84C5;
@@ -378,6 +378,10 @@
   font-size: 13px;
   font-weight: 300;
   word-wrap: break-word;
+}
+
+i {
+  border: 2px solid red !important;
 }
 
 .font-weight-bold {
@@ -535,12 +539,24 @@ blockquote p:after {
   width: 80% !important;
 }
 
+.w-85 {
+  width: 85% !important;
+}
+
+.w-87 {
+  width: 87% !important;
+}
+
 .h-10 {
   height: 10% !important;
 }
 
 .h-90 {
   height: 90% !important;
+}
+
+.border-none {
+  border: none !important;
 }
 
 .border-radius-10 {
@@ -655,6 +671,36 @@ blockquote p:after {
   border-radius: 10px;
 }
 
+.dropdown-action-menu {
+  position: absolute;
+  right: 9px;
+}
+
+.dropdown-action-menu div {
+  border: 1px solid var(--content-block-border-color);
+  background: var(--content-block-bg-color);
+  backdrop-filter: blur(10px);
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  z-index: 1;
+}
+
+.dropdown-action-menu div a,
+.dropdown-action-menu div p {
+  color: var(--main-text-color);
+}
+
+#dropdown-action-menu-btn {
+  padding: 5px;
+  margin: 0;
+  cursor: pointer;
+}
+
+#dropdown-action-menu-btn:hover svg {
+  fill: var(--hover-text-color);
+}
+
 .pointer {
   cursor: pointer !important;
 }
@@ -721,7 +767,7 @@ blockquote p:after {
 .tags-list li {
   color: var(--main-text-color);
   margin: 2px;
-  padding: 5px;
+  padding: 3px 5px;
   cursor: pointer;
   list-style: none;
   -webkit-border-radius: 15px;
@@ -768,12 +814,6 @@ blockquote p:after {
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   border-radius: 15px;
-}
-
-.input-with-icon i {
-  position: absolute;
-  left: 16px;
-  top: 19px;
 }
 
 .input-field {
@@ -833,13 +873,21 @@ blockquote p:after {
 .btn-skip,
 .btn-red {
   color: white;
+  width: auto;
+  height: 30.25px !important;
+  padding: 0.25rem;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   border-radius: 15px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-standard {
-  background: var(--standard-btn-color);
+  background-image: var(--standard-btn-color);
+  background-size: 300% 100%;
 }
 
 .btn-skip {
@@ -849,18 +897,32 @@ blockquote p:after {
 }
 
 .btn-red {
-  background: #af1e1e;
+  background-image: linear-gradient(to right, #af1e1e, #B73434, #da2626, #e60023, red, #ff3232);
+  background-size: 300% 100%;
 }
 
 .btn-standard:hover,
-.btn-skip:hover {
-  color: white;
-  background: var(--standard-btn-hover-color);
-}
-
 .btn-red:hover {
   color: white;
-  background: #cf2323;
+  background-position: 100% 0;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.show-more-btn {
+  border-bottom: 1px dotted var(--main-text-color);
+}
+
+.show-more-btn:hover {
+  border-bottom: 1px solid var(--main-text-color);
+}
+
+.btn-skip:hover {
+  color: white;
+  border: none;
+  background: var(--standard-btn-hover-color);
 }
 
 .skip-rate-btn,
@@ -922,26 +984,29 @@ blockquote p:after {
   float: right;
   padding: 0;
   cursor: pointer;
-  color: lightgrey;
 }
 
-.rating-area > input:checked ~ label .fa.fa-star-o {
-  color: var(--star-icon-color);
+.rating-area:not(:checked) > label svg {
+  fill: lightgrey;
+}
+
+.rating-area > input:checked ~ label svg {
+  fill: var(--star-icon-color);
   font-weight: var(--font-weight-active-star) !important;
 }
 
-.rating-area:not(:checked) > label:hover .fa.fa-star-o,
-.rating-area:not(:checked) > label:hover ~ label .fa.fa-star-o {
-  color: var(--star-icon-color);
+.rating-area:not(:checked) > label:hover svg,
+.rating-area:not(:checked) > label:hover ~ label svg {
+  fill: var(--star-icon-color);
   font-weight: var(--font-weight-active-star) !important;
 }
 
-.rating-area > input:checked + label:hover .fa.fa-star-o,
-.rating-area > input:checked + label:hover ~ label .fa.fa-star-o,
-.rating-area > input:checked ~ label:hover .fa.fa-star-o,
-.rating-area > input:checked ~ label:hover ~ label .fa.fa-star-o,
-.rating-area > label:hover ~ input:checked ~ label .fa.fa-star-o {
-  color: var(--star-icon-color);
+.rating-area > input:checked + label:hover svg,
+.rating-area > input:checked + label:hover ~ label svg,
+.rating-area > input:checked ~ label:hover svg,
+.rating-area > input:checked ~ label:hover ~ label svg,
+.rating-area > label:hover ~ input:checked ~ label svg {
+  fill: var(--star-icon-color);
   font-weight: var(--font-weight-active-star) !important;
 }
 

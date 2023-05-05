@@ -23,41 +23,12 @@
 }
 
 #friend-search-card {
-   padding-left: 35px;
+   padding-left: 15px;
    padding-right: 15px;
 }
 
 .block-social {
    margin: 10px 0 0 0;
-}
-
-.friend-menu {
-   position: absolute;
-   right: 9px;
-}
-
-.friend-menu div {
-   border: 1px solid var(--content-block-border-color);
-   background: var(--content-block-bg-color);
-   backdrop-filter: blur(10px);
-   -webkit-border-radius: 15px;
-   -moz-border-radius: 15px;
-   border-radius: 15px;
-   z-index: 1;
-}
-
-.friend-menu div a {
-   color: var(--main-text-color);
-}
-
-#friend-menu-btn {
-   padding: 5px;
-   margin: 0;
-   cursor: pointer;
-}
-
-#friend-menu-btn:hover svg {
-   fill: var(--hover-text-color);
 }
 
 /* Friends sort  */

@@ -7,36 +7,21 @@
   padding-right: 2% !important;
 }
 
-/* Profile pictures sort */
+/* Photos sort */
 
-.saves-sort-list-item,
-.saves-resize-list-item {
+.saves-sort-list-item {
    line-height: 15px;
    min-height: 15px;
    height: 15px;
 }
 
-.saves-sort-list-item:hover,
-.saves-resize-list-item th:hover {
+.saves-sort-list-item:hover {
   background: var(--block-hover-bg-color);
   cursor: pointer;
 }
 
-.saves-sort-list-item:hover th,
-.saves-resize-list-item th:hover i {
+.saves-sort-list-item:hover th {
   color: var(--hover-text-color);
-}
-
-.saves-resize-list-item #saves-card-large {
-  -webkit-border-radius: 15px 0 0 15px;
-  -moz-border-radius: 15px 0 0 15px;
-  border-radius: 15px 0 0 15px;
-}
-
-.saves-resize-list-item #saves-card-small {
-  -webkit-border-radius: 0 15px 15px 0;
-  -moz-border-radius: 0 15px 15px 0;
-  border-radius: 0 15px 15px 0;
 }
 
 .saves-sort-list-item.first-item:hover th {
@@ -59,12 +44,12 @@
 
 /* Profile picture cards list */
 
-.profile-picture-card {
+.user-photo-card {
   padding: 5px;
   width: 20%;
 }
 
-.profile-picture-card-avatar {
+.user-photo-card-content {
   position: relative;
   width: 100%;
   height: 0;
@@ -74,7 +59,7 @@
   vertical-align: middle;
 }
 
-.profile-picture-card-avatar img {
+.user-photo-card-content img {
   position: absolute;
   top: 0;
   left: 0;
@@ -82,20 +67,95 @@
   height: 100%;
 }
 
-.profile-picture-card-avatar img:hover {
+.user-photo-card-content img:hover {
   box-shadow: 0 0 0 1px #7e8081;
+}
+
+/* Upload new photo */
+
+#block-upload-user-photo img {
+   width: 100%;
+   padding: 15px;
+   border: 2px dashed #8b8c8d;
+   -webkit-border-radius: 15px;
+   -moz-border-radius: 15px;
+   border-radius: 15px;
+}
+
+.img-container img {
+   max-width: 100%;
+}
+
+#save-uploaded-photo {
+   display: none;
+}
+
+#input-new-user-photo {
+   opacity: 0;
+   bottom: 2.7rem;
+   cursor: pointer;
+   position: absolute;
+}
+
+/* Tags */
+
+.tags-block-content .input-field {
+  padding: 10px 15px !important;
+  border: 1px solid #636465 !important;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+}
+
+.tags-block-content ul li {
+  color: var(--main-text-color);
+  margin: 2px;
+  padding: 5px;
+  list-style: none;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  border: 1px solid #7e8081;
+}
+
+.tags-block-content ul li svg {
+  height: 18px;
+  width: 18px;
+  font-size: 12px;
+  color: var(--main-text-color);
+  margin-left: 7px;
+  border: 1px solid #7e8081;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.tags-block-details .btn-delete-tags{
+  color: var(--main-text-color);
+  cursor: pointer;
+  border-bottom: 1px dashed var(--main-text-color);
+}
+
+.tags-block-details .btn-delete-tags:hover{
+  color: var(--hover-text-color);
+  border-bottom: 1px solid transparent;
+}
+
+.tags-field.is-valid,
+.tags-field svg.is-valid {
+  border-color: #28a745 !important;
 }
 
 /* Adaptive  */
 
 @media (max-width: 450px) {
-  .profile-picture-card {
-    width: 33.3%;
+  .user-photo-card {
+    width: 33.3% !important;
   }
 }
 
 @media (min-width: 451px) and (max-width: 575px) {
-  .profile-picture-card {
-    width: 25%;
+  .user-photo-card {
+    width: 25% !important;
   }
 }

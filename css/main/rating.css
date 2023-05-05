@@ -17,8 +17,8 @@
    margin: 2vh 0 !important; 
    display: grid; 
    grid-template-rows: 1fr; 
-   grid-template-columns: 1fr 1fr 1fr 1fr; 
-   grid-template-areas: 'a b c d';
+   grid-template-columns: 1fr 1fr 1fr; 
+   grid-template-areas: 'a b c';
    align-items: start;
 }
 
@@ -42,8 +42,8 @@
 }
 
 .rating-photo-card-description img {
-  width: 33px;
-  height: 33px;
+  width: 40px;
+  height: 40px;
   -webkit-border-radius: 90% !important;
   -moz-border-radius: 90% !important;
   border-radius: 90% !important;

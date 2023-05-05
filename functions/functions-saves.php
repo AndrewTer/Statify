@@ -36,12 +36,14 @@
 
       $saves_array = [];
 
-      $saves_list_query = pg_query("SELECT profile_picture, -- 0
-                                           user_uuid, -- 1
-                                           EXTRACT(YEAR FROM creation_date) -- 2
+      $saves_list_query = pg_query("SELECT users_photos.photo_name, -- 0
+                                           saves.user_uuid, -- 1
+                                           EXTRACT(YEAR FROM saves.creation_date) -- 2
                                     FROM saves
-                                    WHERE author_uuid  = '{$user_uuid}'
-                                    ORDER BY creation_date DESC
+                                          JOIN users_photos 
+                                            ON saves.photo_uuid = users_photos.uuid
+                                    WHERE saves.author_uuid  = '{$user_uuid}'
+                                    ORDER BY saves.creation_date DESC
                                     LIMIT $num
                                     OFFSET $start_page")
                              or trigger_error($pg_last_error().$saves_list_query);
