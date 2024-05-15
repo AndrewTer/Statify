@@ -99,7 +99,7 @@
 <p align="center">Уведомления</p>
 
 <p align="center">
-  <img width="100%" src="https://github.com/AndrewTer/Statify/assets/33009070/29eeadc9-31fa-4750-9888-15894e378fca">
+  <img width="100%" src="https://github.com/AndrewTer/Statify/assets/33009070/267c8816-f3c4-4588-bcd3-21579b74ea90">
 </p>
 
 <p align="center">Модальное окно с фотографией</p>
